@@ -2348,8 +2348,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Models/PerformerModel.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="109" column="49" lean-forward="true" selection-start-line="109" selection-start-column="49" selection-end-line="109" selection-end-column="49" />
+            <state relative-caret-position="99">
+              <caret line="108" column="34" lean-forward="true" selection-start-line="108" selection-start-column="34" selection-end-line="108" selection-end-column="34" />
               <folding>
                 <marker date="1555475368412" expanded="true" signature="6:99" ph="..." />
                 <marker date="1555475368412" expanded="true" signature="137:3878" ph="{...}" />
@@ -2699,7 +2699,7 @@
       <workItem from="1554757854274" duration="9959000" />
       <workItem from="1554959208821" duration="1546000" />
       <workItem from="1555042024630" duration="12766000" />
-      <workItem from="1555168033316" duration="45319000" />
+      <workItem from="1555168033316" duration="45576000" />
     </task>
     <task id="LOCAL-00001" summary="Major First Commit">
       <created>1555474356748</created>
@@ -2712,7 +2712,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69590000" />
+    <option name="totallyTimeSpent" value="69847000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2725,9 +2725,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49167928" visible="true" weight="0.17910448" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49167928" visible="true" weight="0.17910448" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.50832075" side_tool="true" weight="0.17324094" />
@@ -2738,9 +2737,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.3702422" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.3702422" />
       <window_info anchor="bottom" id="REST Client" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3298731" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3298731" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Performance Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.3298731" />
@@ -4050,8 +4049,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Models/PerformerModel.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="109" column="49" lean-forward="true" selection-start-line="109" selection-start-column="49" selection-end-line="109" selection-end-column="49" />
+        <state relative-caret-position="99">
+          <caret line="108" column="34" lean-forward="true" selection-start-line="108" selection-start-column="34" selection-end-line="108" selection-end-column="34" />
           <folding>
             <marker date="1555475368412" expanded="true" signature="6:99" ph="..." />
             <marker date="1555475368412" expanded="true" signature="137:3878" ph="{...}" />

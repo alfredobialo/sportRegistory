@@ -8,7 +8,6 @@
 {
     <div class=" bg-white   min-h100">
         <div class="" ng-show="loading"> @Html.Partial("ui/_partials/_loading_bar")</div>
-
         <div class="pad20">
             <span class="bold font-size-17">Create or Edit Performer profile</span>
 
@@ -84,7 +83,24 @@
             </div>
 
         </div>
-
+        
+        
+        <div class="mt-4">
+            <p class="bold lead">List of Performers</p>
+            <table class="table table-info">
+                <tr>
+                    <th>Name</th> 
+                    <th>Nationality</th> 
+                    <th></th>
+                </tr>
+                <tr ng-repeat="p in performers">
+                    <td>{{p.firstName}} {{p.lastName}}</td>
+                    <td>{{p.nationality}}</td>
+                    <td><button class="btn btn-danger" ng-click="delete(p)" >Delete</button></td>
+                </tr>
+            </table>
+            
+        </div>
     </div>
 }
 else

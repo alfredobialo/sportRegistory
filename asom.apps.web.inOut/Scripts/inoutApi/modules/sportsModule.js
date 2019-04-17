@@ -17,24 +17,42 @@
     }
 
     function PerformerControllerFunc(scope, SportService) {
-        scope.loading = false;
+        scope.loading = false; 
+        scope.performers = [];
         scope.performer = {
-            firstName: "Alfred",
-            lastName: "Obialo",
+            firstName: null,
+            lastName: null,
             nationality: "Nigeria",
             age: 20
         };
         Toast.debug(scope.performer);
         scope.save = createPerformer;
+        scope.delete = delPerformer;
 
+        function delPerformer(performer)
+        {
+            SportService.deletePerformer(performer.id)
+                .then(function (response) {
+                    if (response.data.success) {
+                        // Success info
+                        Toast.pullDown(response.data.message);
+                        scope.performers.splice(_.indexOf(scope.performers, function(obj) { return obj.id === performer.id}), 1);
+                    } else {
+                        Toast.pullDown(response.data.message, true, 4000, "bg-danger");
+                    }
+                    
+                });
+        }
         function createPerformer(performer) {
             scope.loading = true;
             // check if in valid state
             SportService.createPerformer(performer)
                 .then(function (response) {
-                    Toast.debug(response.data);
+                 
                     if (response.data.success) {
                         // Success info
+                   Toast.pullDown(response.data.message);
+                        scope.performers.push(response.data.data);
                     } else {
                         Toast.pullDown(response.data.message, true, 4000, "bg-danger");
                     }
