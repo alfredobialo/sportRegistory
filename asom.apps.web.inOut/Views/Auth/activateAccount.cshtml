@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Account Activation";
+    bool? success = ViewBag.activated ?? false;
+}
+@if (success == false)
+{ <div class="pad20 margin-t-100 centralize w70 min-h150 shadow-stronger bg-white">
+        <p class="font-size-24 pad10 divider color-red">Account Activation Failed! </p>
+        <div class="pad10 font-size-16 text-left color-default">
+            <span>
+                We could complete your account activation process.
+            </span>
+            <p>Possible cause:Your Account is Already activated or not found in our system or your activation code has been barred from Use</p>
+        </div>
+    </div>
+
+
+}
+else
+{
+    <div class="pad20 margin-t-100 centralize w70 min-h150 shadow-stronger bg-white">
+        <p class="font-size-24 pad10 divider color-green">Account Activation Successfull! </p>
+        <div class="pad10 font-size-16 text-left color-default">
+            <span>
+               Congratulations !!, your account is now active, please login to continue
+            </span>
+            
+        </div>
+    </div>
+    <div class="margin-t-20 centralize w95">
+            @Html.Partial("ui/_login_ui")
+    </div>
+
+}
+
+

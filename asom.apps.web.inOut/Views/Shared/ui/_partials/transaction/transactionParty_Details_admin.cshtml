@@ -1,0 +1,122 @@
+@using asom.apps.web.inOut.Controllers.BaseControllers
+
+<div class="margin-b-20 pad20 bg-highlight-red color-red font-size-18 text-center" ng-show="">
+  <span ng-show="t.isDefaultedTicket" title="" > <i class="ion-ios-flag color-red-lite font-size-28"> </i>
+  &nbsp;
+    Defaulted Ticket Please Remove this ticket
+
+  </span>
+</div>
+<div class="row min-h200 text-left">
+    <div class="col-sm-7 col-xs-7">
+        <div class="pad10">
+          <span class="" ng-if="!p.paymentConfirmed">
+              <button class="btn btn-primary " ng-click="confirmTicket(p, t)"
+                      ng-hide="p.processing">Payment Confirmed</button>
+          </span>
+        </div>
+        <p class="divider font-size-16 theme-caption-color pad10">
+
+          Ticket Party Details
+        </p>
+        <div class="pad10 ">
+           <div class="text-uppercase">
+            <div class="pad20 text-center border-bottom-thick font-size-15">
+                <span ng-if="p.isPh" class="color-gray-deep">
+                    Amount This User Should pay <span class="bold">{{p.userInfo.displayName}}</span> is
+                    <span class="color-default font-size-18 bold">
+                        {{p.amountInvolved | money}} <span ng-show="p.isBtc">USD  =  {{::t.btcValue}} BTC</span>
+
+                        <span class="font-size-13 color-red"  ng-if="">Days Left to Pay off {{t.graceDaysAllowed|number}} days </span>
+
+                    </span>
+                </span>
+                <span ng-if="!p.isPh" class="color-gray-deep">
+                    {{p.userInfo.displayName}} should Pay
+                    <span class="color-default font-size-22 bold">
+                        {{p.amountInvolved | money}} <span ng-show="p.isBtc">USD</span>
+                    </span>
+                </span>
+              <br>
+              <span class="color-red font-size-12">{{::t.exchangeMessage}}</span>
+            </div></div>
+            <div class="row margin-t-10" ng-if="p.isPh">
+
+                <div class="col-sm-12">
+                    <div ng-if="p.isBtc">
+                        @Html.Partial("ui/_partials/bank/_bank_btc_list")
+                    </div>
+                    <div ng-if="!p.isBtc">
+                        @Html.Partial("ui/_partials/bank/_bank_cash_list")
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin-t-10" ng-if="!p.isPh">
+                <div class="col-sm-12">
+                    <div ng-if="p.isBtc">
+                        @Html.Partial("ui/_partials/bank/_bank_btc_list_gh")
+                    </div>
+                    <div ng-if="!p.isBtc">
+                        @Html.Partial("ui/_partials/bank/_bank_cash_list_gh")
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+<div class="col-sm-5 col-xs-5 ">
+    <div class="pad10 bg-highlight shadow-sm   min-h200" ng-class="{'bg-white' : p.paymentConfirmed}">
+        <div class="card-picture-large">
+            <div class="pic" ng-style="p.userInfo.photo">
+            </div>
+        </div>
+        <div class="margin-t-10 text-center">
+
+            <div class="centralize">
+                <div class="">
+
+                    <div class="">
+                        <p class="ui-input ui-required font-size-18 bold">
+                            {{p.userInfo.displayName}}
+                        </p>
+                    </div>
+                </div>
+                <div class="">
+
+
+                        <p class="pad10 bold font-size-16 ui-input ui-required ">({{p.userInfo.id}})</p>
+                  <div class="pad20 centralize" ng-if="p.paymentConfirmed">
+                    <span class="font-size-26 color-green-lite ion-ios-checkmark"></span>
+                    <span class="font-size-26 color-green">Payment Confirmed!</span>
+                  </div>
+                </div>
+
+            </div>
+
+          <div class="margin-b-10 anim-repeat animated pos-relative" ng-repeat="m in p.evidenceFiles" >
+            <a ng-href="{{::m.mediaUrl}}" target="_blank">
+              <img ng-src="{{::m.mediaUrl}}" width="50%" alt="{{::m.mediaTag}}"  class="img-responsive img-thumbnail" ></a>
+            <p class="pad10">
+              <span class="bold">{{::m.mediaTag}}</span>
+            </p>
+          </div>
+            <div ng-if="!p.paymentConfirmed">
+                <p class="pad10 divider" ng-if="!p.isPh">
+
+                    <span class="color-blue bold pad5">Payment Not yet Made for this Ticket</span>
+                    <br/>
+
+                </p>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>

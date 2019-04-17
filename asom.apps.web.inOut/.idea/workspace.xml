@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0224a781-55d7-4b48-af6e-5f9157e9be00" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_files/all_reports/486f5c2f-77ab-4e8f-b1fa-aceb89b0ed30.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_files/all_reports/564f96d8-aa52-4d95-9dc7-e673e9b83f0d.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_files/all_reports/63982e83-49b5-4585-a189-f0b3e52f66d0.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_files/all_reports/8a5a7ccf-014d-4da5-b6c8-49f80bf97310.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_files/all_reports/8c65da4d-d984-4130-a7dd-dfd9257e8a36.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_files/all_reports/b85e9cfe-4e5d-4622-9489-7468c843ec09.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_files/all_reports/c1b2faa6-7196-493b-b92e-247f31a4ed3e.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_files/all_reports/e500c8df-37ed-4f15-a9c9-3b9ee4346def.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_files/all_reports/e5bdd689-3d49-40db-92ba-69a3be75876a.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploaded_files/applicense/temp_effectiv_license.asomlic" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../effectiv_db_with_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asom.apps.Effectiv.core/dal/sqlserver/model/InventoryRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../asom.apps.Effectiv.core/dal/sqlserver/model/InventoryRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asom.apps.Effectiv.core/dal/sqlserver/model/SalesOrderRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../asom.apps.Effectiv.core/dal/sqlserver/model/SalesOrderRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asom.apps.Effectiv.core/model/inventory/ItemStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../asom.apps.Effectiv.core/model/inventory/ItemStorage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asom.apps.Effectiv.core/model/sales/SalesOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../asom.apps.Effectiv.core/model/sales/SalesOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/CRM/CustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CRM/CustomerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/HrController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/HrController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Inventory/InventoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Inventory/InventoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/OrgController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/OrgController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/SalesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/SalesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/AppInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/AppInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Inventory/ItemModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Inventory/ItemModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Navigation/ApplicationMenuBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Navigation/ApplicationMenuBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Properties/PublishProfiles/ebaam.pubxml" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/PublishProfiles/ebaam.pubxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/effectivApi/modules/licenseModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/effectivApi/modules/licenseModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Auth/index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Auth/index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Shared/_base_template.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_base_template.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Shared/ui/_partials/license/_add_license.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/ui/_partials/license/_add_license.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Shared/ui/menu/left/_leftMenu.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/ui/menu/left/_leftMenu.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/Web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.Effectv.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.Effectv.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/base/theme-base.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/base/theme-base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploaded_files/applicense/effectiv_license.asomlic" beforeDir="false" afterPath="$PROJECT_DIR$/uploaded_files/applicense/effectiv_license.asomlic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploaded_files/applicense33/effectiv_license.asomlic" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../effectiv_db_script_may_31_2016.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../effectiv_db_aug_30_new01.sql" afterDir="false" />
+    </list>
+    <ignored path="asom.apps.web.Effectv.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="asom.apps.web.Effectv" />
+    <favorites_list name="AddLineItem" />
+    <favorites_list name="addOne" />
+    <favorites_list name="action-canvance" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Views/FrontEnd/Shared/crypto_template.cshtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="822">
+              <caret line="225" column="12" selection-start-line="225" selection-start-column="12" selection-end-line="225" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Html5" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getItem</find>
+      <find>openDial</find>
+      <find>.modal</find>
+      <find>print</find>
+      <find>moda</find>
+      <find>_.findIndex</find>
+      <find>_.findWhere</find>
+      <find>processSale</find>
+      <find>modal</find>
+      <find>OBJ</find>
+      <find>netT</find>
+      <find>.logo</find>
+      <find>scope.$pa</find>
+      <find>.cont</find>
+      <find>.banner-height</find>
+      <find>banner</find>
+      <find>.banner-he</find>
+      <find>.action-can</find>
+      <find>.action-canvas</find>
+      <find>.container</find>
+      <find>console.</find>
+      <find>MenuC</find>
+      <find>animated</find>
+      <find>getUserPass</find>
+      <find>defa</find>
+      <find>console</find>
+      <find>email</find>
+      <find>superMerge</find>
+      <find>billboard</find>
+      <find>getGetHelpTicketByAuthUser</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Scripts/inoutApi/inout.js" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/settings/sub_ui/basic_settings.cshtml" />
+        <option value="/HTML Fragment (directivesModule.js:7248).html" />
+        <option value="/HTML Fragment (directivesModule.js:7240).html" />
+        <option value="$PROJECT_DIR$/btcTemplate/js/script.js" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/_gh.cshtml" />
+        <option value="$PROJECT_DIR$/Scripts/inoutApi/modules/directivesModule.js" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:1747).html" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/settings/sub_ui/_appEngineConfig.cshtml" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:1721).html" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:3855).html" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:3944).html" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/settings/sub_ui/_accountintSettings.cshtml" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:4402).html" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:4660).html" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:4710).html" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:11706).html" />
+        <option value="$PROJECT_DIR$/Views/FrontEnd/index.cshtml" />
+        <option value="$PROJECT_DIR$/styles/base/recdot_first_theme-base.css" />
+        <option value="$PROJECT_DIR$/btcTemplate/css/style.css" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:11697).html" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/_ph.cshtml" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:11691).html" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/bank/_user_btc.cshtml" />
+        <option value="$PROJECT_DIR$/Views/FrontEnd/Shared/front_template_1.cshtml" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:11678).html" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:11681).html" />
+        <option value="$PROJECT_DIR$/styles/base/theme-base.css" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:11833).html" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/settings/_edit_company.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_register.cshtml" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:2698).html" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:3300).html" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:3488).html" />
+        <option value="/HTML Fragment (directivesModule.js:3766).html" />
+        <option value="/HTML Fragment (directivesModule.js:7245).html" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:3467).html" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/dashboard/_dashboard.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/_ph_BTC_ui.cshtml" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:3586).html" />
+        <option value="$PROJECT_DIR$/Scripts/inoutApi/modules/transactionModule.js" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/transactionParty_Details_admin.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/messaging/_posted_messages_component.cshtml" />
+        <option value="$PROJECT_DIR$/Scripts/inoutApi/modules/messageModule.js" />
+        <option value="/Angular2HTML Fragment (transactionModule.js:14726).html" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/user_specific/_user_ph.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/settings/sub_ui/_emailSettings.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Auth/forgotPassword.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_ticket_plans.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/transactionParty_Details.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/user_specific/_admin_ph.cshtml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1217" />
+    <option name="height" value="1032" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>TypeScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>TypeScriptAccessibilityCheck</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <showMembers ProjectPane="true" />
+      <showExcludedFiles Scope="false" ProjectPane="false" />
+      <autoscrollToSource Scope="false" />
+      <autoscrollFromSource Scope="false" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Scripts" type="cbb8eebc:String" user="Scripts" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Scripts" type="cbb8eebc:String" user="Scripts" />
+              <item name="inoutApi" type="cbb8eebc:String" user="inoutApi" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Scripts" type="cbb8eebc:String" user="Scripts" />
+              <item name="inoutApi" type="cbb8eebc:String" user="inoutApi" />
+              <item name="modules" type="cbb8eebc:String" user="modules" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Views" type="cbb8eebc:String" user="Views" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Views" type="cbb8eebc:String" user="Views" />
+              <item name="Auth" type="cbb8eebc:String" user="Auth" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Views" type="cbb8eebc:String" user="Views" />
+              <item name="FrontEnd" type="cbb8eebc:String" user="FrontEnd" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Views" type="cbb8eebc:String" user="Views" />
+              <item name="Shared" type="cbb8eebc:String" user="Shared" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Views" type="cbb8eebc:String" user="Views" />
+              <item name="Shared" type="cbb8eebc:String" user="Shared" />
+              <item name="ui" type="cbb8eebc:String" user="ui" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Views" type="cbb8eebc:String" user="Views" />
+              <item name="Shared" type="cbb8eebc:String" user="Shared" />
+              <item name="ui" type="cbb8eebc:String" user="ui" />
+              <item name="_partials" type="cbb8eebc:String" user="_partials" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Views" type="cbb8eebc:String" user="Views" />
+              <item name="Shared" type="cbb8eebc:String" user="Shared" />
+              <item name="ui" type="cbb8eebc:String" user="ui" />
+              <item name="_partials" type="cbb8eebc:String" user="_partials" />
+              <item name="transaction" type="cbb8eebc:String" user="transaction" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="asom.apps.web.inOut" type="cbb8eebc:String" user="asom.apps.web.inOut" />
+              <item name="Views" type="cbb8eebc:String" user="Views" />
+              <item name="Shared" type="cbb8eebc:String" user="Shared" />
+              <item name="ui" type="cbb8eebc:String" user="ui" />
+              <item name="_partials" type="cbb8eebc:String" user="_partials" />
+              <item name="transaction" type="cbb8eebc:String" user="transaction" />
+              <item name="user_specific" type="cbb8eebc:String" user="user_specific" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="External Dependencies" type="cbb8eebc:String" user="External Dependencies" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="External Dependencies" type="cbb8eebc:String" user="External Dependencies" />
+              <item name="C:" type="cbb8eebc:String" user="C:" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="inOut Investment Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asom.apps.web.inOut" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inOut Investment Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asom.apps.web.inOut" type="462c0819:PsiDirectoryNode" />
+              <item name="crypto" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="SearchEverywhereHistoryKey" value="_reg&#9;FILE&#9;file://C:/Users/USER/Documents/Visual Studio 2015/Projects/InOut_Investment/asom.apps.web.inOut/Views/Shared/ui/_register.cshtml&#10;Ident&#9;FILE&#9;file://C:/Users/USER/Documents/Visual Studio 2015/Projects/InOut_Investment/asom.apps.web.inOut/Scripts/inoutApi/modules/userIdentityModule.js&#10;das&#9;FILE&#9;file://C:/Users/USER/Documents/Visual Studio 2015/Projects/InOut_Investment/asom.apps.web.inOut/Views/Shared/ui/_partials/dashboard/_dashboard.cshtml&#10;bank&#9;FILE&#9;file://C:/Users/USER/Documents/Visual Studio 2015/Projects/InOut_Investment/asom.apps.web.inOut/Views/Shared/ui/_partials/bank/_user_bank.cshtml&#10;reloadTickets&#9;null&#9;null&#10;ebaamStartUp&#9;null&#9;null&#10;barcodeScanner&#9;null&#9;null&#10;expand all&#9;null&#9;null&#10;pi&#9;null&#9;null&#10;base&#9;FILE&#9;file://C:/Users/USER/Documents/Visual Studio 2015/Projects/Ebaam Main/Ebaam/asom.apps.web.Effectv/styles/base/theme-base.css&#10;saveSa&#9;null&#9;null&#10;createCu&#9;null&#9;null&#10;ItemSer&#9;null&#9;null&#10;inve&#9;FILE&#9;file://C:/Users/USER/Documents/Visual Studio 2015/Projects/Ebaam Main/Ebaam/asom.apps.web.Effectv/Scripts/effectivApi/modules/inventoryModule.js&#10;Color&#9;ACTION&#9;ChangeColorScheme&#10;cus&#9;FILE&#9;file://C:/Users/USER/Documents/Visual Studio 2015/Projects/Effectv Business And Accounting Mgr/asom.apps.web.Effectv/Views/templates/customer_form.html&#10;scroll&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="editor.config.accepted" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../InOut_Investment_IjeomaLogisticApp" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="C:\Program Files\nodejs\node" />
+    <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.splitter.proportion" value="0.23496835" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\Scripts\typings" />
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\Views\Shared\ui\_partials\license" />
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\Scripts" />
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\styles\themes\iyki" />
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\Scripts\effectivApi\models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\Views\Shared\ui\_partials\settings\sub_ui" />
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\Views\Shared\ui\_partials\inventory" />
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\styles\themes" />
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\styles\themes\udara" />
+      <recent name="C:\Users\USER\Documents\Visual Studio 2015\Projects\Ebaam Main\Ebaam\asom.apps.web.Effectv\Scripts\effectivApi\modules" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="https://api.coindesk.com" />
+          <option name="urlPath" value="/v1/bpi/currentprice.json" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Firefox Text" type="FirefoxRemoteDebugType">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+    <option name="ACTIVE_ACTIONS" value=",HIDE_INHERITED,SHOW_CLASSES,ALPHA_COMPARATOR" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0224a781-55d7-4b48-af6e-5f9157e9be00" name="Default" comment="" />
+      <created>1451667980578</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1451667980578</updated>
+      <workItem from="1463779426300" duration="946000" />
+      <workItem from="1463841051750" duration="7930000" />
+      <workItem from="1463994935309" duration="1782000" />
+      <workItem from="1464098711157" duration="7026000" />
+      <workItem from="1464162737148" duration="627000" />
+      <workItem from="1464176508941" duration="13334000" />
+      <workItem from="1464256933234" duration="6218000" />
+      <workItem from="1464279363328" duration="37427000" />
+      <workItem from="1464622770033" duration="34000" />
+      <workItem from="1464649876393" duration="386000" />
+      <workItem from="1464650434206" duration="467000" />
+      <workItem from="1464651462871" duration="305000" />
+      <workItem from="1464653324172" duration="10172000" />
+      <workItem from="1464762659482" duration="13269000" />
+      <workItem from="1464949724276" duration="18965000" />
+      <workItem from="1465048249397" duration="33358000" />
+      <workItem from="1465311350628" duration="7637000" />
+      <workItem from="1465379433635" duration="592000" />
+      <workItem from="1465395864913" duration="2324000" />
+      <workItem from="1465398944164" duration="77720000" />
+      <workItem from="1466086115411" duration="1139000" />
+      <workItem from="1466087936815" duration="89000" />
+      <workItem from="1466088067167" duration="7188000" />
+      <workItem from="1466162193440" duration="139000" />
+      <workItem from="1466163570574" duration="605000" />
+      <workItem from="1466177381426" duration="5668000" />
+      <workItem from="1466275276599" duration="4932000" />
+      <workItem from="1466431107936" duration="608000" />
+      <workItem from="1467111486950" duration="7147000" />
+      <workItem from="1467197685384" duration="7899000" />
+      <workItem from="1467299536280" duration="5802000" />
+      <workItem from="1467356827590" duration="21348000" />
+      <workItem from="1467639837782" duration="576000" />
+      <workItem from="1467647120441" duration="46303000" />
+      <workItem from="1468215400589" duration="39289000" />
+      <workItem from="1468647736573" duration="580000" />
+      <workItem from="1468649427448" duration="9231000" />
+      <workItem from="1468787631249" duration="1192000" />
+      <workItem from="1468856431569" duration="7056000" />
+      <workItem from="1468999411320" duration="20448000" />
+      <workItem from="1469204266520" duration="1887000" />
+      <workItem from="1469264723438" duration="81989000" />
+      <workItem from="1470039085691" duration="44388000" />
+      <workItem from="1470484994894" duration="25855000" />
+      <workItem from="1470606869649" duration="405000" />
+      <workItem from="1470666548353" duration="1229000" />
+      <workItem from="1470670206931" duration="2975000" />
+      <workItem from="1470679043844" duration="30354000" />
+      <workItem from="1471287539973" duration="12463000" />
+      <workItem from="1471804280278" duration="17648000" />
+      <workItem from="1472213983360" duration="17572000" />
+      <workItem from="1472502229432" duration="13381000" />
+      <workItem from="1472706469671" duration="814000" />
+      <workItem from="1472707512962" duration="38430000" />
+      <workItem from="1473072830898" duration="5877000" />
+      <workItem from="1473235502698" duration="6683000" />
+      <workItem from="1473522934179" duration="142582000" />
+      <workItem from="1475437604843" duration="4755000" />
+      <workItem from="1475602992610" duration="18036000" />
+      <workItem from="1476009236008" duration="6400000" />
+      <workItem from="1476127589977" duration="5248000" />
+      <workItem from="1476481457394" duration="645000" />
+      <workItem from="1476550959168" duration="1045000" />
+      <workItem from="1476704739355" duration="99000" />
+      <workItem from="1477150580543" duration="679000" />
+      <workItem from="1477390540151" duration="679000" />
+      <workItem from="1477395803583" duration="1869000" />
+      <workItem from="1477564635365" duration="599000" />
+      <workItem from="1478883580122" duration="1258000" />
+      <workItem from="1479314368180" duration="745000" />
+      <workItem from="1479386340474" duration="2002000" />
+      <workItem from="1479747129248" duration="31957000" />
+      <workItem from="1480024645651" duration="45144000" />
+      <workItem from="1480420228034" duration="46348000" />
+      <workItem from="1480862221268" duration="73589000" />
+      <workItem from="1481573140347" duration="8234000" />
+      <workItem from="1481822395970" duration="21118000" />
+      <workItem from="1482000892120" duration="69408000" />
+      <workItem from="1482698633510" duration="56239000" />
+      <workItem from="1483770309559" duration="24777000" />
+      <workItem from="1483897672334" duration="10200000" />
+      <workItem from="1485108332710" duration="45712000" />
+      <workItem from="1485613205295" duration="598000" />
+      <workItem from="1485763016774" duration="601000" />
+      <workItem from="1485877463097" duration="594000" />
+      <workItem from="1485972751956" duration="7751000" />
+      <workItem from="1486094895197" duration="13421000" />
+      <workItem from="1486430000541" duration="43618000" />
+      <workItem from="1486829435518" duration="108853000" />
+      <workItem from="1487643867475" duration="45696000" />
+      <workItem from="1487877099733" duration="37472000" />
+      <workItem from="1488280592875" duration="13125000" />
+      <workItem from="1488348493563" duration="59534000" />
+      <workItem from="1489012414386" duration="78000" />
+      <workItem from="1489012727046" duration="16506000" />
+      <workItem from="1489144189659" duration="29856000" />
+      <workItem from="1489289441884" duration="18437000" />
+      <workItem from="1489585712281" duration="36616000" />
+      <workItem from="1490031154829" duration="474000" />
+      <workItem from="1490089822916" duration="626000" />
+      <workItem from="1490354422944" duration="5417000" />
+      <workItem from="1490463053326" duration="8919000" />
+      <workItem from="1490645257127" duration="1193000" />
+      <workItem from="1490704985491" duration="14533000" />
+      <workItem from="1490891900337" duration="404000" />
+      <workItem from="1490932175222" duration="6287000" />
+      <workItem from="1490985036138" duration="3321000" />
+      <workItem from="1491081798339" duration="24203000" />
+      <workItem from="1491374777848" duration="4935000" />
+      <workItem from="1491406454598" duration="683000" />
+      <workItem from="1492980702059" duration="69000" />
+      <workItem from="1492980807801" duration="32000" />
+      <workItem from="1493039961325" duration="571000" />
+      <workItem from="1495006748521" duration="7435000" />
+      <workItem from="1495660156970" duration="1373000" />
+      <workItem from="1511124512650" duration="44091000" />
+      <workItem from="1511614455455" duration="1832000" />
+      <workItem from="1511621830240" duration="1937000" />
+      <workItem from="1511769067290" duration="1473000" />
+      <workItem from="1519383635540" duration="22358000" />
+      <workItem from="1526439429569" duration="1074000" />
+      <workItem from="1530125533349" duration="4472000" />
+      <workItem from="1530351467117" duration="16313000" />
+      <workItem from="1530555013054" duration="1210000" />
+      <workItem from="1531152057228" duration="3596000" />
+      <workItem from="1531232819797" duration="2859000" />
+      <workItem from="1531414885664" duration="1343000" />
+      <workItem from="1531575331113" duration="2650000" />
+      <workItem from="1531683291842" duration="10994000" />
+      <workItem from="1532437270694" duration="670000" />
+      <workItem from="1532711769811" duration="57000" />
+      <workItem from="1532792831852" duration="1122000" />
+      <workItem from="1549726038336" duration="1669000" />
+      <workItem from="1549775496604" duration="233000" />
+      <workItem from="1549938948210" duration="1267000" />
+      <workItem from="1549984596080" duration="620000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2075815000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5070258" visible="true" weight="0.17270789" />
+      <window_info id="Favorites" order="1" sideWeight="0.49297425" side_tool="true" weight="0.13909775" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3266979" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290398" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" weight="0.32786885" />
+      <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32941177" />
+      <window_info anchor="bottom" id="Inspection Results" order="8" weight="0.32902467" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" weight="0.3290398" />
+      <window_info anchor="bottom" id="NativeScript" order="10" weight="0.40848485" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32902467" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="REST Client" order="13" weight="0.4975728" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.3278496" />
+      <window_info anchor="bottom" id="Application Servers" order="15" />
+      <window_info anchor="bottom" id="TypeScript Compiler" order="16" visible="true" weight="0.1770335" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Structure" order="3" sideWeight="0.5374707" weight="0.13083605" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5070258" visible="true" weight="0.15896885" />
+      <window_info id="Favorites" order="1" sideWeight="0.49297425" side_tool="true" weight="0.13909775" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3266979" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290398" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" weight="0.32786885" />
+      <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32941177" />
+      <window_info anchor="bottom" id="Inspection Results" order="8" weight="0.32902467" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" weight="0.3290398" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32902467" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3278496" />
+      <window_info anchor="bottom" id="Application Servers" order="12" />
+      <window_info anchor="bottom" id="TypeScript Compiler" order="13" visible="true" weight="0.1770335" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Structure" order="3" sideWeight="0.5374707" weight="0.13641246" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Scripts/demo.js" />
+        <option value="$PROJECT_DIR$/Scripts/demo.js.map" />
+        <option value="$PROJECT_DIR$/Scripts/typings/accounting/accounting-tests.js" />
+        <option value="$PROJECT_DIR$/Scripts/typings/accounting/accounting-tests.js.map" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/_ph_MONEY_ui.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/bank/_user_btc.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="42" column="42" lean-forward="true" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/bank/_bank_record_combined.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/FrontEnd/Shared/front_template_1.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="279" column="44" selection-start-line="279" selection-start-column="28" selection-end-line="279" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/base/theme-base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149640">
+          <caret line="6235" column="19" selection-start-line="6235" selection-start-column="19" selection-end-line="6235" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/settings/_edit_company.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="688">
+          <caret line="162" column="77" selection-start-line="162" selection-start-column="77" selection-end-line="162" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_company_logo-side_menu.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/_gh_ui.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/_gh.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-648" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/user_specific/_ng_repeat_end_for_ticket_parties.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/inoutApi/modules/directivesModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="240" selection-start-line="240" selection-end-line="240" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/_ph_BTC_ui.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/_transaction_dashboard.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cryptos/scss/_mixin.scss" />
+    <entry file="file://$PROJECT_DIR$/cryptos/scss/_theme_color.scss" />
+    <entry file="file://$PROJECT_DIR$/cryptos/about-us.html" />
+    <entry file="file://$PROJECT_DIR$/cryptos/index.html" />
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/dashboard/_dashboard.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="80" column="22" lean-forward="true" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/transactionParty_Details_admin.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/messaging/_message_list.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/messaging/_message_comments.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/messaging/_user_post_list.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/messaging/_current_user_message_post_componet.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1153" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/messaging/_user_new_post.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-793" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/_ViewStart.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/inoutApi/modules/messageModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
+          <folding>
+            <element signature="e#525#650#0" expanded="true" />
+            <element signature="e#803#1112#0" expanded="true" />
+            <element signature="e#1280#1890#0" expanded="true" />
+            <element signature="e#1958#2033#0" expanded="true" />
+            <element signature="e#2085#2146#0" expanded="true" />
+            <element signature="e#2441#2835#0" expanded="true" />
+            <element signature="e#2614#2668#0" expanded="true" />
+            <element signature="e#2857#3045#0" expanded="true" />
+            <element signature="e#3139#4128#0" expanded="true" />
+            <element signature="e#3397#3981#0" expanded="true" />
+            <element signature="e#4827#5382#0" expanded="true" />
+            <element signature="e#5013#5366#0" expanded="true" />
+            <element signature="e#5422#6899#0" expanded="true" />
+            <element signature="e#5474#6894#0" expanded="true" />
+            <element signature="e#5511#5512#0" expanded="true" />
+            <element signature="e#5589#5590#0" expanded="true" />
+            <element signature="e#5632#5633#0" expanded="true" />
+            <element signature="e#5695#5696#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5837#5838#0" expanded="true" />
+            <element signature="e#5883#6010#0" expanded="true" />
+            <element signature="e#6064#6065#0" expanded="true" />
+            <element signature="e#6168#6169#0" expanded="true" />
+            <element signature="e#6213#6214#0" expanded="true" />
+            <element signature="e#6298#6299#0" expanded="true" />
+            <element signature="e#6343#6344#0" expanded="true" />
+            <element signature="e#6445#6446#0" expanded="true" />
+            <element signature="e#6491#6492#0" expanded="true" />
+            <element signature="e#6592#6593#0" expanded="true" />
+            <element signature="e#6637#6638#0" expanded="true" />
+            <element signature="e#6722#6723#0" expanded="true" />
+            <element signature="e#6776#6777#0" expanded="true" />
+            <element signature="e#6885#6886#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/inoutApi/modules/transactionModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="332" column="21" selection-start-line="332" selection-start-column="21" selection-end-line="332" selection-end-column="21" />
+          <folding>
+            <element signature="e#1881#4622#0" expanded="true" />
+            <element signature="e#1912#3524#0" expanded="true" />
+            <element signature="e#2336#3293#0" expanded="true" />
+            <element signature="e#2455#3100#0" expanded="true" />
+            <element signature="e#3122#3283#0" expanded="true" />
+            <element signature="e#3318#3363#0" expanded="true" />
+            <element signature="e#3413#3515#0" expanded="true" />
+            <element signature="e#3454#3455#0" expanded="true" />
+            <element signature="e#3484#3485#0" expanded="true" />
+            <element signature="e#3536#4618#0" expanded="true" />
+            <element signature="e#4455#4573#0" expanded="true" />
+            <element signature="e#13561#14664#0" expanded="true" />
+            <element signature="e#17018#17147#0" expanded="true" />
+            <element signature="e#18925#19001#0" expanded="true" />
+            <element signature="e#19874#20811#0" expanded="true" />
+            <element signature="e#20161#20794#0" expanded="true" />
+            <element signature="e#20846#21658#0" expanded="true" />
+            <element signature="e#41501#53193#0" expanded="true" />
+            <element signature="e#42278#42389#0" expanded="true" />
+            <element signature="e#42515#43584#0" expanded="true" />
+            <element signature="e#42943#43571#0" expanded="true" />
+            <element signature="e#43130#43556#0" expanded="true" />
+            <element signature="e#46769#50069#0" expanded="true" />
+            <element signature="e#50735#51440#0" expanded="true" />
+            <element signature="e#54893#54934#0" expanded="false" />
+            <element signature="e#69053#76303#0" expanded="true" />
+            <element signature="e#69833#76299#0" expanded="true" />
+            <element signature="e#70749#70891#0" expanded="true" />
+            <element signature="e#76129#76196#0" expanded="true" />
+            <element signature="e#76226#76292#0" expanded="true" />
+            <marker date="1531752092478" expanded="true" signature="3892:3934" ph="..." />
+            <marker date="1531752092478" expanded="true" signature="14947:15025" ph="..." />
+            <marker date="1531752092478" expanded="true" signature="16812:16838" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/user_specific/_user_ph.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_register.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3600" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Auth/forgotPassword.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" column="105" lean-forward="true" selection-start-line="12" selection-start-column="105" selection-end-line="12" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/settings/sub_ui/_emailSettings.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_ticket_plans.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#TicketPlanModel#0;n#TicketPlanModel#0;n#TicketPlanModel#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#TicketPlanModel#0;n#TicketPlanModel#0;n#TicketPlanModel#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/_ph.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/transactionParty_Details.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="37" column="26" selection-start-line="32" selection-start-column="14" selection-end-line="37" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/messaging/_posted_messages_component.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/ui/_partials/transaction/user_specific/_admin_ph.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asomProjects/about.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btcTemplate/index.html" />
+    <entry file="file://$PROJECT_DIR$/crypto/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-966">
+          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut.csproj">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asomProjects/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1019">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/FrontEnd/terms.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/FrontEnd/index.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/concept-master___good_admin/documentation/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12551">
+          <caret line="3" column="60" lean-forward="true" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/concept-master___good_admin/documentation/js/bootstrap.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/concept-master___good_admin/assets/vendor/bootstrap/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/concept-master___good_admin/dashboard-influencer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3144">
+          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/concept-master___good_admin/documentation/css/tree-viewer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="36" selection-start-column="36" selection-end-column="36" />
+          <folding>
+            <element signature="e#2622#2725#2" expanded="true" />
+            <element signature="e#4311#4410#2" expanded="true" />
+            <element signature="e#6142#6407#2" expanded="true" />
+            <element signature="e#7068#7247#1" expanded="true" />
+            <element signature="e#10184#10347#2" expanded="true" />
+            <element signature="e#12025#12188#2" expanded="true" />
+            <element signature="e#14562#14725#2" expanded="true" />
+            <element signature="e#16523#16686#2" expanded="true" />
+            <element signature="e#19032#19195#2" expanded="true" />
+            <element signature="e#20982#21145#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/concept-master___good_admin/documentation/css/style.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/FrontEnd/_viewStart.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/FrontEnd/Shared/crypto_template.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="822">
+          <caret line="225" column="12" selection-start-line="225" selection-start-column="12" selection-end-line="225" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

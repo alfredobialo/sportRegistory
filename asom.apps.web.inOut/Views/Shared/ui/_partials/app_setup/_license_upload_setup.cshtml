@@ -1,0 +1,37 @@
+﻿@using asom.apps.web.inOut.Controllers.BaseControllers
+@using asom.apps.web.inOut.Models
+<div class="pad font-size-10 text-left " ng-controller="LicenseController">
+  <p class="font-size-14 divider">
+    <span ng-hide="loading">Please Attach a valid License.</span>
+    <span ng-show="loading">@Html.Partial("ui/_loading_img_partial")</span>
+  </p>
+
+  <b>NOTE:</b> Attaching a license file <b>(*.asomlic)</b> will override the existing file if any exist.
+  <br>
+  You can extend a license with license extension file. <b>(*.asomext)</b>
+
+  <div class=" pad10 ">
+    <asom-file-upload class="btn-danger btn btn-xs "
+                      file-change="uploadLicense(obj)"
+                      upload-url="@Url.Action("UploadFileToServer", "Home",
+    new {directoryPath = "applicense",
+    allowedExtensions = AllowedExtensionsConstant.ASOM_LICENSE_FILE_EXTENSION, fixedName  = "temp_"+AppInfo.Get.LicenseFileName })"
+    upload-text="Attach License"
+    accept="*"
+    upload-icon="ion-attachment"></asom-file-upload>
+  </div>
+
+  <div class="divider margin-t-5"></div>
+  <div class="pad10" ng-show="!!license.hostComponentId">
+    <p class="divider"><b>App Name: </b> {{license.appDefinition.appName}}<sup>{{license.appDefinition.appVersionNumber}}</sup>
+    </p>
+    <p class="divider"><b>License To: </b> {{license.appDefinition.licenseToCompanyName}}
+    </p>
+    <p class="divider"><b>License Key: </b> {{license.key}} <span class="pull-right color-red" ng-show="!license.isActivated"><b>Please activate within:</b> {{license.daysAllowedBeforeActivationExpires }} day(s)</span></p>
+    <p class="divider"><b>License Days : </b> {{license.trialDays}} <span class="pull-right"><b>Is Extensible:</b> {{license.isExtensible ? 'YES' :'NO'}}</span></p>
+    <p class="divider"><b>Date Issued: </b> {{license.dateCreated | date:'MMM-dd-yyyy'}} <span class="pull-right"><b>Can Extend Feature:</b> {{license.canExtendFeature ? 'YES' :'NO'}}</span></p>
+    <p class="divider"><b>Activated: </b> {{license.isActivated ? ('YES, on ' + (license.dateActivated | date:'MMM-dd-yyyy')) : 'NO' }} <span ng-if="!license.isActivated" class="pull-right">
+            <button class="btn btn-xs btn-success" ng-click="activateLicense()">Activate</button></span></p>
+    <p class="divider color-red" ng-class="{'bg-highlight bold' : license.isExpired}"><b>Days Remaining: </b> {{license.trialDaysRemaining}} <span ng-if="license.isActivated" class="pull-right">
+           <b>Expires On: </b>{{license.expiresOn | date:'MMM-dd-yyyy'}}</span></p></div>
+</div>

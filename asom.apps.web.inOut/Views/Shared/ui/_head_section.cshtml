@@ -1,0 +1,11 @@
+﻿@using System.Web.Optimization
+@using asom.apps.web.inOut.Models
+@using asom.apps.web.inOut.Models.Settings
+@*<link rel="shortcut icon" href="@AppInfo.Get.AppIconUrl" type="image/x-icon" />*@
+<link rel="shortcut icon" href="@Url.Content("~/content/bitchainicon.png")" type="image/x-icon">
+@*    <link href="~/styles/angular-material.min.css" rel="stylesheet"/>*@
+<link href="~/styles/btrap/bootstrap.min.css" rel="stylesheet" />
+<link href="~/styles/ionic/css/ionicons.min.css" rel="stylesheet" />
+@Styles.Render("~/base/css")
+<link href="~/styles/themes/@ThemeSetting.GetDefault().Url" rel="stylesheet" />
+<meta name="description" cotent="@AppInfo.Get.AppDescription"/>

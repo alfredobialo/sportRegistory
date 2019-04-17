@@ -1,0 +1,312 @@
+﻿@using asom.apps.Effectiv.core.model.authentication
+@using asom.apps.web.Effectv.Models
+@using asom.apps.web.Effectv.Util
+@{
+    bool authorizeEdit = UserIdentityModel.HasAuthority(AppPermissions.HR_EDIT_EMPLOYEE);
+//    bool authorizeCreate = UserIdentityModel.HasAuthority(AppPermissions.HR_CREATE_EMPLOYEE);
+    bool authorizeDelete = UserIdentityModel.HasAuthority(AppPermissions.HR_DROP_EMPLOYEE);
+}
+<div class=" bg-success " asom-toolbar offset-to-element-id="app-main-menu">
+    <div class="pad10">
+        <div class="row">
+            <div class="col-sm-7">
+               <p class="font-size-17 "> <span ng-show="uiState.isEditMode">Edit</span> <span ng-show="!uiState.isEditMode">Create</span> Employee Record</p>
+            </div>
+            <div class="col-sm-5">
+                <div class="pad5 ui-bg-colorr">
+                    <form name="frmSearch" novalidate>
+                        <div class="row">
+                            <div class="col-sm-5 text-right clear-boostrap-padding-in-row">
+                                <span class="pad10-l-r">Search</span>
+                            </div>
+                            <div class="col-sm-7 clear-boostrap-padding-in-row">
+                                <input type="text"
+                                       class="ui-input font-size-14" name="txtSearch"
+                                       ng-required="true"
+                                       ng-model="searchId"
+                                       ng-keyup="getEmployee(searchId,$event)"
+                                       placeholder="Search Employee" />
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="bg-white-gradient pad10 min-h50">
+        <div class="row">
+            <div class="col-sm-8">
+                <button class="btn btn-flat-primary margin-r-5"
+                        ng-disabled="loading"
+                        ng-if="uiState.isEditMode"
+                        ng-click="uiState.cancelEdit()">
+                    <i class="ion-chevron-left"> </i> &nbsp; {{uiState.cancelText}}
+                </button>
+                <button class="btn btn-primary"
+                        ng-disabled="(frmEmployee.$invalid ) || loading"
+                        ng-click="createEmployee(emp)">
+                    <i class="ion-checkmark-round"> </i> &nbsp; {{uiState.editText}}
+                </button>
+                @if (authorizeDelete)
+                {
+                    <button class="btn btn-flat-danger" ng-if="uiState.isEditMode"
+                            ng-click="DeleteEmployee(emp)" ng-disabled="loading">
+                        <i class="ion-ios-trash"></i> &nbsp; Delete
+                    </button>
+                }
+                
+                <!--<button class="btn btn-flat-primary">Action 3</button>-->
+                <!--<button class="btn btn-flat-primary">Action 4</button>-->
+            </div>
+            <div class="col-sm-4">
+
+                <div class="" ng-if="uiState.isEditMode">
+                    <span class="font-size-16 theme-caption-color">{{emp.title}} {{emp.fullName}}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+</div>
+<div class=" margin-30 bg-default shadow-sm   border-radius">
+
+<div class="row">
+
+<div class="col-sm-8 border-b-l-radius border-t-l-radius">
+
+    
+    <div class=" min-h450 pad10 bg-white">
+        
+        <p class="pad10 font-size-15">
+            Fill The required Fields to complete this process : <small class="text-danger">Required field has thick 'underline'</small>
+        </p>
+
+        <form novalidate role="form" name="frmEmployee" class="form-horizontal">
+
+            <div class="pad20">
+                <div class="row">
+                    <div class="col-sm-3"><span>Name &nbsp; <i class="ion-person font-size-13"></i></span></div>
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <!--uib-tooltip="First Name" tooltip-placement="bottom"--><!--uib-tooltip="Last Name" tooltip-placement="bottom"-->
+                            <div class="col-sm-6">
+                                <input type="text" name="txtFirstName"
+                                       ng-model="emp.firstName"
+                                       required
+                                       maxlength="50"
+                                       ng-maxlength="30"
+                                       class="ui-input  ui-required font-size-18"
+                                       ng-class="{'ui-invalid-field' : frmEmployee.$dirty && frmEmployee.txtFirstName.$dirty && frmEmployee.txtFirstName.$invalid }"
+                                       placeholder="First Name">
+                                <ng-messages for="frmEmployee.txtFirstName.$error" ng-if="frmEmployee.txtFirstName.$dirty">
+                                    <ng-message when="required" class="text-danger">First Name field is required</ng-message>
+                                    <ng-message when="maxlength" class="text-danger">Must not exceed 30 characters</ng-message>
+                                </ng-messages>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text"
+                                       required
+                                       maxlength="50"
+                                       ng-maxlength="30"
+                                       name="txtLastName"
+                                       ng-model="emp.lastName"
+                                       class="ui-input ui-required font-size-18"
+                                       ng-class="{'ui-invalid-field' : frmEmployee.$dirty && frmEmployee.txtLastName.$dirty && frmEmployee.txtLastName.$invalid }"
+                                       placeholder="Last Name">
+                                <ng-messages for="frmEmployee.txtLastName.$error" ng-if="frmEmployee.txtLastName.$dirty">
+                                    <ng-message when="maxlength" class="text-danger">Must not exceed 30 characters</ng-message>
+                                    <ng-message when="required" class="text-danger">Last Name field is required</ng-message>
+                                </ng-messages>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><span>Employee Number</span></div>
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="text"
+                                       ng-if="!uiState.isEditMode"
+                                       ng-model="emp.id"
+                                       placeholder="Unique Employee No"
+                                       name="txtId" class="ui-input ">
+                                <p class="font-size-13 bold" ng-if="uiState.isEditMode"> {{emp.id}}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Middle Name" class="ui-input" ng-model="emp.middleName">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3"><span>Status</span></div>
+                    <div class="col-sm-9">
+                        <div class="row pad10-l-r">
+                            <div class="col-sm-6">
+
+                                <label>
+                                    <input type="radio" ng-model="emp.gender"
+                                           value="Male" ng-checked="true"
+                                           name="rdGender"> &nbsp; Male
+                                </label>
+                                &nbsp;&nbsp;
+                                <label>
+                                    <input type="radio" ng-model="emp.gender"
+                                           value="Female"
+                                           name="rdGender"> &nbsp; Female
+                                </label>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <select name="cboTitle" class="ui-input" ng-model="emp.title">
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Miss">Miss</option>
+                                    <option value="Master">Master</option>
+                                    <option value="Dr">Dr</option>
+                                    <option value="Prof">Prof</option>
+                                    <option value="Engr">Engr</option>
+                                    <option value="HRH">HRH</option>
+                                    <option value="Sis.">Sis.</option>
+                                    <option value="Bro.">Bro.</option>
+                                    <option value="">None</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select name="cboMaritalStatus" class="ui-input" ng-model="emp.maritalStatus">
+                                    <option selected value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Seperated">Seperated</option>
+                                    <option value="Divorced">Divorced</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><span>State / Lga</span></div>
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select name="cboState"
+                                        ng-required="true"
+                                        ng-class="{'ui-invalid-field' : frmEmployee.$dirty && frmEmployee.cboState.$dirty && frmEmployee.cboState.$invalid }"
+                                        ng-change="getLga(emp.stateOfOrigin)"
+                                        ng-model="emp.stateOfOrigin"
+                                        ng-options="s for s in states"
+                                        class="ui-input ui-required">
+                                    <option value="">Select State</option>
+                                </select>
+                                <ng-messages for="frmEmployee.cboState.$error" ng-if="frmEmployee.cboState.$dirty">
+                                    <ng-message when="required" class="text-danger">State field is required</ng-message>
+                                </ng-messages>
+                            </div>
+                            <div class="col-sm-6">
+                                <select name="cboLga"
+                                        ng-class="{'ui-invalid-field' : frmEmployee.$dirty && frmEmployee.cboState.$dirty && frmEmployee.cboLga.$invalid }"
+                                        ng-required="true"
+                                        ng-model="emp.lga"
+                                        ng-options="l for  l in lgas"
+                                        class="ui-input ui-required">
+                                    <option value="">Select LGA</option>
+                                </select>
+                                <ng-messages for="frmEmployee.cboLga.$error" ng-if="frmEmployee.cboLga.$dirty">
+                                    <ng-message when="required" class="text-danger">LGA field is required</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><span>Home Town / Country</span></div>
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="emp.homeTown" class="ui-input">
+                            </div>
+                            <div class="col-sm-6">
+                                <select class="ui-input"
+                                        ng-options="c for c in countries"
+                                        ng-model="emp.nationality">
+                                    <option value="">Select Country</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><span>Date Of Birth</span></div>
+                    <div class="col-sm-9">
+                        <div class="row pad10-l-r">
+                            <div class="col-sm-4 clear-boostrap-padding-in-row">
+                                <input type="text" class="ui-input"
+                                       placeholder="dd/mm/yyyy, eg: 15/02/1990"
+                                       close-text="Close"
+                                       name="txtDate"
+                                       uib-datepicker-popup="dd/MM/yyyy" is-open="isDateOpen"
+                                       ng-model="emp.dateOfBirth">
+
+
+                            </div>
+                            <div class="col-sm-2 clear-boostrap-padding-in-row">
+
+                                <button ng-click="openDatepicker($event)" class="btn btn-primary btn-xs"><i class="ion-calendar"> </i> Date</button>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="ui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        
+    </div>
+
+</div>
+<div class="col-sm-4 clear-boostrap-padding-in-row  ui-bg-color ">
+    <div class="pad20">
+        <p class="font-size-18 divider">More Options <span ng-show="!!emp.firstName"> for <b>{{ emp.firstName}} {{emp.lastName}} </b></span></p>
+        <div>
+            <div class="centralize">
+                @if (authorizeEdit)
+                {
+                    <small>Click on the button below to select a Passport picture for this employee</small>
+                    <asom-file-upload class="btn-primary btn "
+                                      file-change="uploadPicture(obj)"
+                                      upload-url="@Url.Action("UploadFileToServer", "Home",
+                                                  new {directoryPath = "employee-profile\\pictures", allowedExtensions = AllowedExtensionsConstant.IMAGE_FILE_EXTENSION})"
+                                      upload-text="Select Passport"></asom-file-upload>
+                }
+               
+            </div>
+            <div class="card-picture-xlarge">
+                <div class="pic" style="background-image: url('@AppInfo.Get.DefaultAvarter()')" ng-style="passport">
+
+                </div>
+
+
+            </div>
+            <div class="text-center pad10 font-size-16">
+                <span ng-show="!!emp.age">{{emp.middleName}} is {{emp.age}}</span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+

@@ -1,0 +1,21 @@
+﻿@using asom.apps.web.inOut.Models
+@{
+
+}
+<div class="pad20 w40 theme-bg-color border-radius shadow-stronger-thick-and-heavy centralize text-left">
+    <p class="divider pad20 font-size-25">Patch @AppInfo.Get.AppTitle Database</p>
+    <p class="font-size-14 pad10  text-left">
+        Your copy of @AppInfo.Get.AppName needs urgent database update this will fix bugs in the software and improve Security and Performance.
+        <br/>
+        <b>WARNING :</b> This action will change the structure of your database and may lead to lose of Data.
+        <br/> <small>We will try as much as possible to prevent data loss!</small>
+
+    </p>
+    @ViewBag.Message
+    
+    <div class="pad20 margin-t-20">
+        <a href="@Url.Action("dbPatch","Setup")" onclick="return confirm('This Action will Patch Your Database Stucture and YOU MAY lose som data, Would you want to CONTINUE?');" class="ui-button-block ui-button btn btn-primary-md">Patch Database</a>
+    </div>
+
+</div>
+

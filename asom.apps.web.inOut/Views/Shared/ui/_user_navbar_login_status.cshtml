@@ -1,0 +1,40 @@
+﻿@*@using asom.apps.inOut.core*@
+@*@using asom.apps.web.inOut.Models*@
+@*@using asom.apps.web.inOut.Models.Navigation*@
+@*@using asom.apps.web.inOut.Models.Settings*@
+@*@{*@
+@*    bool isAuthenticated = User.Identity.IsAuthenticated;*@
+@*    IUserIdentity id = new UserIdentityModel();*@
+@*    if (isAuthenticated)*@
+@*    {*@
+@*        id = IdentitySession.GetOrCreate();*@
+@*    }*@
+@*}*@
+@*<div class="text-right pad10 font-size-14">*@
+@*    @if (isAuthenticated)*@
+@*    {*@
+@*        <div class="row pull-right">*@
+@*            <a href="@Url.Action("Sys", "Home")" class=" ">*@
+@*                <div class="pull-left hidden-xs">*@
+@*                    <div class="@picCss pad10 ">*@
+@*                        <div class="pic" style="background-image: url(@id.PictureUrl)">*@
+@*                        </div>*@
+@*                    </div>*@
+@*                </div>*@
+@*            </a>*@
+@**@
+@*            <span class=" @marginLeft pull-left"><a href="@Url.Action("Sys", "Home")" class="color-white-forced">@id.DisplayName</a> | <a href="@Url.Action("Logout", "Home")" class="btn @btnLogOutBg btn-xs">@btnLogOutText</a></span>*@
+@*        </div>*@
+@*    }*@
+@**@
+@*    else*@
+@*    {*@
+@*        <span class="@marginTop pull-left">*@
+@*            <a href="@Url.Action("index", "Home")" class="btn @btnLoginBg btn-sm">@btnLoginText</a>*@
+@*            <a href="@Url.Action("Register", "Home")" class="btn @btnRegBg btn-sm">@btnRegText</a>*@
+@*        </span>*@
+@*    }*@
+@*</div>*@
+
+
+

@@ -1,0 +1,61 @@
+﻿@using asom.apps.inOut.core.model.org
+@{
+
+    var appSettings = OrganizationInfo.GetSettings();
+
+}
+
+
+
+<div class="asom-toolbar bg-success " id="" asom-toolbar offset-to-element-id="app-main-menu">
+  <div class="row">
+    <div class="col-sm-7">
+        <p class="font-size-18 pad10">
+
+            @appSettings.GetHelpLabel 
+
+        </p>
+    </div>
+
+  </div>
+  <div class="bg-white-gradient pad10">
+
+    <a href=""
+       class="link-button-default "
+       ng-click="reloadTicket()"
+       >
+      <i class="ion-refresh"></i>
+    </a>
+
+
+
+
+
+
+  </div>
+  <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+</div>
+
+<div class=" bg-white margin-20 shadow-sm   centralize w75">
+    <div class="text-left">
+      <p class=" pad15 font-size-24">These are your <span class="font-size-18 theme-caption-color bold ">'@appSettings.GetHelpLabel' </span> tickets</p>
+    <div class="radius pad10  bg-highlight-red pad20">
+        <span class=" pull-left  ion-android-notifications font-size-38 color-red">
+
+        </span><p class="margin-l-40 font-size-18">
+        Please Ensure you Confirm all received Payments so the other Party could receive her's <br>
+        Also ensure your Bank Details are correct and do not allow anyone to change your Bank settings</p>
+        <p class="font-size-18 bold color-red pad10">
+          NOTE: All '@appSettings.GetHelpLabel' Ticket are generated automatically by Our Ticketing Engine when ever any
+          your '@appSettings.ProvideHelpLabel' Tickets gets Confirmed By the Receiving Party. Payments will be made
+          to you on or before @appSettings.IncomeMaturityDays day(s)
+
+
+        </p>
+    </div></div>
+</div>
+
+<div class="pad20  margin-20 bg-white shadow-sm  " >
+    @Html.Partial("ui/_partials/transaction/user_specific/_user_gh")
+
+</div>

@@ -1,0 +1,96 @@
+﻿
+  <div>
+    <p class="divider pad10 font-size-16">Configure Your Email Server and SMS Gateway Profile
+      <br> <small class="text-muted">NOTE: this feature is only available for the Enterprise Version</small>
+
+    </p>
+    <p class="pad10 divider "><a href="http://mail5004.smarterasp.net/Default.aspx" class="btn btn-primary btn-sm" target="_blank">Login to Webmail</a></p>
+    <div class="pad10 font-size-11 text-uppercase">
+      <div class="row">
+        <div class="col-sm-6 border-right-thick min-h200">
+          <div class="pad5">
+            <div class="row ">
+              <div class="col-sm-9">
+
+                <span>SMTP SERVER Address</span>
+                <input type="text" maxlength="500" class="ui-input ui-input-border" placeholder="Smtp Server Address" ng-model="settings.smtpServerAddress" ><br>
+
+              </div>
+              <div class="col-sm-3">
+                <span>Port Number</span>
+                <input type="text" class="ui-input ui-input-border" maxlength="6" placeholder="PORT Number" ng-model="settings.smtpPortNumber" ><br>
+
+
+              </div>
+            </div>
+            <div class="row  margin-t-20">
+              <div class="col-sm-6">
+                <span>User Id</span>
+                <input type="text" maxlength="50" class="ui-input ui-input-border" placeholder="Valid User Id" ng-model="settings.smtpUserId" >
+
+
+              </div>
+              <div class="col-sm-6">
+                <span>Passord</span>
+                <input type="text" class="ui-input ui-input-border " maxlength="30" placeholder="Password" ng-model="settings.smtpPassword" >
+
+              </div>
+              <p class="pad20 margin-t-20">
+
+                <label for="enableEmail">Enable Email Access &nbsp; &nbsp; </label><input type="checkbox" id="enableEmail" ng-model="settings.sendEmail">
+
+
+              </p>
+              <div ng-show="settings.sendEmail">
+                <p class="pad10">Send a Test Email to Developer Email Account</p>
+                <small>{{::email.to}}</small>
+                <div>
+                  Mail Content <br />
+                 
+                  <input type="text" name="name" ng-model="email.content" class="ui-input-border ui-input font-size-20"/>
+                  <br />
+                  <button class ="btn btn-danger" ng-click="sendTestEmail(email)">Send Test Email</button>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="row ">
+            <div class="col-sm-12">
+              <span>SMS Gateway Address</span>
+              <input type="text" maxlength="500" class="ui-input ui-input-border" placeholder="SMS gateway Address" ng-model="settings.smsGatewayAddress" ><br>
+
+            </div>
+
+          </div>
+          <div class="row  margin-t-20">
+            <div class="col-sm-6">
+              <span>SMS User Id</span>
+              <input type="text" maxlength="50" class="ui-input ui-input-border" placeholder="Valid SMS User Id" ng-model="settings.smsUserId" >
+
+
+            </div>
+            <div class="col-sm-6">
+              <span>SMS Passord</span>
+              <input type="text" class="ui-input ui-input-border " maxlength="50" placeholder="Password" ng-model="settings.smsGatewayPassword" >
+
+            </div>
+            <p class="pad20 margin-t-20">
+
+              <label for="enableSms">Enable SMS Access &nbsp; &nbsp; </label><input type="checkbox" id="enableSms" ng-model="settings.sendSms">
+
+
+            </p>
+            
+            
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

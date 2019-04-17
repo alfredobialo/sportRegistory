@@ -1,0 +1,180 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.web.inOut.Models
+@using itrex.businessObjects.model.core.securables
+@{
+    bool canCreateUser = new IdentityStore().HasAuthority(new string[] { AppPermissions.AUTHORIZATION_EDIT_USERS_ACCOUNT, AppPermissions.AUTHORIZATION_CREATE_USERS }, PermissionValidationOperators.AND);
+    int totalUsers = IdentityStore.CountTotalUsers();
+    string msg = "";
+    int allowedUsers = 0;
+    bool hasFeature = AppInfo.Get.LicenseHasValidIntegerFeature(out msg, "USER_COUNT", out allowedUsers);
+    bool canAddNewUser = hasFeature && (totalUsers < allowedUsers);
+}
+<div class=" bg-success " asom-toolbar offset-to-element-id="app-main-menu">
+    <div class="pad10">
+        <div class="row">
+            <div class="col-sm-7">
+                <p class="font-size-17 "> User Account Management</p>
+            </div>
+            <div class="col-sm-5">
+                <div class="pad5 ui-bg-colorr">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="bg-white-gradient pad10 min-h50">
+        <div class="row">
+            <div class="col-sm-10">
+                @if (canCreateUser)
+                {
+
+                    if (canAddNewUser)
+                    {
+                        <button class="btn btn-primary margin-r-5 animated anim-if"
+                                ng-disabled="loading"
+                                ng-click="createNewUserMode()"
+                                ng-if="!uiMode.canCreateNew">
+
+                            <i class="ion-android-folder-open"> </i> &nbsp; Create User
+                        </button>
+                        <button class="btn btn-primary margin-r-5  animated anim-if"
+                                ng-if="uiMode.canCreateNew"
+                                ng-click="saveNewUserMode(userInfo, password)"
+                                ng-disabled="loading">
+
+                            <i class="ion-disc"> </i> &nbsp; Save User
+                        </button>
+                        <button class="btn btn-default margin-r-5 animated anim-if"
+                                ng-disabled="loading"
+                                ng-click="cancelMode()"
+                                ng-if="uiMode.canCancel"
+                        >
+
+                            <i class="ion-android-delete"> </i> &nbsp; Cancel
+                        </button>
+                    }
+                    @*                    else*@
+                    @*                    {*@
+                    @*                        <span ><i class="font-size-28 ion-ios-telephone-outline"></i> &nbsp; Call Now!</span> *@
+                    @*                    }*@
+
+                if (hasFeature)
+                {
+                    <span class="pad10 font-size-15">User Stat: <span class="color-red bold">@totalUsers</span> / @(allowedUsers.ToString("N0")) Allowed in your License </span>
+                    if (!canAddNewUser)
+                    {
+                        <span class="font-size-11 color-red bold">You may need Purchase additional user License to continue!, Call @AppInfo.Get.AppCompanyPhone now!</span>
+                    }
+
+                }
+                else
+                {
+                    <span class="font-size-12 pad10 bg-highlight-red">@msg</span>
+                    }
+
+                }
+                else
+                {
+                    <button class="btn btn-flat-primary margin-r-5"
+                            ng-disabled="loading">
+                        <i class="ion-android-bulb"> </i> &nbsp; Edit Account
+                    </button>
+                }
+
+                <!--<button class="btn btn-flat-primary">Action 3</button>-->
+                <!--<button class="btn btn-flat-primary">Action 4</button>-->
+            </div>
+            <div class="col-sm-2 text-right">
+                <a href="" class="link-button-default"
+                   ng-hide="loading"
+                   ng-click="refresh()"><i class="ion-refresh"></i></a>
+            </div>
+        </div>
+    </div>
+    <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+</div>
+<div class=" pad20 margin-15">
+    @if (canCreateUser)
+    {
+        <div class="row">
+            <div class="col-sm-8 clear-boostrap-padding-in-row">
+                <div class="pad10 bg-white shadow-sm   border-radius">
+                    @Html.Partial("ui/_partials/settings/sub_ui/_user_identity_ui", false)
+                    <div class="row margin-t-30 ">
+
+                      <div class="pad10">
+                        <asom-data-pager pager-source="userCriteria" on-page-click="gotoPage(index)"></asom-data-pager>
+                      </div>
+                        <div class="pad20">
+                            <p class="font-size-17">User List ({{users.length|number}} users)
+                              <span >
+                                <input type="text" ng-model="searchUser" class="ui-input ui-input-border font-size-18 w50" placeholder="Search For User">
+                              </span>
+                            </p>
+                            <table class="table">
+                                <tr>
+                                    <th class="w7"><input type="checkbox" ng-model="selectAll"></th>
+                                    <th class="w10"></th>
+                                    <th class="w30">Display Name</th>
+                                    <th class="w10">Channel</th>
+                                    <th class="w10 bg-highlight">Active?</th>
+                                    <th class="w10 bg-highlight">Blocked?</th>
+                                </tr>
+                                <tr ng-repeat="u in users | filter:searchUser track by u.id" class="divider animated anim-repeat" ng-click="editUser(u)"
+                                    ng-class="{'bg-highlight-red' : u.isSelected }">
+                                    <td class="text-right">
+                                       <span class="font-size-11 bold">{{$index+1}}</span> <a class="link-button button-xs"><i class="ion-edit"></i></a>
+                                    </td>
+                                    <td>
+                                        <div class='card-picture-xsmall'>
+                                            <div class='pic display-inine-block'
+                                                 ng-style="u.passportUrl">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="font-size-14">{{u.displayName}}</span><br>
+                                        <small>{{u.id}}</small>
+                                    </td>
+
+                                    <td>{{u.channelId}}</td>
+                                    <td class="bg-highlight">{{u.isActive ? 'YES' : 'NO'}}</td>
+                                    <td class="bg-highlight">{{u.isBlocked ? 'YES' : 'NO'}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 clear-boostrap-padding-in-row">
+                <div class="pad20  min-h300">
+                    <p class=" font-size-16 theme-caption-color divider">
+                        Assign One or More Roles <span class="font-size-11">
+                            ({{roles.length}} Roles)
+                        </span> <a href="" class="link-button button-sm" ng-click="loadRoles()"><i class="ion-refresh"></i></a>
+                    </p>
+                    <div class="">
+                        <p class="text-center anim-if animated" ng-if="loadingRoles">
+                            <img src="~/images/ajax-loader.gif" />
+                        </p>
+                        <div class="pad10">
+                            <div class="margin-b-10 pad10 animated anim-repeat bg-white shadow-sm  -stronger font-size-13"
+                                 ng-class="{'bg-success' : r.isSelected}"
+                                 ng-click="selectRole(r)"
+                                 ng-repeat="r in roles ">
+                                {{r.name}}
+                                <span class="pull-right"><span class="badge">{{r.users.length}} </span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        // display the current user's profile for editting
+        
+    }
+
+</div>

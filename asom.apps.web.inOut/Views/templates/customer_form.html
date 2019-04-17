@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Asom UI Test Framework</title>
+
+    <link rel="stylesheet" href="../../styles/btrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../styles/ionic/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="../../styles/angular-material.min.css"/>
+    <link rel="stylesheet" href="../../styles/base/select.min.css"/>
+    <link rel="stylesheet" href="../../styles/base/theme-base.css"/>
+    <link rel="stylesheet" href="../../styles/themes/oliv/theme-oliv.css"/>
+    <link rel="stylesheet" href="../../styles/themes/opioro/theme-opioro.css"/>
+    <link rel="stylesheet" href="../../styles/themes/greenhouse/theme-greenhouse.css"/>
+
+    <link rel="stylesheet" href="../../styles/themes/ox-blud/theme-ox-blud.css"/>
+    <!--<link rel="stylesheet" href="../../styles/themes/pumkn/theme-pumkn.css"/>-->
+    <!--<link rel="stylesheet" href="../../styles/themes/coalbat/theme-coalbat.css"/>-->
+
+</head>
+<body>
+<div asom-toolbar="" class="min-h50 bg-dormant" id="topbar"> Main Menu</div>
+<div class="container-fluid theme-bg-color">
+
+    <div class="row">
+        <div class="action-center min-h450">
+            <div class="margin-t-60">
+                <ul>
+                    <li><a href="">Menu Item 1 Mary</a></li>
+                    <li><a href="">Menu Item 2 Mary</a></li>
+                    <li><a href="">Menu Item 3 Mary</a></li>
+                    <li><a href="">Menu Item 4 Mary</a></li>
+                    <li><a href="">Menu Item 5 Mary</a></li>
+                    <li><a href="">Menu Item 6 Mary</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="action-canvas text-left"  >
+            <div class="action-canvas-content">
+
+                <div class="pad10 bg-primary min-h50 " asom-toolbar offset-to-element-id="topbar" >
+
+                    <div class="color-blue display-inine-block w100">
+                        <input type="text" class="ui-input col-sm-4"><input type="text" class="ui-input col-sm-4"><input
+                            type="text" class="ui-input col-sm-4">
+                    </div>
+
+
+                </div>
+                <div class="pad30 margin-t-30 ">
+                    <form action="" name="frmCustomer">
+
+
+
+                    </form>
+
+                    <div class="bg-white border-radius shadow margin-b-10" >
+                        <div class="container-decor bg-primary"></div>
+                        <div class="pad20 min-h300">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div class="row text-uppercase">
+
+                                        <div class="col-sm-9 col-sm-push-3">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="pad10">
+                                                        <label for="cprofile" class="control-label">
+                                                            <input type="radio" name="customerProfile" checked id="cprofile" class="font-size-18"> &nbsp;&nbsp;&nbsp; Company Profile
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="pad10">
+                                                        <label for="cindividual" class="control-label"><input type="radio" id="cindividual" name="customerProfile" class="font-size-18"> &nbsp;&nbsp;&nbsp; Individual Profile</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-sm-3 text-uppercase pad10-l-r ">
+                                            <span class="bold">Company Name</span>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" placeholder="Company Name..." maxlength="200" ng-required class="ui-input ui-required font-size-22">
+                                            <ng-messages for="frmCustomer.txtCompanyName.$error">
+                                                <ng-message name="required">
+                                                    <span>This field is required</span>
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 text-uppercase pad10-l-r ">
+                                            <span class="bold" uib-tooltip="Leave this field empty if you want auto generated code">Customer Code</span>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text"  placeholder="Unique Code for this Customer" class="ui-input ">
+                                        </div>
+
+                                    </div>
+
+                                    <!--Contact Address Field-->
+                                    <div class="row">
+                                    <div class="col-sm-3 text-uppercase pad10-l-r ">
+                                        <span class="bold">Contact Address</span>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" placeholder="Office / Contact Address" class="ui-input ">
+                                    </div>
+
+                                </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 text-uppercase pad10-l-r ">
+                                            <span class="bold">Phone Number</span>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" placeholder="Mobile / Office Number" class="ui-input ">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 text-uppercase pad10-l-r ">
+                                            <span class="bold">Customer Type</span>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select placeholder="Supplier / Buyer" class="ui-input ">
+                                                <option value="Supplier">Supplier</option>
+                                                <option value="Buyer">Buyer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="pad20 margin-t-10">
+                                        <div class="pad10 text-center">
+                                            <i class="ion-ios-camera-outline font-size-62 theme-caption-color"></i>
+                                            <br>
+
+
+                                            <span class="font-size-12 text-muted">Select Customer Picture</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin-t-30">
+                                <uib-tabset class="">
+                                    <uib-tab heading="Other Details">
+                                        <div class="pad20 min-h200">
+                                            <div class="row">
+                                                <div class="col-sm-3 text-uppercase">
+                                                    <div class="pad10">
+                                                        <label for="chkActiveProfile"> <input id="chkActiveProfile" type="checkbox" checked > &nbsp;&nbsp;&nbsp; Profile Is Active</label>
+                                                    </div>
+                                                    <div class="pad10">
+                                                        <label for="chkUseAccForTrans"> <input id="chkUseAccForTrans" type="checkbox"  > &nbsp;&nbsp;&nbsp; Use Account For Trans.</label>
+                                                    </div>
+                                                    <div class="pad10">
+                                                        <label for="chkCreditWorthy"> <input id="chkCreditWorthy" type="checkbox"  > &nbsp;&nbsp;&nbsp; Is Credit Worthy</label>
+                                                    </div>
+                                                    <div class="pad10">
+                                                        <div class="row">
+                                                            <div class="col-sm-6 ">
+                                                                <label for="txtCreditLimit">Credit Limit </label>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <input type="text" placeholder="0.00" ng-model="customer.accountInfo.creditLimit"
+                                                                       class="ui-input" name = "txtCreditLimit" id="txtCreditLimit">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="pad10">
+                                                        <div class="row">
+                                                            <div class="col-sm-6 ">
+                                                                <label for="cboPriceLevel">Price Level </label>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <select name="cboPriceLevel" id="cboPriceLevel"
+                                                                        class="ui-input">
+                                                                    <option value="retail">Retail</option>
+                                                                    <option value="wholesale">Wholesale</option>
+                                                                    <option value="distributor">Distributor</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-9 border-left">
+                                                <div class="pad10 min-h250 text-uppercase">
+                                                    <div class="pad5">
+                                                        <span class="font-size-15">Note</span>
+                                                        <textarea name="txtNote" id="txtNote"
+                                                                  rows="4" placeholder="Drop a Note on the Customer Profile"
+                                                                  ng-model="customer.note" class="ui-input"></textarea>
+                                                    </div>
+                                                    <div class="pad5 margin-t-30">
+                                                        <p class="divider">
+                                                            <span class="font-size-18" uib-tooltip="Add Contacts of People you may contact. For Individual Customer profile, you may ignore this section">Add Contacts</span>
+
+                                                        </p>
+
+                                                        <div class="pad10 margin-t-10">
+                                                            <div class="row">
+                                                                <div class="col-sm-9 text-uppercase">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3 ">
+                                                                           <span>Contact Name</span>
+                                                                        </div>
+                                                                        <div class="col-sm-9">
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6"><input type="text"
+                                                                                                             class="ui-input" placeholder="First Name">
+                                                                                </div>
+                                                                                <div class="col-sm-6"><input type="text"
+                                                                                                             class="ui-input" placeholder="Last Name">
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3 ">
+                                                                            <span>Email Address</span>
+                                                                        </div>
+                                                                        <div class="col-sm-9">
+                                                                            <input type="email" class="ui-input" placeholder="Email" />
+
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3 ">
+                                                                            <span>Phone Number</span>
+                                                                        </div>
+                                                                        <div class="col-sm-9">
+                                                                            <input type="text" class="ui-input" placeholder="Mobile Phone No." />
+
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3 ">
+                                                                            <span>Job Description</span>
+                                                                        </div>
+                                                                        <div class="col-sm-9">
+                                                                            <input type="text" class="ui-input" placeholder="Job Position" />
+
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                    <div class="col-sm-3">
+                                                                        <div class="pad10 text-center"><i class="ion-android-camera theme-caption-color font-size-80"> </i>
+                                                                            <br>
+                                                                            <span>Select Picture</span>
+                                                                            <div class="asom-fileupload" data-upload-css-class="ui-button ui-button-primary font-size-40"
+                                                                                 data-multiple="false" data-button-text="+"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <div class="margin-t-20 row ">
+                                                        <div class="col-sm-9 col-sm-push-3">
+                                                            <button class="ui-button ui-button-flat-primary ui-button-md ">
+                                                                <i class="ion-android-add"></i>&nbsp; Add Contact</button>
+                                                        </div>
+                                                    </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+
+                                    </uib-tab>
+                                    <uib-tab heading="Transactions">
+                                        <div class="pad20 min-h200">
+                                            Transaction Details
+                                        </div>
+                                    </uib-tab>
+                                    <uib-tab heading="Documents">
+                                        <div class="pad20 min-h200">
+                                            Documents Details
+                                        </div>
+                                    </uib-tab>
+                                    <uib-tab heading="Accounting">
+                                        <div class="pad20 min-h200">
+                                            Accounting Details
+                                        </div>
+                                    </uib-tab>
+                                    <uib-tab heading="Meetings / Events">
+                                        <div class="pad20 min-h200">
+                                            Meeting &amp; Events Details
+                                        </div>
+                                    </uib-tab>
+                                </uib-tabset>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="min-h300  margin-30  ">
+                    <p>New UI</p>
+                    <div class="card-container card-4">
+                        <div class="card">
+                            <div class=" centralize bg-success pad10 min-h100">
+
+                                <div class="card-picture pad10 " >
+                                    <div class="pic" style="background-image: url('../../images/Fani-kayode.jpg');">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" pad10 min-h200 card-content">
+                                <p>This What i Meant</p>
+                                <p>This What i Meant</p>
+                                <p>This What i Meant</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class=" centralize bg-success pad10 min-h100">
+
+                                <div class="card-picture pad10 " >
+                                    <div class="pic" style="background-image: url('../../images/Temisan-Omatseye.jpg');">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" pad10 min-h200 card-content">
+
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class=" centralize bg-success pad10 min-h100">
+
+                                <div class="card-picture pad10 " >
+                                    <div class="pic" style="background-image: url('../../images/ikye.PNG');">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" pad10 min-h200 card-content">
+
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class=" centralize bg-success pad10 min-h100">
+
+                                <div class="card-picture pad10 " >
+                                    <div class="pic" style="background-image: url('../../images/user_avar_female.png');">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" pad10 min-h200 card-content">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<script src="../../Scripts/jquery-1.10.2.js"></script>
+<!--<script src="../../Scripts/jquery.signalR-2.1.2.min.js"></script>-->
+<script src="../../Scripts/bootstrap.min.js"></script>
+<script src="../../Scripts/moment/moment.js"></script>
+<script src="../../Scripts/asom_utils.js"></script>
+<script src="../../Scripts/lodash/lodash.min.js"></script>
+<script src="../../Scripts/highchart4/highcharts.js"></script>
+<script src="../../Scripts/highchart4/highcharts-3d.js"></script>
+<script src="../../Scripts/greensock-js/src/minified/TweenMax.min.js"></script>
+<script src="../../Scripts/greensock-js/src/minified/jquery.gsap.min.js"></script>
+<script src="../../Scripts/ng/angular.js"></script>
+<script src="../../Scripts/ng/angular-sanitize.min.js"></script>
+<script src="../../Scripts/ng/angular-messages.js"></script>
+<script src="../../Scripts/ng/angular-aria.min.js"></script>
+<script src="../../Scripts/ng/angular-animate.js"></script>
+<script src="../../Scripts/ng/angular-material.js"></script>
+<!--<script src="../../Scripts/ng/select.min.js"></script>-->
+<!--<script src="../../Scripts/ng/ui-bootstrap-tpls-0.14.3.min.js"></script>-->
+<!--<script src="../../Scripts/ng/angular-ui-router.min.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/effectiv.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/transactionModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/inventoryModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/crmModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/settingsModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/appNavModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/menuModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/themeModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/toastModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/fileUploadModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/userIdentityModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/signalrModule.js"></script>-->
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@using System.Web.Optimization
+@using asom.apps.web.inOut.Models
+<!DOCTYPE html>
+<html ng-app="setupModule">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.PageTitle - @AppInfo.Get.AppName Setup</title>
+    <link rel="shortcut icon" href="@AppInfo.Get.AppIconUrl" type="image/x-icon" />
+    <link href="~/styles/btrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/styles/ionic/css/ionicons.min.css" rel="stylesheet" />
+    @Styles.Render("~/base/css")
+    <link href="~/styles/themes/asom/theme-asom.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="bg-primary ">
+    <div class="container-fluid bg-primary">
+        <div class="min-h50 centralize pad10">
+            <img src="@AppInfo.Get.AppLogoUrl" width="170" />
+            <div class=" font-size-32 bold font-family-segeo-ui">
+                @AppInfo.Get.AppName Setup
+                <br />
+
+            </div>
+
+        </div>
+        <div class="pad10">
+
+            @RenderBody()
+
+        </div>
+
+        <div class="text-center pad20 ">
+            Copyright &copy; @DateTime.Now.Year @AppInfo.Get.AppName @AppInfo.Get.AppTitle All Right reserved. <br />
+            For more info call @AppInfo.Get.AppCompanyName on @AppInfo.Get.AppCompanyPhone
+            <br />
+
+
+
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/required/libs")
+
+    @Scripts.Render("~/inout/Init")
+    @Html.Partial("ui/_urls")
+
+</body>
+</html>
+
+

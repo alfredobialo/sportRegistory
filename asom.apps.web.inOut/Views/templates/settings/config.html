@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<md-tabs md-dynamic-height >
+    <md-tab label="Configure">
+        <md-content>
+            <div class="row pad30" >
+                <div class="col-sm-12">
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </md-content>
+
+    </md-tab>
+
+    <md-tab label="Theme Setting" class="theme-caption-color">
+        <md-content >
+            <div class="pad20 ">
+                <p class="font-size-38 theme-caption-color">
+                    <i class="ion-gear"> </i>
+                    Choose a Theme
+                </p>
+                <span class="font-size-18">
+                    Your Brand makes your business stand out from your competitors, Choose a theme that is best suited for your Brand
+                    <br />
+                    Click on a Theme to see a Preview, if you want the selected theme, <button class="ui-button ui-button-success" ng-click="saveTheme()">Save theme</button>
+                </span>
+            </div>
+            <div class="row margin-l-30">
+
+                <a href="" ng-click="selectTheme(t)"
+                   class="display-block col-sm-3 min-h200 margin-10 shadow bg-white radius text-center "
+                   ng-repeat="t in themes" ng-style="{'background-image':'url({{t.thumbnail}})', 'background-size' :'cover' }">
+                    <div ng-show="t.isActive" style="font-size: 40px; width: 60px; height: 60px; margin: 60px auto;"
+                         class="theme-bg-color border-radius-circle shadow-stronger pad10">
+                        <i class="ion-checkmark-round color-white"></i>
+                    </div>
+                </a>
+
+
+            </div>
+        </md-content>
+
+    </md-tab>
+</md-tabs>
+
+<uib-tabset >
+    <uib-tab heading="Application Settings">
+        <div class="pad20">
+            <div class="pad5">
+                App Settings
+            </div>
+        </div>
+    </uib-tab>
+
+    <uib-tab heading="Theme Settings">
+        <div class="pad20">
+            <div class="pad5">
+
+            </div>
+        </div>
+    </uib-tab>
+
+</uib-tabset>
+</body>
+</html>

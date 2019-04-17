@@ -1,0 +1,102 @@
+﻿<div class="pad5">
+  <p class="pad10 divider font-size-16">Basic Application Settings</p>
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="pad10">
+        <p class="pad10 divider font-size-18"> Admin  Accounts </p>
+        <p>
+          Define admin account that will receive Notifications of important events
+          <br>
+          <small class="color-red bold">These account must be valid to avoid issues</small></p>
+
+        <input type="text" class="ui-input font-size-14 ui-required ui-input-border  " ng-model="settings.tag2" maxlength="200"
+               placeholder="Admin UserId (Seperate multiple with comma)"
+        >
+        <p class="divider pad10"></p>
+        <label  class="pad10 font-size-13" ng-class="{'bg-highlight-red' : !settings.blockPasswordChange}" for="chkx0qw">
+          <input id="chkx0qw" type="checkbox"
+                 ng-model="settings.blockPasswordChange">
+          &nbsp; Block Password Change
+
+        </label>
+
+
+        <form method="POST" name="frmSettings" novalidate role="form">
+          <div class="border-bottom-thick bg-highlight-blue  shadow-sm   border-radius pad10">
+            <div class="row">
+              <div class="col-sm-12">
+
+
+
+                <div>
+                  <p class="divider  font-size-15">Cash Currency Settings</p>
+                  <div class="pad10">
+                    <div class="row">
+                      <div class="col-sm-4">Currency Symbol <br><input type="text" class="ui-input ui-input-bordered"
+                                                   ng-model="settings.currencySetting.currencySymbol"></div>
+                      <div class="col-sm-4">Currency Name <br><input type="text" class="ui-input ui-input-bordered"
+                                                   ng-model="settings.currencySetting.currencyName"></div>
+                      <div class="col-sm-4">Currency Short Name <br><input type="text" class="ui-input ui-input-bordered"
+                                                   ng-model="settings.currencySetting.currencyAbbrv"></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="border-bottom-thick bg-highlight margin-t-10  shadow-sm   border-radius pad10">
+            <div class="row">
+              <div class="col-sm-12">
+                <div>
+                  <p class="divider  font-size-15">Bitcoin Currency Settings</p>
+                  <div class="pad10">
+                    <div class="row">
+                      <div class="col-sm-4">Currency Symbol <br><input type="text" class="ui-input ui-input-bordered"
+                                                                       ng-model="settings.bitcoinSymbol"></div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pad20 margin-t-10" ng-class="{'bg-highlight-red' : settings.blockRegistration}">
+            <label for="chkRegEnable">Block Registration of Users  &nbsp; <input type="checkbox" ng-model="settings.blockRegistration" id="chkRegEnable"></label>
+            <span ng-if="settings.blockRegistration">
+              <br>
+                <span class="bold color-red">Registration is Currenly not <span class="font-size-16">Allowed</span></span>
+            </span>
+            <span ng-if="!settings.blockRegistration">
+              <br>
+                <span class="bold color-green">Registration is Currenly <span class="font-size-16">Active for Users</span> <i class="ion-checkmark font-size-28 color-green-lite"> </i></span>
+            </span>
+          </div>
+
+
+        </form>
+      </div>
+
+    </div>
+    <div class="col-sm-5">
+      <div class="pad10">
+        <div class="pad10 bg-highlight">
+          <p>Transaction Label : What would you want to call your <b>Transaction Menu</b>?</p>
+          <input type="text" class="ui-input ui-required font-size-16 w70" ng-model="settings.transactionLabel">
+        </div>
+        <p class="pad5 divider">Other Options</p>
+        <p>Get Help Label : What would you want to call your <b>Get Help Menu</b>?</p>
+        <input type="text" class="ui-input ui-required font-size-14 w70" ng-model="settings.getHelpLabel">
+        <div class="divider margin-t-10 margin-b-10"></div>
+        <p>Provide Help Label : What would you want to call your <b>Provide Help Menu</b>?</p>
+        <input type="text" class="ui-input ui-required font-size-14 w70" ng-model="settings.provideHelpLabel">
+      </div>
+      </div>
+
+    </div>
+
+
+
+
+</div>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<asom.apps.web.inOut.Models.Navigation.SubMenuHeader>
+ @if (Model != null)
+ {
+    <ul class="list-unstyled">
+        @foreach (var subMenu in Model)
+        {
+            <li>
+                <a href="" class="@(subMenu.IsActive ? "theme-left-nav-active-bgcolor" : "theme-left-nav-active-bgcolor") menu">@subMenu.Name </a>
+                <ul class="list-unstyled">
+                    @foreach (var menu in subMenu.Menus)
+                    {
+                        <li><a href="@menu.Url" class="@(menu.IsActive ? "active-submenu" : null)">@menu.Name</a></li>
+                    }
+
+                </ul>
+            </li>
+        }
+    </ul>
+ }
+
+

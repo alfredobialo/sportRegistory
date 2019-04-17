@@ -1,0 +1,30 @@
+﻿@using asom.apps.web.inOut.Models.Settings
+@{
+  // Use a View Bag to get Company Info
+  CompanyInfoModel org =   CompanyInfoModel.Get;
+  string terms = "No Info for 'Terms & conditions', Please check back later";
+  if (org != null && !string.IsNullOrEmpty(org.Note))
+  {
+     terms = org.Note.Replace("\n", "<br />");
+  }
+
+
+}
+<div class="container">
+  <div class="jumbtron ">
+
+    <h1>Terms &amp; Conditions</h1>
+
+  </div>
+  <div class="pad30 font-size-17">
+    <div class="row">
+      <div class="col-8">
+
+        @Html.Raw(terms)
+      </div>
+
+
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,127 @@
+﻿@using System.Web.Optimization
+@using asom.apps.web.inOut.Models
+@using asom.apps.web.inOut.Models.Navigation
+@{
+
+  string msg = AppInfo.Get.DisplayLicenseInfoIfNeccessary();
+}
+<!DOCTYPE html>
+<html ng-app="ebaam">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{pageTitle}} - @AppInfo.Get.AppTitle @AppInfo.Get.AppVersionCode</title>
+  @Html.Partial("ui/_head_section")
+  <link ng-if="!!selectedTheme.url" ng-href="~/styles/themes/{{selectedTheme.url}}" rel="stylesheet"/>
+  @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+@Html.Partial("ui/_nav_bar", true)
+<div class="container-fluid theme-bg-color">
+  <div class="row " style="margin-top: 70px">
+    <div class="action-center min-h450 " style="">
+      <div class="margin-b-50 ">
+        <div class="min-h10 text-center  margin-t-20" ng-controller="UserIdentityController">
+
+          <div class="current-user-box">
+            @{
+
+              string displayName = "";
+              UserIdentityModel id = IdentitySession.GetOrCreate() as UserIdentityModel;
+              try
+              {
+                displayName = id.DisplayName;
+                if (id.DisplayName.Length >= 14)
+                {
+                  displayName = id.DisplayName.Split(new String[] {" "}, StringSplitOptions.RemoveEmptyEntries)[0];
+                }
+              }
+              catch
+              {
+                displayName = id.DisplayName;
+                //throw;
+              }
+            }
+
+            @Html.Partial("ui/_current_user_avartar", true)
+            @if (id != null)
+            {
+              <p class="current-user-name font-size-14 margin-t-10">
+                <a href="@Url.Action("Index", "Home")" title="Goto Home page">
+                  <i class="ion-ios-home-outline font-size-17"> </i>
+                </a> &nbsp;@displayName <span ng-show="!uploading">(<a href="@Url.Action("Logout", "Home")" class="font-size-13">Log Out <i class="ion-lock-combination"></i></a>)</span>
+              </p>
+            }
+            else
+            {
+              <br/>
+              <a href="@Url.Action("Logout", "Home")" class="font-size-13">Log Out <i class="ion-lock-combination"></i></a>
+            }
+
+          </div>
+
+        </div>
+        <div class="margin-t-20 action-menu min-h100">
+          <ui-view name="left-menu">
+            <p class="pad20">Loading Menus...</p>
+          </ui-view>
+        </div>
+        @**@
+        @*                @Html.Partial("ui/_company_logo-side_menu")*@
+      </div>
+    </div>
+
+    <div id="action-canvas" class=" action-canvas text-left">
+  
+      <div class="pad200 action-canvas-content min-h450">
+
+
+        <ui-view name="" class="animated anim-ui-view" @*autoscroll="true"*@>
+
+          @RenderBody()
+
+        </ui-view>
+
+      </div>
+
+      <div class="visible-xs hide-farleft">
+        @Html.Partial("ui/menu/top/_mobileMainMenu")
+      </div>
+      @*                <div class="min-h300"></div>*@
+      @*                <div class="text-center pad20">*@
+      @*                    Copyright &copy; 2016 @AppInfo.Get.AppName @AppInfo.Get.AppTitle All Right reserved. <br/>*@
+      @*                    For more info call @AppInfo.Get.AppCompanyName on @AppInfo.Get.AppCompanyPhone*@
+      @**@
+      @*                </div>*@
+    </div>
+
+
+  </div>
+  @Html.Partial("_footer_ui")
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/required/components")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/signalR/hubs"></script>
+@Scripts.Render("~/required/libs")
+
+@Scripts.Render("~/inout/lib")
+@Html.Partial("ui/_urls")
+<!--Start of Tawk.to Script-->
+
+@if (!string.IsNullOrEmpty(msg))
+{
+  <script type="text/javascript">
+
+
+                // Toast.showErrorStaticPopup("License Issue", "<p class='font-size-16'>@msg</p>");
+
+  </script>
+}
+@RenderSection("scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.web.inOut.Models
+@{
+    bool hasAccess =UserIdentityModel.HasAuthority(AppPermissions.MANAGE_APP_SETTINGS);
+
+}
+<div class="bg-success" asom-toolbar offset-to-element-id="app-main-menu">
+    <div class="pad15">
+        <p class="font-size-17 ">
+            <i class="ion-ios-settings-strong font-size-26"> </i>
+
+            <span>Application Settings</span>
+        </p>
+
+    </div>
+    <div class="bg-white-gradient pad10">
+      @if (hasAccess)
+      {
+          <button ng-disabled="loading" class="btn btn-primary btn-sm" ng-click="saveSettings()">Save All Settings</button>
+          <button class="btn bg-accent-color btn-sm pull-right" ng-click="saveTheme()">Save Current Theme</button>
+      }
+      else
+      {
+          <p class="font-size-15 text-center">Hello {{currentUser.displayName }}, You are not Authorize to Modify any settings on this Page</p>
+      }
+    </div>
+  <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+</div>
+
+<div class=" pad20 bg-white shadow-sm   ">
+    <uib-tabset>
+        <uib-tab heading="Basic Settings " select="selectSettingsTab(1)">
+            <div class="pad20 min-h200">
+                @Html.Partial("ui/_partials/settings/sub_ui/basic_settings")
+            </div>
+        </uib-tab>
+        <uib-tab heading="Accounting Settings" >
+            <div class="pad20 min-h200">
+                @Html.Partial("ui/_partials/settings/sub_ui/_accountintSettings")
+            </div>
+        </uib-tab>
+
+        <uib-tab heading="E-Mail & SMS Settings">
+            <div class="pad20 min-h200">
+                @Html.Partial("ui/_partials/settings/sub_ui/_emailSettings")
+            </div>
+        </uib-tab>
+
+        <uib-tab heading="{{themes.length}} Themes Settings" select="selectSettingsTab(2)">
+            <div class="pad20 min-h200">
+                @Html.Partial("ui/_partials/settings/sub_ui/_themeSettings", hasAccess)
+            </div>
+        </uib-tab>
+        @if (hasAccess)
+        {
+            <uib-tab heading="'@AppInfo.Get.AppName' Engine Config">
+                <div class="pad20 min-h200">
+                    @Html.Partial("ui/_partials/settings/sub_ui/_appEngineConfig")
+                </div>
+            </uib-tab>
+        }
+
+    </uib-tabset>
+</div>

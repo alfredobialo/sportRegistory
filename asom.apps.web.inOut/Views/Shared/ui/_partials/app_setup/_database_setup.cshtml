@@ -1,0 +1,43 @@
+﻿@using asom.apps.inOut.core.config
+@using asom.apps.web.inOut.Models
+<form novalidate name="frmDatabaseInstall" class="" role="form" autocomplete="on">
+    <div class="text-left">
+        <p class="font-size-20 text-center divider theme-caption-color"> Database Script Setup</p>
+        <span class="font-size-13">
+            <span class="bold">@AppInfo.Get.AppName database is Designed to run on SqlServer Database 2012 or later</span>
+            <br>
+            The is web installation tool for public web hosting. so if your hosting company have provided the neccessary server connection
+            credentials, please specify the fields provided.
+            Specify the server where @AppInfo.Get.AppName @AppInfo.Get.AppTitle database will be installed
+            
+        </span>
+        <div class="pad10  margin-t-10">
+            <div class="pad10">
+                <span class="font-size-16">Database Name Given to you by Web Host</span>
+
+                <input type="text" class="ui-input ui-input-border font-size-26" value=""/>
+            </div>
+            <div class="pad10">
+                <div class="min-h300 pad10 overflow-scroll max-height-300">
+                    <p>
+                       
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-4  clear-boostrap-padding-in-row">
+            </div>
+            <div class="col-sm-8  clear-boostrap-padding-in-row">
+                <button class="btn btn-md btn-flat-primary"
+                        ng-disabled="processing"
+                        ng-if="!processing"
+                        ng-click="installDatabase()">
+                    Install Database
+                </button>
+
+            </div>
+        </div>
+    </div>
+</form>

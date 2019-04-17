@@ -1,0 +1,86 @@
+﻿@using System.Web.Optimization
+
+@{
+    bool isAdminSection = ViewBag.IsAdminSection ?? false;
+    ViewBag.IsAdminSection = false;
+}
+<!DOCTYPE html>
+<html ng-app="ebaamStartUp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="@ViewBag.MetaKeyword" />
+    <meta name="description" content="@ViewBag.MetaDescription" />
+@*    <link rel="shortcut icon" href="@AppInfo.Get.AppIconUrl" type="image/x-icon"/>*@
+    @RenderSection("headerMeta", false)
+    <title>@ViewBag.Title </title>
+@*    <link rel="stylesheet" href="../../styles/base/recdot-theme-base.css">*@
+            @Html.Partial("ui/_head_section")
+@*            <link href="~/styles/base/recdot_first_theme-base.css" rel="stylesheet" />*@
+        <link href="~/styles/base/recdot-theme-base.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class=" text-left">
+       
+        @if (ViewBag.ShowTopBar ?? false)
+        {
+
+            <div class="min-h50 bg-highlight top-bar hidden-xs" id="popup-menu">
+                <div class="billboard-nav">
+                    @if (IsSectionDefined("topBar"))
+                    {
+
+                        @RenderSection("topBar", false)
+                    }
+                    else
+                    {
+                        <div class="pad10 ">
+                            <div class="row">
+                                <div class="col-sm-4 pad20 shadow  min-h100">
+                                    <p class="font-size-14 ">Place Contents Here</p>
+                                </div>
+                                <div class="col-sm-4 pad20 shadow  min-h100">
+                                    <p class="font-size-14">Override this Section on your view</p>
+                                </div>
+                                <div class="col-sm-4 pad20 shadow  min-h100">
+                                    <p class="font-size-14">Powered By Asom Services for RECDOT</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        }
+        else
+        {
+
+            @RenderSection("topBar", false)
+        }
+
+        <div class=" action-canvas-content min-h450">
+            <div class="row">
+                
+                <div class="col-xs-12 ">
+                    <div class="margin-t-100">
+                        
+                        @RenderBody()
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/required/libs")
+    @Scripts.Render("~/inout/Init")
+    @Html.Partial("ui/_urls")
+    @RenderSection("scripts", required: false)
+</body>
+
+
+
+</html>

@@ -1,0 +1,271 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.web.inOut.Models
+<div class=" bg-success pad20" asom-toolbar offset-to-element-id="app-main-menu">
+    @if (UserIdentityModel.HasAuthority(AppPermissions.MANAGE_APP_SETTINGS))
+    {
+        <p class="font-size-14">You can edit your Company Profile</p>
+        <div>
+            <button class="btn  btn-primary" ng-disabled="loading" ng-click="execCommand()">
+                <i class="ion-android-sync"> </i> {{editModeText}}
+            </button>
+            <button class="btn  btn-default" ng-click="cancelEdit()" ng-show="isEditMode">
+                <i class="ion-android-cancel"> </i> Cancel
+            </button>
+
+        </div>
+    }
+    else
+    {
+        <p class="font-size-17">{{orgInfo.name}}</p>
+@*        <span>@User.Identity.Name</span>*@
+    }
+
+</div>
+<div class="margin-t-20 pad30">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class=" shadow-sm   bg-white border-radius ">
+                <div class="container-decor bg-primary" ng-show="!loading"></div>
+                <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+                <form name="frmEditCompany" class="pad20">
+                    <div class="row ">
+
+                        <div class="col-sm-12">
+                            <div class="text-left">
+                                <label class="control-label text-muted"
+                                       for="companyName">Company Name</label>
+                            </div>
+                            <div class="text-left">
+                                <input name="companyName" id="companyName"
+                                       ng-disabled="!isEditMode"
+                                       ng-model="orgInfo.name"
+                                       placeholder="Company Name"
+                                       type="text" class="ui-input font-size-24 ui-required"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="text-left">
+                                <label class="control-label text-muted">Contact Details</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="text-left">
+                                <input type="text"
+                                       ng-disabled="!isEditMode"
+                                       ng-model="orgInfo.channelInfo.address"
+                                       placeholder="Contact Address" class="ui-input ui-required"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="text-right"></div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="text-left">
+                                <input type="text"
+                                       placeholder="City"
+                                       ng-disabled="!isEditMode"
+                                       ng-model="orgInfo.channelInfo.city" class="ui-input"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="text-right"></div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="text-left">
+                                <input type="text"
+                                       ng-disabled="!isEditMode"
+                                       ng-model="orgInfo.channelInfo.phoneNumber"
+                                       placeholder="Phone Number" class="ui-input"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="text-right"></div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="text-left">
+                                <input type="text"
+                                       ng-disabled="!isEditMode"
+                                       ng-model="orgInfo.channelInfo.location"
+                                       placeholder="Location. eg : Imo" class="ui-input"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="text-left">
+                                <p class="bold">Other Details</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="text-left">
+                                <input type="text"
+                                       ng-disabled="!isEditMode"
+                                       ng-model="orgInfo.slogan"
+                                       placeholder="Slogan eg: Quality services.. " class="ui-input"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="text-right"></div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="text-left">
+                                <input type="email"
+                                       ng-disabled="!isEditMode"
+                                       name="txtEmail"
+                                       ng-model="orgInfo.email"
+                                       name="website"
+                                       placeholder="Email eg: @AppInfo.Get.AppCompanyEmail" class="ui-input"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="text-right"></div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="text-left">
+                                <input type="text"
+                                       ng-model="orgInfo.website"
+                                       name="website"
+                                       ng-disabled="!isEditMode"
+                                       placeholder="Website Address eg: @AppInfo.Get.AppCompanyWebsite" class="ui-input"/>
+                            </div>
+                        </div>
+
+                    </div>
+                  <div class="">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="text-left">About The Company</div>
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="text-left">
+                                    <textarea placeholder="About the Company Goes Here"
+                                              ng-disabled="!isEditMode"
+                                              ng-model="orgInfo.aboutCompany"
+                                              name="txtAbt"
+
+                                              rows="10" class="ui-input ui-input-border font-size-17"></textarea>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                    <div class="">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="text-left">Terms and Condition</div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="text-left">
+                                    <textarea placeholder="Terms and Conditions"
+                                              ng-disabled="!isEditMode"
+                                              ng-model="orgInfo.note"
+                                              name="txtNote"
+
+                                              rows="4" class="ui-input ui-input-border"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                  <div class="">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="text-left">FAQs</div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="text-left">
+                                    <textarea placeholder="Frequently Asked Questions"
+                                              ng-disabled="!isEditMode"
+                                              ng-model="orgInfo.faq"
+                                              name="txtFaq"
+
+                                              rows="4" class="ui-input ui-input-border"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+        </div>
+      <div class="col-sm-5 col-xs-12">
+
+        <div class="row bg-white shadow-sm  ">
+            <div class="bg-primary font-size-17 pad10">Company Identity Stamps</div>
+            <md-progress-linear ng-show="uploading" md-mode="indeterminate"></md-progress-linear>
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="pad20">
+                        <p class="font-size-13 text-muted">
+                            Select Primary Logo
+                        </p>
+                        <img src="@AppInfo.Get.AppLogoUrl" ng-src="{{companyImage.logo}}"
+                             alt="Company Logo" class="img-thumbnail" width="200"/>
+                        <p class=" pad10">
+                            <asom-file-upload class="btn btn-primary" ng-show="isEditMode"
+                                              file-change="uploadLogo(obj)"
+                                              upload-url="@Url.Action("UploadPubPicture", "Home")"
+                                              upload-text="Select Logo"></asom-file-upload>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row bg-white shadow-sm   margin-t-20">
+
+            <div class="row ">
+                <div class="col-sm-12">
+                    <div class="pad20">
+                        <p class="font-size-13 text-muted">
+                            Upload Home Page Banner
+                        </p>
+                        <span class="theme-caption-color">Upload Home page banner that will be use as a background picture for simple pages</span>
+                        <img src="@AppInfo.Get.AppLogoGrayUrl"
+                             ng-src="{{companyImage.signature}}"
+                             alt="Company Logo" class="img-thumbnail" width="200"/>
+                        <p class=" pad10">
+                            <asom-file-upload class="btn btn-primary" ng-show="isEditMode"
+                                              file-change="uploadSignature(obj)"
+                                              upload-url="@Url.Action("UploadBanner", "Home", new {width =2100, height = 790, quality=90 })"
+                                              upload-text="Select Banner"></asom-file-upload>
+                        </p>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div>
+

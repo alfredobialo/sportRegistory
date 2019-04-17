@@ -1,0 +1,230 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.inOut.core.model.org
+@using asom.apps.web.inOut.Controllers.BaseControllers
+@using asom.apps.web.inOut.Models
+@{
+    var appSettings = OrgAppSetting.Get();
+    bool authorizeEdit = UserIdentityModel.HasAuthority(AppPermissions.AUTHORIZATION_EDIT_USERS_ACCOUNT);
+    //    bool authorizeCreate = UserIdentityModel.HasAuthority(AppPermissions.HR_CREATE_EMPLOYEE);
+    bool authorizeDelete = UserIdentityModel.HasAuthority(AppPermissions.AUTHORIZATION_DROP_USERS_ACCOUNT);
+}
+
+<div class=" text-left">
+
+    <div class="row">
+
+        <div class="col-sm-7 col-xs-12 border-b-l-radius border-t-l-radius color-default">
+
+
+            <div class="  pad10 bg-white">
+
+                <p class="pad10 font-size-15">
+                    Fill The required Fields to complete this process : <small class="text-danger">Required field has thick 'underline'</small>
+                </p>
+
+                <form novalidate role="form" name="frmEmployee" class="form-horizontal">
+
+                    <div class="pad20">
+                        <div class="row">
+                            <div class="col-sm-3"><span>Name &nbsp; <i class="ion-person font-size-13"></i></span></div>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <!--uib-tooltip="First Name" tooltip-placement="bottom"--><!--uib-tooltip="Last Name" tooltip-placement="bottom"-->
+                                    <div class="col-sm-12">
+                                        <input type="text" name="txtDisplayName"
+                                               ng-model="u.displayName"
+                                               required
+                                               maxlength="50"
+                                               ng-maxlength="50"
+                                               class="ui-input  ui-required font-size-20"
+                                               ng-class="{'ui-invalid-field' : frmEmployee.$dirty && frmEmployee.txtDisplayName.$dirty && frmEmployee.txtDisplayName.$invalid }"
+                                               placeholder="Display Name">
+                                        <ng-messages for="frmEmployee.txtDisplayName.$error" ng-if="frmEmployee.txtDisplayName.$dirty">
+                                            <ng-message when="required" class="text-danger">Display Name field is required</ng-message>
+                                            <ng-message when="maxlength" class="text-danger">Must not exceed 50 characters</ng-message>
+                                        </ng-messages>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-sm-3"><span>User Id</span></div>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-12">
+
+                                        <p class="font-size-13 ui-input bold" > {{::u.id}}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                      <div class="row  ">
+                        <div class="col-sm-3"><span>Email Address</span></div>
+                        <div class="col-sm-9">
+                          <div class="row">
+                            <div class="col-sm-12">
+
+                                <p  class="bold ui-input ">{{::u.email || 'N/A'}}</p>
+
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                        <div class="row">
+                            <div class="col-sm-3"><span>Status</span></div>
+                            <div class="col-sm-9">
+                                <div class="row pad10-l-r">
+                                    <div class="col-sm-6">
+
+                                        <label>
+                                            <input type="radio" ng-model="u.gender"
+                                                   value="Male" ng-checked="true"
+                                                   name="rdGender"> &nbsp; Male
+                                        </label>
+                                        &nbsp;&nbsp;
+                                        <label>
+                                            <input type="radio" ng-model="u.gender"
+                                                   value="Female"
+                                                   name="rdGender"> &nbsp; Female
+                                        </label>
+
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select name="cboTitle" class="ui-input" ng-model="u.title">
+                                            <option value="Mr">Mr</option>
+                                            <option value="Mrs">Mrs</option>
+                                            <option value="Miss">Miss</option>
+                                            <option value="Master">Master</option>
+                                            <option value="Dr">Dr</option>
+                                            <option value="Prof">Prof</option>
+                                            <option value="Engr">Engr</option>
+                                            <option value="HRH">HRH</option>
+                                            <option value="Sis.">Sis.</option>
+                                            <option value="Bro.">Bro.</option>
+                                            <option value="">None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select name="cboMaritalStatus" class="ui-input" ng-model="u.maritalStatus">
+                                            <option selected value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Seperated">Seperated</option>
+                                            <option value="Divorced">Divorced</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3"><span>Date Registered</span></div>
+                            <div class="col-sm-9">
+
+
+                                       <p class="bold ui-input">{{::u.dateCreated | date:'dd-MMM-yyyy'}}</p>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+
+        </div>
+        <div class="col-sm-5 col-xs-12 clear-boostrap-padding-in-row  ui-bg-color ">
+            <div class="pad10">
+                <p class="font-size-15 divider">More Options <span ng-show="!!u.displayName"> for <b>{{ u.displayName}} </b></span></p>
+                <div class="centralize">
+                    <div >
+@*                        @#1#if (authorizeEdit) {#1#*@
+@**@
+@*                        <small>Click on the button below to select a Passport picture for this uloyee</small>*@
+@*                        <br/>*@
+@*                        <asom-file-upload class="btn-primary btn "*@
+@*                                          file-change="uploadPicture(obj)"*@
+@*                                          upload-url="@Url.Action("UploadFileToServer", "Home",*@
+@*                                                  new {directoryPath = "uloyee-profile\\pictures", allowedExtensions = AllowedExtensionsConstant.IMAGE_FILE_EXTENSION})"*@
+@*                                          upload-text="Select Passport"></asom-file-upload>*@
+@*                      $1$ }#1#*@
+
+                    </div>
+                    <div class="card-picture-xlarge">
+                        <div class="pic" style="background-image: url('@AppInfo.Get.DefaultAvarter()')"ng-style="u.passportUrl">
+
+                        </div>
+
+
+                    </div>
+                    <div class="text-center pad10 font-size-16">
+                        <span >{{::u.displayName}} </span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div>
+    <div class="margin-t-20">
+        <uib-tabset>
+           
+           
+            <uib-tab heading="Login Management">
+                <div class="div min-h200 pad20 bg-white">
+                    <p class="font-size-18">Use This section to help manage <span class="bold font-size-17">{{u.displayName}}</span> Effectively</p>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="pad10">
+                          <div>
+                          <p class="pad10 divider font-size-14">User Login Secret</p>
+                          <p>Password is : <span class="bold font-size-14">{{u.password}}</span>  <span class="pull-right">
+                            <button class="btn btn-danger btn-sm" ng-disabled="loadingPassword" ng-click="viewPassword(u)">Show Password</button></span></p>
+
+                            <p class="divider pad10 font-size-14 ">Block / Activate user Account</p>
+
+                            <div class="pad15 border-radius cursor-pointer shadow-sm  -stronger"
+                                 ng-click="performBlockAction(u)"
+                                 ng-class="{'bg-danger animated fadeIn' : u.isBlocked, 'bg-primary animated fadeIn'  : !u.isBlocked}">
+                                <p class="font-size-16 text-center">
+                                  This Account is Currenly <span class="bold font-size-15">{{(u.isBlocked ? "Blocked" : "Not Blocked")| uppercase}}</span></p>
+                                  <span class="pad10" ng-show="u.isBlocked">
+                                     <i class="ion-alert-circled font-size-24"></i>  &nbsp; {{u.displayName}} would not access his/her Account again until this account is unblocked
+                                  </span>
+                                  <span class="pad10" ng-show="!u.isBlocked">
+                                    <i class="ion-ios-checkmark-outline font-size-24"></i>  &nbsp; {{u.displayName}} account will have full access to all services on this platform
+                                  </span>
+
+                            </div>
+                        </div></div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="pad10">
+                          <p class="pad10 divider font-size-14">History</p>
+                          <div class="pad10">
+                            Date Created  :<span
+                            class="bold font-size-15">{{u.dateCreated | date:'dd / MMM / yyyy'}}</span>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                </div>
+            </uib-tab>
+          
+        </uib-tabset>
+    </div>
+</div>
+</div>
+

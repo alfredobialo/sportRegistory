@@ -1,0 +1,130 @@
+﻿@using asom.apps.inOut.core.model.org
+@{
+
+    var appSettings = OrganizationInfo.GetSettings();
+
+}
+
+
+
+<div class=" bg-success " asom-toolbar offset-to-element-id="app-main-menu">
+  <div class="pad10">
+    <div class="row">
+      <div class="col-sm-8">
+        <p class="font-size-17 "> Manage @appSettings.GetHelpLabel Tickets</p>
+      </div>
+      <div class="col-sm-4">
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="bg-white-gradient pad10 min-h50">
+    <div class="row">
+      <div class="col-sm-5">
+        <a href=""
+           class="link-button-default " ng-click="reloadTicket()">
+          <i class="ion-refresh"></i>
+        </a>
+
+
+      </div>
+      <div class="col-sm-7">
+
+        <div class="">
+          <asom-data-pager pager-source="criteria" on-page-click="gotoPage(index)"></asom-data-pager>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    <div ng-show ="loading">
+        @Html.Partial("ui/_partials/_loading_bar")
+    </div>
+</div>
+
+<div class="pad10 margin-20">
+  <p class="pad20 border-bottom font-size-17">Manage Get Help Tickets</p>
+
+
+
+  <div class="pad10 bg-white">
+    <div class="table-responsive pad10">
+      <table class="table table-stripped" ng-init="superMerger=true">
+        <tr class="bg-default">
+          <th class="w5">S/N</th>
+          <th class="w30">Code</th>
+          <th class="w15">Amount to Pay</th>
+          <th class="w15">User</th>
+          <th class="w15">Status</th>
+          <th class="w10"></th>
+        </tr>
+        <tr ng-if="tickets.length==0">
+          <td colspan="6">
+            <p class="font-size-18 text-center text-muted">No Tickets Available Please check back later</p>
+          </td>
+        </tr>
+
+        <tr  ng-repeat-start="t in tickets track by t.id" ng-class="{'bg-success shadow-sm  -stronger-spread' : t.showDetails}" class="anim-if animated border-bottom">
+          <td> <span class="font-size-14">{{$index+1}}</span></td>
+          <td>
+            <span class="pull-right bold">{{t.group}}</span>
+            {{t.id}}
+            <br>
+              <span class="bold font-size-12">Date Issued : {{t.dateOpen|date:'dd-MMM-yyyy'}}</span>
+              <div class="bg-highlight-blue shadow-sm   border-radius text-center">
+                  <p class="pad5 bg-primary text-center" ng-style="{'width' : '{{t.percentageCompleted}}%'}"></p>
+
+              </div>
+            <p class="text-center">{{t.percentageCompleted|number}}% Progress, &nbsp; <span class="bold font-size-9">Matures on or before {{t.maturesOn | date:'dd-MMM-yyyy'}}</span></p>
+
+          </td>
+          <td>  <span class="font-size-24">
+           {{t.amountInvolved|money}} <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span>
+         </span></td>
+          <td>{{t.createdBy}}
+            <!--<br>-->
+            <!--<b>{{t.userInfo.displayName}}</b>-->
+
+          </td>
+          <td class="font-size-14">{{t.status}}</td>
+          <td> <button ng-click="t.showDetails = !t.showDetails" class="btn-success  btn btn-xs">Manual Merge</button></td>
+        </tr>
+        <tr ng-repeat-end ng-show="t.showDetails" class="bg-highlight-red">
+            <td colspan="6">
+              <button  ng-click="superMerger = false" class="btn btn-success btn-xs">Manual Merge</button>
+                <button  ng-click="superMerger= true" class="btn btn-primary btn-xs">Super Merge</button>
+
+                <div class="text-center pad10">
+                    <span class="font-size-14 theme-caption-color">If this ticket was generated due to error, you can remove it instead of merging it with users</span>
+                    <button class="btn btn-danger btn-sm" ng-click="deleteTicket(t)">Delete Ticket</button>
+
+                </div>
+                <div class=" w90 clearfix margin-t-10 centralize">
+                  <div class="margin-t-10 animated anim-if" ng-hide="superMerger">
+                    @Html.Partial("ui/_partials/transaction/user_specific/_admin_gh_manual")
+                  </div>
+
+                    <div class="margin-t-20 pad20 animated anim-if bg-white-gradient shadow-sm  " ng-show="superMerger">
+
+                          <p class="divider pad10">Automatically Generate Provide HELP ticket that will payoff this User</p>
+                        <span class="bold">Enter User Id</span>
+                      <input type="text" class="ui-input-border ui-input font-size-18 w40" ng-model="userId">
+                      <button class="btn btn-success btn-sm" ng-click="superMerge(t, userId)">Super Merge</button>
+
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+
+
+</div>

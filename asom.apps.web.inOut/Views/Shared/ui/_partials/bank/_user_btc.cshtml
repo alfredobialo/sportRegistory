@@ -1,0 +1,93 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.web.inOut.Models
+@{
+    bool hasAdminAccess = new IdentityStore().HasAuthority(AppPermissions.CORE_APP_FUNCTIONS_MANAGER);
+}
+
+@if (hasAdminAccess)
+{
+    <div class=" bg-white   min-h100">
+        <div class="" ng-show="loading"> @Html.Partial("ui/_partials/_loading_bar")</div>
+
+        <div class="pad20">
+            <span class="bold font-size-17">Create or Edit Performer profile</span>
+
+            <div class="pad5">
+                <form novalidate name="frmPerformer" ng-submit="save(performer)">
+
+                    <p class="pad10 ">
+                        <span class="bold">Full Name</span>
+                        <br>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text"
+                                       autocomplete="off"
+                                       name="txtFName"
+                                       placeholder="First Name"
+                                       ng-model="performer.firstName"
+                                       class="form-control-lg form-control w80"
+                                       ng-required="true" maxlength="300"
+
+                                       ng-class="{'ui-invalid-field' : frmPerformer.$dirty && frmPerformer.txtFName.$dirty && frmPerformer.txtFName.$invalid}">
+                            </div>
+                            <div class="col-6">
+                                <input type="text"
+                                       autocomplete="off"
+                                       name="txtLName"
+                                       placeholder="Last Name"
+                                       ng-model="performer.lastName"
+                                       class="form-control-lg form-control w80"
+                                       ng-required="true" maxlength="300"
+
+                                       ng-class="{'ui-invalid-field' : frmPerformer.$dirty && frmPerformer.txtLName.$dirty && frmPerformer.txtLName.$invalid}">
+
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <ng-messages for="frmPerformer.txtFName.$error" ng-if="frmPerformer.txtFName.$dirty">
+                            <ng-message when="required" class="color-red">Please Performer First name</ng-message>
+
+                        </ng-messages>
+                        <ng-messages for="frmPerformer.txtLName.$error" ng-if="frmPerformer.txtLName.$dirty">
+                            <ng-message when="required" class="color-red">Please Performer Last name</ng-message>
+
+                        </ng-messages>
+                    </p>
+                    <p class="pad10">
+                        <span class="bold">Nationality</span>
+                        <br>
+                        <input type="text"
+                               name="txtNal"
+                               ng-model="performer.nationality"
+                               class="form-control w60"
+                               ng-required="true" maxlength="16"
+                               ng-class="{'ui-invalid-field' : frmPerformer.$dirty && frmPerformer.txtNal.$dirty && frmPerformer.txtNal.$invalid}">
+                        <br>
+
+                        <ng-messages for="frmPerformer.txtNal.$error" ng-if="frmPerformer.txtNal.$dirty">
+
+                            <ng-message when="required" class="color-red">Enter Nationality. this field is required</ng-message>
+                        </ng-messages>
+                    </p>
+                    <p class=" text-right margin-t-10">
+
+                        <button class="btn btn-success"
+                                ng-disabled="frmPerformer.$invalid || loading">
+                            Save Changes
+                        </button>
+                    </p>
+                   
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+}
+else
+{
+    @Html.Partial("ui/_partials/_access_denied")
+}

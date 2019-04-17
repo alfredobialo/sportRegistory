@@ -1,0 +1,52 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.web.inOut.Models
+@{
+    bool authorizeEdit = UserIdentityModel.HasAuthority(AppPermissions.AUTHORIZATION_EDIT_USERS_ACCOUNT);
+    //    bool authorizeCreate = UserIdentityModel.HasAuthority(AppPermissions.HR_CREATE_EMPLOYEE);
+    //    bool authorizeDelete = UserIdentityModel.HasAuthority(AppPermissions.HR_DROP_EMPLOYEE);
+}
+
+<div class=" ">
+    <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+    <div class="card-container card-4" ng-class="{'card-4':viewMode == 1,'card-3':viewMode == 2,'card-5':viewMode == 3}">
+        <div class="card anim-repeat animated" ng-repeat="emp in employees">
+            <div class=" centralize bg-accent-color pad10 min-h100">
+
+                <div class="card-picture pad10 top-pos-42px">
+                    <div class="pic" ng-style="{'background-image': 'url({{emp.passportUrl}})'}">
+
+                    </div>
+                </div>
+            </div>
+            <div class=" card-content">
+                <p class="card-header">
+                    <a href="" ng-click="searchByField(emp.title)"> {{emp.title}} </a>{{emp.fullName}}
+                </p>
+
+                <p class="text-center theme-caption-color card-body">
+                    <a href="" ng-click="searchByField(emp.lga)">{{emp.lga}} Lga </a> <br />
+                    <a href="" ng-click="searchByField(emp.stateOfOrigin)">{{emp.stateOfOrigin}} State</a>
+                </p>
+                @if (authorizeEdit)
+                {<p class="text-center theme-caption-color">
+                    @*                    <a ng-click="sortAsc()" href uib-tooltip="Sort Ascending"><i class="ion-arrow-up-a theme-caption-color"></i> </a>*@
+                    &nbsp; {{emp.id}} &nbsp;
+                    @*                    <a href="" ng-click="sortDesc()" uib-tooltip="Sort Descending"><i class="ion-arrow-down-a theme-caption-color"></i> </a>*@
+                </p> }
+
+            </div>
+            <div class="card-footer ">
+
+
+                <a class="btn btn-flat-primary btn-xs" ui-sref="hr-state.add-employee-state({id : emp.id,mode:'2',dialog:'1',q:criteria.queryString,all:criteria.showAllRecord,pg:criteria.currentPage})"><i class="ion-edit"> </i> &nbsp; @(authorizeEdit ? "Edit" : "Details")</a>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="pad20">
+    <h1>User Dashboard</h1>
+</div>

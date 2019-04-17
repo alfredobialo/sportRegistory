@@ -1,0 +1,106 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.web.inOut.Models
+@{
+    bool authorizeEdit = UserIdentityModel.HasAuthority(AppPermissions.AUTHORIZATION_EDIT_USERS_ACCOUNT);
+    //    bool authorizeCreate = UserIdentityModel.HasAuthority(AppPermissions.HR_CREATE_EMPLOYEE);
+    //    bool authorizeDelete = UserIdentityModel.HasAuthority(AppPermissions.HR_DROP_EMPLOYEE);
+}
+<div class=" bg-success " asom-toolbar offset-to-element-id="app-main-menu">
+    <div class="pad10">
+        <div class="row">
+            <div class="col-sm-7">
+                <p class="font-size-17 "> Employee List</p>
+            </div>
+            <div class="col-sm-5">
+                <div class="pad5 ui-bg-colorr">
+                    <form name="frmSearch">
+                        <div class="row">
+                            <div class="col-sm-5 text-right clear-boostrap-padding-in-row">
+                                <span class="pad10-l-r">Search</span>
+                            </div>
+                            <div class="col-sm-7 clear-boostrap-padding-in-row">
+                                <input type="text"
+                                       class="ui-input font-size-14"
+                                       ng-requried="true"
+                                       ng-keyup="doUiSearch($event)"
+                                       name="txtSearch" placeholder="Search Employees"
+                                       ng-model="criteria.queryString" />
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="bg-white-gradient pad10 min-h50">
+        <div class="row">
+            <div class="col-sm-8">
+                <a ui-sref="hr-state.add-employee-state" class="btn btn-primary">
+                    <i class="ion-android-add"> </i> &nbsp; New Employee
+                </a>
+                <button class="btn btn-flat-primary" ng-class="{'btn-danger' : viewMode==3}" ng-click="setViewMode(3)"> <i class="ion ion-ios-grid-view"></i> &nbsp; Card-5</button>
+                <button class="btn btn-flat-primary" ng-class="{'btn-danger' : viewMode==1}" ng-click="setViewMode(1)"> <i class="ion ion-card"></i> &nbsp; Card-4</button>
+                <button class="btn btn-flat-primary" ng-class="{'btn-danger' : viewMode==2}" ng-click="setViewMode(2)"> <i class="ion ion-card"></i> &nbsp; Card-3</button>
+            </div>
+            <div class="col-sm-4">
+
+                <div class="">
+                    <button class="btn btn-flat-success btn-xs" ng-click="prevPage()"> <i class="ion-android-arrow-back"></i> PREV.</button>
+                    <span class="pad10">Page {{criteria.currentPage}} of {{criteria.totalPages}}  &nbsp; <i class="ion-chevron-right"> </i>  {{criteria.totalRecord}} record</span>
+
+                    <button class="btn btn-flat-success btn-xs" ng-click="nextPage()">NEXT <i class="ion-android-arrow-forward"></i></button>
+                    &nbsp;
+                    <button uib-tooltip="Show All Record" class="btn btn-primary btn-xs" ng-click="showAll()"><i class="ion-ios-refresh"></i> </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@*| filter:criteria.queryString*@
+<div class=" ">
+    <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+    <div class="card-container card-4" ng-class="{'card-4':viewMode == 1,'card-3':viewMode == 2,'card-5':viewMode == 3}">
+        <div class="card anim-repeat animated" ng-repeat="emp in employees">
+            <div class=" centralize bg-accent-color pad10 min-h100">
+
+                <div class="card-picture pad10 top-pos-42px">
+                    <div class="pic" ng-style="{'background-image': 'url({{emp.passportUrl}})'}">
+
+                    </div>
+                </div>
+            </div>
+            <div class=" card-content">
+                <p class="card-header">
+                    <a href="" ng-click="searchByField(emp.title)"> {{emp.title}} </a>{{emp.fullName}}
+                </p>
+
+                <p class="text-center theme-caption-color card-body">
+                    <a href="" ng-click="searchByField(emp.lga)">{{emp.lga}} Lga </a> <br />
+                    <a href="" ng-click="searchByField(emp.stateOfOrigin)">{{emp.stateOfOrigin}} State</a>
+                </p>
+                @if (authorizeEdit)
+                {<p class="text-center theme-caption-color">
+                    @*                    <a ng-click="sortAsc()" href uib-tooltip="Sort Ascending"><i class="ion-arrow-up-a theme-caption-color"></i> </a>*@
+                    &nbsp; {{emp.id}} &nbsp;
+                    @*                    <a href="" ng-click="sortDesc()" uib-tooltip="Sort Descending"><i class="ion-arrow-down-a theme-caption-color"></i> </a>*@
+                </p> }
+
+            </div>
+            <div class="card-footer ">
+
+
+                <a class="btn btn-flat-primary btn-xs" ui-sref="hr-state.add-employee-state({id : emp.id,mode:'2',dialog:'1',q:criteria.queryString,all:criteria.showAllRecord,pg:criteria.currentPage})"><i class="ion-edit"> </i> &nbsp; @(authorizeEdit ? "Edit" : "Details")</a>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

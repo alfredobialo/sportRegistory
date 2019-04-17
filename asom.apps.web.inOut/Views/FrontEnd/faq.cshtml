@@ -1,0 +1,24 @@
+﻿@using asom.apps.web.inOut.Models.Settings
+@{
+  // Use a View Bag to get Company Info
+  CompanyInfoModel org =   CompanyInfoModel.Get;
+  string faq = org.Faq.Replace("\n", "<br />");
+
+}
+<div class="container">
+  <div class="jumbtron ">
+
+    <h1>Frequently Asked Questions (FAQs)</h1>
+
+  </div>
+  <div class="pad30 font-size-17">
+    <div class="row">
+      <div class="col-8">
+
+        @Html.Raw(faq)
+      </div>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+﻿@using asom.apps.inOut.core
+@using asom.apps.web.inOut.Models
+@{
+    string template = AppInfo.GetCurrentLayoutTemplate();
+    if (template == AppConstants.UI_TEMPLATE_1)
+    {
+        Layout = "~/views/frontEnd/shared/grant_front.cshtml";
+    }
+    else if (template == AppConstants.UI_TEMPLATE_2)
+    {
+        Layout = "~/views/frontEnd/shared/front_template_2.cshtml";
+    }
+    else if (template == AppConstants.UI_TEMPLATE_3)
+    {
+        Layout = "~/views/frontEnd/shared/front_template_3.cshtml";
+    }
+    else if (template == AppConstants.UI_TEMPLATE_4)
+    {
+        Layout = "~/views/frontEnd/shared/recdot_front_template.cshtml";
+    }
+
+
+}
+

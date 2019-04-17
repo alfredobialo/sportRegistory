@@ -1,0 +1,48 @@
+﻿<div class="pad20 font-size-20 theme-caption-bg-color theme-caption-color" asom-toolbar offset-to-element-id="app-main-menu"offset-to-element-id="app-main-menu">
+    {{offline|number}} System Notification(s)
+  <div ng-if="n.loading">
+    @Html.Partial("ui/_partials/_loading_bar")
+  </div>
+</div>
+
+<div class="pad20 ">
+  <div class="row">
+    <div class="col-sm-7 col-xs-12">
+      <div class="pad10">
+        <div class="pad10 bg-white shadow-sm   animated anim-repeat divider hover pos-relative " style="margin-bottom: 0px;"
+             ng-class ="{'bg-highlight-blue' : !n.isDone}"
+             ng-repeat="n in notifications"
+             ng-click="markAsDone(n)"
+        >
+            <p class="w90" ng-class="{'bold' : !n.isDone}">{{n.description}}
+              <br>
+              <span class="text-muted pull-right font-size-11">{{n.dateCreated | date:'dd-MMM'}}</span>
+            </p>
+          <div class="border-radius-circle bg-success color-white shadow-sm  -stronger text-center pos-abs" ng-show="n.isDone" style="top : 7px; right:-20px ;
+width:40px;height: 40px; line-height: 40px;">
+            <i class="ion-ios-checkmark-outline font-size-30 color-white"></i>
+          </div>
+          <div ng-click="markAsDone(n)" class="cursor-pointer border-radius-circle bg-highlight color-white shadow-sm  -stronger text-center pos-abs" ng-hide="n.isDone || n.processing" style="top : 10px; right:-20px ;
+              width:40px;height: 40px; line-height: 40px;">
+            <i class="ion-android-open font-size-30 theme-caption-color"></i>
+          </div>
+
+          <div ng-if="n.processing">
+              @Html.Partial("ui/_partials/_loading_bar")
+          </div>
+        </div>
+        <div class="margin-t-10 animated anim-if" ng-hide="notifications.length >= criteria.totalRecord">
+
+          <button
+
+            class="btn-flat-default btn btn-sm btn-block" ng-click="showMore()">Show More</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-5">
+
+    </div>
+  </div>
+
+</div>

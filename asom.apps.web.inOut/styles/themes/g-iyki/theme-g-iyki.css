@@ -1,0 +1,220 @@
+/*Button Theme Please Modify with care*/
+.ui-input, .divider
+{
+
+    border-bottom: 2px solid rgb(186, 212, 255);
+
+
+}
+.nav-tabs {
+    border-bottom-color: #70a6b0;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+
+    border-color: #70a6b0 #70a6b0 transparent;
+
+
+}
+.ui-input.ui-required
+{
+
+    border-bottom-color: #6195b2;
+}
+.ui-input:focus {
+    border-bottom-color: #89c5ed;
+}
+.ui-input.ui-error {
+     border-bottom-color: #ea6c71;
+ }
+.ui-button-default,.bg-default
+{
+    background-color: #e7e6e6;
+    background-image: linear-gradient(#e1e1e1, #cbc9c9);
+    color : rgb(70, 68, 68);
+
+    /*text-shadow: 1px 1px 3px #f9f9f9;*/
+}
+.ui-button-default:hover/*,.ui-button-default:focus*/
+{
+    background-color: #e7e5e5;
+    background-image: linear-gradient(#ece9e9, #e2e2e2);
+    color : #4e4e4e;
+
+    /*text-shadow: 1px 1px 6px #f3f3f3;*/
+}
+
+/*  For blue theme button*/
+
+.ui-button-primary,.bg-primary,.md-active
+{
+
+    background-color: #6d82a0;
+    background-image: linear-gradient(#6d9fbb, #337494);
+    color : #fff !important;
+    /*text-shadow: 1px 1px 6px rgba(131, 131, 131, 0.62);*/
+}
+div.ui-bg-color .ui-input:focus,.ui-bg-color .ui-input:focus
+{
+
+    border-bottom: rgb(147, 255, 177) solid  ;
+}
+.ui-button-primary:hover/*,.ui-button-blue:focus*/
+{
+    background-image: linear-gradient(#7397af, #39b0b0);
+    color : #ffffff;
+}
+
+.ui-button-danger,.bg-danger
+{
+    background-color: #c21316;
+    background-image: linear-gradient(#c52b0e, #9c0919);
+    color : #fff !important;
+
+    /*text-shadow: 1px 1px 6px #838383;*/
+}
+
+.ui-button-danger:hover/*,.ui-button-red:focus*/
+{
+    background-color: #c22216;
+    background-image: linear-gradient(#a60f1e, #b83b14);
+    color : #ffffff;
+
+    /*text-shadow: 1px 1px 6px #747474;*/
+}
+.ui-button-warning,.bg-warning
+{
+    background-color: #f1b62f;
+    background-image: linear-gradient(#f1a810, #d37f2d);
+    color : #fff !important;
+
+    /*text-shadow: 1px 1px 6px #838383;*/
+}
+
+
+.ui-button-warning:hover/*,.ui-button-red:focus*/
+{
+    background-color: #dc6910;
+    background-image: linear-gradient(#f17117, #ea7702);
+    color : #ffffff;
+
+    /*text-shadow: 1px 1px 6px #747474;*/
+}
+
+.ui-button-success,.bg-success
+{
+    /*background-color: #eea511;*/
+    /*background-image: linear-gradient(#eea511, #d0900d);*/
+    background-color: #c0c0c0;
+    background-image: linear-gradient(#c0c0c0,#f7f3ff );
+    color : #4e4e4e !important;
+
+    /*text-shadow: 1px 1px 6px #838383;*/
+}
+
+.ui-button-success:hover/*,.ui-button-green:focus*/
+{
+    background-color: #c77b21;
+    background-image: linear-gradient(#c77b21, #eea511);
+
+
+    /*text-shadow: 1px 1px 6px #747474;*/
+}
+
+.ui-button-dormant,.bg-dormant
+{
+    background-color: #9b9284;
+    background-image: linear-gradient(#b3a999, #9b9284);
+    color : #fff !important;
+
+    /*text-shadow: 1px 1px 6px #838383;*/
+}
+
+.ui-button-dormant:hover/*,.ui-button-pink:focus*/
+{
+    background-image: linear-gradient(#b3a999, #ccc1af);
+    color : #ffffff;
+
+    /*text-shadow: 1px 1px 6px #747474;*/
+}
+
+/*End of Button Theme */
+
+div.theme-top-menu ul a:hover, .theme-left-nav-in-active-bgcolor{
+    /*background-color: #7687a0;*/
+}
+
+div.theme-top-menu ul a.active-menu, .theme-left-nav-active-bgcolor
+{
+    background-color: #f7f3ff;
+    background-image: linear-gradient(#f7f3ff, #c0c0c0);
+    color : #474747 ;
+    text-shadow: none ;
+}
+.badge
+{
+    background-color: red;
+    color:white;
+}
+div.theme-top-menu ul a.active-menu .badge
+{
+    background-color: #2e5772;
+    color: white;
+}
+.theme-caption-color,.theme-caption-bg-color .theme-caption-color
+{
+    text-decoration: none;
+    color: #56698e;
+}
+.theme-caption-bg-color,md-progress-linear.md-default-theme .md-container, md-progress-linear .md-container
+{
+    background-color: #e0ebf3;
+}
+.form-control:focus
+{
+    border-color: #7687a0;
+}
+a
+{
+    text-decoration: none;
+    color: #56698e;
+}
+a:hover
+{
+    text-decoration: underline;
+    color: #7687a0;
+}
+.theme-bg-color,div.theme-bg-color,.theme-bg-color,md-progress-linear.md-default-theme .md-bar, md-progress-linear .md-bar
+{
+    background: #357797;
+    background-image: linear-gradient(110deg , #357797, #59ab62);
+    /*color:white;*/
+}
+/*.divider{*/
+    /*border-bottom-color:#56698e ;*/
+/*}*/
+
+div.theme-bg-bg-color
+{
+    background: #6d82a0;
+
+}
+div.theme-bg-attention-bg-color
+{
+    background: #b53648;
+
+}
+
+div.current-user-box div.current-user-pic-box
+{
+    background-color: #7687a0;
+}
+div.current-user-pic-box div.current-user-pic
+{
+    background-color: #56698e;
+}
+
+.bg-accent-color {
+    background-color: #fff569;
+    background-image: linear-gradient(160deg, #ffeeb4, #e3a864);
+    color: white;
+}

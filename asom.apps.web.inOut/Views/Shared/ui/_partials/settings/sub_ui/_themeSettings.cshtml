@@ -1,0 +1,27 @@
+﻿@model bool
+
+
+<div class="pad5" >
+  <span class="pull-right font-size-14 color-orange-lite">{{themes.length}} Themes Available</span>
+                  <p class="divider pad10 font-size-14 w80"><i class="ion-paintbucket font-size-26 color-orange-lite"></i>
+                    &nbsp;  Use the installed Themes to customize how your application feels</p>
+
+                    <div class="row margin-l-30 " data-image-container>
+
+                        <a href=""
+
+                           @if (Model)
+                                   {
+                                       <text>ng-click='selectTheme(t)'</text>
+                                   }
+                           class="animated anim-repeat display-block col-sm-3 col-xs-3 min-h200 margin-10 shadow-sm   bg-white radius text-center app-theme-bgImg "
+                           ng-repeat="t in themes" ng-style="{'background-image':'url({{t.thumbnail}})' }">
+                            <div ng-show="t.isActive" style="font-size: 40px; width: 60px; height: 60px; margin: 60px auto;"
+                                 class="theme-bg-color border-radius-circle shadow-sm  -stronger pad10">
+                                <i class="ion-checkmark-round color-white"></i>
+                            </div>
+                        </a>
+
+
+                    </div>
+                </div>

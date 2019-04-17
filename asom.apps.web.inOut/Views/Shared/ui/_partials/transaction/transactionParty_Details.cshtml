@@ -1,0 +1,172 @@
+﻿@using asom.apps.web.inOut.Controllers.BaseControllers
+
+<div class="margin-b-20 pad20 bg-danger font-size-18 text-center shadow-sm  -stronger-spread"  ng-if="p.isDefaultedTicket">
+  <span title="" > <i class="ion-ios-flag color-red-lite font-size-22"> </i>
+  &nbsp;
+    This User ({{p.userInfo.displayName}}) will be blocked and the system will assign a new Payer to you soon!
+
+  </span>
+</div>
+<div class="margin-b-20 pad20 bg-danger font-size-18 text-center shadow-sm  -stronger-spread"  ng-if="t.isDefaultedTicket && p.paymentConfirmed==false">
+  <span title="" > <i class="ion-ios-flag  font-size-18"> </i>
+  &nbsp;
+    Your Account will be blocked soon! if you do not make Payment to the specified partner.
+
+  </span>
+</div>
+<div class="pad10">
+
+    <span class="font-family-monaco font-size-24">
+
+      <span ng-show="p.isPh && t.graceDaysExipiresOn" class="bold color-red">Your Timer</span>
+
+      <asom-timer time="t.graceDaysExipiresOn"></asom-timer>
+    </span>
+</div>
+
+<div class="row min-h200 text-left">
+    <div class="col-sm-7 col-xs-7">
+
+        <p class="divider font-size-16 theme-caption-color pad10">Ticket Party Details</p>
+        <div class="pad10 ">
+           <div class="text-uppercase"> <div class="row">
+                <!--<div class="col-sm-3"><span class="font-size-11">Display Name</span></div>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<p class="ui-input ui-required font-size-17 bold">-->
+                        <!--{{p.userInfo.displayName}}-->
+                    <!--</p>-->
+                <!--</div>-->
+            </div>
+            <!--<div class="row">-->
+                <!--<div class="col-sm-3"><span class="font-size-11">User Id</span></div>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<p class="pad10 bold font-size-16 ui-input ui-required ">{{p.userInfo.id}}</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="pad20 text-center border-bottom-thick font-size-15">
+                <span ng-if="p.isPh" class="color-gray-deep">
+                    You will make Payment of
+                    <span class="color-default font-size-18 bold">
+                       {{t.btcValue}} BTC to any of the Wallet provided below
+                        <span class="font-size-13 color-red">You have {{t.graceDaysAllowed|number}} days to effect the Payment</span>
+                    </span>
+                </span>
+                <span ng-if="!p.isPh" class="color-gray-deep">
+                    {{p.userInfo.displayName}} will Pay you
+                    <span class="color-default font-size-18 bold">
+                        {{p.amountInvolved | money}} <span ng-show="p.isBtc">USD</span>
+                    </span>
+                </span>
+            </div></div>
+            <div class="row margin-t-10" ng-if="p.isPh">
+
+                <div class="col-sm-12">
+                    <div ng-if="p.isBtc">
+                        @Html.Partial("ui/_partials/bank/_bank_btc_list")
+                    </div>
+                    <div ng-if="!p.isBtc">
+                        @Html.Partial("ui/_partials/bank/_bank_cash_list")
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin-t-10" ng-if="!p.isPh">
+                <div class="col-sm-12">
+                    <div ng-if="p.isBtc">
+                        @Html.Partial("ui/_partials/bank/_bank_btc_list_gh")
+                    </div>
+                    <div ng-if="!p.isBtc">
+                        @Html.Partial("ui/_partials/bank/_bank_cash_list_gh")
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="col-sm-5 col-xs-5 ">
+        <div class="pad10 bg-highlight shadow-sm   min-h200" ng-class="{'bg-white' : p.paymentConfirmed}">
+            <div class="card-picture-large">
+                <div class="pic" ng-style="p.userInfo.photo">
+                </div>
+            </div>
+            <div class="margin-t-20 text-center">
+
+                <div ng-if="!p.paymentConfirmed">
+                  <p class="pad10 divider" ng-if="!p.isPh">
+
+                    <span class="color-blue bold pad5">Confirm This Payment By Clicking the button below</span>
+                    <br/>
+
+                </p>
+                <div ng-if="!p.isPh">
+                  <div ng-show="p.processing">
+                    @Html.Partial("ui/_loading_img_partial")
+                  </div>
+                  <button class="btn btn-primary " ng-click="confirmTicket(p, t)"
+                          ng-hide="p.processing">Payment Confirmed</button>
+                  <div class="margin-b-10 anim-repeat animated pos-relative" ng-repeat="m in p.evidenceFiles" >
+                    <a ng-href="{{::m.mediaUrl}}" target="_blank">
+                      <img ng-src="{{::m.mediaUrl}}" width="50%" alt="{{::m.mediaTag}}"  class="img-responsive img-thumbnail" ></a>
+                    <p class="pad10">
+                      <span class="bold">{{::m.mediaTag}}</span>
+                    </p>
+                  </div>
+                </div></div>
+                <div class="pad20 centralize" ng-if="p.paymentConfirmed">
+                    <span class="font-size-30 color-green-lite ion-ios-checkmark"></span> <br>
+                  <span class="color-green font-size-17">Payment Confirmed</span>
+                </div>
+              <div class=" centralize" ng-if="!p.paymentConfirmed">
+               <div ng-if="p.isPh">
+                <p class="pad10 divider font-size-18 bold">
+                  <span >Upload a Payment Claim</span>
+                </p>
+
+                <div class="pad10 bg-white shadow-sm   border-radius">
+                  <p class="border-bottom  ">{{p.evidenceFiles.length}} Proof of Payment Attached</p>
+                  <button class="btn btn-primary btn-xs" ng-show="p.evidenceFiles.length > 0" ng-click="saveProof(p)">Save Proof</button>
+                  <div class="margin-b-10 anim-repeat animated pos-relative" ng-repeat="m in p.evidenceFiles" >
+                    <button  ng-show="!p.paymentConfirmed" class="btn btn-danger btn-sm pos-abs  " style="right: -5px;top : -5px"  title="Remove"  ng-click="removeProof(p,m)">X</button>
+
+
+                    <a ng-href="{{m.mediaUrl}}" target="_blank"><img ng-src="{{m.mediaUrl}}" width="50%" alt="{{m.mediaTag}}"  class="img-responsive img-thumbnail" ></a>
+                    <p class="pad10">
+                      <span>Add Note</span>
+                      <input type="text" ng-model="m.mediaTag"
+                                            ng-show="!p.paymentConfirmed"
+                              class="ui-input-border ui-input w50" placeholder="Enter a short note" maxlength="120"></p>
+                  </div>
+                    <div ng-if="p.uploading" class="text-center">
+                        Processing Please Wait
+                        @Html.Partial("ui/_loading_img_partial")
+                    </div>
+                    <div class="text-center" ng-if="!p.uploading">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <asom-file-upload class="btn-primary btn btn-sm "
+                                              file-change="uploadPicture(obj,p)"
+                                              accept="image/*"
+
+                                              upload-url="@Url.Action("UploadImageToServer", "Home",
+                                                              new {directoryPath = "user-profile\\user_attachments", allowedExtensions = AllowedExtensionsConstant.IMAGE_FILE_EXTENSION, width=700,height=430})"
+                                              upload-text="Attach Proof"></asom-file-upload>
+                        }
+                        else
+                        {
+                            <div class="color-red">
+                                <h2>Your Login Session Has Expired</h2>
+                                <p>Please Login again to complete this action</p>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+              </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

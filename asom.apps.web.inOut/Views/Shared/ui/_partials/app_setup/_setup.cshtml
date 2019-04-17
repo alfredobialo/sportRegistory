@@ -1,0 +1,34 @@
+﻿<div ng-controller="SetupController">
+    <div class="pad20 w40 centralize bg-success border-radius min-h200 shadow-sm  -stronger-thick-and-heavy "
+         ng-class="{'bg-accent-color' : processing}">
+
+        <div class="" ng-if="stage == 0">
+            @Html.Partial("ui/_partials/app_setup/_license_agreement")
+        </div>
+        <div class="" ng-if="stage < 0">
+        <div class="pad20 bg-danger">
+            <span class="font-size-22">Setup cannot continue.
+              Please Reload this page if you wish to accept our agreement terms</span>
+        </div>
+        <div class="pad10 text-center"><a href=""
+                                          ng-click="readLicense()"
+                                          class="btn btn-flat-primary btn-block">Read License
+          Terms</a></div>
+      </div>
+
+        <div class="" ng-if="stage == 1">
+            @Html.Partial("ui/_partials/app_setup/_role_installation")
+        </div>
+        <div class="" ng-if="stage == 2">
+            @Html.Partial("ui/_partials/app_setup/_sysadmin_acc")
+        </div>
+        <div class="" ng-if="stage == 3">
+            <a href="@Url.Action("Sys", "Home")" class="btn btn-block btn-danger btn-md">Installation Complete</a>
+        </div>
+        <div class="pad10 margin-t-10" ng-if="processing">
+            <span>@Html.Partial("ui/_loading_img_partial")</span>
+            <p class="font-size-15 text-center"> {{processingMessage}} </p>
+        </div>
+    </div>
+</div>
+

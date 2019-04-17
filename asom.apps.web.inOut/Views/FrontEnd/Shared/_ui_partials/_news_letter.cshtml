@@ -1,0 +1,18 @@
+﻿@model dynamic
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="newsletter-area mt-100">
+        <div class="section-heading text-center mx-auto">
+          <h3>Subscribe to <span>Newsletter</span></h3>
+          <h6>We will keep you updated on recent financial trends in @(Model ?? "Crypto World").
+            Enter your email address in the field provided</h6>
+        </div>
+        <form action="#" method="post">
+          <input type="email" name="email" placeholder="Subscribe to newsletter">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

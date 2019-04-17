@@ -1,0 +1,103 @@
+﻿@using asom.apps.web.inOut.Models
+@using asom.apps.web.inOut.Models.Navigation
+@*Get Application Menu Here*@
+@{
+    var appMenus = MenuManager.GetApplicationMainMenu();
+    var activeMenu = appMenus.FirstOrDefault(x => x.IsActive == true && x.IsVisible == true);
+    bool hasActiveMenu = activeMenu != null;
+    string menuUrl = "";
+    if (hasActiveMenu)
+    {
+        menuUrl = @Url.Content("~/ " + activeMenu.Url);
+    }
+}
+
+<!-- Make this Menu the selected Menu by assigning the 'selected' class-->
+ <!-- Make this Menu the selected Menu by assigning the 'selected' class-->
+
+
+
+
+
+
+<div class="bg-primary color-white-forced shadow-sm  -stronger-thick-and-heavy" id="mobileMenu">
+    <div class="iasom-fixed-left-menu-ui pos-relative">
+        <span ng-controller="MenuController" class=" cursor-pointer" style="z-index: 300; position: absolute; right: 0;" ng-click="closeMenu('#mobileMenu')">
+          <a href="" class=" btn btn-success btn-md "
+                                                 >X</a></span>
+
+        <div class="min-h10 text-center  margin-t-20" ng-controller="UserIdentityController">
+            <div class="current-user-box">
+                @{
+
+                    string displayName = "";
+                    UserIdentityModel id = IdentitySession.GetOrCreate() as UserIdentityModel;
+                    try
+                    {
+                        displayName = id.DisplayName;
+                        if (id.DisplayName.Length >= 14)
+                        {
+                            displayName = id.DisplayName.Split(new String[] {" "}, StringSplitOptions.RemoveEmptyEntries)[0];
+                        }
+                    }
+                    catch
+                    {
+                        displayName = id.DisplayName;
+                        //throw;
+                    }
+                }
+                @Html.Partial("ui/_current_user_avartar", true)
+                @if (id != null)
+                {
+                    <p class="current-user-name font-size-14 margin-t-10">
+                        <a href="@Url.Action("Index", "FrontEnd")" title="Goto Home page"><i class="ion-ios-home-outline font-size-17"> </i></a> &nbsp;@displayName <span ng-show="!uploading">(<a href="@Url.Action("Logout", "Home")" class="font-size-13">Log Out <i class="ion-lock-combination"></i></a>)</span>
+                    </p>
+                }
+                else
+                {
+                    <br/>
+                    <a href="@Url.Action("Logout", "Home")" class="font-size-13">Log Out <i class="ion-lock-combination"></i></a>
+                }
+            </div>
+
+        </div>
+        <div class="margin-t-20 action-menu  overflow-auto max-height-550">
+            <ul class="list-unstyled">
+                @foreach (var mnu in appMenus)
+                {
+
+                    if (mnu.IsVisible)
+                    {
+                        <li class="">
+                            <a asom-accordion @((!string.IsNullOrEmpty(mnu.Url) ? "ui-sref=" + @mnu.Url + "" : "")) ui-sref-active="bg-primary shadow-sm  -stronger bold "
+                                                                                                     class="pad10 color-white-forced bg-accent-color @(mnu.IsActive ? "active-menu" : null) text-uppercase display-block">
+                                @mnu.Name @if (mnu.HasBadge)
+                                          {
+                                              <sup class="badge bg-red">@mnu.BagdeValue</sup>
+                                          }
+
+                            </a>
+                            <div class="mobile-menu  ">
+
+                                @Html.Action("find-submenu", "Menu", new { id = mnu.Key })
+@*                                using ()*@
+@*                                {*@
+@*                                    *@
+@*                                }*@
+
+                            </div>
+
+                        </li>
+
+
+                    }
+
+
+
+                }
+            </ul>
+
+        </div>
+
+    </div>
+</div>

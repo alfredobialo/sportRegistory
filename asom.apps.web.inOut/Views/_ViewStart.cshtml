@@ -1,0 +1,17 @@
+﻿@using asom.apps.inOut.core
+@using asom.apps.web.inOut.Models
+@{
+    string layout = "~/Views/Shared/_base_template2.cshtml";
+    string template = AppInfo.GetCurrentLayoutTemplate();
+    if (template == AppConstants.UI_TEMPLATE_1)
+    {
+        layout = "~/Views/Shared/admin_dashboard.cshtml";
+    }
+
+   
+
+
+    Layout = layout;
+    //Layout = "~/Views/Shared/_mylayout.cshtml";
+}
+

@@ -1,0 +1,17 @@
+﻿@using asom.apps.inOut.core.model.org
+@model OrgAppSetting
+@{
+
+    var appSettings = Model;
+}
+@if (appSettings != null)
+{
+    <div class="margin-t-10  min-h300">
+       
+        <ticket-plan-list-card currency="'@appSettings.BitcoinSymbol'" selected="selectedPlan"></ticket-plan-list-card>
+    </div>
+}
+else
+{
+    <h1>Application Setting Issues!</h1>
+}

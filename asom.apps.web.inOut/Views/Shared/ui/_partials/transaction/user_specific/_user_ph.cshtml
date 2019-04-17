@@ -1,0 +1,122 @@
+﻿@using asom.apps.inOut.core.model.org
+@using asom.apps.inOut.core
+@using asom.apps.web.inOut.Models
+    @model OrgAppSetting
+    @{
+        var appSettings = Model;
+
+        bool hideNote = AppInfo.GetCurrentLayoutTemplate() != AppConstants.UI_TEMPLATE_2;
+        bool allowClaimedIncome = appSettings.IncomeArePaidDuration == true;
+
+
+    }
+
+@if (appSettings != null)
+{
+
+    <p class="pad10 bold font-size-14 divider">Existing  Tickets
+    </p>
+    <!--<asom-data-pager pager-source="criteria" on-page-click="gotoPage(index)"></asom-data-pager>-->
+    <div class="table-responsivel">
+        <table class="table table-bordered">
+            <tr class="bg-success border-bottom-thick">
+                <th class="w3033">Ticket Code</th>
+                <th class="w1533">Amount Involved</th>
+                <th class="w1533 hidden-xs">
+                    Earns Extra
+                </th>
+@*                @if (!hideNote)*@
+@*                {*@
+@*                    <th class="w203 hidden-xs">Note</th>*@
+@*                }*@
+                <th class="w103">Status</th>
+            </tr>
+            <tr ng-if="tickets.length == 0">
+                <td colspan="@(hideNote ? 4: 5)">
+                    <p class="text-center pad20 font-size-17 color-gray2 "> You got NO Ticket </p>
+                </td>
+            </tr>
+            <tr ng-repeat-start="t in tickets track by t.id" class="hover animated anim-repeat" ng-class="{'bg-highlight shadow-sm  -stronger-spread' : !t.isOpen, 'bg-highlight-red'  : t.isClose,'bg-danger':!t.isActive}">
+                <td>
+                    {{::t.id}}
+                    <br>
+                    <span class="pull-right font-size-11 bold"
+                          ng-class="{'color-blue'  : t.group == 'BITCOIN' , 'color-red'  : t.group == 'CASH'}">{{::t.group}}</span>
+                    <small class="font-size-12 color-blue">created on {{::t.dateOpen | date:'dd-MMM-yyyy'}}</small>
+                  <br>
+                    <span class="font-size-11">{{::t.exchangeMessage}}</span>
+
+                    @if (allowClaimedIncome)
+                    {
+                        <div class="" ng-if="t.isClose && t.isClaimed ">
+                          <span class="bold">Claimed on {{t.dateClaimed | date:'dd-MMM-yyyy'}}
+                            Amt : {{t.claimedAmount|money}} <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span></span>
+                        </div>
+                        <div ng-show="t.isClose && !t.isClaimed">
+                            <div class="bg-highlight-blue shadow-sm  -stronger border-radius text-center">
+                                <p class="pad5 bg-danger text-center shadow-sm   border-radius" ng-style="{'width' : '{{::t.percentageCompleted}}%'}"></p>
+                            </div>
+                            <p class="text-center ">
+                                {{::t.percentageCompleted|number}}% Progress @if (AppInfo.GetCurrentLayoutTemplate() != AppConstants.UI_TEMPLATE_4)
+                                                                             {
+                                                                                 <text>
+                                                                                     , &nbsp; <span class="bold font-size-9">Matures on or before {{::t.maturesOn | date:'dd-MMM-yyyy'}}</span>
+                                                                                 </text>
+                                                                             }
+                                <br>
+                                <span class="font-size-12 bold"> Current Earnings : {{::t.percentageIncome | money}}
+                                  <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span></span>
+
+                            </p>
+
+                        </div>
+                    }
+
+                </td>
+
+                <td>
+                    <p class="divider pad5">{{::t.amountInvolved | money}}  &nbsp;   <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span>  =
+
+                      <span class="bold">{{::t.btcValue }} BTC</span>  <span class="pull-right bold font-size-12">{{t.description}}</span></p>
+
+                        @if (allowClaimedIncome)
+                        {
+                            <div ng-show="t.processingClaim">
+                              @Html.Partial("ui/_loading_img_partial")
+                            </div>
+                            <button class="btn btn-primary btn-xs animated anim-if"  ng-if="t.isClose && t.isClaimed == false && !t.processingClaim" ng-click="execTicketClaim(t)">Claim {{::t.percentageIncome | money}}</button>
+                        }
+
+
+                </td>
+                <td class="hidden-xs">
+                    <b color="color-purple">{{::t.earns | money}}</b> &nbsp;<span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol </span>
+                    <span class="bold font-size-12">&nbsp; After {{::t.interestDays}} days</span>
+                    <br>
+                    <small>Interest Rate is {{::t.interestRate | number}}%</small>
+                </td>
+@*                @if (!hideNote)*@
+@*                {*@
+@*                    <td class="hidden-xs">*@
+@*                        <span class="font-size-11">{{::t.openComment}}</span>*@
+@*                        <p class="bold" ng-show="!t.isClose && t.parties.length>0">You are to Pay {{::t.parties.length|number}} user(s)</p>*@
+@*                    </td>*@
+@*                }*@
+
+                <td>
+                    <b class="" ng-class="{'color-green': t.status=='COMPLETE' , 'color-red'  : t.status=='CANCELLED', 'color-orange' : t.status=='PENDING','color-blue' : t.status=='APPROVED','color-pink' : t.status=='PAIRED' || t.status=='MERGE'}">{{t.status}}</b>
+                    <br>
+                    <button class="btn btn-danger btn-xs" ng-click="deleteTicket(t)" ng-if="t.parties.length==0">Delete</button>
+                    <button class="btn btn-primary btn-xs" ng-click="showDetails(t)" ng-if="t.parties.length>0">Details</button>
+                </td>
+
+            </tr>
+            @Html.Partial("ui/_partials/transaction/user_specific/_ng_repeat_end_for_ticket_parties")
+        </table>
+    </div>
+}
+else
+{
+
+    <div class="pad20 centralize w65 shadow-sm  -stronger-fade-lite color-red font-size-22 bg-highlight-red border-radius">There is an Issue with your System settings</div>
+}

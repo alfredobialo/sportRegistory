@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.inOut.core" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/11081980_27092014_05101990" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/App_Data" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/App_Start" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/CacheRepos" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Content" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Controllers" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Hubs" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Models" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Properties" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Scripts/greensock-js" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Scripts/highchart4" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Scripts/linq" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Scripts/tinymce" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Scripts/tinymce_dev" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/Scripts/velocity" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/asomProjects" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/asom.apps.web.inOut/uploaded_files" />
+      <excludeFolder url="file://$MODULE_DIR$/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

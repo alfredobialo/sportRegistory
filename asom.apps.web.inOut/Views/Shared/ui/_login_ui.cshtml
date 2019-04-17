@@ -1,0 +1,231 @@
+﻿@using asom.apps.web.inOut.Models
+@using asom.apps.inOut.core
+@{
+    var susr = IdentitySession.GetOrCreate();
+
+
+    string info = "Login To Continue",
+        userName = User.Identity.Name;
+    bool hasUser = false;
+    if (susr != null)
+    {
+        info = susr.DisplayName;
+        userName = susr.DisplayName;
+        hasUser = true;
+    }
+    else
+    {
+        IdentitySession.Logout();
+    }
+
+    string template = AppInfo.GetCurrentLayoutTemplate();
+}
+<div class="">
+<div class="bg-white">
+@if (template != AppConstants.UI_TEMPLATE_4)
+{
+    <div class=" min-h200 shadow-sm    border-radius ">
+        <div class="d-flex flex-column justify-content-center align-items-start align-content-center">
+            <div class="text-center p-3">
+                <p class="font-size-14 mt-2">@(info)</p>
+            </div>
+            <div class="pad30 @(template == AppConstants.UI_TEMPLATE_2 ? "border" : null)">
+                @if (template != AppConstants.UI_TEMPLATE_1)
+                {
+                    @Html.Partial("ui/_current_user_avartar")
+                }
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <br/>
+                    <br/>
+                    <span>If you are not @userName, please sign out</span>
+                }
+                <br/>
+                <form name="frmLogin" class="form-horizontal" role="form"
+                      ng-submit="login($event)"
+                      novalidate method="POST" action="@Url.Action("Login", "Home")">
+                    <div>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <div class="row">
+                                <div class="col-xs-2 text-uppercase">
+                                    <i class="ion-ios-person font-size-20"> </i>
+                                </div>
+                                <div class="col-xs-10">
+                                    <input type="text" maxlength="30"
+                                           focus-input
+                                           required name="userId" ng-model="userId"
+                                           ng-minlength="4"
+                                           placeholder="Login User Id"
+                                           ng-class="{'ui-invalid-field' : frmLogin.$dirty && frmLogin.userId.$dirty && frmLogin.userId.$invalid}"
+                                           class="form-control form-control-lg ui-required form-control form-control-lg  font-size-16"/>
+                                    <ng-messages class="text-danger" for="frmLogin.userId.$error" ng-if="frmLogin.userId.$dirty">
+                                        <ng-message when="minlength">The minimum length is 4 characters</ng-message>
+                                        <ng-message when="required">User Id field is required</ng-message>
+                                    </ng-messages>
+                                    @*                                    <span ng-show="frmLogin.userId.$invalid && frmLogin.$dirty">User Id is required</span>*@
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-xs-2 text-uppercase">
+                                    <i class="ion-ios-locked font-size-20"> </i>
+                                </div>
+                                <div class="col-xs-10">
+                                    <input type="password" maxlength="30" required name="password"
+                                           ng-minlength="4"
+                                           ng-model="password"
+                                           placeholder="Password"
+                                           ng-class="{'ui-invalid-field' : frmLogin.$dirty && frmLogin.password.$dirty && frmLogin.password.$invalid}"
+                                           class="form-control form-control-lg ui-required form-control form-control-lg  font-size-16"/>
+                                    <ng-messages class="text-danger" for="frmLogin.password.$error" ng-if="frmLogin.password.$dirty">
+                                        <ng-message when="minlength">The minimum length is 4 characters</ng-message>
+                                        <ng-message when="required">Password field is required</ng-message>
+                                    </ng-messages>
+                                    @*                                <small>Your secret password. don't not share your password</small>*@
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-xs-12 font-size-12">
+                                    <label><input type="checkbox" ng-model="remember" name="remember" class="font-size-14 form-check"/> Keep me Logged in</label>
+                                    <a href="@Url.Action("ForgotPassword", "Home")" class="pull-right ">Forgot Your Password?</a>
+
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="margin-t-0">
+
+                                <button class="btn btn-primary btn-md btn-block"
+                                        ng-disabled="frmLogin.$invalid || loading==true">
+                                    <span ng-if="loading" class="animated anim-if">@Html.Partial("ui/_loading_img_partial") &nbsp; Processing ...</span>
+                                    <span ng-show="!loading">
+                                        Login To Continue
+                                    </span>
+                                </button>
+
+                            </div>
+                        }
+                        else if (hasUser)
+                        {
+                            <div class="margin-t-20">
+
+                                <a class="btn btn-primary  btn-block" href="@Url.Action("Sys", "Home")"> Continue</a>
+                                <br/>
+                                <a class="btn btn-default btn-block" href="@Url.Action("Logout", "Home")"> Sign Out</a>
+                            </div>
+                        }
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </div>
+}
+@*else
+{
+    <div class=" w40 min-h200 shadow-sm   border-radius ">
+
+        <div class="text-center divider pad10">
+            <p class="font-size-14 bold theme-caption-color margin-t-5">@(info)</p>
+        </div>
+        <div class="pad20">
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <span class="font-size-16">Welcome @userName</span>
+                <br/>
+                <br/>
+                <span>If you are not @userName, please sign out</span>
+            }
+            <br/>
+            <form name="frmLogin" class="form-horizontal" role="form"
+                  ng-submit="login($event)"
+                  novalidate method="POST" action="@Url.Action("Login", "Home")">
+                <div>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <div class="row">
+                            <div class="col-sm-3 text-uppercase">
+                                User Id
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" maxlength="30"
+                                       focus-input
+                                       required name="userId" ng-model="userId"
+                                       ng-minlength="4"
+                                       placeholder="Login User Id"
+                                       ng-class="{'ui-invalid-field' : frmLogin.$dirty && frmLogin.userId.$dirty && frmLogin.userId.$invalid}"
+                                       class="ui-input ui-required ui-input-border font-size-16"/>
+                                <ng-messages for="frmLogin.userId.$error" ng-if="frmLogin.userId.$dirty">
+                                    <ng-message when="minlength">The minimum length is 4 characters</ng-message>
+                                    <ng-message when="required">User Id field is required</ng-message>
+                                </ng-messages>
+                                $1$                                    <span ng-show="frmLogin.userId.$invalid && frmLogin.$dirty">User Id is required</span>#1#
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-3 text-uppercase">
+                                Password
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="password" maxlength="30" required name="password"
+                                       ng-minlength="4"
+                                       ng-model="password"
+                                       placeholder="Password"
+                                       ng-class="{'ui-invalid-field' : frmLogin.$dirty && frmLogin.password.$dirty && frmLogin.password.$invalid}"
+                                       class="ui-input ui-required ui-input-border font-size-16"/>
+                                <ng-messages for="frmLogin.password.$error" ng-if="frmLogin.password.$dirty">
+                                    <ng-message when="minlength">The minimum length is 4 characters</ng-message>
+                                    <ng-message when="required">Password field is required</ng-message>
+                                </ng-messages>
+                                $1$                                <small>Your secret password. don't not share your password</small>#1#
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12 font-size-12">
+                                <label><input type="checkbox" ng-model="remember" name="remember" class="font-size-14"/> Keep me Logged in</label>
+                                <a href="" class="pull-right">Forgot Your Password?</a>
+
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="margin-t-0">
+
+                            <button class="btn btn-primary  btn-block"
+                                    ng-disabled="frmLogin.$invalid || loading==true">
+                                <span ng-if="loading" class="animated anim-if">@Html.Partial("ui/_loading_img_partial") &nbsp; Processing ...</span> <span ng-show="!loading">
+                                            Login
+                                        </span>
+                            </button>
+
+                        </div>
+                    }
+                    else if (hasUser)
+                    {
+                        <div class="margin-t-20">
+
+                            <a class="btn btn-primary btn-md btn-block" href="@Url.Action("Sys", "Home")"> Continue</a>
+                            <br/>
+                            <a class="btn btn-default btn-md btn-block" href="@Url.Action("Logout", "Home")"> Sign Out</a>
+                        </div>
+                    }
+                </div>
+            </form>
+
+        </div>
+
+
+
+    </div>
+}*@
+</div>
+
+
+</div>

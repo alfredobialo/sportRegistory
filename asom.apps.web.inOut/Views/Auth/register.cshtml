@@ -1,0 +1,26 @@
+﻿@using asom.apps.web.inOut.Models
+@{
+    ViewBag.Title = "Register and Start earning Up 200% interest on your investment.";
+    string msg = AppInfo.Get.DisplayLicenseInfoIfNeccessary();
+    ViewBag.PageTitle = "Register and Start Earning Big online";
+
+}
+@*@Html.Partial("ui/_partials/app_setup/_database_setup")*@
+
+    @Html.Partial("ui/_register")
+
+
+
+@section scripts
+{
+    @if (!string.IsNullOrEmpty(msg))
+    {
+        <script type="text/javascript">
+
+
+            //Toast.pullUp("<p class='font-size-16'>@msg</p>", true, 9000, "bg-danger");
+        </script>
+    }
+}
+
+

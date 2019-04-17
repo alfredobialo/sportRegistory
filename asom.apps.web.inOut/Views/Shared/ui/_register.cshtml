@@ -1,0 +1,134 @@
+﻿@using asom.apps.inOut.core.model.org
+@using asom.apps.inOut.core
+@using asom.apps.web.inOut.Models
+@{
+    string template = AppInfo.GetCurrentLayoutTemplate();
+}
+
+
+<div ng-controller="RegistrationController">
+
+
+    <div class="text-center margin-t-40 centralize w40">
+
+        <p class="lead">Judge Profile Setup</p>
+    </div>
+    <div class="centralize w40 ">
+
+        <div ng-if="!showRegComplete" class="text-left ">
+            <div class="bg-white shadow-sm  ">
+                <div class=" min-h200">
+                    <div class="">
+                        <div class=" text-uppercase">
+                            <form novalidate name="frmRegisterUser">
+                                <div class="pad20 ">
+                                    <div class="row margin-t-40" ng-class="{'color-red btn-highlight-red' : frmRegisterUser.$dirty && frmRegisterUser.txtName.$dirty && frmRegisterUser.txtName.$invalid}">
+                                        @if (template == AppConstants.UI_TEMPLATE_2)
+                                        {
+                                            <p class="pad10 border-bottom-thick font-size-18 bold">What's Your Name?</p>
+                                        }
+                                        <div class="col-sm-3">
+                                            <span class="font-size-12 bold">Name</span>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" maxlength="30"
+                                                   name="txtName"
+                                                   minlength="3"
+                                                   ng-model="userInfo.displayName" placeholder="@(template == AppConstants.UI_TEMPLATE_4 ? "Name" : "Full Name")"
+                                                   class="form-control form-text ui-required @(template == AppConstants.UI_TEMPLATE_2 ? "font-size-26" : "font-size-18")"
+                                                   ng-class="{'ui-invalid-field' : frmRegisterUser.txtName.$dirty && frmRegisterUser.txtName.$invalid}">
+                                            <div class="">
+                                                <ng-messages for="frmRegisterUser.txtName.$error" ng-if="frmRegisterUser.txtName.$dirty">
+                                                    <ng-message when="minlength" class="color-red">Your Display name must be 3 characters and above</ng-message>
+                                                    <ng-message when="required" class="color-red">Please Enter your Name here. this a required field</ng-message>
+                                                </ng-messages>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="pad20 "
+                                     ng-class="{'btn-highlight-red color-red':((frmRegisterUser.txtUserId.$dirty && frmRegisterUser.txtUserId.$invalid) || ((frmRegisterUser.txtPassword.$dirty && frmRegisterUser.txtPassword.$invalid) || (frmRegisterUser.txtPassword.$invalid && (userInfo.password != userInfo.password2))))}">
+                                    <div class="row  ">
+                                        @if (template == AppConstants.UI_TEMPLATE_2)
+                                        {
+                                            <p class="pad10 border-bottom-thick font-size-18 bold">Login Account Section</p>
+                                        }
+                                        <div class="col-sm-3">
+                                            <span class="font-size-12 bold">User Id</span>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" maxlength="30" placeholder="@(template == AppConstants.UI_TEMPLATE_4 ? "User Id" : "Your Id")"
+                                                   ng-model="userInfo.id"
+                                                   name="txtUserId"
+                                                   minlength="6"
+                                                   class="form-control form-text ui-required font-size-15"
+                                                   ng-class="{'ui-invalid-field' :  frmRegisterUser.txtUserId.$dirty && frmRegisterUser.txtUserId.$invalid}">
+                                            <div class="">
+                                                <ng-messages for="frmRegisterUser.txtUserId.$error" ng-if="frmRegisterUser.txtUserId.$dirty">
+                                                    <ng-message when="minlength" class="color-red">Minimum length for a valid user Id is 6 Characters</ng-message>
+                                                    <ng-message when="pattern" class="color-red">User Id can't contain space or special characters</ng-message>
+                                                    <ng-message when="required" class="color-red">This a required field (User Id)</ng-message>
+                                                </ng-messages>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <span class="font-size-12 bold">Password</span>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="password" maxlength="50"
+                                                   ng-model="userInfo.password"
+                                                   required minlength="6" ng-maxlength="40"
+                                                   placeholder="@(template == AppConstants.UI_TEMPLATE_4 ? "Password" : "Strong Password")"
+                                                   name="txtPassword"
+                                                   class="ui-input  ui-input-border ui-required ">
+                                            <div>
+                                                <ng-messages for="frmRegisterUser.txtPassword.$error" ng-if="frmRegisterUser.txtPassword.$dirty">
+                                                    <ng-message when="minlength">The minimum length is 6 characters</ng-message>
+                                                    <ng-message when="required">Password field is required</ng-message>
+                                                </ng-messages>
+                                            </div>
+                                            <input type="password" maxlength="50"
+                                                   ng-model="userInfo.password2"
+                                                   required
+                                                   minlength="6"
+                                                   ng-maxlength="40"
+                                                   placeholder="Retype Password"
+                                                   name="txtPassword2"
+                                                   class="ui-input  ui-input-border ui-required ">
+                                            <div>
+                                                <p class="color-red" ng-if="frmRegisterUser.$dirty && frmRegisterUser.txtPassword2.$dirty && userInfo.password != userInfo.password2">
+                                                    Your Password did not match correctly.
+                                                </p>
+                                                <ng-messages for="frmRegisterUser.txtPassword2.$error" ng-if="frmRegisterUser.txtPassword2.$dirty">
+                                                    <ng-message when="minlength">The minimum length is 6 characters</ng-message>
+                                                    <ng-message when="required">Retype Password field is required</ng-message>
+                                                </ng-messages>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pad20  shadow-sm  -stronger  btn-success " ng-if="showRegComplete">
+            <h1>Registration Complete !!</h1>
+            <p class="font-size-18">
+                Please Login to continue
+            </p>
+        </div>
+    </div>
+
+
+</div>
+
+<

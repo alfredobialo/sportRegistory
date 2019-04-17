@@ -1,0 +1,124 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.web.inOut.Models
+@{
+    bool authorizeEdit = UserIdentityModel.HasAuthority(AppPermissions.AUTHORIZATION_EDIT_USERS_ACCOUNT);
+    //    bool authorizeCreate = UserIdentityModel.HasAuthority(AppPermissions.HR_CREATE_EMPLOYEE);
+    //    bool authorizeDelete = UserIdentityModel.HasAuthority(AppPermissions.HR_DROP_EMPLOYEE);
+}
+<div class=" bg-success " asom-toolbar offset-to-element-id="app-main-menu">
+    <div class="pad10">
+        <div class="row">
+            <div class="col-sm-6 col-xs-5">
+                <p class="font-size-17 "> User List</p>
+            </div>
+            <div class="col-sm-6 col-xs-7">
+                <div class="pad5 ui-bg-colorr">
+                    <form name="frmSearch">
+                        <div class="row">
+                            <div class="col-sm-5 text-right clear-boostrap-padding-in-row">
+                                <span class="pad10-l-r">Search</span>
+                            </div>
+                            <div class="col-sm-7 clear-boostrap-padding-in-row">
+                                <input type="text"
+                                       class="ui-input font-size-14"
+                                       ng-requried="true"
+                                       ng-keyup="doUiSearch($event)"
+                                       name="txtSearch" placeholder="Search Users"
+                                       ng-model="userCriteria.queryString" />
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="bg-white-gradient pad10 min-h50">
+      <asom-data-pager pager-source="userCriteria" on-page-click="gotoPage(index)"></asom-data-pager>
+    </div>
+</div>
+@*| filter:criteria.queryString*@
+<div class=" ">
+    <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+
+</div>
+
+
+
+<div class=" bg-white shadow-sm   margin-15">
+  <div class="">
+    <div class="">
+      <div class="">
+
+        <div class="">
+
+          <div class="pad20 bg-highlight-blue color-blue animated anim-if" ng-show="userCriteria.queryString">
+              <div class="border-bottom pad10">
+                <label class="bold">Filter By Blocked Accounts<input type="checkbox" ng-model="userCriteria.getByIsBlocked"></label>,
+                <label for="">When Account is {{(userCriteria.blockedStatus)? 'Blocked' : 'NOT blocked'}} <input type="checkbox" ng-model="userCriteria.blockedStatus"> </label>
+              </div>
+              <p class="font-size-14">Searching for {{userCriteria.queryString}}
+                <button class="btn btn-primary btn-sm pull-right" ng-click="resetSearch()">Clear Search</button>
+              </p>
+          </div>
+          <div class="pad20">
+            <p class="font-size-17">User List ({{users.length|number}} users)
+
+            </p>
+
+            <div class="table-responsive">
+
+              <table class="table">
+              <tr class="border-bottom">
+                <th class="w7"><input type="checkbox" ng-model="selectAll"></th>
+                <th class="w10"></th>
+                <th class="w30">Display Name</th>
+                <th class="w10">Channel</th>
+                <th class="w10 ">Active?</th>
+                <th class="w10 ">Blocked?</th>
+              </tr>
+              <tr ng-repeat-start="u in users | filter:userCriteria.queryString track by u.id" class="divider " ng-click="hideShowUserInfo(u)"
+                  ng-class="{'bg-success shadow-sm  -stronger-thick' : u.isSelected }
+                  ">
+                <td class="text-right">
+                  <span class="font-size-11 bold">{{$index+1}}</span> <a class="link-button button-xs"><i class="ion-edit"></i></a>
+                </td>
+                <td>
+                  <div class='card-picture-xsmall'>
+                    <div class='pic display-inine-block'
+                         ng-style="u.passportUrl">
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span class="font-size-14">{{u.displayName}}</span><br>
+                  <small>{{u.id}}</small>
+                </td>
+
+                <td>{{u.channelId}}</td>
+                <td class="">{{u.isActive ? 'YES' : 'NO'}}</td>
+                <td ng-class="{'bg-highlight-red color-red bold': u.isBlocked, ' color-green bold': !u.isBlocked}">{{u.isBlocked ? 'YES' : 'NO'}}</td>
+              </tr>
+              <tr ng-repeat-end  ng-if="u.isSelected">
+                <td colspan="6" class="bg-highlight-blue">
+                  <div  class="pad20">
+                    <div class="centralize w90 margin-t-20 pad10 bg-white shadow-sm  -stronger">
+                      @Html.Partial("ui/_partials/hr/employee_add")
+                    </div>
+                  </div>
+                </td>
+
+
+              </tr>
+            </table></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

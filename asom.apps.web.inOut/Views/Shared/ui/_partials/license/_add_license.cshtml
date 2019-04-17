@@ -1,0 +1,100 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.web.inOut.Controllers.BaseControllers
+@using asom.apps.web.inOut.Models
+@{
+    var id = new IdentityStore();
+    bool canAttachLicense = id.HasAuthority(AppPermissions.LICENSE_ATTACH_APPLICATION_LICENSE),
+        canExtendLicense  = id.HasAuthority(AppPermissions.LICENSE_EXTEND_APPLICATION_FEATURES);
+
+}
+<div class="pad30 margin-t-20">
+  <div class="pad10 centralize margin-t-10 w60">
+    <div class=" bg-white shadow-sm  -stronger-spread min-h50 border-radius">
+      <div class="pad5 bg-success">
+        <p class="font-size-15 text-center"><i class="ion-ios-locked"> </i> Application License Detail</p>
+      </div>
+      <div class=" text-left">
+
+        <div class="pad20">
+          <p class="font-size-14 divider">
+            <span ng-hide="loading">Please Attach a valid License.</span>
+             <span ng-show="loading"><img src="~/images/ajax-loader.gif" /></span>
+        </p>
+
+        <b>NOTE:</b> Attaching a license file <b>(*.asomlic)</b> will override the existing file if any exist.
+        <br>
+          You can extend a license with license extension file. <b>(*.asomext)</b>
+          @if (canAttachLicense)
+          {
+          <div class=" pad10 ">
+            <asom-file-upload class="btn-success btn btn-xs "
+                              file-change="uploadLicense(obj)"
+                              upload-url="@Url.Action("UploadFileToServer", "Home",
+                                              new {directoryPath = "applicense",
+                                                  allowedExtensions = AllowedExtensionsConstant.ASOM_LICENSE_FILE_EXTENSION, fixedName  = "temp_"+AppInfo.Get.LicenseFileName })"
+            upload-text="Attach License"
+            accept="*"
+            upload-icon="ion-attachment"></asom-file-upload>
+          </div>
+          }
+        <div class="divider margin-t-5"></div>
+          <div class="pad20" ng-show="!!license.hostComponentId">
+              <p class="divider"><b>App Name: </b> {{license.appDefinition.appName}}<sup>{{license.appDefinition.appVersionNumber}}</sup>
+              </p>
+              <p class="divider"><b>License To: </b> {{license.appDefinition.licenseToCompanyName}}
+              </p>
+              <p class="divider"><b>License Key: </b> {{license.key}} <span class="pull-right color-red" ng-show="!license.isActivated"><b>Please activate within:</b> {{license.daysAllowedBeforeActivationExpires }} day(s)</span></p>
+              <p class="divider"><b>License Days : </b> {{license.trialDays}} <span class="pull-right"><b>Is Extensible:</b> {{license.isExtensible ? 'YES' :'NO'}}</span></p>
+              <p class="divider"><b>Date Issued: </b> {{license.dateCreated | date:'MMM-dd-yyyy'}} <span class="pull-right"><b>Can Extend Feature:</b> {{license.canExtendFeature ? 'YES' :'NO'}}</span></p>
+              <p class="divider"><b>Activated: </b> {{license.isActivated ? ('YES, on ' + (license.dateActivated | date:'MMM-dd-yyyy')) : 'NO' }} <span ng-if="!license.isActivated" class="pull-right">
+            <button class="btn btn-xs btn-success" ng-click="activateLicense()">Activate</button></span></p>
+              <p class="divider color-red" ng-class="{'bg-highlight bold' : license.isExpired}"><b>Days Remaining: </b> {{license.trialDaysRemaining}} <span ng-if="license.isActivated" class="pull-right">
+           <b>Expires On: </b>{{license.expiresOn | date:'MMM-dd-yyyy'}}</span></p></div>
+          </div>
+
+          @if (canExtendLicense)
+          {
+              <div class=" pad20 bg-gray" ng-if="license.isActivated">
+                  <p class="divider bold font-size-13 theme-caption-color">Upgrade Application license with License Extenders</p>
+                  <div class="pad10 divider" ng-click="showFeatures = !showFeatures" ng-init="showFeatures =false">
+                    <b>Features:</b> <br>
+                    <table class="table table-bordered table-condenced  font-size-10" ng-show="showFeatures" >
+                      <tr ng-repeat="(k,v) in license.extenderFeatureSet.extenders">
+                        <td>{{v.key}}</td>
+                        <td>{{v.value}}</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <asom-file-upload class="btn-danger btn btn-xs "
+                                    file-change="uploadExtenderLicense(obj)"
+                                    upload-url="@Url.Action("UploadFileToServer", "Home",
+                                                    new {directoryPath = "applicense\\ext",
+                                                        allowedExtensions = AllowedExtensionsConstant.ASOM_LICENSE_FILE_EXTENSION, fixedName  = "extender_"+AppInfo.Get.LicenseFileName })"
+                                    upload-text="Extend License"
+                                    accept="*"
+                                    upload-icon="ion-attachment"></asom-file-upload>
+
+                <span ng-show="!!licenseExtender.serialCode" class="bold divider">
+                    Serial No : {{licenseExtender.serialCode}}, Valid for {{licenseExtender.hostComponentId}}
+                  <br>
+                    <span ng-show="licenseExtender.isDaysExtender">
+                       Extends Your License Days By : {{licenseExtender.daysToAdd|number}}
+                    </span>
+                    <span ng-show="!licenseExtender.isDaysExtender">
+                       Extends Your License Features
+                    </span>
+                  <div class="">
+                    <button class="btn btn-success"
+                    ng-click="applyLicenseExtender()"
+                    >Apply Extension</button>
+                  </div>
+                </span>
+
+
+              </div>
+
+          }
+      </div>
+
+    </div>
+  </div></div>

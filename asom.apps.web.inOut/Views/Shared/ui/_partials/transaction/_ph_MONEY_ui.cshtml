@@ -1,0 +1,86 @@
+﻿@using asom.apps.inOut.core.model.org
+@model OrgAppSetting
+@{
+
+    var appSettings = Model;
+}
+
+@if (appSettings != null)
+{
+    <div class="shadow-sm   margin-t-10 bg-white min-h300">
+        <div class="pad10 bg-success text-center">
+            <p class="bold font-size-18">Cash Transaction (@appSettings.CurrencySymbol)</p>
+            <span>You will need to setup a valid <b>Bank Account Record</b></span>
+        </div>
+      <div class=" text-left bg-highlight-red margin-b-20 shadow-sm  ">
+@*          <p class="color-red font-size-17 pad15">*@
+@*              Please <span class="bold font-size-18">'Do NOT'</span> Use this SERVICE if you do not have the required cash for investing OR you are having doubt!*@
+@*              <br>Our System will automatically detect and Block you off and any existing transactions will be voided*@
+@*              <br> Using Multiple user account for investment is not allowed. With your current account you can Invest at least @appSettings.MultipleProvideHelpQueueLimit time(s)*@
+@*          </p>*@
+          <div class="pad10 font-size-18 bg-highlight bold">
+              <p>Here are Valid Values for CASH</p>
+              <span class="">
+                  @appSettings.GetValidAmountRange()
+
+              </span>
+          </div>
+      </div>
+        <div class="pad10">
+            <div class="centralize w90">
+                <div class="text-left pad10 font-size-14">
+                    <div class="border-radius-circle bg-success text-center pull-left margin-20 shadow-sm  -stronger" style="width: 90px; height: 90px; line-height: 47px;">
+                        <span class=" font-size-62 display-inine-block ">@appSettings.CurrencySymbol</span>
+                    </div>
+                    <p class="margin-t-20">
+                        You will Get <span class="bold font-size-20">@appSettings.IncomePercentage.GetValueOrDefault(0).ToString("N0")%</span> ROI (return on Investment)
+                        on Any amount you Invest using your BANK account within <span class="bold font-size-20">@appSettings.IncomeMaturityDays day(s)</span> After Approval
+                    </p>
+                    <div class="margin-t-10 clearfix divider">
+
+                    </div>
+                    <div class="pad10" ng-init="cashAmount=@appSettings.MinStakeAmount">
+                      <form novalidate name="frmBankInvest">
+                        <div class="row font-size-13">
+                            <div class="col-sm-4">Enter Amount <span class="pull-right bold font-size-16">@appSettings.CurrencySymbol</span></div>
+                            <div class="col-sm-4">
+                                <input type="text"
+                                       name="bankAmount" required
+                                       ng-pattern="/^\d+$/"
+
+                                       class="ui-input-border ui-input ui-input-required font-size-17"
+                                       ng-class="{'ui-invalid-field' : frmBankInvest.$dirty && frmBankInvest.bankAmount.$dirty && frmBankInvest.bankAmount.$invalid}"
+                                       ng-model="cashAmount" class="ui-input-border ui-input ui-input-required font-size-17">
+                            </div>
+                            <div class="col-sm-4">
+                                <button
+                                  ng-click="cashInvest(cashAmount)"
+                                  ng-disabled="frmBankInvest.$invalid || processingCash"
+                                  class="btn btn-success btn-xs"
+                                >Invest In Cash</button>
+                            </div>
+
+                        </div>
+                        <div class="pad10 ">
+
+                          <ng-messages for="frmBankInvest.bankAmount.$error" ng-if="frmBankInvest.bankAmount.$dirty">
+
+                            <ng-message when="pattern" class="color-red">Please Enter a valid amount Here</ng-message>
+                            <ng-message when="required" class="color-red">Amount for a Cash transaction is required</ng-message>
+                          </ng-messages>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+}
+else
+{
+    <h1>Application Settings Issues!</h1>
+}

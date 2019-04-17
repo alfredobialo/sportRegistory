@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Asom UI HICHART Framework</title>
+
+    <link rel="stylesheet" href="../../../styles/btrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../styles/ionic/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="../../../styles/angular-material.min.css"/>
+    <link rel="stylesheet" href="../../../styles/base/select.min.css"/>
+    <link rel="stylesheet" href="../../../styles/base/theme-base.css"/>
+    <link rel="stylesheet" href="../../../styles/themes/oliv/theme-oliv.css"/>
+    <link rel=../"stylesheet" href="../../../styles/themes/opioro/theme-opioro.css"/>
+    <link rel="stylesheet" href="../../../styles/themes/greenhouse/theme-greenhouse.css"/>
+
+    <link rel="stylesheet" href="../../../styles/themes/ox-blud/theme-ox-blud.css"/>
+    <link rel="stylesheet" href="../../../styles/themes/pumkn/theme-pumkn.css"/>
+    <link rel="stylesheet" href="../../../styles/themes/coalbat/theme-coalbat.css"/>
+    <link rel="stylesheet" href="../../../styles/themes/effectiv/theme-effectiv.css"/>
+    <link rel="stylesheet" href="../../../styles/themes/magnum/theme-magnum.css"/>
+    <link rel="stylesheet" href="../../../styles/themes/g-iyki/theme-g-iyki.css"/>
+</head>
+<body>
+<div asom-toolbar="" class="min-h50 theme-bg-color" id="topbar"> Main Menu</div>
+<div class="container-fluid theme-bg-color">
+
+    <div class="row">
+        <div class="action-center min-h450">
+            <div class="margin-t-60">
+                <ul class="active-submenu">
+                    <li><a href="">Menu Item 1 Mary</a></li>
+                    <li><a href="">Menu Item 2 Mary</a></li>
+                    <li><a href="">Menu Item 3 Mary</a></li>
+                    <li><a href="">Menu Item 4 Mary</a></li>
+                    <li><a href="">Menu Item 5 Mary</a></li>
+                    <li><a href="">Menu Item 6 Mary</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="action-canvas text-left"  >
+            <div class="action-canvas-content">
+
+                <div class="pad30 margin-30 bg-white shadow border-radius">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="pad10 min-h400" id="chartContainer-01">
+
+                            </div>
+                            <div class="margin-20 pad20"  ng-controller="financeCtrl">
+                              <h1>Angular JS Starter kit</h1>
+                              <hr>
+                              <input type="text"
+                                     ng-model="accountInfo.name"
+                                     placeholder="Enter Your Name" class="ui-input ui-required font-size-28">
+                              <input type="text" class="ui-input" ng-model="accountInfo.accBal" placeholder="Account Balance">
+                              <input type="text" class="ui-input" ng-model="accountInfo.accType" placeholder="Account Type">
+
+
+                              <div class="pad20">
+                                <h3 ng-show="!!accountInfo.name">Your Name is {{accountInfo.name}}</h3>
+                                <p class="divider font-size-18">Account Balance : {{accountInfo.accBal | currency:'=N='}}</p>
+                                <p class="divider font-size-18">Account Type {{accountInfo.accType | uppercase}}</p>
+                                <button class="ui-button ui-button-primary ui-button-md"
+                                ng-click="showModel()"
+                                >Check Model Value</button>
+                              </div>
+                            </div>
+                          <div class="pad30 margin-20" ng-controller="UserManagerController">
+                            <div class="row min-h200">
+                              <div class="col-sm-8">
+                                <div class="pad10 text-uppercase">
+                                  <div class="row">
+                                    <div class="col-sm-3"><span class="font-size-11">Display Name</span></div>
+                                    <div class="col-sm-9"><input type="text" maxlength="70"
+                                                                 ng-model="currentUser.displayName"
+                                                                 class="ui-input ui-required font-size-26"></div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-sm-3"><span class="font-size-11">User Id</span></div>
+                                    <div class="col-sm-9"><input type="text" maxlength="50"
+                                                                 ng-model="currentUser.id"
+                                                                 class="ui-input ui-required font-size-15"></div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-sm-3"><span class="font-size-11">Password</span></div>
+                                    <div class="col-sm-9"><input type="text" maxlength="50"
+                                                                 ng-model="currentUser.password"
+                                                                 class="ui-input "></div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-sm-3"><span class="font-size-11">Gender</span></div>
+                                    <div class="col-sm-9"> <label>
+                                      <input type="radio" ng-model="currentUser.gender"
+                                             value="Male" ng-checked="true"
+                                             name="rdGender"> &nbsp; Male
+                                    </label>
+                                      &nbsp;&nbsp;
+                                      <label>
+                                        <input type="radio" ng-model="currentUser.gender"
+                                               value="Female"
+                                               name="rdGender"> &nbsp; Female
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-sm-3"><span class="font-size-11">Email Address</span></div>
+                                    <div class="col-sm-9"><input
+                                      placeholder="Email Address"
+                                      type="email" maxlength="50"
+                                                                 ng-model="currentUser.email"
+                                                                 class="ui-input  ">
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-sm-3"><span class="font-size-11">Channel</span></div>
+                                    <div class="col-sm-9">
+                                      <select name="cboChannelId"
+                                              ng-model="currentUser.channelId"
+                                              ng-options="c for c in channels"
+                                              class="ui-input  "
+                                              id=""></select>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-4 theme-caption-bg-color min-h200">
+                                <div class="pad10">
+
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h3>UI Bootstrap</h3>
+                            <uib-tabset >
+                                <uib-tab heading="Context Menu">
+                                    <div class="shadow bg-light-gray pad10 min-h200 border-radius">
+                                          Simple context menu
+                                        <br>
+                                        <div uib-dropdown>
+                                            <a href="" class=" font-size-30"uib-dropdown-toggle>
+                                              <i class="ion-android-more-vertical"></i>
+                                            </a>
+                                            <ul uib-dropdown-menu="">
+                                                <li><a href="">Menu 1</a></li>
+                                                <li><a href="">Menu 2</a></li>
+                                                <li><a href="">Menu 3</a></li>
+                                                <li><p href="" class="display-block">
+                                                    <input type="text" class="ui-input ui-input-border" placeholder="Search here!">
+                                                </p></li>
+                                            </ul>
+                                        </div>
+                                        <div >
+                                            <a href="" class=" font-size-12"
+                                               popover-title="Account Verification" uib-popover="PLease Verify the accounts !" >
+                                             Verify
+                                            </a>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </uib-tab>
+
+                                <uib-tab heading="Other Examples" >
+                                <div class="shadow bg-info pad10 min-h200 border-radius">
+                                    Simple context menu
+                                </div>
+
+                            </uib-tab>
+                            </uib-tabset>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<script src="../../../Scripts/jquery-1.10.2.js"></script>
+<!--<script src="....//../Scripts/jquery.signalR-2.1.2.min.js"></script>-->
+<!--<script src="../../../Scripts/bootstrap.min.js"></script>-->
+<script src="../../../Scripts/moment/moment.js"></script>
+<script src="../../../Scripts/asom_utils.js"></script>
+<script src="../../../Scripts/lodash/lodash.min.js"></script>
+<script src="../../../Scripts/highchart4/highcharts.js"></script>
+<script src="../../../Scripts/highchart4/highcharts-3d.js"></script>
+<script src="../../../Scripts/ng/angular.js"></script>
+<script src="../../../Scripts/ng/angular-sanitize.min.js"></script>
+<script src="../../../Scripts/ng/angular-messages.js"></script>
+<script src="../../../Scripts/ng/angular-aria.min.js"></script>
+<script src="../../../Scripts/ng/angular-animate.js"></script>
+<script src="../../../Scripts/ng/ui-bootstrap-tpls-1.3.2.js"></script>
+<script src="../../../Scripts/ng/angular-ui-router.min.js"></script>
+<script src="../../../Scripts/ng/select.min.js"></script>
+<script src="../../../Scripts/effectivApi/modules/toastModule.js"></script>
+<script src="hichart01.js"></script>
+<!--<script src="../../Scripts/effectivApi/effectiv.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/transactionModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/inventoryModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/crmModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/settingsModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/appNavModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/menuModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/themeModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/toastModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/fileUploadModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/userIdentityModule.js"></script>-->
+<!--<script src="../../Scripts/effectivApi/modules/signalrModule.js"></script>-->
+
+</body>
+</html>

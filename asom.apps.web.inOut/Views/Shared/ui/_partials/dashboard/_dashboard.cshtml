@@ -1,0 +1,36 @@
+﻿@using asom.apps.inOut.core.model.authentication
+@using asom.apps.inOut.core.model.org
+@using asom.apps.web.inOut.Models
+@{
+    var appSettings = OrganizationInfo.GetSettings();
+
+
+    bool hasAdminPrevileges = false;
+    try
+    {
+        hasAdminPrevileges = new IdentityStore().HasAuthority(AppPermissions.CORE_APP_FUNCTIONS_MANAGER);
+    }
+    catch
+    {
+    }
+}
+
+
+<div class="pad0">
+
+
+    <div class=" min-h300">
+       
+      
+        <div class="row">
+            <div class="col-sm-12">
+              @Html.Partial("ui/_register") 
+            
+            </div>
+         
+        </div>
+    </div>
+
+
+</div>
+<div class="min-h150"></div>

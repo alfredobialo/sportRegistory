@@ -1,0 +1,212 @@
+/*Button Theme Please Modify with care*/
+
+.ui-input, .divider
+{
+
+    border-bottom: 2px solid rgb(233, 212, 133);
+
+
+}
+.nav-tabs {
+    border-bottom-color: #ede1bd;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+
+    border-color: #ede1bd #ede1bd transparent;
+
+
+}
+.ui-input.ui-required
+{
+
+    border-bottom-color: #b89440;
+}
+.ui-input:focus {
+    border-bottom-color: #c4a54a;
+}
+.ui-input.ui-error
+{
+
+    border-bottom-color: #ff606c !important;
+}
+.ui-button-default,.bg-default
+{
+    background-color: #e7e6e6;
+    background-image: linear-gradient(#f3f3f3, #e3e1e1);
+    color : rgb(70, 68, 68);
+
+    /*text-shadow: 1px 1px 3px #f9f9f9;*/
+}
+.ui-button-default:hover/*,.ui-button-default:focus*/
+{
+    background-color: #e7e5e5;
+    background-image: linear-gradient(#ece9e9, #e2e2e2);
+    color : #4e4e4e;
+
+    /*text-shadow: 1px 1px 6px #f3f3f3;*/
+}
+
+/*  For blue theme button*/
+
+.ui-button-primary,.bg-primary,.md-active
+{
+
+    background-color: #82baa6;
+    background-image: linear-gradient(#82baa6, #6e9b8a);
+    color : #fff !important;
+    /*text-shadow: 1px 1px 6px rgba(131, 131, 131, 0.62);*/
+}
+div.ui-bg-color .ui-input:focus,.ui-bg-color .ui-input:focus
+{
+
+    border-bottom: rgb(243, 255, 198) solid  ;
+}
+.ui-button-primary:hover/*,.ui-button-blue:focus*/
+{
+    background-image: linear-gradient(#af9e8c, #d9aba4);
+}
+
+.ui-button-danger,.bg-danger
+{
+    background-color: #c65424;
+    background-image: linear-gradient(#bf4e1f, #a31b10);
+    color : #fff !important;
+
+    /*text-shadow: 1px 1px 6px #838383;*/
+}
+
+.ui-button-danger:hover/*,.ui-button-red:focus*/
+{
+    background-image: linear-gradient(#c6511e, #a30707);
+
+    /*text-shadow: 1px 1px 6px #747474;*/
+}
+.ui-button-warning,.bg-warning
+{
+    background-color: #e1da97;
+    background-image: linear-gradient(#d2cf69, #c3bd8e);
+    color : #fff !important;
+
+    /*text-shadow: 1px 1px 6px #838383;*/
+}
+
+
+.ui-button-warning:hover/*,.ui-button-red:focus*/
+{
+    background-image: linear-gradient(#d4d16d, #c6c091);
+
+    /*text-shadow: 1px 1px 6px #747474;*/
+}
+
+.ui-button-success,.bg-success
+{
+    background-color: #c49b63;
+;
+    background-image: linear-gradient(#c49b63, #74563a);
+    color : #fff !important;
+
+
+    /*text-shadow: 1px 1px 6px #838383;*/
+}
+
+.ui-button-success:hover/*,.ui-button-green:focus*/
+{
+    background-image: linear-gradient(#b78e5f, #9e7e57);
+
+
+
+}
+
+.ui-button-dormant,.bg-dormant
+{
+    background-color: #9b9284;
+    background-image: linear-gradient(#b3a999, #9b9284);
+    color : #fff !important;
+
+    /*text-shadow: 1px 1px 6px #838383;*/
+}
+
+.ui-button-dormant:hover/*,.ui-button-pink:focus*/
+{
+    background-image: linear-gradient(#b3a999, #ccc1af);
+    color : #ffffff;
+
+    /*text-shadow: 1px 1px 6px #747474;*/
+}
+
+/*End of Button Theme */
+
+div.theme-top-menu ul a:hover, .theme-left-nav-in-active-bgcolor{
+    /*background-color: #c7aa97;*/
+}
+
+div.theme-top-menu ul a.active-menu, .theme-left-nav-active-bgcolor
+{
+    background-color: #c49b63;
+    text-shadow: 1px 1px 4px #989898;
+}
+
+.theme-caption-color,.theme-caption-bg-color .theme-caption-color
+{
+    text-decoration: none;
+    color: #81584e;
+}
+.theme-caption-bg-color,md-progress-linear.md-default-theme .md-container, md-progress-linear .md-container
+{
+    background-color: #fff5ee;
+}
+.badge
+{
+    background-color: #f2ffe8;
+    color: #852129;
+}
+div.theme-top-menu ul a.active-menu .badge
+{
+    background-color: #c40906;
+    color: #fff;
+}
+.form-control:focus
+{
+    border-color: #c7aa97;
+}
+a
+{
+    text-decoration: none;
+    color: #a65a48;
+}
+a:hover
+{
+    text-decoration: underline;
+    color: #ba9f8e;
+}
+.theme-bg-color,div.theme-bg-color,.theme-bg-color,.theme-bg-color,md-progress-linear.md-default-theme .md-bar, md-progress-linear .md-bar
+{
+    background: #8a493d;
+    /*color:white;*/
+}
+div.theme-bg-bg-color
+{
+    background: #483826;
+
+}
+div.theme-bg-attention-bg-color
+{
+    background: #c36a55;
+
+}
+
+div.current-user-box div.current-user-pic-box
+{
+    background-color: #483826;
+}
+div.current-user-pic-box div.current-user-pic
+{
+
+}
+
+.bg-accent-color
+{
+    background-color: rgb(142, 88, 136);
+    background-image: linear-gradient(#8e5888, #3a3a3a);
+    color : white;
+}

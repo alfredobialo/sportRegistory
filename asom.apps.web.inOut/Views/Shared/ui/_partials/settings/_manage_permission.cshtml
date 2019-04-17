@@ -1,0 +1,158 @@
+﻿<div class=" bg-success " asom-toolbar offset-to-element-id="app-main-menu">
+    <div class="pad10">
+        <div class="row">
+            <div class="col-sm-7">
+                <p class="font-size-16 "> <i class="ion-ios-locked font-size-20"></i> Manage Application Roles and Permission</p>
+            </div>
+            <div class="col-sm-5">
+                <div class="pad5 ui-bg-colorr">
+                    <form name="frmSearch" novalidate>
+                        <div class="row">
+                            <div class="col-sm-5 text-right clear-boostrap-padding-in-row">
+                                <span class="pad10-l-r">Search</span>
+                            </div>
+                            <div class="col-sm-7 clear-boostrap-padding-in-row">
+                                <input type="text"
+                                       class="ui-input font-size-14" name="txtSearch"
+                                       ng-required="true"
+                                       ng-model="searchText"
+
+                                       placeholder="Search Roles / Permissions" />
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="bg-white-gradient pad10 min-h50">
+        <div class="row">
+            <div class="col-sm-8">
+                <button class="btn btn-primary btn-sm">Create Role</button>
+            </div>
+            <div class="col-sm-4 text-right">
+
+              <a href="" ng-click="loadAllRoles()"
+                  title="Reload all Roles"
+                 class="link-button-default">
+                <i class="ion-refresh"></i>
+              </a>
+
+            </div>
+        </div>
+
+    </div>
+    <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+</div>
+
+<div class="pad20">
+  <div class="pad20 bg-highlight shadow-sm   border-radius margin-b-20">
+      <p class="font-size-17 ">
+        <span class="pull-left margin-10">
+          <i class="ion-alert font-size-38 color-red"></i></span>
+          This Section should be handled with care because any improper modification will make this application
+        <br>Unusable
+
+      </p>
+  </div>
+  <div class="pad10  min-h200">
+    <div class="row">
+      <div class="col-sm-8 clear-boostrap-padding-in-row ">
+        <div class="min-h200  shadow-sm   bg-white border-radius">
+          <div class="row">
+            <div class="col-sm-5 clear-boostrap-padding-in-row">
+              <div class="div pad10">
+                <p class=" bold pad10">{{roles.length}} Installed Roles</p>
+                <div class=" max-height-650 overflow-auto">
+                    <div class="pad10">
+                        <div class="margin-b-10 pad10 animated anim-repeat bg-white shadow-sm  -stronger font-size-13"
+                             ng-class="{'bg-success' : currentRole == r}"
+                             ng-click="selectRole(r)"
+                             ng-repeat="r in roles | filter:{name: searchText}">
+                            {{r.name}}
+                          <span class="pull-right"><!--<span class="font-size-10">Users: </span>--><span class="badge">{{r.userDetails.length}} </span></span>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-7 clear-boostrap-padding-in-row">
+              <div class="div pad15">
+                <p class="font-size-14 pad10"
+                  ng-class="{'font-size-20 divider ' : currentRole.name}">
+                  <span ng-if="!currentRole.name">
+                    To View details of any Role, Select a role from the left panel
+                  </span>
+                  <span ng-show="!!currentRole.name">{{currentRole.name}} <span class="text-muted">Role</span></span>
+                </p>
+                <!--Let's Build the Detailed section-->
+                <div class="">
+                  <div class="pad10">
+                    <div ng-show="!!currentRole.name">
+                      <p class="bold divider">Role Description :</p>
+                      <span>{{currentRole.description}}</span>
+                      <br>
+                      <br>
+                      <p class="bold divider">Role Name :<span class="pull-right">{{currentRole.name}}</span></p>
+
+                      <br>
+                      <p class="bold divider">Attributes :</p>
+                      <span><b>Is Active</b> {{currentRole.isActive}}</span>
+                      <span>Is System Defined {{currentRole.isSystemDefined}}</span>
+                      <span>Is Admin {{currentRole.isAdmin}}</span>
+                      <div class="margin-10 margin-b-20 pad5" ng-show="currentRole.userDetails.length>0">
+                        <p class="divider pad5 bold">Users</p>
+                          <div class="row">
+                            <div class="col-sm-4" ng-repeat="u in currentRole.userDetails">
+                              <div class='card-picture-xsmall'>
+                                <div class='pic display-inine-block'
+                                     ng-style="{'background-image' :'url('+u.pictureUrl+')'}">
+
+                                </div>
+                              </div>
+                              <div class="margin-t-5 font-size-11 centralize">
+                                  <span class="bold">{{u.displayName}}</span>
+                                <br>
+                                  <span class="text-muted">Id: {{u.id}}</span>
+                              </div>
+
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="margin-t-10 pad10 border">
+                    <p class="theme-caption-color divider pad10 bold font-size-11">
+                      {{currentRole.permissions.length}} Permissions : <div class=" w100">
+                  <input type="text" class="ui-input-bordered ui-input" placeholder="Search Permissions" ng-model="searchPerms" >
+                </div></p>
+                    <div class="pad10 max-height-650 overflow-auto">
+                        <div class="divider pad10 cursor-pointer font-size-11 animated anim-repeat"
+                             ng-repeat="p in currentRole.permissions | filter:{name : searchPerms}"
+                             ng-click="p.isSelected = !p.isSelected || false"
+                             ng-class="{'danger-alert bold' : p.isSelected}"
+                        >
+                            {{::p.name}}
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 clear-boostrap-padding-in-row  ">
+        <div class="min-h200 pad15 shadow-sm   bg-white border-radius">
+          <p class="divider">Manage User Role</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

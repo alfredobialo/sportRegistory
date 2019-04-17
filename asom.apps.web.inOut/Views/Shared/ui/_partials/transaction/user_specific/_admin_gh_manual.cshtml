@@ -1,0 +1,58 @@
+﻿<div class="text-left shadow-sm  -stronger bg-white margin-20">
+    <div class="pad5 bg-success" ng-if="!loadingPhTickets"></div>
+    <div ng-if="loadingPhTickets">@Html.Partial("ui/_partials/_loading_bar")</div>
+    <div class="pad10 min-h200">
+      <a href=""
+         class="link-button-default pull-right" ng-click="reloadPendingPhTicket()">
+        <i class="ion-refresh"></i>
+      </a>
+
+      <p class="font-size-14 pad10 divider text-center">Select From the List</p>
+        <div class="row">
+          <div class="col-sm-7">
+            <div class="pad10">
+              PENDING PROVIDE HELP TICKETS
+              <br>
+              <asom-data-pager  pager-source="phTicketsCriteria" on-page-click="gotoNextPage_ph(index)"> </asom-data-pager>
+              <br>
+              <div class="pad10 shadow-sm   theme-caption-bg-color margin-b-20 margin-t-10 "
+                   ng-click ="selectPendingTicket(p)"
+                   ng-repeat="p in phTickets" ng-class="{'bg-primary shadow-sm  -stronger-spread' : p.isSelected}">
+                  <span class="font-size-18">{{p.amountInvolved | money }} <span>amount</span></span>
+                  <span class="font-size-12 bold pull-right">User  : {{p.createdBy}}</span>
+                <br>
+                <span>Ticket Code: <span class="bold font-size-13">{{p.id}} <span class="pull-right font-size-16">({{p.group}})</span></span></span>
+              </div>
+
+
+
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <div class="pad10">
+              <span class="font-size-28"><span class="font-size-16"> Ticket Amt </span>{{t.amountInvolved | money}}</span>
+            </div>
+            <div class="pad10 animated anim-if" ng-show="phTickets.length>0" >
+              <p class="font-size-12">Summary</p>
+                <div class="bg-highlight pad10">
+                    Total Sum Selected
+                  <p class="color-red font-size-28">{{totalAmount | money}}</p>
+
+                </div>
+                <div class="pad10 bg-danger font-size-14 anim-if animated" ng-if="totalAmount > t.amountInvolved">
+                  Total Sum selected is above expected amount of : {{t.amountInvolved|money}} please
+                  check again
+                </div>
+                <div class="pad10 margin-t-10">
+                    <button class="btn btn-default btn-block" ng-disabled="totalAmount != t.amountInvolved" ng-click="processMerging(t)"
+
+
+                    >Process Merging</button>
+                </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+﻿@using asom.apps.web.inOut.Models
+@using asom.apps.inOut.core;
+@{
+
+    string msg = AppInfo.Get.DisplayLicenseInfoIfNeccessary();
+    ViewBag.PageTitle = "Login into your Account";
+
+}
+@*@Html.Partial("ui/_partials/app_setup/_database_setup")*@
+<div ng-controller="LoginViewController">
+    @Html.Partial("ui/_login_ui")
+
+
+
+</div>
+@section scripts
+{
+    @if (!string.IsNullOrEmpty(msg))
+    {
+        <script type="text/javascript">
+
+
+            //Toast.pullUp("<p class='font-size-16'>@msg</p>", true, 9000, "bg-danger");
+        </script>
+    }
+}

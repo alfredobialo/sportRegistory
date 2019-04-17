@@ -1,0 +1,177 @@
+﻿@using asom.apps.web.inOut.Controllers.BaseControllers
+@using asom.apps.web.inOut.Models
+@model bool?
+@{
+    bool? singleUser = Model;
+
+    // lets validate the number of users allowed by this user license
+
+
+}
+<div class="row min-h200">
+    <div class="col-sm-7">
+        <p class="divider font-size-16 theme-caption-color pad10">@(singleUser??false ? "Edit your Account" : "Create / Edit User Account")</p>
+        <div class="pad10 text-uppercase">
+          <form novalidate name="frmAdminCreateUsers">
+
+
+            <div class="row">
+              <div class="col-sm-3"><span class="font-size-11">Display Name</span></div>
+              <div class="col-sm-9">
+                <input type="text" maxlength="30"
+                       ng-model="userInfo.displayName" placeholder="Name, Nickname"
+                       class="ui-input ui-required font-size-26">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3"><span class="font-size-11">User Id</span></div>
+              <div class="col-sm-9">
+                <input type="text" maxlength="50" placeholder="Unique user id"
+                       ng-model="userInfo.id"
+                       ng-if="!userInfo.isEditMode"
+                       class="ui-input ui-required font-size-15">
+                <p
+                  class="pad10 bold font-size-15 divider text-lowercase"
+                  ng-if="userInfo.isEditMode">{{userInfo.id}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3"><span class="font-size-11">Password</span></div>
+              <div class="col-sm-9">
+
+                @if (singleUser ?? false)
+                {
+                    // show the change password field
+                <input type="password" maxlength="50"
+                       ng-model="userInfo.oldPassword"
+                       placeholder="Old Password"
+                       class="ui-input ui-input-bordered ui-input-required ">
+                <p class="pad10 divider color-red">New Password (Change password)</p>
+                <input type="password" maxlength="50"
+                       ng-model="userInfo.newPassword1"
+                       placeholder="New Password"
+                       class="ui-input ui-input-bordered ui-input-required ">
+                <input type="password" maxlength="50"
+                       ng-model="userInfo.newPassword2"
+                       placeholder="Retype New Password"
+                       class="ui-input ui-input-bordered ui-input-required ">
+                }
+                else
+                {
+                <div class="row">
+                  <div class="col-sm-8">
+                    <input type="text" maxlength="30"
+                           ng-model="userInfo.password" placeholder="Account Password"
+                           class="ui-input ui-input-required">
+                  </div>
+                  <div class="col-sm-4">
+                    <a href="" ng-if="userInfo.isEditMode "
+                       ng-click="viewPassword(userInfo,password)"
+                       class="font-size-9">Show Password</a>
+
+                  </div>
+
+                </div>
+
+                }
+              </div>
+            </div>
+            <div class="row animated anim-if">
+              <div class="col-sm-3"><span class="font-size-11">Account Type</span></div>
+              <div class="col-sm-9">
+                @if (singleUser ?? false)
+                {
+                <p class="pad10 font-size-14">{{userInfo.objType}}</p>
+                }
+                else
+                {
+                <select name="cboObjType"
+                        required
+
+                        ng-model="userInfo.objType"
+                        ng-options="at for at in accountType"
+                        class="ui-input  "
+                       >
+
+                </select>
+                }
+
+              </div>
+            </div>
+            <div class="row animated anim-if" ng-if="!userInfo.isEditMode">
+              <div class="col-sm-3"><span class="font-size-11">Channel</span></div>
+              <div class="col-sm-9">
+                @if (singleUser ?? false)
+                {
+                <p class="pad10 font-size-14">{{userInfo.channelId}}</p>
+                }
+                else
+                {
+                <select name="cboChannelId"
+                        required
+
+                        ng-model="userInfo.channelId"
+                        ng-options="c for c in channels"
+                        class="ui-input  "
+                        id="">
+                  <option value="">Select a Channel</option>
+                </select>
+                }
+
+              </div>
+            </div>
+            <div class="row bg-highlight margin-t-10 pad10">
+              <p class="font-size-16 divider">Please Enter your Password for verification</p>
+              <div class="col-sm-3"><span class="font-size-11">Password</span></div>
+              <div class="col-sm-9">
+                <input placeholder="Your Secret is Safe"
+                       type="password" maxlength="30"
+                       ng-model="password"
+                       class="ui-input  ">
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="pad10 animated anim-if" ng-if="userInfo.isEditMode">
+                  <a href="" class="link-button button-sm"><i class="ion-ios-briefcase"></i> &nbsp; Update</a>
+                  <a href="" class="link-button button-sm"><i class="ion-ios-close"></i>&nbsp; Block</a>
+                  <a href="" class="link-button button-sm"><i class="ion-ios-trash"></i>&nbsp; Delete</a>
+
+                </div>
+              </div>
+            </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="col-sm-5  ">
+        <div class="pad10 theme-caption-bg-color min-h200" ng-init="defPicture = '@AppInfo.Get.DefaultAvarter()'">
+            <div class="card-picture-xlarge">
+                <div class="pic" style="background-image: url('@AppInfo.Get.DefaultAvarter()')" ng-style="passport ">
+
+                </div>
+
+
+            </div>
+            <div class="margin-t-20 text-center">
+                @if (!singleUser ?? false)
+                {
+                    <asom-file-upload class="btn-primary btn btn-sm "
+                                      file-change="uploadPicture(obj)"
+                                      accept="image/*"
+                                      upload-url="@Url.Action("UploadFileToServer", "Home",
+                                                      new {directoryPath = "user-profile\\pictures", allowedExtensions = AllowedExtensionsConstant.IMAGE_FILE_EXTENSION})"
+                                      upload-text="Select Picture"></asom-file-upload>
+                }
+                else
+                {
+                    <p class="font-size-15 theme-caption-color">To Change your Profile Picture, use the Edit button on your profile picture. (TOP LEFT navigation)</p>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</div>

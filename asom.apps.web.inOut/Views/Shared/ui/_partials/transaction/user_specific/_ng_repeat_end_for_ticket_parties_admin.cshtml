@@ -1,0 +1,33 @@
+﻿
+<tr ng-repeat-end ng-show="t.showParties" class="anim-if animated">
+    <td colspan="5" class=" pad10" ng-class="{'bg-highlight-blue':t.ticketType == 2 , 'bg-highlight':t.ticketType==1}">
+        <div class="centralize pad10">
+            <table class="table table-condensed shadow-sm  -stronger">
+                <tr class="bg-highlight-red">
+                    <th class="">PartyId</th>
+                    <th class=" hidden-xs">Party Name</th>
+                    <th class=""> Date Paired</th>
+                    <th class=""></th>
+                </tr>
+                <tr ng-repeat-start="p in t.parties track by p.id" class="text-left bg-white-gradient pad10">
+                    <td>{{p.partyId}}</td>
+                    <td class="hidden-xs">{{p.userInfo.displayName}}</td>
+                    <td>{{p.dateCreated | date:'dd-MMM yyyy'}}</td>
+                    <td></td>
+                </tr>
+                <tr ng-repeat-end>
+                    <td colspan="4">
+                        <div class=" centralize pad10 margin-b-20" ng-class="{'bg-highlight-purple':p.paymentConfirmed}">
+                            @Html.Partial("ui/_partials/transaction/transactionParty_Details_admin")
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            </table>
+        </div>
+
+
+    </td>
+</tr>

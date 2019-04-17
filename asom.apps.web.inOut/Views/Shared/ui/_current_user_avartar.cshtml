@@ -1,0 +1,39 @@
+﻿@using asom.apps.web.inOut.Controllers.BaseControllers
+@using asom.apps.web.inOut.Models
+@model Boolean?
+@{
+    UserIdentityModel id = null;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        id = IdentitySession.GetUser() as UserIdentityModel;
+
+    }
+    bool hasModel = id != null;
+}
+
+<div class=" fader min-h100" >
+    <div class="card-picture pad10 ">
+        <div class="pic" style="background-image: url(@(hasModel ? id.PictureUrl : AppInfo.Get.DefaultAvarter()))" 
+             ng-style="bgStyle">
+
+        </div>
+    </div>
+   @if ((Model ?? false) == true)
+    {
+        <div class="fade-button">
+            <asom-file-upload class="btn-primary btn btn-xs" ng-show="!uploading"
+                              file-change="uploadPicture(obj)"
+                              upload-url="@Url.Action("UploadFileToServer", "Home",
+                                              new {directoryPath = "user-profile\\passport", allowedExtensions = AllowedExtensionsConstant.IMAGE_FILE_EXTENSION})"
+                              upload-text="Edit"></asom-file-upload>
+
+        </div>
+        <span class=" " ng-show="uploading">
+
+            <img src="~/images/ajax-loader.gif" width="90"/>
+        </span>
+    }
+
+
+</div>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="847f691d-532d-477e-9e1c-3f03dfa7e775" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.inOutGrantApp/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/modules/grantModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/menu/left/_leftMenu_old.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/InOut_Investment_BTC_NnewiNew.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/InOut_Investment_BTC_NnewiNew.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.inOut.core/model/messaging/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.inOut.core/model/messaging/Message.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.inOut.core/model/ticketing/TicketPlan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.inOut.core/model/ticketing/TicketPlan.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Models/Navigation/ApplicationMenuBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Models/Navigation/ApplicationMenuBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/inout.js" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/inout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/modules/appNavModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/modules/appNavModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/modules/transactionModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/modules/transactionModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/Shared/_nojs_layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/Shared/_nojs_layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/_ViewStart.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/Shared/grant_front.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/Shared/grant_front.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/_frontEnd_Menus.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/about.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/about.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_login_ui.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_login_ui.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_login_ui_padded.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_login_ui_padded.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_nav_bar.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_nav_bar.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/bank/_bank_dashboard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/bank/_bank_dashboard.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/bank/_bank_record_combined.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/bank/_bank_record_combined.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/bank/_user_btc.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/bank/_user_btc.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/dashboard/_dashboard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/dashboard/_dashboard.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/transaction/_gh.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/transaction/_gh.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/transaction/_ph.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/transaction/_ph.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/transaction/_ph_BTC_ui.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/transaction/_ph_BTC_ui.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_ticket_plans.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_ticket_plans.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_vendor_css.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_vendor_css.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/menu/left/_leftMenu.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/menu/left/_leftMenu.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/asom.apps.web.inOut.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/asom.apps.web.inOut.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/btcTemplate/css/simple-line-icons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asom.apps.web.inOut/styles/base/theme-base.css" beforeDir="false" afterPath="$PROJECT_DIR$/asom.apps.web.inOut/styles/base/theme-base.css" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/Shared/grant_front.cshtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+              <folding>
+                <element signature="e#2994#3000#0" expanded="true" />
+                <element signature="e#3722#3728#0" expanded="true" />
+                <element signature="e#4054#4060#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#5381#5386#0" expanded="true" />
+                <element signature="e#6739#6745#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_login_ui.cshtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-187">
+              <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+              <folding>
+                <element signature="e#5615#5621#0" expanded="true" />
+                <element signature="e#10841#10847#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/index.cshtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="5" column="50" lean-forward="true" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/modules/transactionModule.js" />
+        <option value="$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/_ViewStart.cshtml" />
+        <option value="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/_frontEnd_Menus.cshtml" />
+        <option value="$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/Shared/grant_front.cshtml" />
+        <option value="$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_login_ui.cshtml" />
+        <option value="$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/index.cshtml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1217" />
+    <option name="height" value="1032" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="asom.apps.web.inOut" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="asom.apps.web.inOut" type="462c0819:PsiDirectoryNode" />
+              <item name="Views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Auth" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Auth" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Shared" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="FrontEnd" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="FrontEnd" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Shared" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="FrontEnd" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Shared" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="_ui_partials" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Shared" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="InOut_Investment_BTC_Nnewi_2019" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="asom.apps.web.inOut" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Shared" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="ui" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\asomprojects\projects from dell\InOut_Investment_BTC_Nnewi_2019\asom.apps.web.inOut\Views\Shared" />
+      <recent name="C:\asomprojects\projects from dell\InOut_Investment_BTC_Nnewi_2019\asom.apps.web.inOut\Views\FrontEnd\Shared" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="847f691d-532d-477e-9e1c-3f03dfa7e775" name="Default" comment="" />
+      <created>1530125259743</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530125259743</updated>
+      <workItem from="1530125269362" duration="110000" />
+      <workItem from="1530125585893" duration="35000" />
+      <workItem from="1554199495584" duration="10699000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="10844000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16754478" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="NativeScript" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/asom.apps.web.inOut.csproj">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_partials/dashboard/_dashboard.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/phrase.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="345" column="16" selection-start-line="345" selection-start-column="16" selection-end-line="345" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/modules/grantModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Scripts/inoutApi/modules/transactionModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="359" column="6" lean-forward="true" selection-start-line="359" selection-start-column="6" selection-end-line="359" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#13491#14594#0" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_login_ui_padded.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/forgotPassword.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-618" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/Shared/_frontEnd_Logo.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/_frontEnd_Menus.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/_ViewStart.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/Shared/_nojs_layout.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/FrontEnd/Shared/grant_front.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <folding>
+            <element signature="e#2994#3000#0" expanded="true" />
+            <element signature="e#3722#3728#0" expanded="true" />
+            <element signature="e#4054#4060#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#5381#5386#0" expanded="true" />
+            <element signature="e#6739#6745#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Auth/index.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="50" lean-forward="true" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asom.apps.web.inOut/Views/Shared/ui/_login_ui.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding>
+            <element signature="e#5615#5621#0" expanded="true" />
+            <element signature="e#10841#10847#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

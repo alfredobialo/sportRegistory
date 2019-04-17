@@ -1,0 +1,13 @@
+﻿@using asom.apps.web.inOut.Models.Settings
+<div class="clearfix text-center  " ng-controller="LogoDisplayController">
+    <a class="" ui-sref="settings-state.edit-company-state">
+        <img src="@CompanyInfoModel.Get.LogoUrl"
+             ng-src="{{orgInfo.logoUrl}}"
+             class="pad10 shadow-sm  -stronger-thick bg-white w70"
+             alt="Your Company Logo" />
+    </a>
+
+    <br />
+    <small class="font-size-11">@CompanyInfoModel.Get.Name </small>
+
+</div>

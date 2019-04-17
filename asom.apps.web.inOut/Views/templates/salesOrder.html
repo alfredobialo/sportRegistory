@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="ebaam">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Asom UI Test Framework</title>
+
+    <link rel="stylesheet" href="../../styles/btrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../styles/ionic/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="../../styles/angular-material.min.css"/>
+    <link rel="stylesheet" href="../../styles/base/select.min.css"/>
+    <link rel="stylesheet" href="../../styles/base/theme-base.css"/>
+    <link rel="stylesheet" href="../../styles/themes/oliv/theme-oliv.css"/>
+    <link rel="stylesheet" href="../../styles/themes/opioro/theme-opioro.css"/>
+    <link rel="stylesheet" href="../../styles/themes/greenhouse/theme-greenhouse.css"/>
+
+    <link rel="stylesheet" href="../../styles/themes/ox-blud/theme-ox-blud.css"/>
+    <link rel="stylesheet" href="../../styles/themes/pumkn/theme-pumkn.css"/>
+    <link rel="stylesheet" href="../../styles/themes/coalbat/theme-coalbat.css"/>
+    <script src="../../Scripts/jquery-1.10.2.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/moment/moment.js"></script>
+    <script src="../../Scripts/lodash/lodash.min.js"></script>
+    <script src="../../Scripts/highchart4/highcharts.js"></script>
+    <script src="../../Scripts/highchart4/highcharts-3d.js"></script>
+    <script src="../../Scripts/greensock-js/src/minified/TweenMax.min.js"></script>
+    <script src="../../Scripts/greensock-js/src/minified/jquery.gsap.min.js"></script>
+    <script src="../../Scripts/ng/angular.js"></script>
+    <script src="../../Scripts/ng/angular-sanitize.min.js"></script>
+    <script src="../../Scripts/ng/angular-messages.js"></script>
+    <script src="../../Scripts/ng/angular-aria.min.js"></script>
+    <script src="../../Scripts/ng/angular-animate.js"></script>
+    <script src="../../Scripts/ng/angular-material.js"></script>
+    <script src="../../Scripts/ng/select.min.js"></script>
+    <script src="../../Scripts/ng/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <script src="../../Scripts/ng/angular-ui-router.min.js"></script>
+    <script src="../../Scripts/effectivApi/effectiv.js"></script>
+    <script src="../../Scripts/effectivApi/modules/salesModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/inventoryModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/crmModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/settingsModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/appNavModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/menuModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/themeModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/toastModule.js"></script>
+</head>
+<body>
+    <div class="container-fluid theme-bg-color">
+
+        <div class="row">
+            <div class="action-center min-h450">
+                <div class="margin-t-60">
+                    <ul>
+                        <li><a href="">Menu Item 1 Mary</a></li>
+                        <li><a href="">Menu Item 2 Mary</a></li>
+                        <li><a href="">Menu Item 3 Mary</a></li>
+                        <li><a href="">Menu Item 4 Mary</a></li>
+                        <li><a href="">Menu Item 5 Mary</a></li>
+                        <li><a href="">Menu Item 6 Mary</a></li>
+                          </ul>
+                </div>
+            </div>
+
+            <div class="action-canvas text-left" ng-controller="SalesController" >
+                <div class="action-canvas-content">
+                    <div class=" bg-danger pad20" asom-toolbar="" id="besttool">
+                        <span class="text-center">
+                            {{so.netTotal | currency}}
+                        </span>
+
+                        <a href="" class="ui-button ui-button-danger ">Save Invoice As Draft</a>
+
+                        <a href=""
+                              class="ui-button ui-button-success"><i class="ion-printer">  Print Invoice</i></a>
+                           <span class="pull-right"><a href=""
+                            class="ui-button ui-button-primary"><i class="ion-android-document"></i>Save & Receive Payments</a><a
+                                   href="" class="ui-button ui-button-dormant"> Cancel</a></span>
+                    </div>
+                    <div class="min-h100 bg-primary">Hello World</div>
+                    <div asom-toolbar="" class="pad20 bg-dormant" offset-to-element-id="besttool">Another Tool Bar</div>
+                    <div class="pad30 theme-caption-bg-color min-h450">
+                        <div class="w30 pad15 pull-right  bg-primary margin-r-10 margin-b-5">
+                            <p class="font-size-20 font-family-monaco">INVOICE NO : 03993302</p>
+
+                        </div>
+                        <h3 class="theme-caption-color">Sales Order</h3>
+
+                        <div class=" margin-b-20 margin-r-10 bg-white shadow-strong border-b-l-radius border-b-r-radius min-h200">
+                            <div class="bg-success pad10">
+                                <span class="bold">Bill To</span>
+                                <span class="pull-right"><a href="" class="ui-button ui-button-primary ui-button "><i class="ion-ios-personadd"> </i>  Add Customer</a></span>
+                            </div>
+
+                            <div class="row pad15-l-r">
+                                <form name="frmBillTo">
+
+                                    <div class="col-sm-6 min-h100  pad10">
+                                        <ui-select ng-model="so.customer" theme="bootstrap"
+                                                   class="w100 font-size-14"
+                                                   reset-search-input="false">
+                                            <ui-select-match placeholder="Select a Customer" >
+                                              <i class="ion-ios-person"></i>  {{$select.selected.companyName}}
+                                            </ui-select-match>
+                                            <ui-select-choices repeat="c in customers | filter:$select.search">
+                                                <span ng-bind-html="c.companyName | highlight: $select.search">
+
+                                                </span>
+                                                <small class="text-muted pull-right">{{c.phoneNo}}</small>
+                                            </ui-select-choices>
+                                          
+
+                                        </ui-select>
+
+                                        <!--<select name="cboCustomer" class="form-control font-size-14 "-->
+                                                <!--id="" ng-model="so.customer" ng-options="c.companyName for c in customers">-->
+                                            <!--<option value="">Select a Customer</option>-->
+
+                                        <!--</select>-->
+                                        <div class="pad20">
+                                            <p class="divider font-size-20 theme-caption-color">
+                                                {{so.customer.companyName}} <a href="" ng-show="!!so.customer"
+                                                                               class="pull-right font-size-11"><i class="ion-edit"></i>Edit</a>
+                                            </p>
+                                            <p class="divider"><span class="w70">{{so.customer.address}}</span> <span class="pull-right">{{so.customer.phoneNo}}</span></p>
+                                            <p class="divider">{{so.customer.email}}</p>
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-5 min-h200 pull-right  pad10 ">
+                                        <div class="bg-dormant pad10 min-h50 margin-b-5">
+                                            <p class="bold">Current Account Balance ({{currencySymbol}}): 340,200.00 </p>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="form-control" placeholder="Shipping Name" />
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-8">
+
+                                                <input type="text" class="form-control " placeholder="Shipping Address" />
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control " placeholder="Ship Location" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+
+                                                <input type="text" class="form-control " placeholder="Ship Phone Number" />
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <select name="txtShipMethod" id="txtShipMethod" class="form-control" placeholder="Shipping Method">
+                                                    <option value="{Shipping Method 1}">Shipping Method 1</option>
+                                                    <option value="{Shipping Method 2}">Shipping Method 2</option>
+                                                    <option value="{Shipping Method 3}">Shipping Method 3</option>
+                                                    <option value="{Shipping Method 4}">Shipping Method 4</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class=" bg-white shadow-strong border-b-l-radius border-b-r-radius min-h300">
+
+                            <form name="frmOrder" method="post">
+                                <div class="table-responsive">
+                                    <table class="ta table-bordered table font-size-12">
+
+                                        <thead>
+                                        <tr class=" bg-primary color-white">
+                                            <th class="w7">Type</th>
+                                            <th class="w30">Item / Service Description</th>
+                                            <th class="w10">U-Measure</th>
+                                            <th class="w10">Amt ({{currencySymbol}})</th>
+                                            <th class="w7">Qty</th>
+                                            <th class="w7">Disc%</th>
+                                            <th class="w15">Line Total ({{currencySymbol}})</th>
+                                            <th class="w15">
+                                                <select class="form-control" name="cboCategory">
+                                                    <option value="Smart Phones">Smart Phones</option>
+                                                    <option value="Gaming Consoles">Gaming Consoles</option>
+                                                    <option value="Desktop Pc">Desktop Pc</option>
+                                                    <option value="Laptops">Laptops</option>
+                                                    <option value="" selected>Category</option>
+                                                </select>
+
+                                            </th>
+                                        </tr>
+
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="li in lineItems">
+
+                                            <td class="">
+                                                {{li.item.type}}
+                                            </td>
+                                            <td class="theme-caption-bg-color">
+                                                {{li.item.name|uppercase}}
+                                                <span class="pull-right"></span>
+                                            </td>
+                                            <td>{{li.um.unitOfMeasure|uppercase}}</td>
+                                            <td> {{li.um.retailPrice | number}}</td>
+                                            <td>
+                                                {{li.qty|number}}
+                                            </td>
+                                            <td>{{li.discount.value() | number:2}}</td>
+                                            <td class="theme-caption-bg-color">
+                                                <span>{{(li.qty * li.um.retailPrice)|number}}</span>
+                                            </td>
+                                            <td>
+                                                <a href="" ng-click="addOne(li)" class="ui-button ui-button-xs ui-button-primary" uib-tooltip="Add One Item"><i class="ion ion-plus"></i></a>
+                                                <a href="" ng-click="removeOne(li)" class="ui-button ui-button-xs ui-button-danger" uib-tooltip="Remove One Item"><i class="ion ion-minus"></i></a>
+                                                <a href="" ng-click="removeAll(li)" class="ui-button ui-button-xs ui-button-danger" uib-tooltip="Remove All Items"><i class="ion-ios-trash"></i></a>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <!--<select name="cboItemType" class="form-control" id=""-->
+                                                <!--ng-options="t for t in itemType" ng-model="type">-->
+                                                <!--</select>-->
+                                            </td>
+                                            <td class="theme-caption-bg-color">
+                                                <ui-select ng-model="selectedItem.item" theme="bootstrap"
+                                                           class="w100 font-size-14"
+                                                           reset-search-input="false">
+                                                    <ui-select-match placeholder="Product / Service" >
+                                                        <i class="ion-ios-person"></i>  {{$select.selected.name}}
+                                                    </ui-select-match>
+                                                    <ui-select-choices repeat="c in items | filter:$select.search">
+                                                <span ng-bind-html="c.name | highlight: $select.search">
+
+                                                </span>
+
+                                                    </ui-select-choices>
+
+
+                                                </ui-select>
+                                                <!--<select name="items"-->
+                                                        <!--class="form-control"-->
+                                                        <!--ng-model="selectedItem.item"-->
+                                                        <!--ng-options="i.name group by i.type for i in items ">-->
+                                                    <!--<option value="">[Select an Item/Service]</option>-->
+                                                <!--</select>-->
+                                            </td>
+                                            <td>
+                                                <select name="storageType"
+                                                        ng-disabled="(!!selectedItem.item)==false"
+                                                        class="form-control"
+                                                        ng-model="selectedItem.um"
+                                                        ng-options="(um.unitInStock + ' ' + um.unitMeasure ) for um in selectedItem.item.storageType">
+                                                    <option value="">[U-M]</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control"
+                                                       ng-model="selectedItem.um.retailPrice" name="txtQty" ng-required="true" ng-pattern="/\d{1,7}/" />
+                                                <!--{{selectedItem.um.retailPrice | number}}</td>-->
+                                            <td>
+                                                <input type="text" class="form-control"
+                                                       ng-model="selectedItem.qty" name="txtQty" ng-required="true" ng-pattern="/\d{1,7}/" />
+                                            </td>
+                                            <td>
+                                                <select name="cboDiscount" class="form-control" id="cboDiscount"
+                                                        ng-model="selectedItem.discount" ng-options="d.code for d in discounts"></select>
+                                            </td>
+                                            <td class="theme-caption-bg-color">
+                                                <span>{{selectedItem.lineTotal()|number:2}}</span>
+                                            </td>
+                                            <td>
+                                                <button ng-disabled="(((!!selectedItem.um)==false))"
+                                                        ng-click="addLineItem(selectedItem)"
+                                                        class="ui-button ui-button-block ui-button-success">
+                                                    <i class="ion ion-plus"></i> Add Item
+                                                </button>
+
+                                            </td>
+
+                                        </tr>
+
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <td rowspan="3"><b>Note</b></td>
+                                            <td colspan="2" rowspan="3">
+                                <textarea placeholder="Enter a description for this Sales Order"
+                                          name="txtNote" ng-model="so.note" id="txtNote" class="form-control"
+                                          rows="2"></textarea>
+                                            </td>
+                                            <td colspan="3" class=" bold">
+                                                <span class="pull-right">Sub Total ({{currencySymbol}})</span>
+                                            </td>
+                                            <td class="bg-primary bold">{{subTotal() | number:2}}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+
+
+                                            <td colspan="3" class=" bold">
+                                                <span class="pull-right">Total Discount ({{currencySymbol}})</span>
+                                            </td>
+                                            <td class="bg-primary bold">{{totalDiscount() | number:2}}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+
+
+                                            <td colspan="3" class=" bold">
+                                                <span class="pull-right">V.A.T ({{currencySymbol}})</span>
+                                            </td>
+                                            <td class="bg-primary bold">0.00</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" bold"></td>
+                                            <td colspan="2" rowspan="3" class=" bold">
+                                                <table class="table table-stripped">
+                                                    <tr>
+                                                        <td class="w35 text-right"><lable class="control-label" for="txtPaymentMethod">Payment Method</lable></td>
+                                                        <td class="w60">
+                                                            <select name="txtPaymentMethod" ng-model="so.paymentMethod"
+                                                                    class="form-control input-sm"
+                                                                    id="txtPaymentMethod"></select>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="w35 text-right"><lable class="control-label">Order Date</lable></td>
+                                                        <td class="w60">
+                                                            <input type="text" ng-click="openDatepicker($event)" placeholder="Click Here to Select" close-text="Close"
+                                                                   uib-datepicker-popup="MM/dd/yyyy" is-open="isDateOpen" class="form-control input-sm"
+                                                                   ng-model="so.orderDate" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td colspan="3" class=" bold">
+                                                <span class="pull-right">Shipping Charges ({{currencySymbol}})</span>
+                                            </td>
+                                            <td class="bg-primary bold"><input type="text" ng-model="so.shippingCharge"
+                                                                               name="txtShippingCharge" class="form-control input-sm"
+                                                                               value="0.00" placeholder="Shipping Charges" /></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" bold"></td>
+                                            <td colspan="1" class=" bold"></td>
+                                            <td colspan="2" class=" bold">
+                                                <span class="pull-right">NET Total ({{currencySymbol}})</span>
+                                            </td>
+                                            <td class="bg-primary bold">{{netTotal() | number:2}}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" bold"></td>
+                                            <td colspan="1" class=" bold"></td>
+                                            <td colspan="2" class=" bold">
+                                                <span class="pull-right">Amount Received ({{currencySymbol}})</span>
+                                            </td>
+                                            <td class="bg-primary bold">
+                                                <input type="text" ng-model="so.amountReceived"
+                                                       name="txtAmtRecieved" class="form-control input-sm"
+                                                       value="0.00" placeholder="Amount Recieved" />
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" bold"></td>
+                                            <td colspan="2" class=" bold"></td>
+                                            <td colspan="3" class=" bold">
+                                                <span class="pull-right">Balance ({{currencySymbol}})</span>
+                                            </td>
+                                            <td class="bg-primary bold">
+                                                {{so.balance | number:2}}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+
+
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>

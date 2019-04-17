@@ -1,0 +1,86 @@
+﻿<p class="pad10 font-size-16 divider">Prefered Invoice Template <i class="ion-ribbon-a"></i> &nbsp; <small class="bold color-green">how do you want your invoices to appear</small></p>
+
+<div class="pad10">
+  <div class="row">
+    <div class="col-xs-3 pos-relative" ng-repeat="t in invoiceTemplate" >
+      <div class="w95 centralize pos-relative">
+
+        <div class="" ng-class="{'dim-element' : t.isActive }" ng-show="t.isActive">
+            <div class="centralize">
+                <button class="btn-success btn">Active Template</button>
+            </div>
+        </div>
+        <div class="div bg-white-gradient "><img ng-src="{{::t.imageUrl}}" alt="" class="img-responsive"></div>
+        <div class="pad10" ng-hide="t.isActive">
+          <button class="btn btn-flat-default btn-sm" ng-click="makeTemplateActive(t)">Make Active</button>
+          &nbsp; &nbsp;<a target="_blank" title="Preview Image" ng-href="{{::t.imageUrl}}"><i class="ion-ios-camera-outline font-size-16"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="clearfix margin-t-10"></div>
+  <div>
+    <p class="divider pad10 font-size-16">Other Settings</p>
+    <div class="pad10 font-size-11 text-uppercase">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="pad5">
+            <div class="row border-bottom">
+              <div class="col-sm-6">
+                <span>Invoice Header</span>
+                <input type="text" maxlength="20" class="ui-input " placeholder="Invoice Header" ng-model="settings.invoiceHeader" ><br>
+                <label for="chkShowInvoiceHeader">Show Invoice Header</label> <input type="checkbox" ng-model="settings.showInvoiceHeader" id="chkShowInvoiceHeader">
+              </div>
+              <div class="col-sm-6">
+                <span>Invoice Footer</span>
+                <input type="text" class="ui-input " maxlength="200" placeholder="Invoice Footer" ng-model="settings.invoiceFooter" ><br>
+                <label for="chkShowInvoiceFooter">Show Invoice Footer</label> <input type="checkbox" ng-model="settings.showInvoiceFooter" id="chkShowInvoiceFooter">
+
+              </div>
+            </div>
+            <div class="row  margin-t-20">
+              <div class="col-sm-6">
+                <span>Font Color HexCode eg:#330022</span>
+                <input type="text" maxlength="7" class="ui-input " placeholder="Font Color HexCode" ng-model="settings.fontColorHexCode" >
+                <br>
+                <span>Faint Font Color Code</span>
+                <input type="text" maxlength="7" class="ui-input " placeholder="Faded Font Color HexCode" ng-model="settings.fontColorHexCodeFade" >
+              </div>
+              <div class="col-sm-6">
+                <span>Background Color Hex Code eg:#000000</span>
+                <input type="text" class="ui-input " maxlength="7" placeholder="Background Color" ng-model="settings.bgColorHexCode" >
+                <br>
+                <span>Faint Background Color </span>
+                <input type="text" class="ui-input " maxlength="7" placeholder="Faded Background Color" ng-model="settings.bgColorHexCodeFade" >
+
+
+              </div>
+              <p class="pad20"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="pad10 min-h200 border-left">
+            <div class="pad5"><label for="chkShow1"><input type="checkbox" id="chkShow1" ng-model="settings.showItemName"> &nbsp;  <span>Show Item Group Header in Invoices</span></label>
+            </div>
+            <div class="pad5"><label for="chkShow2"><input type="checkbox" id="chkShow2" ng-model="settings.showProductPictureInCart">&nbsp;  <span>Show Item Picture in <b>'New Sales'</b> List</span></label>
+            </div>
+            <div class="pad5"><label for="chkShow3"><input type="checkbox" id="chkShow3" ng-model="settings.showCompanyLogoInReport">&nbsp;  <span>Always Show Company Logo in Every Reports</span></label>
+            </div>
+            <div class="pad5"><label for="chkShow4"><input type="checkbox" id="chkShow4" ng-model="settings.useSubItems">&nbsp;  <span>Always Store Items as Group</span></label>
+            </div>
+            <div class="pad5"><label for="chkShow5"><input type="checkbox" id="chkShow5" ng-model="settings.useDefaultItemSalesAmount">&nbsp;  <span>Enable Default Item Amount</span></label>
+            </div>
+            <div class="pad5 animated anim-if" ng-show="settings.useDefaultItemSalesAmount">
+                <spa>Default Item Amount</spa>
+               <input type="text" class="ui-input w30 " ng-model="settings.defaultItemSalesAmount">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

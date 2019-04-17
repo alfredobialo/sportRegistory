@@ -1,0 +1,36 @@
+﻿@using asom.apps.web.inOut.Models
+<p class="pad20 font-size-18 divider">
+    Application Engine Config
+
+</p>
+<p class="">Please Handle this section with care!</p>
+<div class="pad10 ">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="div pad10 text-center  border border-radius min-h200">
+          <button class="btn btn-md btn-primary" ng-disabled="installingRoles" ng-click="confirmResetRoles()">Re-Install System Roles</button>
+          <div ng-show="installingRoles">@Html.Partial("ui/_loading_img_partial")</div>
+        <div class="text-left pad15 margin-t-20 shadow-sm   bg-highlight-purple">Reinstall System Roles only when there are newly Added roles from application update, and you want to have those new <b>Permission Installed</b></div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" pad10 text-center border border-radius min-h200">
+          <button class="btn btn-md btn-primary" ng-disabled="pacthingDb" ng-click="confirmPatchDb()"> Init Database Patch</button>
+          <div ng-show="patchingDb">@Html.Partial("ui/_loading_img_partial")</div>
+        <div class="text-left pad15 margin-t-20 shadow-sm   bg-highlight-purple">You Don't have To Perform this action always. <br>
+            If you wish to Patch Your Database next time you sign in, click the 'Init Database Patch' Button
+        </div>
+      </div>
+      </div>
+
+
+
+
+    <div class="col-sm-4">
+        <div class=" pad10 text-center border border-radius min-h200">
+          <create-default-ticket-plan></create-default-ticket-plan>
+        </div>
+    </div>
+
+  </div>
+</div>

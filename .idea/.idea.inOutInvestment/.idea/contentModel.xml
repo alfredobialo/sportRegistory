@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\USER\.Rider2018.2\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\USER\.Rider2018.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\USER\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\USER\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_inOutInvestment.1299717139.00" t="ExcludeRecursive" />
+    <e p="C:\Users\USER\Documents\Visual Studio 2015\Projects\InOut_Investment_BTC_NnewiNew" t="IncludeFlat">
+      <e p="asom.apps.inOut.core" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="asom.apps.inOut.core.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="config" t="Include">
+          <e p="AppInstallation.cs" t="Include" />
+          <e p="IAppConfig.cs" t="Include" />
+        </e>
+        <e p="Constants.cs" t="Include" />
+        <e p="dal" t="Include">
+          <e p="DefaultDal.cs" t="Include" />
+          <e p="sqlserver" t="Include">
+            <e p="db" t="Include">
+              <e p="app_messaging.cs" t="Include" />
+              <e p="app_messaging_comment.cs" t="Include" />
+              <e p="app_messaging_recipient_list.cs" t="Include" />
+              <e p="app_notification.cs" t="Include" />
+              <e p="exchange_rate.cs" t="Include" />
+              <e p="identity_store.cs" t="Include" />
+              <e p="identity_store_audit_trail.cs" t="Include" />
+              <e p="identity_store_preference.cs" t="Include" />
+              <e p="inout_db.cs" t="Include" />
+              <e p="itrex_auth_objectAccessAudit.cs" t="Include" />
+              <e p="itrex_auth_roleDefinition.cs" t="Include" />
+              <e p="itrex_auth_rolePermission.cs" t="Include" />
+              <e p="itrex_auth_usersInRole.cs" t="Include" />
+              <e p="org_bank.cs" t="Include" />
+              <e p="org_bank_trans_log.cs" t="Include" />
+              <e p="org_business_channels.cs" t="Include" />
+              <e p="org_company_profile.cs" t="Include" />
+              <e p="org_global_settings.cs" t="Include" />
+              <e p="org_media_store.cs" t="Include" />
+              <e p="org_registration_pin.cs" t="Include" />
+              <e p="org_ticket.cs" t="Include" />
+              <e p="org_ticket_party.cs" t="Include" />
+              <e p="org_ticket_transaction_log.cs" t="Include" />
+              <e p="sys_user_referer_list.cs" t="Include" />
+              <e p="ticket_plan.cs" t="Include" />
+            </e>
+            <e p="model" t="Include">
+              <e p="BusinessChannelRepo.cs" t="Include" />
+              <e p="MediaRepo.cs" t="Include" />
+              <e p="OrgRepo.cs" t="Include" />
+              <e p="OrgSettingRepo.cs" t="Include" />
+            </e>
+            <e p="SqlServerDal.cs" t="Include" />
+          </e>
+        </e>
+        <e p="model" t="Include">
+          <e p="authentication" t="Include">
+            <e p="AppDefaultPrefence.cs" t="Include" />
+            <e p="AppPermissions.cs" t="Include" />
+            <e p="Authenticator.cs" t="Include" />
+            <e p="IdentityStore.cs" t="Include" />
+            <e p="Referer_List.cs" t="Include" />
+            <e p="RoleManagerProxy.cs" t="Include" />
+            <e p="SuperAdminIdentity.cs" t="Include" />
+            <e p="UserIdentity.cs" t="Include" />
+          </e>
+          <e p="DefaultPersistable.cs" t="Include" />
+          <e p="messaging" t="Include">
+            <e p="Message.cs" t="Include" />
+            <e p="MessageComment.cs" t="Include" />
+            <e p="MessageRecipient.cs" t="Include" />
+          </e>
+          <e p="notification" t="Include">
+            <e p="NotificationFactory.cs" t="Include" />
+            <e p="Notifier.cs" t="Include" />
+          </e>
+          <e p="org" t="Include">
+            <e p="BaseCriteria.cs" t="Include" />
+            <e p="BusinessChannel.cs" t="Include" />
+            <e p="CurrencyPolicy.cs" t="Include" />
+            <e p="MediaObject.cs" t="Include" />
+            <e p="ObjSearchCriteria.cs" t="Include" />
+            <e p="OrganizationInfo.cs" t="Include" />
+            <e p="OrgAppSetting.cs" t="Include" />
+          </e>
+          <e p="ticketing" t="Include">
+            <e p="ExchangeRate.cs" t="Include" />
+            <e p="Ticket.cs" t="Include" />
+            <e p="TicketEngine.cs" t="Include" />
+            <e p="TicketParty.cs" t="Include" />
+            <e p="TicketPlan.cs" t="Include" />
+            <e p="TicketTransaction.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="asom.apps.web.inOut" t="IncludeRecursive">
+        <e p="App_Data" t="Include" />
+        <e p="App_Start" t="Include">
+          <e p="BundleConfig.cs" t="Include" />
+          <e p="FilterConfig.cs" t="Include" />
+          <e p="RouteConfig.cs" t="Include" />
+          <e p="WebApiConfig.cs" t="Include" />
+        </e>
+        <e p="asom.apps.web.inOut.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="btcTemplate" t="Include">
+          <e p="css" t="Include">
+            <e p="bootstrap.min.css" t="Include" />
+            <e p="font-awesome.min.css" t="Include" />
+            <e p="jquery.lightbox.min.css" t="Include" />
+            <e p="simple-line-icons.css" t="Include" />
+            <e p="style.css" t="Include" />
+          </e>
+          <e p="fonts" t="Include">
+            <e p="fontawesome-webfont.eot" t="Include" />
+            <e p="fontawesome-webfont.svg" t="Include" />
+            <e p="fontawesome-webfont.ttf" t="Include" />
+            <e p="fontawesome-webfont.woff" t="Include" />
+            <e p="fontawesome-webfont.woff2" t="Include" />
+            <e p="FontAwesome.otf" t="Include" />
+            <e p="glyphicons-halflings-regular.eot" t="Include" />
+            <e p="glyphicons-halflings-regular.svg" t="Include" />
+            <e p="glyphicons-halflings-regular.ttf" t="Include" />
+            <e p="glyphicons-halflings-regular.woff" t="Include" />
+            <e p="glyphicons-halflings-regular.woff2" t="Include" />
+            <e p="Simple-Line-Icons.eot" t="Include" />
+            <e p="Simple-Line-Icons.svg" t="Include" />
+            <e p="Simple-Line-Icons.ttf" t="Include" />
+            <e p="Simple-Line-Icons.woff" t="Include" />
+            <e p="Simple-Line-Icons.woff2" t="Include" />
+          </e>
+          <e p="images" t="Include">
+            <e p="bitcoin-640.png" t="Include" />
+            <e p="bitcoin-coin.png" t="Include" />
+            <e p="btc.jpg" t="Include" />
+            <e p="btc.png" t="Include" />
+            <e p="logo-white.png" t="Include" />
+            <e p="overaly.png" t="Include" />
+            <e p="trade-bg.png" t="Include" />
+          </e>
+          <e p="index.html" t="Include" />
+          <e p="js" t="Include">
+            <e p="bootstrap.min.js" t="Include" />
+            <e p="jquery.lightbox.min.js" t="Include" />
+            <e p="jquery.min.js" t="Include" />
+            <e p="script.js" t="Include" />
+          </e>
+        </e>
+        <e p="CacheRepos" t="Include">
+          <e p="IdentityStoreCacheRepo.cs" t="Include" />
+          <e p="InitCacheDataSource.cs" t="Include" />
+          <e p="OrgInfoCacheRepo.cs" t="Include" />
+          <e p="OrgSettingsCacheRepo.cs" t="Include" />
+        </e>
+        <e p="Content" t="Include">
+          <e p="bitchainicon.png" t="Include" />
+        </e>
+        <e p="controllers" t="Include">
+          <e p="AppPartialViewBaseController.cs" t="Include" />
+          <e p="AppSetup" t="Include">
+            <e p="SettingsController.cs" t="Include" />
+            <e p="SetupController.cs" t="Include" />
+          </e>
+          <e p="AuthController.cs" t="Include" />
+          <e p="BaseControllers" t="Include">
+            <e p="BaseController.cs" t="Include" />
+            <e p="SecuredAppController.cs" t="Include" />
+          </e>
+          <e p="DashboardController.cs" t="Include" />
+          <e p="FrontEndController.cs" t="Include" />
+          <e p="HomeController.cs" t="Include" />
+          <e p="IdentityController.cs" t="Include" />
+          <e p="MenuController.cs" t="Include" />
+          <e p="MessageController.cs" t="Include" />
+          <e p="NotificationController.cs" t="Include" />
+          <e p="OrgController.cs" t="Include" />
+          <e p="TransactionController.cs" t="Include" />
+          <e p="UtilController.cs" t="Include" />
+          <e p="XhrUrlMapperController.cs" t="Include" />
+        </e>
+        <e p="crypto" t="Include">
+          <e p=".sass-cache" t="Include">
+            <e p="b687762b7660b1f71ae40e600add14c590cfdbc7" t="Include">
+              <e p="_mixin.scssc" t="Include" />
+              <e p="_responsive.scssc" t="Include" />
+              <e p="_theme_color.scssc" t="Include" />
+              <e p="_variables.scssc" t="Include" />
+              <e p="style.scssc" t="Include" />
+            </e>
+            <e p="eb65a9acf275cb72706472a84a7409ec6f3ac36a" t="Include">
+              <e p="_mixin.scssc" t="Include" />
+              <e p="_responsive.scssc" t="Include" />
+              <e p="_theme_color.scssc" t="Include" />
+              <e p="_variables.scssc" t="Include" />
+              <e p="style.scssc" t="Include" />
+            </e>
+          </e>
+          <e p="about-us.html" t="Include" />
+          <e p="blog.html" t="Include" />
+          <e p="contact.html" t="Include" />
+          <e p="css" t="Include">
+            <e p="animate.css" t="Include" />
+            <e p="bootstrap.min.css" t="Include" />
+            <e p="classy-nav.min.css" t="Include" />
+            <e p="custom-icon.css" t="Include" />
+            <e p="font-awesome.min.css" t="Include" />
+            <e p="magnific-popup.css" t="Include" />
+            <e p="owl.carousel.min.css" t="Include" />
+          </e>
+          <e p="elements.html" t="Include" />
+          <e p="fonts" t="Include">
+            <e p="classy.eot" t="Include" />
+            <e p="classy.svg" t="Include" />
+            <e p="classy.ttf" t="Include" />
+            <e p="classy.woff" t="Include" />
+            <e p="fontawesome-webfont.eot" t="Include" />
+            <e p="fontawesome-webfont.svg" t="Include" />
+            <e p="fontawesome-webfont.ttf" t="Include" />
+            <e p="fontawesome-webfont.woff" t="Include" />
+            <e p="fontawesome-webfont.woff2" t="Include" />
+            <e p="FontAwesome.otf" t="Include" />
+            <e p="icomoon.eot" t="Include" />
+            <e p="icomoon.svg" t="Include" />
+            <e p="icomoon.ttf" t="Include" />
+            <e p="icomoon.woff" t="Include" />
+          </e>
+          <e p="img" t="Include">
+            <e p="bg-img" t="Include">
+              <e p="about.png" t="Include" />
+              <e p="bg-1.jpg" t="Include" />
+              <e p="bg-2.jpg" t="Include" />
+              <e p="bg-2.png" t="Include" />
+              <e p="bg-3.jpg" t="Include" />
+              <e p="bg-4.jpg" t="Include" />
+              <e p="bitcoin-cash.png" t="Include" />
+              <e p="bitcoin.png" t="Include" />
+              <e p="breadcumb.png" t="Include" />
+              <e p="cardano.png" t="Include" />
+              <e p="device.png" t="Include" />
+              <e p="ethereum.png" t="Include" />
+              <e p="iota.png" t="Include" />
+              <e p="litecoin.png" t="Include" />
+              <e p="nem.png" t="Include" />
+              <e p="neo.png" t="Include" />
+              <e p="ripple.png" t="Include" />
+              <e p="stellar.png" t="Include" />
+              <e p="video-btn.png" t="Include" />
+            </e>
+            <e p="blog-img" t="Include">
+              <e p="1.jpg" t="Include" />
+              <e p="2.jpg" t="Include" />
+              <e p="3.jpg" t="Include" />
+              <e p="4.jpg" t="Include" />
+              <e p="5.jpg" t="Include" />
+              <e p="6.jpg" t="Include" />
+              <e p="7.jpg" t="Include" />
+              <e p="blog1.jpg" t="Include" />
+              <e p="blog3.jpg" t="Include" />
+              <e p="blog4.jpg" t="Include" />
+            </e>
+            <e p="core-img" t="Include">
+              <e p="favicon.ico" t="Include" />
+              <e p="logo.png" t="Include" />
+              <e p="logo2.png" t="Include" />
+            </e>
+          </e>
+          <e p="index.html" t="Include" />
+          <e p="js" t="Include">
+            <e p="active.js" t="Include" />
+            <e p="bootstrap" t="Include">
+              <e p="bootstrap.min.js" t="Include" />
+              <e p="popper.min.js" t="Include" />
+            </e>
+            <e p="google-map" t="Include">
+              <e p="map-active.js" t="Include" />
+            </e>
+            <e p="jquery" t="Include">
+              <e p="jquery-2.2.4.min.js" t="Include" />
+            </e>
+            <e p="plugins" t="Include">
+              <e p="plugins.js" t="Include" />
+            </e>
+          </e>
+          <e p="scss" t="Include">
+            <e p="_mixin.scss" t="Include" />
+            <e p="_responsive.scss" t="Include" />
+            <e p="_theme_color.scss" t="Include" />
+            <e p="_variables.scss" t="Include" />
+            <e p="style.scss" t="Include" />
+          </e>
+          <e p="style.css" t="Include" />
+          <e p="style.css.map" t="Include" />
+        </e>
+        <e p="Global.asax" t="Include" />
+        <e p="Global.asax.cs" t="Include" />
+        <e p="Hubs" t="Include">
+          <e p="AlertHub.cs" t="Include" />
+          <e p="CrmHub.cs" t="Include" />
+          <e p="HrHub.cs" t="Include" />
+          <e p="InventoryHub.cs" t="Include" />
+          <e p="SalesHub.cs" t="Include" />
+          <e p="SocialHub.cs" t="Include" />
+          <e p="ThemesHub.cs" t="Include" />
+        </e>
+        <e p="IdentityStoreAuthorizationFilter.cs" t="Include" />
+        <e p="images" t="Include">
+          <e p="ajax-loader.gif" t="Include" />
+          <e p="btc.jpg" t="Include" />
+          <e p="btc.png" t="Include" />
+          <e p="inout" t="Include">
+            <e p="btc_icon.png" t="Include" />
+            <e p="logo.jpg" t="Include" />
+          </e>
+          <e p="invoice_report_template" t="Include">
+            <e p="template1.jpg" t="Include" />
+            <e p="template2.jpg" t="Include" />
+            <e p="template3.jpg" t="Include" />
+            <e p="template4.jpg" t="Include" />
+          </e>
+          <e p="overaly.png" t="Include" />
+          <e p="themes_thumbnail" t="Include">
+            <e p="asom.png" t="Include" />
+            <e p="biafra.png" t="Include" />
+            <e p="coalbat.png" t="Include" />
+            <e p="codes.png" t="Include" />
+            <e p="darkn.png" t="Include" />
+            <e p="daylight.png" t="Include" />
+            <e p="def.png" t="Include" />
+            <e p="duzzy.png" t="Include" />
+            <e p="effectiv.png" t="Include" />
+            <e p="facebook.png" t="Include" />
+            <e p="greenhouse.png" t="Include" />
+            <e p="halo.png" t="Include" />
+            <e p="iyki.png" t="Include" />
+            <e p="libration.png" t="Include" />
+            <e p="magnum.png" t="Include" />
+            <e p="maroon.png" t="Include" />
+            <e p="moonlight.png" t="Include" />
+            <e p="ndcreek.png" t="Include" />
+            <e p="oliv.png" t="Include" />
+            <e p="opioro.png" t="Include" />
+            <e p="ox-blud.png" t="Include" />
+            <e p="pumkn.png" t="Include" />
+            <e p="skoologic.png" t="Include" />
+            <e p="slide.png" t="Include" />
+            <e p="trademit.png" t="Include" />
+            <e p="twitter.png" t="Include" />
+            <e p="udara.png" t="Include" />
+          </e>
+          <e p="trade-bg.png" t="Include" />
+          <e p="user_avar_female.png" t="Include" />
+          <e p="user_avar_male.png" t="Include" />
+        </e>
+        <e p="JsonAuthorizationFilter.cs" t="Include" />
+        <e p="models" t="Include">
+          <e p="AdmissionRegistrationModel.cs" t="Include" />
+          <e p="AppInfo.cs" t="Include" />
+          <e p="BaseModel.cs" t="Include" />
+          <e p="DateRangeHelperModel.cs" t="Include" />
+          <e p="EmailSender.cs" t="Include" />
+          <e p="ExchangeRateModel.cs" t="Include" />
+          <e p="IdentityModel.cs" t="Include" />
+          <e p="MediaObjModel.cs" t="Include" />
+          <e p="MessageCommentModel.cs" t="Include" />
+          <e p="MessageModel.cs" t="Include" />
+          <e p="Navigation" t="Include">
+            <e p="ApplicationMenuBase.cs" t="Include" />
+          </e>
+          <e p="NotificationModel.cs" t="Include" />
+          <e p="ReportObjectModelExposure.cs" t="Include" />
+          <e p="RoleModelExtension.cs" t="Include" />
+          <e p="ServerResponseModel.cs" t="Include" />
+          <e p="settings" t="Include">
+            <e p="BusinessChannelModel.cs" t="Include" />
+            <e p="CompanyInfoModel.cs" t="Include" />
+            <e p="CurrencySettingModel.cs" t="Include" />
+            <e p="SettingModel.cs" t="Include" />
+            <e p="ThemeSettingModel.cs" t="Include" />
+          </e>
+          <e p="transaction" t="Include">
+            <e p="TicketModel.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="FolderProfile.pubxml" t="Include" />
+            <e p="inOut.pubxml" t="Include" />
+            <e p="inOut_benjac.pubxml" t="Include" />
+          </e>
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="roslyn" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="_references.js" t="Include" />
+          <e p="asom_utils.js" t="Include" />
+          <e p="bootstrap.min.js" t="Include" />
+          <e p="greensock-js" t="Include">
+            <e p="minified" t="Include">
+              <e p="easing" t="Include">
+                <e p="EasePack.min.js" t="Include" />
+              </e>
+              <e p="jquery.gsap.min.js" t="Include" />
+              <e p="plugins" t="Include">
+                <e p="AttrPlugin.min.js" t="Include" />
+                <e p="BezierPlugin.min.js" t="Include" />
+                <e p="ColorPropsPlugin.min.js" t="Include" />
+                <e p="CSSPlugin.min.js" t="Include" />
+                <e p="CSSRulePlugin.min.js" t="Include" />
+                <e p="DirectionalRotationPlugin.min.js" t="Include" />
+                <e p="EaselPlugin.min.js" t="Include" />
+                <e p="EndArrayPlugin.min.js" t="Include" />
+                <e p="KineticPlugin.min.js" t="Include" />
+                <e p="RaphaelPlugin.min.js" t="Include" />
+                <e p="RoundPropsPlugin.min.js" t="Include" />
+                <e p="ScrollToPlugin.min.js" t="Include" />
+                <e p="TextPlugin.min.js" t="Include" />
+              </e>
+              <e p="TimelineLite.min.js" t="Include" />
+              <e p="TimelineMax.min.js" t="Include" />
+              <e p="TweenLite.min.js" t="Include" />
+              <e p="TweenMax.min.js" t="Include" />
+              <e p="utils" t="Include">
+                <e p="Draggable.min.js" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="highchart4" t="Include">
+            <e p="adapters" t="Include">
+              <e p="standalone-framework.js" t="Include" />
+              <e p="standalone-framework.src.js" t="Include" />
+            </e>
+            <e p="highcharts-3d.js" t="Include" />
+            <e p="highcharts-3d.src.js" t="Include" />
+            <e p="highcharts-more.js" t="Include" />
+            <e p="highcharts-more.src.js" t="Include" />
+            <e p="highcharts.js" t="Include" />
+            <e p="highcharts.src.js" t="Include" />
+            <e p="modules" t="Include">
+              <e p="boost.js" t="Include" />
+              <e p="boost.src.js" t="Include" />
+              <e p="broken-axis.js" t="Include" />
+              <e p="broken-axis.src.js" t="Include" />
+              <e p="canvas-tools.js" t="Include" />
+              <e p="canvas-tools.src.js" t="Include" />
+              <e p="data.js" t="Include" />
+              <e p="data.src.js" t="Include" />
+              <e p="drilldown.js" t="Include" />
+              <e p="drilldown.src.js" t="Include" />
+              <e p="exporting.js" t="Include" />
+              <e p="exporting.src.js" t="Include" />
+              <e p="funnel.js" t="Include" />
+              <e p="funnel.src.js" t="Include" />
+              <e p="heatmap.js" t="Include" />
+              <e p="heatmap.src.js" t="Include" />
+              <e p="no-data-to-display.js" t="Include" />
+              <e p="no-data-to-display.src.js" t="Include" />
+              <e p="offline-exporting.js" t="Include" />
+              <e p="offline-exporting.src.js" t="Include" />
+              <e p="solid-gauge.js" t="Include" />
+              <e p="solid-gauge.src.js" t="Include" />
+              <e p="treemap.js" t="Include" />
+              <e p="treemap.src.js" t="Include" />
+            </e>
+            <e p="themes" t="Include">
+              <e p="dark-blue.js" t="Include" />
+              <e p="dark-green.js" t="Include" />
+              <e p="dark-unica.js" t="Include" />
+              <e p="gray.js" t="Include" />
+              <e p="grid-light.js" t="Include" />
+              <e p="grid.js" t="Include" />
+              <e p="sand-signika.js" t="Include" />
+              <e p="skies.js" t="Include" />
+            </e>
+          </e>
+          <e p="inoutApi" t="Include">
+            <e p="controllers" t="Include" />
+            <e p="inout.js" t="Include" />
+            <e p="models" t="Include" />
+            <e p="modules" t="Include">
+              <e p="accountingModule.js" t="Include" />
+              <e p="appModalController.js" t="Include" />
+              <e p="appNavModule.js" t="Include" />
+              <e p="appStartModule.js" t="Include" />
+              <e p="crmModule.js" t="Include" />
+              <e p="dashboardModule.js" t="Include" />
+              <e p="dialogService.js" t="Include" />
+              <e p="directivesModule.js" t="Include" />
+              <e p="fileUploadModule.js" t="Include" />
+              <e p="hrModule.js" t="Include" />
+              <e p="licenseModule.js" t="Include" />
+              <e p="menuModule.js" t="Include" />
+              <e p="messageModule.js" t="Include" />
+              <e p="notificationModule.js" t="Include" />
+              <e p="paymentModule.js" t="Include" />
+              <e p="settingsModule.js" t="Include" />
+              <e p="setupModule.js" t="Include" />
+              <e p="signalrModule.js" t="Include" />
+              <e p="themeModule.js" t="Include" />
+              <e p="toastModule.js" t="Include" />
+              <e p="transactionModule.js" t="Include" />
+              <e p="userIdentityModule.js" t="Include" />
+              <e p="utilModule.js" t="Include" />
+            </e>
+          </e>
+          <e p="jquery-1.10.2.js" t="Include" />
+          <e p="jquery-1.10.2.min.js" t="Include" />
+          <e p="jquery.countdown.js" t="Include" />
+          <e p="jquery.countdown.min.js" t="Include" />
+          <e p="jquery.signalR-2.1.2.min.js" t="Include" />
+          <e p="jquery.validate.min.js" t="Include" />
+          <e p="jquery.validate.unobtrusive.min.js" t="Include" />
+          <e p="lodash" t="Include">
+            <e p="lodash.4.min.js" t="Include" />
+            <e p="lodash.core.js" t="Include" />
+            <e p="lodash.min.js" t="Include" />
+          </e>
+          <e p="modernizr-2.6.2.js" t="Include" />
+          <e p="moment" t="Include">
+            <e p="locales.js" t="Include" />
+            <e p="locales.min.js" t="Include" />
+            <e p="moment-with-locales.js" t="Include" />
+            <e p="moment-with-locales.min.js" t="Include" />
+            <e p="moment.js" t="Include" />
+            <e p="moment.min.js" t="Include" />
+          </e>
+          <e p="ng" t="Include">
+            <e p="angular-animate.min.js" t="Include" />
+            <e p="angular-aria.min.js" t="Include" />
+            <e p="angular-cookies.min.js" t="Include" />
+            <e p="angular-material.min.js" t="Include" />
+            <e p="angular-message-format.min.js" t="Include" />
+            <e p="angular-messages.min.js" t="Include" />
+            <e p="angular-sanitize.min.js" t="Include" />
+            <e p="angular-ui-router.min.js" t="Include" />
+            <e p="angular.min.js" t="Include" />
+            <e p="select.min.js" t="Include" />
+            <e p="select2.min.js" t="Include" />
+            <e p="selectize.min.js" t="Include" />
+            <e p="ui-bootstrap-tpls-0.14.3.min.js" t="Include" />
+            <e p="ui-bootstrap-tpls-1.1.0.min.js" t="Include" />
+            <e p="ui-bootstrap-tpls-1.3.2.js" t="Include" />
+            <e p="ui-bootstrap-tpls-1.3.2.min.js" t="Include" />
+            <e p="ui-bootstrap-tpls-2.2.0.js" t="Include" />
+            <e p="ui-bootstrap-tpls-2.2.0.min.js" t="Include" />
+          </e>
+          <e p="respond.js" t="Include" />
+          <e p="respond.min.js" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="styles" t="Include">
+          <e p="angular-material.min.css" t="Include" />
+          <e p="base" t="Include">
+            <e p="recdot-theme-base.css" t="Include" />
+            <e p="recdot_first_theme-base.css" t="Include" />
+            <e p="select.css" t="Include" />
+            <e p="select.min.css" t="Include" />
+            <e p="select2.css" t="Include" />
+            <e p="select2.min.css" t="Include" />
+            <e p="selectize.bootstrap3.css" t="Include" />
+            <e p="selectize.css" t="Include" />
+            <e p="theme-base.css" t="Include" />
+          </e>
+          <e p="btrap" t="Include">
+            <e p="bootstrap-theme.min.css" t="Include" />
+            <e p="bootstrap.min.css" t="Include" />
+          </e>
+          <e p="fonts" t="Include">
+            <e p="glyphicons-halflings-regular.eot" t="Include" />
+            <e p="glyphicons-halflings-regular.svg" t="Include" />
+            <e p="glyphicons-halflings-regular.ttf" t="Include" />
+            <e p="glyphicons-halflings-regular.woff" t="Include" />
+            <e p="glyphicons-halflings-regular.woff2" t="Include" />
+          </e>
+          <e p="ionic" t="Include">
+            <e p="css" t="Include">
+              <e p="ionicons.css" t="Include" />
+              <e p="ionicons.min.css" t="Include" />
+            </e>
+            <e p="fonts" t="Include">
+              <e p="ionicons.eot" t="Include" />
+              <e p="ionicons.svg" t="Include" />
+              <e p="ionicons.ttf" t="Include" />
+              <e p="ionicons.woff" t="Include" />
+            </e>
+          </e>
+          <e p="loading-balls.gif" t="Include" />
+          <e p="loading-stripes.gif" t="Include" />
+          <e p="themes" t="Include">
+            <e p="asom" t="Include">
+              <e p="theme-asom.css" t="Include" />
+            </e>
+            <e p="biafra" t="Include">
+              <e p="theme-biafra.css" t="Include" />
+            </e>
+            <e p="coalbat" t="Include">
+              <e p="theme-coalbat.css" t="Include" />
+            </e>
+            <e p="codes" t="Include">
+              <e p="theme-codes.css" t="Include" />
+            </e>
+            <e p="darkn" t="Include">
+              <e p="theme-darkn.css" t="Include" />
+            </e>
+            <e p="daylight" t="Include">
+              <e p="theme-daylight.css" t="Include" />
+            </e>
+            <e p="def" t="Include">
+              <e p="theme-def.css" t="Include" />
+            </e>
+            <e p="duzzy" t="Include">
+              <e p="theme-duzzy.css" t="Include" />
+            </e>
+            <e p="effectiv" t="Include">
+              <e p="theme-effectiv.css" t="Include" />
+            </e>
+            <e p="fb" t="Include">
+              <e p="theme-fb.css" t="Include" />
+            </e>
+            <e p="g-iyki" t="Include">
+              <e p="theme-g-iyki.css" t="Include" />
+            </e>
+            <e p="greenhouse" t="Include">
+              <e p="theme-greenhouse.css" t="Include" />
+            </e>
+            <e p="halo" t="Include">
+              <e p="theme-halo.css" t="Include" />
+            </e>
+            <e p="iyki" t="Include">
+              <e p="theme-iyki.css" t="Include" />
+            </e>
+            <e p="libration" t="Include">
+              <e p="theme-libration.css" t="Include" />
+            </e>
+            <e p="magnum" t="Include">
+              <e p="theme-magnum.css" t="Include" />
+            </e>
+            <e p="maroon" t="Include">
+              <e p="theme-maroon.css" t="Include" />
+            </e>
+            <e p="moonlight" t="Include">
+              <e p="theme-moonlight.css" t="Include" />
+            </e>
+            <e p="ndcreek" t="Include">
+              <e p="theme-ndcreek.css" t="Include" />
+            </e>
+            <e p="oliv" t="Include">
+              <e p="theme-oliv.css" t="Include" />
+            </e>
+            <e p="opioro" t="Include">
+              <e p="theme-opioro.css" t="Include" />
+            </e>
+            <e p="ox-blud" t="Include">
+              <e p="theme-ox-blud.css" t="Include" />
+            </e>
+            <e p="pumkn" t="Include">
+              <e p="theme-pumkn.css" t="Include" />
+            </e>
+            <e p="skoologic" t="Include">
+              <e p="theme-skoologic.css" t="Include" />
+            </e>
+            <e p="slide" t="Include">
+              <e p="theme-slide.css" t="Include" />
+            </e>
+            <e p="trademit" t="Include">
+              <e p="theme-trademit.css" t="Include" />
+            </e>
+            <e p="tw" t="Include">
+              <e p="theme-tw.css" t="Include" />
+            </e>
+            <e p="udara" t="Include">
+              <e p="theme-udara.css" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Views" t="Include">
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="AppPartialViewBase" t="Include" />
+          <e p="Auth" t="Include">
+            <e p="_ViewStart.cshtml" t="Include" />
+            <e p="activateAccount.cshtml" t="Include" />
+            <e p="faq.cshtml" t="Include" />
+            <e p="forgotPassword.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+            <e p="register.cshtml" t="Include" />
+            <e p="Shared" t="Include">
+              <e p="_nojs_layout.cshtml" t="Include" />
+              <e p="_recdot_auth_template.cshtml" t="Include" />
+            </e>
+          </e>
+          <e p="FrontEnd" t="Include">
+            <e p="_ViewStart.cshtml" t="Include" />
+            <e p="about.cshtml" t="Include" />
+            <e p="blog.cshtml" t="Include" />
+            <e p="contact.cshtml" t="Include" />
+            <e p="faq.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+            <e p="Shared" t="Include">
+              <e p="_ui_partials" t="Include">
+                <e p="_crypto_about_area.cshtml" t="Include" />
+                <e p="_crypto_blog_area.cshtml" t="Include" />
+                <e p="_crypto_calculator.cshtml" t="Include" />
+                <e p="_crypto_course_area.cshtml" t="Include" />
+                <e p="_crypto_feature_area.cshtml" t="Include" />
+                <e p="_js_scripts.cshtml" t="Include" />
+                <e p="_news_letter.cshtml" t="Include" />
+              </e>
+              <e p="crypto_template.cshtml" t="Include" />
+              <e p="front_template_1.cshtml" t="Include" />
+              <e p="front_template_2.cshtml" t="Include" />
+              <e p="front_template_3.cshtml" t="Include" />
+              <e p="recdot_front_template.cshtml" t="Include" />
+            </e>
+            <e p="terms.cshtml" t="Include" />
+          </e>
+          <e p="Home" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="menu" t="Include">
+            <e p="_leftMenu - Copy.cshtml" t="Include" />
+          </e>
+          <e p="Setup" t="Include">
+            <e p="_ViewStart.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+            <e p="PatchDb.cshtml" t="Include" />
+            <e p="Shared" t="Include">
+              <e p="_setup_layout.cshtml" t="Include" />
+            </e>
+          </e>
+          <e p="Shared" t="Include">
+            <e p="_base_template.cshtml" t="Include" />
+            <e p="_base_template2.cshtml" t="Include" />
+            <e p="_base_template3.cshtml" t="Include" />
+            <e p="_base_webTemplate.cshtml" t="Include" />
+            <e p="_footer_ui.cshtml" t="Include" />
+            <e p="Error.cshtml" t="Include" />
+            <e p="recdot_template.cshtml" t="Include" />
+            <e p="ui" t="Include">
+              <e p="_avatar.cshtml" t="Include" />
+              <e p="_company_logo-side_menu.cshtml" t="Include" />
+              <e p="_current_user_avartar.cshtml" t="Include" />
+              <e p="_front_end_menus.cshtml" t="Include" />
+              <e p="_head_section.cshtml" t="Include" />
+              <e p="_loading_img_partial.cshtml" t="Include" />
+              <e p="_login_ui.cshtml" t="Include" />
+              <e p="_login_ui_padded.cshtml" t="Include" />
+              <e p="_nav_bar.cshtml" t="Include" />
+              <e p="_partials" t="Include">
+                <e p="_access_denied.cshtml" t="Include" />
+                <e p="_loading_bar.cshtml" t="Include" />
+                <e p="alert" t="Include">
+                  <e p="sys_message.cshtml" t="Include" />
+                  <e p="sys_notifictaion.cshtml" t="Include" />
+                </e>
+                <e p="app_setup" t="Include">
+                  <e p="_chartOfAccount_installation.cshtml" t="Include" />
+                  <e p="_database_backup.cshtml" t="Include" />
+                  <e p="_database_setup.cshtml" t="Include" />
+                  <e p="_license_agreement.cshtml" t="Include" />
+                  <e p="_license_upload_setup.cshtml" t="Include" />
+                  <e p="_role_installation.cshtml" t="Include" />
+                  <e p="_setup.cshtml" t="Include" />
+                  <e p="_sysadmin_acc.cshtml" t="Include" />
+                </e>
+                <e p="bank" t="Include">
+                  <e p="_bank_btc_list.cshtml" t="Include" />
+                  <e p="_bank_btc_list_gh.cshtml" t="Include" />
+                  <e p="_bank_cash_list.cshtml" t="Include" />
+                  <e p="_bank_cash_list_gh.cshtml" t="Include" />
+                  <e p="_bank_dashboard.cshtml" t="Include" />
+                  <e p="_bank_record_combined.cshtml" t="Include" />
+                  <e p="_user_bank.cshtml" t="Include" />
+                  <e p="_user_bank_details.cshtml" t="Include" />
+                  <e p="_user_bank_dialog.cshtml" t="Include" />
+                  <e p="_user_btc.cshtml" t="Include" />
+                </e>
+                <e p="dashboard" t="Include">
+                  <e p="_dashboard.cshtml" t="Include" />
+                </e>
+                <e p="hr" t="Include">
+                  <e p="employee_add.cshtml" t="Include" />
+                  <e p="employee_dashboard_ui.cshtml" t="Include" />
+                  <e p="employee_list_ui.cshtml" t="Include" />
+                  <e p="employee_tabs" t="Include">
+                    <e p="events.html" t="Include" />
+                    <e p="medicals.html" t="Include" />
+                    <e p="others.html" t="Include" />
+                    <e p="payroll.html" t="Include" />
+                    <e p="ph.html" t="Include" />
+                    <e p="recruitment.html" t="Include" />
+                  </e>
+                </e>
+                <e p="license" t="Include">
+                  <e p="_add_license.cshtml" t="Include" />
+                </e>
+                <e p="messaging" t="Include">
+                  <e p="_add_message.cshtml" t="Include" />
+                  <e p="_current_user_message_post_componet.cshtml" t="Include" />
+                  <e p="_message_comments.cshtml" t="Include" />
+                  <e p="_message_list.cshtml" t="Include" />
+                  <e p="_posted_messages_component.cshtml" t="Include" />
+                  <e p="_user_new_post.cshtml" t="Include" />
+                  <e p="_user_post_list.cshtml" t="Include" />
+                </e>
+                <e p="settings" t="Include">
+                  <e p="_appconfig.cshtml" t="Include" />
+                  <e p="_create_users.cshtml" t="Include" />
+                  <e p="_edit_company.cshtml" t="Include" />
+                  <e p="_manage_permission.cshtml" t="Include" />
+                  <e p="_user_console_dashboard.cshtml" t="Include" />
+                  <e p="_user_issue_console.cshtml" t="Include" />
+                  <e p="_user_management_console.cshtml" t="Include" />
+                  <e p="myprofile.cshtml" t="Include" />
+                  <e p="sub_ui" t="Include">
+                    <e p="_accountintSettings.cshtml" t="Include" />
+                    <e p="_appEngineConfig.cshtml" t="Include" />
+                    <e p="_emailSettings.cshtml" t="Include" />
+                    <e p="_salesSettings.cshtml" t="Include" />
+                    <e p="_themeSettings.cshtml" t="Include" />
+                    <e p="_user_identity_ui.cshtml" t="Include" />
+                    <e p="basic_settings.cshtml" t="Include" />
+                  </e>
+                </e>
+                <e p="transaction" t="Include">
+                  <e p="_all_ticket.cshtml" t="Include" />
+                  <e p="_gh.cshtml" t="Include" />
+                  <e p="_gh_ui.cshtml" t="Include" />
+                  <e p="_ph.cshtml" t="Include" />
+                  <e p="_ph_BTC_ui.cshtml" t="Include" />
+                  <e p="_ph_MONEY_ui.cshtml" t="Include" />
+                  <e p="_transaction_dashboard.cshtml" t="Include" />
+                  <e p="transactionParty_Details.cshtml" t="Include" />
+                  <e p="transactionParty_Details_admin.cshtml" t="Include" />
+                  <e p="user_specific" t="Include">
+                    <e p="_admin_gh.cshtml" t="Include" />
+                    <e p="_admin_gh_manual.cshtml" t="Include" />
+                    <e p="_admin_ph.cshtml" t="Include" />
+                    <e p="_admin_ph_manual.cshtml" t="Include" />
+                    <e p="_ng_repeat_end_for_ticket_parties.cshtml" t="Include" />
+                    <e p="_ng_repeat_end_for_ticket_parties_admin.cshtml" t="Include" />
+                    <e p="_user_gh.cshtml" t="Include" />
+                    <e p="_user_gh_for_admin.cshtml" t="Include" />
+                    <e p="_user_ph.cshtml" t="Include" />
+                    <e p="_user_ph_for_admin.cshtml" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="_register.cshtml" t="Include" />
+              <e p="_ticket_plans.cshtml" t="Include" />
+              <e p="_urls.cshtml" t="Include" />
+              <e p="_user_navbar_login_status.cshtml" t="Include" />
+              <e p="menu" t="Include">
+                <e p="left" t="Include">
+                  <e p="_currentUser.cshtml" t="Include" />
+                  <e p="_leftMenu.cshtml" t="Include" />
+                </e>
+                <e p="top" t="Include">
+                  <e p="_mainMenu.cshtml" t="Include" />
+                  <e p="_mobileMainMenu.cshtml" t="Include" />
+                </e>
+              </e>
+              <e p="models_ui" t="Include">
+                <e p="admin" t="Include">
+                  <e p="student" t="Include">
+                    <e p="_admission_ui.cshtml" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+            <e p="ui_recdot" t="Include">
+              <e p="layout" t="Include">
+                <e p="_footer_section.cshtml" t="Include" />
+                <e p="_header_section.cshtml" t="Include" />
+                <e p="_menus.cshtml" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="transaction" t="Include" />
+          <e p="web.config" t="Include" />
+        </e>
+        <e p="web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Web.Release.config" t="Include" />
+      </e>
+      <e p="inOutInvestment.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive">
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\csc.exe" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.Build.Tasks.CodeAnalysis.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CodeAnalysis.CSharp.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CodeAnalysis.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CodeAnalysis.VisualBasic.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CSharp.Core.targets" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\Microsoft.VisualBasic.Core.targets" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\System.Collections.Immutable.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\System.Reflection.Metadata.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\vbc.exe" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\VBCSCompiler.exe" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0\tools\VBCSCompiler.exe.config" t="Include" />
+      </e>
+      <e p="Solution Items" t="Include" />
+      <e p="test" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="test.csproj" t="IncludeRecursive" />
+        <e p="TestMain.cs" t="Include" />
+        <e p="WaterTank.cs" t="Include" />
+      </e>
+      <e p="WE-Markdown.css" t="Include" />
+    </e>
+  </component>
+</project>

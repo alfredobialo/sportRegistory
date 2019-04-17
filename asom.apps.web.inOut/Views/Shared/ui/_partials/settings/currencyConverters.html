@@ -1,0 +1,19 @@
+<div class="pad10">
+    <p class="font-size-15">Select Default Currency Converter</p>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th><span class="bold">{{defCurrency.symbol}}</span></th>
+        </tr>
+        <tr ng-repeat="cc in currencyConverters">
+            <td></td>
+            <td>1 {{cc.currency.name}} {{cc.currency.symbol}}</td>
+            <td><span class="font-size-16"><i class="ion-arrow-right-a"></i></span></td>
+            <td><input type="text" ng-model="cc.value" class="ui-input ui-input-border"> {{cc.defaultCurrency.name}}</td>
+            <td><button class="btn btn-primary">Make Default</button></td>
+
+        </tr>
+    </table>
+</div>
+
+

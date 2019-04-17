@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="ebaam">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Asom UI Test Framework</title>
+
+    <link rel="stylesheet" href="../../styles/btrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../styles/ionic/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="../../styles/angular-material.min.css"/>
+    <link rel="stylesheet" href="../../styles/base/select.min.css"/>
+    <link rel="stylesheet" href="../../styles/base/theme-base.css"/>
+    <link rel="stylesheet" href="../../styles/themes/oliv/theme-oliv.css"/>
+    <link rel="stylesheet" href="../../styles/themes/opioro/theme-opioro.css"/>
+    <link rel="stylesheet" href="../../styles/themes/greenhouse/theme-greenhouse.css"/>
+
+    <link rel="stylesheet" href="../../styles/themes/ox-blud/theme-ox-blud.css"/>
+    <link rel="stylesheet" href="../../styles/themes/pumkn/theme-pumkn.css"/>
+    <link rel="stylesheet" href="../../styles/themes/coalbat/theme-coalbat.css"/>
+    <script src="../../Scripts/jquery-1.10.2.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/moment/moment.js"></script>
+    <script src="../../Scripts/lodash/lodash.min.js"></script>
+    <script src="../../Scripts/highchart4/highcharts.js"></script>
+    <script src="../../Scripts/highchart4/highcharts-3d.js"></script>
+    <script src="../../Scripts/greensock-js/src/minified/TweenMax.min.js"></script>
+    <script src="../../Scripts/greensock-js/src/minified/jquery.gsap.min.js"></script>
+    <script src="../../Scripts/ng/angular.js"></script>
+    <script src="../../Scripts/ng/angular-sanitize.min.js"></script>
+    <script src="../../Scripts/ng/angular-messages.js"></script>
+    <script src="../../Scripts/ng/angular-aria.min.js"></script>
+    <script src="../../Scripts/ng/angular-animate.js"></script>
+    <script src="../../Scripts/ng/angular-material.js"></script>
+    <script src="../../Scripts/ng/select.min.js"></script>
+    <script src="../../Scripts/ng/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <script src="../../Scripts/ng/angular-ui-router.min.js"></script>
+    <script src="../../Scripts/effectivApi/effectiv.js"></script>
+    <script src="../../Scripts/effectivApi/modules/salesModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/inventoryModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/crmModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/settingsModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/appNavModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/menuModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/themeModule.js"></script>
+    <script src="../../Scripts/effectivApi/modules/toastModule.js"></script>
+
+</head>
+<body>
+    <div class="container-fluid theme-bg-color">
+
+        <div class="row">
+            <div class="action-center min-h450">
+                <div class="margin-t-60">
+                    <ul>
+                        <li><a href="">Menu Item 1 Mary</a></li>
+                        <li><a href="">Menu Item 2 Mary</a></li>
+                        <li><a href="">Menu Item 3 Mary</a></li>
+                        <li><a href="">Menu Item 4 Mary</a></li>
+                        <li><a href="">Menu Item 5 Mary</a></li>
+                        <li><a href="">Menu Item 6 Mary</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="action-canvas text-left" ng-controller="InventoryController" >
+                <div class="action-canvas-content">
+                    <div>
+
+
+                        <div class="ui-toolbar-top   theme-caption-bg-color  theme-caption-color pad10">
+
+
+                            <div class="text-center pad10">
+                                <span> {{items.length }} Product(s) Found</span>
+                                <span class="" ng-show="loading"><img src="~/images/ajax-loader.gif" width="170px" /></span>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <button tooltip="Add new Product Item or Service Item to your inventory" ng-click="goto()" class="ui-button ui-button-primary "><i class="ion ion-android-add-circle "></i> Add Item</button>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <button class="ui-button ui-button-primary ui-button-xs"><i class="ion-arrow-left-a"> </i> Prev.</button>
+                                        <button class="ui-button ui-button-primary ui-button-xs"><i class="ion-arrow-right-a"> </i> Next</button>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="pull-right"><button class="ui-button ui-button-default" ng-click="getHttpItems($event)"> <i class="ion-refresh"> </i> Refresh</button></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="below-ui-toolbar-top">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="shadow-strong bg-white border-radius">
+                                                <table class="table  table-bordered">
+                                                    <thead>
+                                                    <tr class="bg-primary">
+                                                        <th>Item Name</th>
+                                                        <th>Description</th>
+                                                        <th>Category</th>
+                                                        <th>Type</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr ng-repeat="i in items">
+                                                        <td>{{i.name}}</td>
+                                                        <td>{{i.description}}</td>
+                                                        <td>{{i.categoryId}}</td>
+                                                        <td>{{i.itemType}}</td>
+                                                        <td><a href="" tooltip="Edit" class="font-size-14"><i class="ion-edit"> </i></a></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div>
+                                                <p class="font-size-16 theme-caption-color">
+                                                    Items Out of Stock Widget Goes Here!
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p class="font-size-16 theme-caption-color">
+                                                    Sales Chart of the Month!
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>

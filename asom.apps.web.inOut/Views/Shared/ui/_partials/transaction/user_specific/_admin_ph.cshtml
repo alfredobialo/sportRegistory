@@ -1,0 +1,480 @@
+﻿@using asom.apps.inOut.core.model.org
+@{
+
+    var appSettings  = OrgAppSetting.Get();
+}
+<div class=" bg-success " asom-toolbar offset-to-element-id="app-main-menu">
+  <div class="pad10">
+    <div class="row">
+      <div class="col-sm-8">
+        <p class="font-size-17 "> Manage @appSettings.ProvideHelpLabel Tickets</p>
+      </div>
+      <div class="col-sm-4">
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="bg-white-gradient pad10 min-h50">
+    <div class="row">
+      <div class="col-sm-5">
+        <a href=""
+           class="link-button-default " ng-click="reloadTicket()">
+          <i class="ion-refresh"></i>
+        </a>
+
+
+      </div>
+      <div class="col-sm-7">
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class=" pad10 shadow-sm   ">
+  <uib-tabset>
+
+    <uib-tab heading="Paired Tickets" select="loadPairedTickets()">
+
+      <div class="pad20 min-h200">
+        <div ng-show ="loadingPairedTickets">
+          @Html.Partial("ui/_partials/_loading_bar")
+        </div>
+        <div class="">
+          <div class="div pad10 bg-white  min-h300 ">
+            <div class="margin-b-20">
+              <asom-data-pager on-page-click="gotoPagePairedTicket(index)"  pager-source="pairedTicketsCriteria"></asom-data-pager>
+            </div>
+            <a href=""
+               class="link-button-default pull-right" ng-click="reloadPairedTickets()">
+              <i class="ion-refresh"></i>
+            </a>
+            <p class="pad10 border-bottom-thick font-size-16">
+              Paired Tickets
+            </p>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <tr class="bg-success border-bottom-thick">
+                  <th class="w5">S/N</th>
+                  <th class="w30">Ticket Code</th>
+                  <th class="w20">Amount Involved</th>
+                  <th class="w15">
+                    User Id
+                  </th>
+
+                  <th class="w20">Status</th>
+
+                </tr>
+                <tr ng-if="pairedTickets.length == 0">
+                  <td colspan="6">
+                    <p class="text-center pad20 font-size-17 color-gray2">  NO Paired Ticket Found </p>
+                  </td>
+                </tr>
+                <tr  ng-repeat-start="t in pairedTickets track by t.id" class="hover  bg-highlight shadow-sm  -stronger-spread" ng-class="{'bg-highlight-red' : t.showParties}"  >
+                  <td> <span class="font-size-14">{{$index+1}}</span></td>
+                  <td><span class="bold">{{t.id}}</span>
+                    <br>
+                    <span class="pull-right font-size-11 bold"
+                          ng-class="{'color-blue'  : t.group == 'BITCOIN' , 'color-red'  : t.group == 'CASH'}"
+                    >{{t.group}}</span>
+                    <small class="font-size-12 color-blue">created on {{t.dateOpen | date:'dd-MMM-yyyy'}}</small>
+                    <span ng-show="t.isDefaultedTicket" title="Defaulted Ticket Please Remove this ticket"> <i class="ion-ios-flag color-red-lite font-size-28"> </i></span>
+                  </td>
+                  <td>
+
+                    <p class="divider pad5">{{t.amountInvolved | money}} &nbsp; <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span><small class="pull-right">Interest Rate is {{t.interestRate | number}}%</small></p>
+
+                    <span class="font-size-12">Goes Home with <b class="color-red ">{{(t.earns)| money}}</b>
+                  </span>
+
+                  </td>
+                  <td><span class="font-size-14 bold">
+                    <!--{{t.userInfo.displayName}}<br>-->
+                    {{t.createdBy}}</span><br>
+                    <b class="color-purple font-size-12">
+                      Income = {{t.earns | money}}</b> &nbsp; <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">USD</span>
+
+                    <br>
+
+                  </td>
+
+                  <td>
+                    <b class="" ng-class="{'color-green': t.status=='COMPLETE' , 'color-red'  : t.status=='CANCELLED', 'color-orange' : t.status=='PENDING','color-blue' : t.status=='APPROVED','color-pink' : t.status=='PAIRED'}">{{t.status}}</b>
+                    <br>
+
+                    <button class="btn btn-primary btn-xs" ng-click="showPairedDetails(t)">See Details</button>
+                    &nbsp; <button class="btn btn-danger btn-xs"
+                            ng-click="deleteTicket(t)"
+                    >Delete Ticket</button>
+                  </td>
+
+
+                </tr>
+                @Html.Partial("ui/_partials/transaction/user_specific/_ng_repeat_end_for_ticket_parties_admin")
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+
+    <uib-tab heading="Confirmed Tickets" select="loadConfirmedTickets()">
+      <div class="pad20 min-h200">
+        <div ng-show ="loadingConfirmedTickets">
+          @Html.Partial("ui/_partials/_loading_bar")
+        </div>
+        <div class="" >
+          <div class="div pad10 bg-white  min-h300 ">
+            <a href=""
+               class="link-button-default pull-right" ng-click="reloadConfirmedTickets()">
+              <i class="ion-refresh"></i>
+            </a>
+            <p class="pad10 border-bottom-thick font-size-16">
+              Confirmed Tickets
+            </p>
+            <asom-data-pager on-page-click="gotoPageConfirmedTicket(index)"   pager-source="confirmedTicketCriteria"></asom-data-pager>
+            <div class="table-responsive margin-t-20">
+              <table class="table table-bordered">
+                <tr class="bg-success border-bottom-thick">
+                  <th class="w5">S/N</th>
+                  <th class="w30">Ticket Code</th>
+                  <th class="w20">Amount Involved</th>
+                  <th class="w15">
+                    User Id
+                  </th>
+
+                  <th class="w20">Status</th>
+
+                </tr>
+                <tr ng-if="confirmedTickets.length == 0">
+                  <td colspan="6">
+                    <p class="text-center pad20 font-size-17 color-gray2">  NO Confirmed Ticket Found </p>
+                  </td>
+                </tr>
+                <tr  ng-repeat-start="t in confirmedTickets track by t.id" class="hover  bg-highlight-green shadow-sm  -stronger-spread border-bottom-thick" ng-class="{'bg-success' : t.showParties}"  >
+                  <td> <span class="font-size-14">{{$index+1}}</span></td>
+                  <td><span class="bold">{{t.id}}</span>
+                    <br>
+                    <span class="pull-right font-size-11 bold"
+                          ng-class="{'color-blue'  : t.group == 'BITCOIN' , 'color-red'  : t.group == 'CASH'}"
+                    >{{t.group}}</span>
+                    <small class="font-size-12 color-blue">created on {{t.dateOpen | date:'dd-MMM-yyyy'}}</small>
+                  </td>
+                  <td>
+
+                    <p class="divider pad5 ">{{t.amountInvolved | money}} &nbsp;<span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span>
+                      <small class="pull-right">Interest Rate is {{t.interestRate | number}}%</small></p>
+
+                    <span class="font-size-12">Goes Home with <b class="color-red ">{{( t.earns)| money}}</b>
+                  </span>
+
+                  </td>
+                  <td><span class="font-size-14 bold">
+                    <!--{{t.userInfo.displayName}} <br>-->
+                    {{t.createdBy}}</span><br>
+                    <b class="color-purple font-size-12">
+                      Income = {{t.earns | money}}</b> &nbsp; <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span>
+
+                    <br>
+
+                  </td>
+
+                  <td>
+                    <b class="" ng-class="{'color-green': t.status=='COMPLETE' , 'color-red'  : t.status=='CANCELLED', 'color-orange' : t.status=='PENDING','color-blue' : t.status=='APPROVED','color-pink' : t.status=='PAIRED'}">{{t.status}}</b>
+                    <br>
+
+                    <button class="btn btn-primary btn-xs" ng-click="showPairedDetails(t)">See Details</button>
+                  </td>
+
+
+                </tr>
+                @Html.Partial("ui/_partials/transaction/user_specific/_ng_repeat_end_for_ticket_parties_admin")
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+
+    <uib-tab heading="Over Due Tickets" select="loadPairedTickets()">
+      <div class="pad20 min-h200">
+        <div ng-show ="loadingPairedTickets">
+          @Html.Partial("ui/_partials/_loading_bar")
+        </div>
+        <div class="">
+          <div class="div pad10 bg-white  min-h300 ">
+            <div class="margin-b-20">
+              <asom-data-pager on-page-click="gotoPagePairedTicket(index)"  pager-source="pairedTicketsCriteria"></asom-data-pager>
+            </div>
+            <a href=""
+               class="link-button-default pull-right" ng-click="reloadPairedTickets()">
+              <i class="ion-refresh"></i>
+            </a>
+            <p class="pad10 border-bottom-thick font-size-16">
+              Defaulted Tickets
+              <button ng-click="deleteAndBlocKTicket()"  ng-disabled="deletingMultipleTickets" class="btn btn-danger btn-xs pull-right">Delete &amp; Block User</button>
+            </p>
+            <div class="table-responsive">
+              <div ng-if="deletingMultipleTickets" class="anim-if animated">
+                @Html.Partial("ui/_partials/_loading_bar")
+              </div>
+              <table class="table table-bordered">
+                <tr class="bg-success border-bottom-thick">
+                  <th class="w5">S/N</th>
+                  <th class="w30">Ticket Code</th>
+                  <th class="w20">Amount Involved</th>
+                  <th class="w15">
+                    User Id
+                  </th>
+
+                  <th class="w20">Status</th>
+
+                </tr>
+                <tr ng-if="defaultedTickets.length == 0">
+                  <td colspan="6">
+                    <p class="text-center pad20 font-size-17 color-gray2">NO  Defaulted Ticket Found </p>
+                  </td>
+                </tr>
+                <tr  ng-repeat-start="t in defaultedTickets track by t.id" class="  bg-highlight-red shadow-sm  -stronger-spread" ng-class="{'bg-highlight-purple' : t.showParties,'bg-danger':t.deleteTicket}"  >
+                  <td> <span class="font-size-14">{{$index+1}}</span>
+                    <input type="checkbox" ng-model="t.deleteTicket">
+
+                  </td>
+                  <td><span class="bold">{{t.id}}</span>
+                    <br>
+                    <span class="pull-right font-size-11 bold"
+                          ng-class="{'color-blue'  : t.group == 'BITCOIN' , 'color-red'  : t.group == 'CASH'}"
+                    >{{t.group}}</span>
+                    <small class="font-size-12 color-blue">created on {{t.dateOpen | date:'dd-MMM-yyyy'}}</small>
+                    <span ng-show="t.isDefaultedTicket" title="Defaulted Ticket Please Remove this ticket"> <i class="ion-ios-flag color-red-lite font-size-28"> </i></span>
+                  </td>
+                  <td>
+
+                    <p class="divider pad5">{{t.amountInvolved | money}} &nbsp; <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span><small class="pull-right">Interest Rate is {{t.interestRate | number}}%</small></p>
+
+                    <span class="font-size-12">Goes Home with <b class="color-red ">{{(t.amountInvolved + t.earns)| money}}</b>
+                  </span>
+
+                  </td>
+                  <td><span class="font-size-14 bold">
+                    <!--{{t.userInfo.displayName}}<br>-->
+                    {{t.createdBy}}</span><br>
+                    <b class="color-purple font-size-12">
+                      Income = {{t.earns | money}}</b> &nbsp; <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">USD</span>
+
+                    <br>
+
+                  </td>
+
+                  <td>
+                    <b class="" ng-class="{'color-green': t.status=='COMPLETE' , 'color-red'  : t.status=='CANCELLED', 'color-orange' : t.status=='PENDING','color-blue' : t.status=='APPROVED','color-pink' : t.status=='PAIRED'}">{{t.status}}</b>
+                    <br>
+
+                    <button class="btn btn-primary btn-xs" ng-click="showPairedDetails(t)">See Details</button>
+                    &nbsp; <button class="btn btn-danger btn-xs"
+                                   ng-click="deleteTicket(t)"
+                  >Delete Ticket</button>
+                  </td>
+
+
+                </tr>
+                @Html.Partial("ui/_partials/transaction/user_specific/_ng_repeat_end_for_ticket_parties_admin")
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+    <uib-tab heading="Pending Tickets " >
+      <div class="pad20 min-h200">
+        <div class="">
+          <div class="">
+            <asom-data-pager pager-source="criteria" on-page-click="gotoPage(index)"></asom-data-pager>
+          </div>
+          <div ng-show ="loading">
+            @Html.Partial("ui/_partials/_loading_bar")
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="div pad10 bg-highlight-blue  min-h100">
+                <h3>Manage {{criteria.totalRecord|number}} Pending Tickets </h3>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="div pad10 bg-highlight-purple min-h100">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="margin-t-20">
+            <div class="">
+              <div class="">
+                <div class="div pad10 bg-white  min-h300 ">
+                  <p class="pad10 border-bottom-thick font-size-16">
+                    Pending Tickets
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <tr class="bg-primary border-bottom-thick">
+                        <th class="w5">S/N</th>
+                        <th class="w30">Ticket Code</th>
+                        <th class="w20">Amount Involved</th>
+                        <th class="w20">
+                          User Id
+                        </th>
+
+                        <th class="w20">Status</th>
+
+                      </tr>
+                      <tr ng-if="tickets.length == 0">
+                        <td colspan="5">
+                          <p class="text-center pad20 font-size-17 color-gray2"> You got NO Ticket </p>
+                        </td>
+                      </tr>
+                      <tr ng-repeat-start="t in tickets track by t.id" class="hover "  ng-class="{'bg-default shadow-sm  -stronger-spread' : t.showMergeOptions}">
+
+                        <td> <span class="font-size-14">{{$index+1}}</span></td>
+                        <td><span class="bold">{{t.id}}</span>
+                          <br>
+                          <span class="pull-right font-size-11 bold"
+                                ng-class="{'color-blue'  : t.group == 'BITCOIN' , 'color-red'  : t.group == 'CASH'}"
+                          >{{t.group}}</span>
+                          <small class="font-size-12 color-blue">created on {{t.dateOpen | date:'dd-MMM-yyyy'}}</small>
+                        </td>
+                        <td>
+
+                          <p class="divider pad5">{{t.amountInvolved | money}} &nbsp; <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span><small class="pull-right">Interest Rate is {{t.interestRate | number}}%</small></p>
+
+
+
+                        </td>
+                        <td><span class="font-size-14 bold">
+
+                          {{t.userInfo.displayName}}
+                          {{t.createdBy}}</span>
+                          <br>
+                          <b class="color-purple font-size-12">
+                            Income = {{t.earns | money}}</b> &nbsp; <span ng-show="t.group=='BITCOIN'" class="font-size-16 color-green">@appSettings.BitcoinSymbol</span><span ng-show="t.group=='CASH'" class="font-size-16 ">@appSettings.CurrencySymbol</span>
+
+                          <br>
+
+                        </td>
+
+                        <td>
+                          <b class="" ng-class="{'color-green': t.status=='COMPLETE' , 'color-red'  : t.status=='CANCELLED', 'color-orange' : t.status=='PENDING','color-blue' : t.status=='APPROVED','color-pink' : t.status=='PAIRED'}">{{t.status}}</b>
+                          <br>
+
+                          <button class="btn btn-primary btn-xs" ng-click="showDetails(t)">See Details</button>
+                        </td>
+
+
+                      </tr>
+                      <tr ng-repeat-end ng-show="t.showMergeOptions" class="bg-white-gradient">
+                        <td colspan="5">
+                          <div class=" centralize">
+                            <div class="pad10 border-bottom bold font-size-15">Ticket Merging Process</div>
+                            <div class="pad10 text-left">
+                              <div class="row">
+                                <div class="col-sm-4">
+                                  <div class="div">
+                                    <h1 class="font-size-18">Ticket :{{t.id}}</h1>
+                                    <span class="font-size-38">
+                                                      {{t.amountInvolved | money}}
+                                                      <span class="font-size-14 bold">From : {{t.createdBy}}</span>
+                                      <!--{{t.userInfo.displayName}}-->
+                                                  </span>
+                                    <br>
+                                    <div class="pad10">
+                                      <button class="btn btn-primary btn-xs" ng-click="t.manualMergeActive =false">Manual Merge</button>
+                                      <button class="btn btn-success btn-xs" ng-click="t.manualMergeActive =true">Super Merge</button>
+                                      @*                                                      ng-click="t.manualMergeActive =true"*@
+                                      @*                                      <button class="btn btn-danger pull-right btn-xs" ng-click="deleteTicket(t)">Delete Ticket</button>*@
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-8">
+                                  <div class="">
+                                    <div class=" border-left">
+                                      <div class="pad10  animated  anim-if min-h100" ng-if="!t.manualMergeActive">
+                                        <p class="divider pad10 bold font-size-14">Manual Merging of Ticket for {{t.createdBy}}</p>
+                                        @Html.Partial("ui/_partials/transaction/user_specific/_admin_ph_manual")
+                                      </div>
+                                      <div class="pad20 bg-success animated min-h100 anim-if" ng-if="t.manualMergeActive">
+                                        <p class="divider pad10 bold font-size-14">Super Merging of Ticket for {{t.createdBy}}</p>
+                                        <span>You select any from the list of users to Merge with the select ticket</span>
+                                        <div class="pad10">
+                                          Enter a User id below
+                                          <br>
+                                          <input type="text" class="ui-input ui-input-bordered ui-required w70"
+                                                 ng-model="t.getHelpUserId"
+                                                 placeholder="User id Here">
+                                          <br>
+                                          <button class="btn btn-default" ng-click="superMerge(t)">Do it Now</button>
+                                        </div>
+                                        <!--<h3>User List ({{users.length|number}} users)</h3>-->
+                                        <!--<table class="table">-->
+                                        <!--<tr>-->
+                                        <!--<th class="w7"><input type="checkbox" ng-model="selectAll"></th>-->
+                                        <!--<th class="w10"></th>-->
+                                        <!--<th class="w30">Display Name</th>-->
+                                        <!--<th class="w10">Channel</th>-->
+                                        <!--</tr>-->
+                                        <!--<tr ng-repeat="u in users " class="divider " ng-click="editUser(u)"-->
+                                        <!--ng-class="{'bg-highlight-red' : u.isSelected }">-->
+                                        <!--<td class="text-right">-->
+                                        <!--<span class="font-size-11 bold">{{$index+1}}</span> <a class="link-button button-xs"><i class="ion-edit"></i></a>-->
+                                        <!--</td>-->
+                                        <!--<td>-->
+                                        <!--<div class='card-picture-xsmall'>-->
+                                        <!--<div class='pic display-inine-block'-->
+                                        <!--ng-style="u.passportUrl">-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</td>-->
+                                        <!--<td>-->
+                                        <!--<span class="font-size-14">{{u.displayName}}</span><br>-->
+                                        <!--<small>{{u.id}}</small>-->
+                                        <!--</td>-->
+                                        <!--<td>{{u.channelId}}</td>-->
+                                        <!--</tr>-->
+                                        <!--</table>-->
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class=" margin-t-20">
+                <div class="div pad10 bg-white shadow-sm   min-h300">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </uib-tab>
+
+  </uib-tabset>
+</div>
+
+
+
+
+

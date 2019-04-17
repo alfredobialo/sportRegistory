@@ -1,0 +1,116 @@
+﻿
+@using asom.apps.web.inOut.Models
+<div class=" bg-success " asom-toolbar offset-to-element-id="app-main-menu" ng-init="editMode  = false">
+  <div class="pad10">
+    <button class="btn btn-sm btn-dormant animated anim-if" ng-hide="editMode" ng-click="editMode =true">Edit Profile</button>
+    <button class="btn btn-sm btn-primary animated anim-if" ng-show="editMode"  ng-click="updateProfile()">Save Changes</button>
+    <button class="btn btn-sm btn-default animated anim-if" ng-show="editMode" ng-click="editMode =false">Cancel</button>
+
+  </div>
+  <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+</div>
+<div class="pad20 bg-white shadow-sm   border-radius">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="row min-h200">
+        <div class="col-sm-7">
+          <p class="divider font-size-16 theme-caption-color pad10">Edit your Profile</p>
+          <div class="pad10 text-uppercase">
+            <form novalidate name="frmAdminCreateUsers">
+
+
+              <div class="row">
+                <div class="col-sm-3"><span class="font-size-11">Display Name</span></div>
+                <div class="col-sm-9">
+                  <input type="text" class="ui-input ui-required font-size-26" ng-model="currentUser.displayName"
+                         ng-disabled="editMode == false">
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><span class="font-size-11">Email Address</span></div>
+                <div class="col-sm-9">
+                  <input type="text" class="ui-input ui-required font-size-15" placeholder="Email Address Not Set" ng-model="currentUser.email"
+                         ng-disabled="editMode == false">
+                  <small class="text-muted">We will send you notifications using this email!</small>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><span class="font-size-11">User Id</span></div>
+                <div class="col-sm-9">
+
+                  <p
+                    class="pad10 bold font-size-15 divider "
+                  >{{currentUser.id}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"><span class="font-size-11">Password</span></div>
+                <div class="col-sm-9">
+
+                  <button class="btn btn-danger" ng-hide="processing"  ng-click="changePwd  = !changePwd">Change Password</button>
+                  <div class="animated anim-if margin-t-20" ng-show="changePwd">
+                    <input type="password" maxlength="50"
+                           ng-model="oldPassword"
+                           placeholder="Old Password"
+                           class="ui-input ui-input-bordered ui-input-required ">
+                    <p class="pad10 divider color-red">New Password (Change password)</p>
+                    <input type="password" maxlength="50"
+                           ng-model="newPassword1"
+                           placeholder="New Password"
+                           class="ui-input ui-input-bordered ui-input-required ">
+                    <input type="password" maxlength="50"
+                           ng-model="newPassword2"
+                           placeholder="Retype New Password"
+                           class="ui-input ui-input-bordered ui-input-required ">
+                    <div class="pad10">
+                      <div class="" ng-show="processing">
+                        @Html.Partial("ui/_loading_img_partial")
+                      </div>
+                      <button class="btn btn-danger" ng-disabled="processing"  ng-click="changePassword(oldPassword,newPassword1, newPassword2)">Update Password</button>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+
+
+
+            </form>
+
+          </div>
+        </div>
+        <div class="col-sm-5  ">
+          <div class="pad10 theme-caption-bg-color min-h200" ng-init="defPicture = '@AppInfo.Get.DefaultAvarter()'">
+            <div class="card-picture-xlarge">
+              <div class="pic" style="background-image: url('@AppInfo.Get.DefaultAvarter()')" ng-style="{'background-image':'url({{currentUser.pictureUrl}})'} ">
+
+              </div>
+
+
+            </div>
+            <div class="margin-t-20 text-center">
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    @*<div class="col-sm-4">
+      <div class="pad20  min-h200">
+        <p class=" font-size-16 theme-caption-color divider">Roles Assigned To {{currentUser.displayName}}</p>
+        <div class="">
+          <div class="margin-b-10 pad10 animated anim-repeat bg-white shadow-sm  -stronger font-size-13"
+               ng-repeat="r in myRoles ">
+            {{r.name}}
+
+          </div>
+        </div>
+      </div>
+    </div>*@
+  </div>
+</div>

@@ -1,0 +1,18 @@
+﻿@using asom.apps.inOut.core.model.org
+@using asom.apps.web.inOut.Models
+@{
+
+    var appSettings = OrganizationInfo.GetSettings();
+ 
+}
+ <div class="row margin-t-10">
+               
+                    <div class="col-sm-12 ">
+
+                        @Html.Partial("ui/_partials/transaction/_ph_BTC_ui", appSettings)
+                    </div>
+
+               
+
+            </div>
+

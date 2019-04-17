@@ -1,0 +1,59 @@
+﻿<div class="">
+    <p class="divider font-size-24 theme-caption-color pad10">Create Super Admin Account</p>
+    <span class="font-size-15 text-left">Super admin account has access to all components of the system and can create other account for managing other vital functions</span>
+    <div class="pad10 text-uppercase text-left">
+        <form novalidate name="frmAdminLogin">
+
+
+            <div class="row">
+                <div class="col-sm-3 text-right"><span class="font-size-11">Display Name</span></div>
+                <div class="col-sm-9">
+                    <input type="text" maxlength="50"
+                           ng-model="userInfo.displayName"
+                           placeholder="Display Name. eg Alfred Obialo"
+                           class="ui-input ui-required font-size-18">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right"><span class="font-size-11">User Id</span></div>
+                <div class="col-sm-9">
+                    <input type="text" maxlength="25"
+                           ng-model="userInfo.userId"
+                          placeholder="User Id. eg mycompanyadmin"
+                           class="ui-input ui-required font-size-15">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right"><span class="font-size-11">Password</span></div>
+                <div class="col-sm-9">
+
+                        <input type="password" maxlength="30"
+                               ng-model="userInfo.password1"
+                               placeholder="New Password"
+                               class="ui-input ui-input-bordered ui-input-required ">
+                        <input type="password" maxlength="30"
+                               ng-model="userInfo.password2"
+                               placeholder="Retype New Password"
+                               class="ui-input ui-input-bordered ui-input-required ">
+
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm-push-3 col-sm-9">
+                    <div class="">
+                        <button  class="btn btn-flat-primary btn-block btn-md"
+                        ng-click="createAdminAccount()"
+                        ng-disabled="processing"
+
+                        ><i class="ion-ios-locked"></i> &nbsp; Create Admin Login</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

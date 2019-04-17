@@ -1,0 +1,91 @@
+﻿@using asom.apps.web.inOut.Models.Navigation
+@{
+
+    var appMenus = MenuManager.GetGrantAppMenus();
+}
+
+
+@if (appMenus.Any())
+{
+    <div class="nav-left-sidebar sidebar-dark">
+        <div class="menu-list">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="d-xl-none d-lg-none" href="#">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-divider">
+                            Menu
+                        </li>
+                        @foreach (SubMenuHeader menuBase in appMenus)
+                        {
+                            if (menuBase.IsVisible)
+                            {
+                                <li class="nav-item ">
+                                    <a class="nav-link" ui-sref="@menuBase.Url" data-toggle="collapse" aria-expanded="false"
+                                       data-target="#@menuBase.Id" aria-controls="@menuBase.Id">
+                                        <i class="fa color-white fa-fw @menuBase.IconCssClassName"></i>@menuBase.Name
+                                        @if (menuBase.HasBadge)
+                                        {
+                                            <span class="badge badge-success">0</span>
+                                        }
+                                    </a>
+                                    <div id="@menuBase.Id" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            @if (menuBase.HasChildren)
+                                            {
+                                                foreach (var header in menuBase.Children)
+                                                {
+                                                    if (header.IsVisible)
+                                                    {
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#@(menuBase.Id + header.Name)"
+                                                               aria-controls="@(menuBase.Id + header.Name)">
+                                                                @header.Name
+                                                            </a>
+                                                            <div id="@(menuBase.Id + header.Name)" class="collapse submenu" style="">
+                                                                <ul class="nav flex-column">
+                                                                    @foreach (var menu in header.Menus)
+                                                                    {
+                                                                        if (menu.IsVisible && !string.IsNullOrEmpty(menu.Name))
+                                                                        {
+                                                                            <li class="nav-item">
+                                                                                <a @((!string.IsNullOrEmpty(menu.Url) ? "ui-sref=" + @menu.Url + "" : "")) ui-sref-active="active" class="nav-link">@menu.Name</a>
+                                                                            </li>
+                                                                        }
+                                                                    }
+
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                }
+                                            }
+
+                                            @foreach (var menu in menuBase.Menus)
+                                            {
+                                                if (menu.IsVisible && !string.IsNullOrEmpty(menu.Name))
+                                                {
+                                                    <li class="nav-item">
+                                                        <a @((!string.IsNullOrEmpty(menu.Url) ? "ui-sref=" + @menu.Url + "" : "")) ui-sref-active="active" class="nav-link">@menu.Name</a>
+                                                    </li>
+                                                }
+                                            }
+
+
+
+                                        </ul>
+                                    </div>
+                                </li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+}
