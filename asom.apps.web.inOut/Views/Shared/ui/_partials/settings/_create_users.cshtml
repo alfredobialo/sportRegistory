@@ -3,25 +3,14 @@
 @using itrex.businessObjects.model.core.securables
 @{
     bool canCreateUser = new IdentityStore().HasAuthority(new string[] { AppPermissions.AUTHORIZATION_EDIT_USERS_ACCOUNT, AppPermissions.AUTHORIZATION_CREATE_USERS }, PermissionValidationOperators.AND);
-    int totalUsers = IdentityStore.CountTotalUsers();
+    int totalUsers = 1;// IdentityStore.CountTotalUsers();
     string msg = "";
-    int allowedUsers = 0;
-    bool hasFeature = AppInfo.Get.LicenseHasValidIntegerFeature(out msg, "USER_COUNT", out allowedUsers);
-    bool canAddNewUser = hasFeature && (totalUsers < allowedUsers);
+    int allowedUsers = 3000;
+    bool hasFeature = true;// AppInfo.Get.LicenseHasValidIntegerFeature(out msg, "USER_COUNT", out allowedUsers);
+    bool canAddNewUser =  hasFeature && (totalUsers < allowedUsers);
 }
 <div class=" bg-success " asom-toolbar offset-to-element-id="app-main-menu">
-    <div class="pad10">
-        <div class="row">
-            <div class="col-sm-7">
-                <p class="font-size-17 "> User Account Management</p>
-            </div>
-            <div class="col-sm-5">
-                <div class="pad5 ui-bg-colorr">
-                </div>
-            </div>
-        </div>
-
-    </div>
+  
     <div class="bg-white-gradient pad10 min-h50">
         <div class="row">
             <div class="col-sm-10">
@@ -58,18 +47,18 @@
                     @*                        <span ><i class="font-size-28 ion-ios-telephone-outline"></i> &nbsp; Call Now!</span> *@
                     @*                    }*@
 
-                if (hasFeature)
-                {
-                    <span class="pad10 font-size-15">User Stat: <span class="color-red bold">@totalUsers</span> / @(allowedUsers.ToString("N0")) Allowed in your License </span>
-                    if (!canAddNewUser)
+                    if (hasFeature)
                     {
-                        <span class="font-size-11 color-red bold">You may need Purchase additional user License to continue!, Call @AppInfo.Get.AppCompanyPhone now!</span>
-                    }
+                    @*<span class="pad10 font-size-15">User Stat: <span class="color-red bold">@totalUsers</span> / @(allowedUsers.ToString("N0")) Allowed in your License </span>*@
+                        if (!canAddNewUser)
+                        {
+                            <span class="font-size-11 color-red bold">You may need Purchase additional user License to continue!, Call @AppInfo.Get.AppCompanyPhone now!</span>
+                        }
 
-                }
-                else
-                {
-                    <span class="font-size-12 pad10 bg-highlight-red">@msg</span>
+                    }
+                    else
+                    {
+                        <span class="font-size-12 pad10 bg-highlight-red">@msg</span>
                     }
 
                 }
@@ -102,14 +91,14 @@
                     @Html.Partial("ui/_partials/settings/sub_ui/_user_identity_ui", false)
                     <div class="row margin-t-30 ">
 
-                      <div class="pad10">
-                        <asom-data-pager pager-source="userCriteria" on-page-click="gotoPage(index)"></asom-data-pager>
-                      </div>
+                        <div class="pad10">
+                            <asom-data-pager pager-source="userCriteria" on-page-click="gotoPage(index)"></asom-data-pager>
+                        </div>
                         <div class="pad20">
                             <p class="font-size-17">User List ({{users.length|number}} users)
-                              <span >
-                                <input type="text" ng-model="searchUser" class="ui-input ui-input-border font-size-18 w50" placeholder="Search For User">
-                              </span>
+                                <span >
+                                    <input type="text" ng-model="searchUser" class="ui-input ui-input-border font-size-18 w50" placeholder="Search For User">
+                                </span>
                             </p>
                             <table class="table">
                                 <tr>
@@ -123,7 +112,7 @@
                                 <tr ng-repeat="u in users | filter:searchUser track by u.id" class="divider animated anim-repeat" ng-click="editUser(u)"
                                     ng-class="{'bg-highlight-red' : u.isSelected }">
                                     <td class="text-right">
-                                       <span class="font-size-11 bold">{{$index+1}}</span> <a class="link-button button-xs"><i class="ion-edit"></i></a>
+                                        <span class="font-size-11 bold">{{$index+1}}</span> <a class="link-button button-xs"><i class="ion-edit"></i></a>
                                     </td>
                                     <td>
                                         <div class='card-picture-xsmall'>

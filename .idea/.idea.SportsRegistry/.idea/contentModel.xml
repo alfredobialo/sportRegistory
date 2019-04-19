@@ -1128,32 +1128,6 @@
               </e>
             </e>
           </e>
-          <e p="dashboard-finance.html" t="Include" />
-          <e p="dashboard-influencer.html" t="Include" />
-          <e p="dashboard-sales.html" t="Include" />
-          <e p="documentation" t="Include">
-            <e p="css" t="Include">
-              <e p="32px.png" t="Include" />
-              <e p="bootstrap.min.css" t="Include" />
-              <e p="style.css" t="Include" />
-              <e p="throbber.gif" t="Include" />
-              <e p="tree-viewer.css" t="Include" />
-            </e>
-            <e p="img" t="Include">
-              <e p="favicon.ico" t="Include" />
-              <e p="logo.png" t="Include" />
-            </e>
-            <e p="index.html" t="Include" />
-            <e p="js" t="Include">
-              <e p="bootstrap.min.js" t="Include" />
-              <e p="jquery-3.1.0.min.js" t="Include" />
-              <e p="jstree.active.js" t="Include" />
-              <e p="jstree.min.js" t="Include" />
-            </e>
-          </e>
-          <e p="ecommerce-product-checkout.html" t="Include" />
-          <e p="ecommerce-product-single.html" t="Include" />
-          <e p="ecommerce-product.html" t="Include" />
           <e p="front_end" t="Include">
             <e p="about.html" t="Include" />
             <e p="blog.html" t="Include" />
@@ -1328,64 +1302,6 @@
               <e p="services_responsive.css" t="Include" />
             </e>
           </e>
-          <e p="index.html" t="Include" />
-          <e p="influencer-finder.html" t="Include" />
-          <e p="influencer-profile.html" t="Include" />
-          <e p="pages" t="Include">
-            <e p="404-page.html" t="Include" />
-            <e p="accordions.html" t="Include" />
-            <e p="blank-page-header.html" t="Include" />
-            <e p="blank-page.html" t="Include" />
-            <e p="bootstrap-select.html" t="Include" />
-            <e p="calendar.html" t="Include" />
-            <e p="cards.html" t="Include" />
-            <e p="carousel.html" t="Include" />
-            <e p="chart-c3.html" t="Include" />
-            <e p="chart-chartist.html" t="Include" />
-            <e p="chart-charts.html" t="Include" />
-            <e p="chart-gauge.html" t="Include" />
-            <e p="chart-morris.html" t="Include" />
-            <e p="chart-sparkline.html" t="Include" />
-            <e p="color-picker.html" t="Include" />
-            <e p="cropped.html" t="Include" />
-            <e p="cropper-image.html" t="Include" />
-            <e p="data-tables.html" t="Include" />
-            <e p="datepicker.html" t="Include" />
-            <e p="email-compose.html" t="Include" />
-            <e p="email-details.html" t="Include" />
-            <e p="forgot-password.html" t="Include" />
-            <e p="form-elements.html" t="Include" />
-            <e p="form-validation.html" t="Include" />
-            <e p="general-table.html" t="Include" />
-            <e p="general.html" t="Include" />
-            <e p="icon-flag.html" t="Include" />
-            <e p="icon-fontawesome.html" t="Include" />
-            <e p="icon-material.html" t="Include" />
-            <e p="icon-simple-lineicon.html" t="Include" />
-            <e p="icon-themify.html" t="Include" />
-            <e p="icon-weather.html" t="Include" />
-            <e p="inbox.html" t="Include" />
-            <e p="index.html" t="Include" />
-            <e p="invoice.html" t="Include" />
-            <e p="listgroup.html" t="Include" />
-            <e p="login.html" t="Include" />
-            <e p="map-google.html" t="Include" />
-            <e p="map-vector.html" t="Include" />
-            <e p="media-object.html" t="Include" />
-            <e p="message-chat.html" t="Include" />
-            <e p="multiselect.html" t="Include" />
-            <e p="pages-app.html" t="Include" />
-            <e p="pages-sign-up.html" t="Include" />
-            <e p="pricing.html" t="Include" />
-            <e p="sign-up.html" t="Include" />
-            <e p="sortable-nestable-lists.html" t="Include" />
-            <e p="tabs.html" t="Include" />
-            <e p="timeline.html" t="Include" />
-            <e p="typography.html" t="Include" />
-            <e p="user-profile.html" t="Include" />
-            <e p="widgets.html" t="Include" />
-          </e>
-          <e p="README.md" t="Include" />
         </e>
         <e p="Global.asax" t="Include" />
         <e p="Global.asax.cs" t="Include" />
@@ -1777,7 +1693,6 @@
             </e>
           </e>
           <e p="FrontEnd" t="Include">
-            <e p="_frontEnd_Menus.cshtml" t="Include" />
             <e p="_viewStart.cshtml" t="Include" />
             <e p="blog.cshtml" t="Include" />
             <e p="contact.cshtml" t="Include" />

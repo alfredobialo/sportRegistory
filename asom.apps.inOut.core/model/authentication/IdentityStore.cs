@@ -514,6 +514,10 @@ namespace asom.apps.inOut.core.model.authentication
             }
             if (hasKey)
             {
+                if (!Key.ToLower().StartsWith("judge") && this.ObjType != AppConstants.SYS_ADMIN_ACCOUNT)
+                {
+                    errors.AddError("User Id Issue", "Judges User Id Must start with 'Judge and a number'");
+                }
                 if (Key.ToLower() == "effectiv" || Key.ToLower() == "cashnetpay" || Key.ToLower() == "brickmoney" || Key.ToLower() == "stepupright" || Key.ToLower() == "asom" || Key.ToLower() == "asomservices" ||
                     Key.ToLower() == "skoologic")
                 {
@@ -605,6 +609,11 @@ namespace asom.apps.inOut.core.model.authentication
 
             try
             {
+                if(obj.ObjType != AppConstants.SYS_ADMIN_ACCOUNT)
+                {
+                    ValidateUserAuthority(AppPermissions.CORE_APP_FUNCTIONS_MANAGER);
+                }
+                
                 IEmailSettings email = OrgAppSetting.GetEmailSettings();
                 bool useActivationProcess = email.SendEmail == true;
 
@@ -653,7 +662,7 @@ namespace asom.apps.inOut.core.model.authentication
             }
             catch (UnAuthorizeException err)
             {
-                res.Message = "You are not authorize to create User Accounts";
+                res.Message = "You are not authorize to create Judges Accounts";
                 res.ServerException = err;
                 res.IsAuthorize = false;
             }
@@ -702,13 +711,13 @@ namespace asom.apps.inOut.core.model.authentication
                     return res;
                 }
                 // check for unqiue email
-                if (string.IsNullOrEmpty(obj.Email))
+                /*if (string.IsNullOrEmpty(obj.Email))
                 {
                     res.Message = "A valid Email address is required";
                     return res;
-                }
+                }*/
                 // check for unqiue email
-                if (!string.IsNullOrEmpty(obj.Email))
+                /*if (!string.IsNullOrEmpty(obj.Email))
                 {
                     bool isNotUniqueEmail = db.identity_store.Where(x => string.IsNullOrEmpty(x.email_address) == false).Any(x => x.email_address == obj.Email);
                     if (isNotUniqueEmail)
@@ -716,7 +725,7 @@ namespace asom.apps.inOut.core.model.authentication
                         res.Message = $"The Email address : {obj.Email} is already taken";
                         return res;
                     }
-                }
+                }*/
 
                 db.identity_store.Add(e);
                 res.Data = obj;

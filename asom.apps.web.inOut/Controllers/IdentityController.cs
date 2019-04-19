@@ -55,71 +55,71 @@ namespace asom.apps.web.inOut.Controllers
         private const int DELETE_USER = 703;
         private const int GET_USER_NAME = 705;
         private const int REGISTER_NEW_USER = 10000;
-      private const int FORGOT_PASSWORD = 501;
-    // and so on
+        private const int FORGOT_PASSWORD = 501;
+        // and so on
 
 
-    [HttpPost]
-      public ActionResult UpdateIdentityField(string data, string criteria)
-      {
-        /*
-            We expect criteria to be of type IdentityStoreCriteria and the id property should be the id of
-            the current user
-        */
-        try
+        [HttpPost]
+        public ActionResult UpdateIdentityField(string data, string criteria)
         {
-          if (!User.Identity.IsAuthenticated)
-          {
-            return FailedAction("You are not authenticated");
-          }
-          if (!string.IsNullOrEmpty(criteria))
-          {
-            UserIdentityModel idm =
-              JsonConvert.DeserializeObject<UserIdentityModel>(data, MyConfig.DefaultJsonSettings);
-            IdentityStoreCriteria cri = JsonConvert.DeserializeObject<IdentityStoreCriteria>(criteria,
-              MyConfig.DefaultJsonSettings);
-            if (cri != null && idm != null)
+            /*
+                We expect criteria to be of type IdentityStoreCriteria and the id property should be the id of
+                the current user
+            */
+            try
             {
-              // we have a valid value
-              string userId = cri.Id;
-              //Get Identity ;
-
-              var crud = IdentityStore.GetIdentity(userId);
-              if (crud.IsSuccess)
-              {
-                IdentityStore id = crud.Data;
-                id.PictureUrl = idm.PictureUrl;
-                // Update The model to reflect in session
-                UserIdentityModel res = crud.Data;
-
-                IdentitySession.UpdateUser(res);
-                if (cri.UpdateDisplayName)
+                if (!User.Identity.IsAuthenticated)
                 {
-                  crud = ((IdentityStore)idm).UpdateObjectFields(cri);
+                    return FailedAction("You are not authenticated");
                 }
-                else
+                if (!string.IsNullOrEmpty(criteria))
                 {
-                  crud = id.UpdateObjectFields(cri);
-                }
+                    UserIdentityModel idm =
+                        JsonConvert.DeserializeObject<UserIdentityModel>(data, MyConfig.DefaultJsonSettings);
+                    IdentityStoreCriteria cri = JsonConvert.DeserializeObject<IdentityStoreCriteria>(criteria,
+                        MyConfig.DefaultJsonSettings);
+                    if (cri != null && idm != null)
+                    {
+                        // we have a valid value
+                        string userId = cri.Id;
+                        //Get Identity ;
 
-                crud.Data = null;
-              }
-              string result =
-                JsonConvert.SerializeObject(ServerResponseModel.From(crud), MyConfig.DefaultJsonSettings);
-              return Content(result);
+                        var crud = IdentityStore.GetIdentity(userId);
+                        if (crud.IsSuccess)
+                        {
+                            IdentityStore id = crud.Data;
+                            id.PictureUrl = idm.PictureUrl;
+                            // Update The model to reflect in session
+                            UserIdentityModel res = crud.Data;
+
+                            IdentitySession.UpdateUser(res);
+                            if (cri.UpdateDisplayName)
+                            {
+                                crud = ((IdentityStore)idm).UpdateObjectFields(cri);
+                            }
+                            else
+                            {
+                                crud = id.UpdateObjectFields(cri);
+                            }
+
+                            crud.Data = null;
+                        }
+                        string result =
+                            JsonConvert.SerializeObject(ServerResponseModel.From(crud), MyConfig.DefaultJsonSettings);
+                        return Content(result);
+                    }
+                }
             }
-          }
+            catch (Exception err)
+            {
+                return FailedAction(err.Message);
+
+            }
+
+            return FailedAction("Could not validate criteria");
         }
-        catch (Exception err)
-        {
-          return FailedAction(err.Message);
 
-        }
-
-        return FailedAction("Could not validate criteria");
-      }
-
-    [HttpPost]
+        [HttpPost]
         protected ActionResult CreateSysAdminLogin(string data )
         {
             /*
@@ -137,39 +137,39 @@ namespace asom.apps.web.inOut.Controllers
                 {
                     LoginInfoModel idm = JsonConvert.DeserializeObject<LoginInfoModel>(data, MyConfig.DefaultJsonSettings);
 
-                if (idm != null)
-                {
+                    if (idm != null)
+                    {
 
-                    if (string.IsNullOrEmpty(idm.DisplayName))
-                    {
-                        idm.DisplayName = "System Admin";
-                    }
-                    if (idm.UserId.Length < 6)
-                    {
-                        return FailedAction("User Id Must Exceed 5 characters length and cannot contain symbols or spaces. Please Try again");
-                    }
+                        if (string.IsNullOrEmpty(idm.DisplayName))
+                        {
+                            idm.DisplayName = "System Admin";
+                        }
+                        if (idm.UserId.Length < 6)
+                        {
+                            return FailedAction("User Id Must Exceed 5 characters length and cannot contain symbols or spaces. Please Try again");
+                        }
                         string res = idm.UserId.ToLower();
                         const string regExPattern = @"[A-Za-z]+[A-Za-z0-9]+";
 
                         Regex reg = new Regex(regExPattern, RegexOptions.IgnoreCase | RegexOptions.Singleline);
                         var newMatch = reg.Match(res);
-                    if (!newMatch.Success)
-                    {
-                        return FailedAction("A valid User Id can only contain letters and numbers. Please Try again");
-                    }
+                        if (!newMatch.Success)
+                        {
+                            return FailedAction("A valid User Id can only contain letters and numbers. Please Try again");
+                        }
                         //Helper.GetPrettyUrlId("rrr");
                         if ((idm.Password1 != idm.Password2))
-                    {
+                        {
                             return FailedAction("Password Must match and must exceed 5 characters. Please Try again");
-                    }
-                    if (idm.Password1.Length < 6)
-                    {
-                        return FailedAction("Password Must Exceed 5 characters length. Please Try again");
-                    }
+                        }
+                        if (idm.Password1.Length < 6)
+                        {
+                            return FailedAction("Password Must Exceed 5 characters length. Please Try again");
+                        }
 
-                    var crud  = SuperAdminIdentity.CreateNewAdmin(idm.UserId,idm.Password1, idm.DisplayName);
-                    if (crud.IsSuccess)
-                    {
+                        var crud  = SuperAdminIdentity.CreateNewAdmin(idm.UserId,idm.Password1, idm.DisplayName);
+                        if (crud.IsSuccess)
+                        {
                             // Authenticate user so that we could create other components that requires authorization
 //                            var webConfig = WebConfigurationManager.OpenWebConfiguration("~");
 //                            var sectionInit = webConfig.AppSettings.Settings["setupInit"];
@@ -185,18 +185,18 @@ namespace asom.apps.web.inOut.Controllers
                             {
                                 webConfig.AppSettings.Settings.Add(new KeyValueConfigurationElement("patchDb", "true"));
                             }
-                        if (sectionInit != null)
-                        {
-                            sectionInit.Value = "true";
-                            webConfig.Save(ConfigurationSaveMode.Modified);
-                        }
-                        AuthOnce(crud.Data);
+                            if (sectionInit != null)
+                            {
+                                sectionInit.Value = "true";
+                                webConfig.Save(ConfigurationSaveMode.Modified);
+                            }
+                            AuthOnce(crud.Data);
                             new OrganizationInfo().SaveRecord();
 
-                        return SuccessAction("System Admin account Created Successfully");
+                            return SuccessAction("System Admin account Created Successfully");
+                        }
                     }
                 }
-            }
             }
             catch (Exception err)
             {
@@ -249,7 +249,7 @@ namespace asom.apps.web.inOut.Controllers
                         MyConfig.DefaultJsonSettings);
                     if (cri != null)
                     {
-                         var res  = UserIdentityModel.GetIdentities(cri);
+                        var res  = UserIdentityModel.GetIdentities(cri);
                         return CrudOperaResult(res);
                     }
                 }
@@ -326,7 +326,7 @@ namespace asom.apps.web.inOut.Controllers
                 try
                 {
                     IdentityPreferenceModel model = JsonConvert.DeserializeObject<IdentityPreferenceModel>(preference,
-                    MyConfig.DefaultJsonSettings);
+                        MyConfig.DefaultJsonSettings);
                     IdentityPreference id = (IdentityPreference) model;
                     id.Update();
                     return SuccessAction("Preference Updated!",model);
@@ -401,8 +401,8 @@ namespace asom.apps.web.inOut.Controllers
                 if (User.Identity.IsAuthenticated)
                 {
 
-                        // get all roles instead
-                        res = RoleModel.GetAllRoles().Select(x => RoleModelExtension.From(x));
+                    // get all roles instead
+                    res = RoleModel.GetAllRoles().Select(x => RoleModelExtension.From(x));
 
                     return SuccessAction("All Installed Roles Loaded", res);
                 }
@@ -427,10 +427,10 @@ namespace asom.apps.web.inOut.Controllers
                 if (User.Identity.IsAuthenticated)
                 {
 
-                        // get all roles instead
-                        res = RoleModel.GetRolesByCriteria(new RoleCriteria() {GetRoleNames = true});
+                    // get all roles instead
+                    res = RoleModel.GetRolesByCriteria(new RoleCriteria() {GetRoleNames = true});
 
-                        return SuccessAction("All Roles Names retured", res);
+                    return SuccessAction("All Roles Names retured", res);
                 }
                 else
                 {
@@ -455,7 +455,7 @@ namespace asom.apps.web.inOut.Controllers
                 bool success  = AppRoleName.InstallSystemRoles(true);
                 if (success)
                 {
-                     return SuccessAction("All Roles and System Security Component were Installed Successfully");
+                    return SuccessAction("All Roles and System Security Component were Installed Successfully");
                 }
 
 
@@ -467,7 +467,7 @@ namespace asom.apps.web.inOut.Controllers
                 return FailedAction(err.Message);
             }
 
-           return FailedAction("Role Failed to Install. Connection String is : " + AppConfig.ConnectionString);
+            return FailedAction("Role Failed to Install. Connection String is : " + AppConfig.ConnectionString);
         }
         // Key  = 200
         [HttpPost]
@@ -609,33 +609,33 @@ namespace asom.apps.web.inOut.Controllers
             return FailedAction("Authorization FAILED. Please supply a valid password for verification!");
         }
 
-      [HttpPost]
-      protected ActionResult ForgotPasswordProcess(string userId, string emailAddress)
-      {
-
-        try
-        {
-          if (!string.IsNullOrEmpty(userId) && !string.IsNullOrEmpty(emailAddress))
-          {
-            //                       UserIdentityModel user = JsonConvert.DeserializeObject<UserIdentityModel>(userId  ,  MyConfig.DefaultJsonSettings);
-            // so lets do the magic
-            ServerResponseModel res = UserIdentityModel.ForgotPasswordProcess(userId, emailAddress);
-            return CrudOperaResult(res);
-          }
-          else
-          {
-            return FailedAction("Invalid User Profile Data Supplied. User Id and Email address are required to complete this process");
-          }
-        }
-        catch (Exception err)
+        [HttpPost]
+        protected ActionResult ForgotPasswordProcess(string userId, string emailAddress)
         {
 
-          FailedAction("Server Input Error Occured! Action ->  'Change Password'");
-        }
+            try
+            {
+                if (!string.IsNullOrEmpty(userId) && !string.IsNullOrEmpty(emailAddress))
+                {
+                    //                       UserIdentityModel user = JsonConvert.DeserializeObject<UserIdentityModel>(userId  ,  MyConfig.DefaultJsonSettings);
+                    // so lets do the magic
+                    ServerResponseModel res = UserIdentityModel.ForgotPasswordProcess(userId, emailAddress);
+                    return CrudOperaResult(res);
+                }
+                else
+                {
+                    return FailedAction("Invalid User Profile Data Supplied. User Id and Email address are required to complete this process");
+                }
+            }
+            catch (Exception err)
+            {
 
-        return FailedAction("Authorization FAILED. Please supply a valid password for verification!");
-      }
-    [HttpPost]
+                FailedAction("Server Input Error Occured! Action ->  'Change Password'");
+            }
+
+            return FailedAction("Authorization FAILED. Please supply a valid password for verification!");
+        }
+        [HttpPost]
         protected ActionResult DeleteUser(string userModel, string currentUserPassword)
         {
             if (User.Identity.IsAuthenticated)
@@ -858,7 +858,7 @@ namespace asom.apps.web.inOut.Controllers
         protected async Task<ActionResult> RegisterUserAsync(string userInfo)
         {
             ServerResponseModel res = new ServerResponseModel();
-            res.Message = "Registration Failed";
+            res.Message = "Judge Profile Creation Failed";
             res.Success = false;
             try
             {
@@ -871,7 +871,7 @@ namespace asom.apps.web.inOut.Controllers
                     res.Data = id;
                     if (res.Success)
                     {
-                        try
+                        /*try
                         {
                             IEmailSettings email = OrgAppSetting.GetEmailSettings();
                             if (email.SendEmail == true)
@@ -913,7 +913,7 @@ namespace asom.apps.web.inOut.Controllers
                                         ///client.SslProtocols  = SslProtocols.Default;
                                         // For demo-purposes, accept all SSL certificates (in case the server supports STARTTLS)
                                         client.ServerCertificateValidationCallback = (s,c,h,e) => true;
-                                        client.Connect (email.SmtpServerAddress.Trim(), int.Parse(email.SmtpPortNumber.Trim())/*,Properties.Settings.Default.useHttps*/);
+                                        client.Connect (email.SmtpServerAddress.Trim(), int.Parse(email.SmtpPortNumber.Trim())/*,Properties.Settings.Default.useHttps#1#);
 
                                         // Note: only needed if the SMTP server requires authentication
                                         client.Authenticate (email.SmtpUserId.Trim(), email.SmtpPassword.Trim());
@@ -947,7 +947,7 @@ namespace asom.apps.web.inOut.Controllers
                         {
 
                             //throw;
-                        }
+                        }*/
 
                     }
 
@@ -1009,7 +1009,7 @@ namespace asom.apps.web.inOut.Controllers
                         return GetIdentities(criteria);
                     case UPDATE_USER_PREFERENCE:
                         return UpdatePreference(data);
-                        // ROLES
+                    // ROLES
 
                     case GET_ALL_INSTALLED_ROLES:
                         return GetAllRoles();
@@ -1040,11 +1040,11 @@ namespace asom.apps.web.inOut.Controllers
                         return DeleteUser(data, criteria);
                     case CHANGE_USER_PASSWORD:
                         return ChangeUserPassword(data, criteria, extradata);
-          //                    case GET_USER_NAME:  // 705
-          //                        return GetUserNames(criteria);
-                  case FORGOT_PASSWORD:
-                    return ForgotPasswordProcess(data, criteria);
-                case 900:
+                    //                    case GET_USER_NAME:  // 705
+                    //                        return GetUserNames(criteria);
+                    case FORGOT_PASSWORD:
+                        return ForgotPasswordProcess(data, criteria);
+                    case 900:
                         // patch Database
                         return PatchDb();
 

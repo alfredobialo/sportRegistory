@@ -79,7 +79,7 @@
                                             <span class="font-size-12 bold">Password</span>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="password" maxlength="50"
+                                            <input type="text" maxlength="50"
                                                    ng-model="userInfo.password"
                                                    required minlength="6" ng-maxlength="40"
                                                    placeholder="@(template == AppConstants.UI_TEMPLATE_4 ? "Password" : "Strong Password")"
@@ -91,14 +91,14 @@
                                                     <ng-message when="required">Password field is required</ng-message>
                                                 </ng-messages>
                                             </div>
-                                            <input type="password" maxlength="50"
+                                            @*<input type="password" maxlength="50"
                                                    ng-model="userInfo.password2"
                                                    required
                                                    minlength="6"
                                                    ng-maxlength="40"
                                                    placeholder="Retype Password"
                                                    name="txtPassword2"
-                                                   class="ui-input  ui-input-border ui-required ">
+                                                   class="ui-input  ui-input-border ui-required ">*@
                                             <div>
                                                 <p class="color-red" ng-if="frmRegisterUser.$dirty && frmRegisterUser.txtPassword2.$dirty && userInfo.password != userInfo.password2">
                                                     Your Password did not match correctly.
@@ -110,10 +110,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-3 ">
+                                            
+                                        </div>
+                                        <div class="col-9">
+                                            
+                                            <button class="btn btn-success" ng-click="processRegistration(userInfo)">Create Judge</button>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
 
-                                <div class="row">
-                                </div>
+
                             </form>
                         </div>
                     </div>

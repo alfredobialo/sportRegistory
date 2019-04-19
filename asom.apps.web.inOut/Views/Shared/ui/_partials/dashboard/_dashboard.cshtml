@@ -20,15 +20,49 @@
 
 
     <div class=" min-h300">
-       
-      
-        <div class="row">
-            <div class="col-sm-12">
-              @Html.Partial("ui/_register") 
-            
+
+
+        <div class="row mb-4">
+            <div class="col-sm-12 col-12 col-md-6">
+                <div class="shadow-sm bg-white p-5 ">
+                    <h2>Use the Menu to the 'Left' to perform any System function</h2>
+                    @if (hasAdminPrevileges)
+                    {
+                        <p class="lead">As an Admin you can : </p>
+                        <ul>
+                            <li>Create a new Performer Profile</li>
+                            <li>Create a new Create Judges Profile</li>
+                            <li>Manage all Judges Profile</li>
+                            <li>Publish report for each judges Score</li>
+
+
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="lead">As a Judge you can : </p>
+                        <ul>
+                            <li>Record Scores for each Performer</li>
+                            <li>Edit Your Profile</li>
+                            <li>View Final Published report from all judges</li>
+
+
+                        </ul>
+                    }
+                </div>
+
             </div>
-         
-        </div>
+           
+
+        </div> 
+        @if (!hasAdminPrevileges)
+        {
+            /*Judges Only*/
+            <div>
+                <asom-judge-score-board group-id="AKA" performer="{displayName: 'Keneth Okoye'}"></asom-judge-score-board>
+                <asom-judge-score-board performer='{displayName:"james Walsh",nationality :"FRANCE"}' group-id='AO'></asom-judge-score-board>
+            </div>
+        }
     </div>
 
 

@@ -253,7 +253,7 @@ namespace asom.apps.web.inOut.Models
                 mm.Gender = user.Gender;
                 mm.Location = user.Location;
                 mm.State = user.State;
-                mm.Email = user.Email;
+                mm.Email = user.Email ;
 
                 var crud = mm.Create();
                 res = ServerResponseModel.From(crud);
@@ -263,12 +263,12 @@ namespace asom.apps.web.inOut.Models
                     res.Message = "Registration Completed Successfully!";
                     res.Data = (UserIdentityModel)crud.Data;
                     // add user permission automatically
-                    if (RoleManager.RoleExistInStore(AppRoleName.BASIC_USER))
+                    if (RoleManager.RoleExistInStore(AppRoleName.STANDARD_USER))
                     {
 
-                        RoleManager.SetUserRole(mm, AppRoleName.BasicUserRole);
+                        RoleManager.SetUserRole(mm, AppRoleName.StandardUserRole);
                     }
-                    IdentitySession.Logout();
+                    //IdentitySession.Logout();
                 }
 
 
