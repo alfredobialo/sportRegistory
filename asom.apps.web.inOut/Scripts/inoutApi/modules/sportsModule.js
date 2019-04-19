@@ -7,6 +7,7 @@
         .controller("JudgeScoreBoardController", ["$rootScope","$scope","SportService", JudgeScoreBoardControllerFunc])
         .directive("asomAppInfo", [AppInfoFunc])
         .directive("asomJudgeScoreBoard", [JudegScoreBoardDirectiveFunc])
+        .directive("asomPerformerSelector",[PerformerSelectorDirectiveFunc])
         .factory("SportService", ["$http", SportServiceFunc])
     ;
 
@@ -17,10 +18,49 @@
             template: "<div>\n    <h3 class=\'text-danger\'>Application Info</h3>\n    <code>\n        {{crud | json}}\n    </code>\n    \n</div>"
         }
     }
-    
+    function PerformerSelectorDirectiveFunc() {
+        function controllerFunc(scope,SportService)
+        {
+            scope.processing  = false;
+            scope.performers  = [];
+            // get all Performer Record
+            scope.reloadPerformers = getAllPerformers;
+            getAllPerformers();
+            function getAllPerformers() {
+                scope.processing  = true;
+                SportService.getPerformers({id:"performer"})
+                then(function (response) {
+                    console.log(response.data.data);
+                    scope.processing  = false;
+                    if(response.data.success)
+                    {
+                        scope.performers  = response.data.data;
+                    }
+                    else
+                    {
+                        Toast.pullDown(effectiv.getValidationTemplate(response.data), true, 5000 , "bg-danger");
+                        
+                    }
+                })
+            }
+        }
+        return {
+            scope :{
+                onSelect : "&",
+                performer : "="
+            },
+            template :"<div class=\'p-3\'>\n    <div class=\'row\'>\n        <div class=\'col-4\'>\n            <label for=\'cboPerformer\'>Select Performer</label>\n        </div>\n        <div class=\'col-8\'>\n            <select name=\'\' ng-model=\'performer\'\n                    class=\'form-control control-lg\'\n                    ng-options=\'p as p.displayName for p in performers\'\n                    id=\'cboPerformer\'>\n                \n            </select>\n        </div>\n    </div>\n</div>",
+            controller : ["$scope","SportService",controllerFunc]
+        }
+    }
     function JudgeScoreBoardControllerFunc(rootScope,scope, SportService) {
         
         scope.currentUser = rootScope.currentUser;
+        scope.sb = {
+          scoreTechnical : 0.00,
+          scoreAthlete : 0.00
+           
+        };
         function init(msg) {
            
         }
@@ -35,7 +75,7 @@
                 performer : "="
                 
             },
-            template : "<div class=\'p-3 bg-white shadow-sm\'>\n    <div class=\'row\'>\n        <div class=\'col-6\'>\n            <div class=\'mb-2\'>\n                <p class=\'lead\'>{{currentUser.id | uppercase}}</p>\n            </div>\n            <div>\n                \n                <div class=\'row\'>\n                    <div class=\'col-8\'><span class=\'text-primary\'>Performer:</span> &nbsp; {{performer.displayName}}</div>\n                    <div class=\'col-4\'>{{performer.nationality | uppercase}}</div>\n                </div>\n            </div>\n        </div>\n        <div class=\'col-6\'>\n            <div>\n                <p class=\'lead bold\'>{{groupId | uppercase}}</p>\n            </div>\n            <div>\n          \n            <div class=\'row\'>\n                <div class=\'col-8\'><span class=\'text-success\'>Judge Name:</span> &nbsp;  {{currentUser.displayName}}</div>\n                \n            </div>\n        </div>\n        </div>\n    </div>\n</div>",
+            template : "<div class=\'p-3 bg-white shadow-sm\'>\n    <div class=\'row\'>\n        <div class=\'col-12 col-md-6\'>\n            <div class=\'mb-2\'>\n                <p class=\'lead\'>{{currentUser.id | uppercase}}</p>\n            </div>\n            <div>\n                \n                <div class=\'row\'>\n                    <div class=\'col-8\'><span class=\'text-primary\'>Performer:</span> &nbsp; {{performer.displayName}}</div>\n                    <div class=\'col-4\'>{{performer.nationality | uppercase}}</div>\n                </div>\n            </div>\n            <div class=\'mt-5\'>\n                <div class=\'row\'>\n                    <div class=\'col-5\'>\n                        <label for=\'txtScore\' class=\'text-primary bold lead\'>Technical</label>\n                    </div>\n                    <div class=\'col-8\'><input id=\'txtScore\' type=\'number\' class=\' \'\n                                              style=\'font-size:38px;color:#2344b1; font-weight: bold; border-radius: 13px; \n                                              width: 190px;border:solid 4px #5aa4fc;padding:20px 25px\'\n                                              ng-model=\'sb.scoreTechnical\'></div>\n                </div>\n            </div>\n        </div>\n        <div class=\'col-md-6 col-12\'>\n            <div>\n                <p class=\'lead bold\'>{{groupId | uppercase}}</p>\n            </div>\n            <div>\n          \n            <div class=\'row\'>\n                <div class=\'col-8\'><span class=\'text-success\'>Judge Name:</span> &nbsp;  {{currentUser.displayName}}</div>\n                \n            </div>\n                <div class=\'mt-5\'>\n                    <div class=\'row\'>\n                        <div class=\'col-5\'>\n                            <label for=\'txtScore2\' class=\'text-success bold lead\'>Athletic</label>\n                        </div>\n                        <div class=\'col-8\'><input id=\'txtScore2\' type=\'number\' class=\' \'\n                                                  style=\'font-size:38px; color:#41b131; font-weight: bold; border-radius: 13px; \n                                              width: 190px;border:solid 4px #64fc78;padding:20px 25px\'\n                                                  ng-model=\'sb.scoreAthlete\'></div>\n                    </div>\n                </div>\n                \n        </div>\n        </div>\n    </div>\n</div>",
             controller  :"JudgeScoreBoardController",
             
         }
