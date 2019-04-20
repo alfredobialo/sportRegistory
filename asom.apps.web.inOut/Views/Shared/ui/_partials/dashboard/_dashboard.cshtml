@@ -58,12 +58,16 @@
         @if (!hasAdminPrevileges)
         {
             /*Judges Only*/
+            <div class="d-flex flex-column justify-content-center w50 btn- ">
+                <asom-performer-selector performer="p"></asom-performer-selector>
+            </div>
+           
             <div class="row">
             <div class="col-md-6 col-12">
-                <asom-judge-score-board group-id="AKA" performer="{displayName: 'Keneth Okoye'}"></asom-judge-score-board>
+                <asom-judge-score-board group-id="AKA" performer="p"></asom-judge-score-board>
             </div>
             <div class="col-12 col-md-6 ">
-               <asom-judge-score-board performer='{displayName:"james Walsh",nationality :"FRANCE"}' group-id='AO'></asom-judge-score-board>  
+               <asom-judge-score-board performer='p' group-id='AO'></asom-judge-score-board>  
             </div>
                 
                

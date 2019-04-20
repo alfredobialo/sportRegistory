@@ -200,7 +200,8 @@ namespace asom.apps.web.inOut.Controllers
             }
             catch (Exception err)
             {
-                return FailedAction(err.Message);
+              
+                return CrudOperaResult(new ServerResponseModel(){ServerException = err, Message = err.InnerException?.Message ?? err.Message} );
 
             }
 
