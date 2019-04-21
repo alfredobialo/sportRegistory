@@ -1279,7 +1279,10 @@
     }
     init();
 
-
+    scope.createAnother = function()
+    {
+        scope.showRegComplete  = false;
+    }
     scope.processRegistration  = function(userInfo)
     {
       scope.loading = true;
@@ -1292,7 +1295,7 @@
                 // we are successful
                 scope.showRegComplete  = true;
                 scope.userInfo={};
-                Toast.pullDown("<p class='font-size-18'>"+response.data.message+"</p>");
+               // Toast.pullDown("<p class='font-size-18'>"+response.data.message+"</p>");
 
 
             }

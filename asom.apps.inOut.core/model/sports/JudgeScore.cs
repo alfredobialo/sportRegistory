@@ -186,6 +186,11 @@ namespace asom.apps.inOut.core.model.sports
                 {
                     // admin user
                     // TODO :check if we need more modifications here
+                    if (criteria != null && !string.IsNullOrEmpty(criteria.Id))
+                    {
+                            // get by group id, player 
+                            
+                    }
                     data = db.judgeScore.OrderBy(x =>x.dateFilter);
                 }
 

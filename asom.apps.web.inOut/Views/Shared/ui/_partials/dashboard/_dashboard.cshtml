@@ -58,17 +58,23 @@
         @if (!hasAdminPrevileges)
         {
             /*Judges Only*/
-            <div class="d-flex flex-column justify-content-center w50 btn- ">
-                <asom-performer-selector performer="p"></asom-performer-selector>
-            </div>
+            
            
             <div class="row">
-            <div class="col-md-6 col-12">
-                <asom-judge-score-board group-id="AKA" performer="p"></asom-judge-score-board>
-            </div>
-            <div class="col-12 col-md-6 ">
-               <asom-judge-score-board performer='p' group-id='AO'></asom-judge-score-board>  
-            </div>
+                <div class="col-md-6 col-12">
+                    
+                    <div class="d-flex flex-column justify-content-center  ">
+                        <asom-performer-selector performer="p"></asom-performer-selector>
+                    </div>
+                    <asom-judge-score-board group-id="AO" color="blue" performer="p"></asom-judge-score-board>
+                </div>
+                <div class="col-12 col-md-6 ">
+                    
+                    <div class="d-flex flex-column justify-content-center  ">
+                        <asom-performer-selector performer="p1"></asom-performer-selector>
+                    </div>
+                    <asom-judge-score-board performer='p1' group-id='AKA' color='red'></asom-judge-score-board>
+                </div>
                 
                
             </div>

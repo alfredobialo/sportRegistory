@@ -129,10 +129,11 @@
                 </div>
             </div>
         </div>
-        <div class="pad20  shadow-sm  -stronger  btn-success " ng-if="showRegComplete">
-            <h1>Registration Complete !!</h1>
-            <p class="font-size-18">
-                Please Login to continue
+        <div class="pad20  shadow  btn-info " ng-if="showRegComplete">
+            <h1>Judge Profile Created Successfully!!</h1>
+            <p class="font-size-18 mt-2 p-2 mb-2">
+                Do you wish to Create another Profile?
+                <button ng-click="createAnother()" class="btn btn-primary btn-lg shadow-sm">Create Another Profile</button>
             </p>
         </div>
     </div>

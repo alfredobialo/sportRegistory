@@ -72,14 +72,15 @@
         return  {
             scope : {
                 groupId : "@",
-                performer : "="
+                performer : "=",
+                color :"@"
                 
             },
-            template : "<div class=\'p-3 bg-white shadow-sm\'>\n    <div class=\'row\'>\n        <div class=\'col-12 col-md-6\'>\n            <div class=\'mb-2\'>\n                <p class=\'lead\'>{{currentUser.id | uppercase}}</p>\n            </div>\n            <div>\n                \n                <div class=\'row\'>\n                    <div class=\'col-8\'><span class=\'text-primary\'>Performer:</span> &nbsp; {{performer.displayName}}</div>\n                    <div class=\'col-4\'>{{performer.nationality | uppercase}}</div>\n                </div>\n            </div>\n            <div class=\'mt-5\'>\n                <div class=\'row\'>\n                    <div class=\'col-5\'>\n                        <label for=\'txtScore\' class=\'text-primary bold lead\'>Technical</label>\n                    </div>\n                    <div class=\'col-8\'><input id=\'txtScore\' type=\'number\' class=\' \'\n                                              style=\'font-size:38px;color:#2344b1; font-weight: bold; border-radius: 13px; \n                                              width: 190px;border:solid 4px #5aa4fc;padding:20px 25px\'\n                                              ng-model=\'sb.scoreTechnical\'></div>\n                </div>\n            </div>\n        </div>\n        <div class=\'col-md-6 col-12\'>\n            <div class=\'d-flex flex-column justify-content-end align-items-end\'>\n               \n                <div class=\'mb-2\'>\n                    <span class=\'lead bold\'>{{groupId | uppercase}}</span>\n                    <!--<input type=\'text\' ng-model=\'groupId\' class=\'p-2 lead\'>-->\n                </div>\n                <div class=\'\'>\n              \n                <div class=\'row\'>\n                    <div class=\'col-8\'><span class=\'text-success\'>Judge Name:</span> &nbsp;  {{currentUser.displayName}}</div>\n                    \n                </div>\n                    <div class=\'mt-5\'>\n                        <div class=\'row\'>\n                            <div class=\'col-5\'>\n                                <label for=\'txtScore2\' class=\'text-success bold lead\'>Athletic</label>\n                            </div>\n                            <div class=\'col-8\'><input id=\'txtScore2\' type=\'number\' class=\' \'\n                                                      style=\'font-size:38px; color:#41b131; font-weight: bold; border-radius: 13px; \n                                                  width: 190px;border:solid 4px #64fc78;padding:20px 25px\'\n                                                      ng-model=\'sb.scoreAthlete\'></div>\n                        </div>\n                    </div>\n                    \n            </div>\n            </div>\n        </div>\n    </div>\n    <div class=\'p-3 mt-3 bg-danger text-center \' ng-hide=\'performer\'><span class=\'lead text-white\'>Please Select a Performer</span></div>\n    <div class=\'mt-4 p-3 d-flex flex-row justify-content-center align-items-center\' ng-show=\'performer\'>\n        <button class=\'btn btn-light btn-lg\'>Cancel</button>\n        <button class=\'btn btn-primary btn-lg\'>Save Score</button>\n    </div>\n</div>",
+            template : "<div class=\'bg-white shadow-sm\'>\n    <div class=\' p-2\' style=\'background-color:{{color}}\'></div>\n    <div class=\'p-3\'>\n        <div class=\'row\'>\n            <div class=\'col-12 col-md-6\'>\n                <div class=\'mb-2\'>\n                    <p class=\'lead\'>{{currentUser.id | uppercase}}</p>\n                </div>\n                <div>\n\n                    <div class=\'row\'>\n                        <div class=\'col-9\'><span class=\'text-primary\'>Performer:</span> &nbsp; {{performer.displayName}}</div>\n                        <div class=\'col-3\'>{{performer.nationality | uppercase}}</div>\n                    </div>\n                </div>\n                <div class=\'mt-5\'>\n                    <div class=\'row\'>\n                        <div class=\'col-5\'>\n                            <label for=\'txtScore\' class=\'text-primary bold lead\'>Technical</label>\n                        </div>\n                        <div class=\'col-8\'><input id=\'txtScore\' type=\'number\' class=\' \'\n                                                  style=\'font-size:38px;color:#2344b1; font-weight: bold; border-radius: 13px; \n                                              width: 190px;border:solid 4px #5aa4fc;padding:20px 25px\'\n                                                  ng-model=\'sb.scoreTechnical\'></div>\n                    </div>\n                </div>\n            </div>\n            <div class=\'col-md-6 col-12\'>\n                <div class=\'d-flex flex-column justify-content-end align-items-end\'>\n\n                    <div class=\'mb-2\'>\n                        <span class=\'lead bold\' style=\'color:{{color}}\'>{{groupId | uppercase}}</span>\n                        <!--<input type=\'text\' ng-model=\'groupId\' class=\'p-2 lead\'>-->\n                    </div>\n                    <div class=\'\'>\n\n                        <div class=\'row\'>\n                            <div class=\'col-12\'><span class=\'text-success\'>Judge Name:</span> &nbsp;  {{currentUser.displayName}}</div>\n\n                        </div>\n                        <div class=\'mt-5\'>\n                            <div class=\'row\'>\n                                <div class=\'col-5\'>\n                                    <label for=\'txtScore2\' class=\'text-success bold lead\'>Athletic</label>\n                                </div>\n                                <div class=\'col-8\'><input id=\'txtScore2\' type=\'number\' class=\' \'\n                                                          style=\'font-size:38px; color:#41b131; font-weight: bold; border-radius: 13px; \n                                                  width: 190px;border:solid 4px #64fc78;padding:20px 25px\'\n                                                          ng-model=\'sb.scoreAthlete\'></div>\n                            </div>\n                        </div>\n\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\'p-3 mt-3 bg-highlight-red text-center \' ng-hide=\'performer\'><span class=\'lead text-danger\'>Please Select a Performer</span></div>\n        <div class=\'mt-4 p-3 d-flex flex-row justify-content-center align-items-center\' ng-show=\'performer\'>\n            <button class=\'btn btn-light btn-lg\'>Cancel</button>\n            <button class=\'btn btn-primary btn-lg\'>Save Score</button>\n        </div>\n    </div>\n    \n</div>",
             controller  :"JudgeScoreBoardController",
             
         }
-        
+            
     }
 
     function PerformerControllerFunc(scope, SportService) {
@@ -185,6 +186,23 @@
                 return $http.post(url, {key: 50, data: model});
 
             },
+            
+            /*Judge Score API*/
+            // Create a new Judge Score Object
+            createJudgeScore : function (obj) {
+                // usually create by Judges
+                return $http.post(url, {key : 20, data : ng.toJson(obj)});
+                
+            },
+            // get JudgeScore by judge and groupId
+            getJudgeScoreEntry : function (criteria) {
+                return $http.get(url , {params : { key : 21, criteria : ng.toJson(criteria)}});
+            },
+            
+            getCumulativeSportResult : function (groupId) {
+                return $http.get(url, {params : { key  : 22 , data  : groupId}});
+            }
+            
 
 
         }
