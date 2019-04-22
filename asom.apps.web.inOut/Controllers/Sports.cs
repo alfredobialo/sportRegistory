@@ -110,8 +110,24 @@ namespace asom.apps.web.inOut.Controllers
             return CrudOperaResult(res);
 
         }
-        
-        
+
+        private ActionResult CreateJudgeScoreEntry(string entry)
+        {
+            ServerResponseModel res =   new ServerResponseModel();
+            try
+            {
+                JudgeScoreModel model =
+                    JsonConvert.DeserializeObject<JudgeScoreModel>(entry, MyConfig.DefaultJsonSettings);
+                res = JudgeScoreModel.CreateJudgeScoreEntry(model);
+            }
+            catch (Exception err)
+            {
+                res.Message = "Web layer internal error!";
+                res.ServerException = err;
+            }
+
+            return CrudOperaResult(res);
+        }
 
         public override ActionResult GetUrl(int? key, string data, string criteria, string extradata = null, bool trueFalse = false)
         {
@@ -129,6 +145,8 @@ namespace asom.apps.web.inOut.Controllers
                     return GetPerformers(criteria);
                 case 50 :
                     return DelPerformer(data);
+                case 200 :
+                    return CreateJudgeScoreEntry(data);
             }
             return base.GetUrl(key, data, criteria, extradata, trueFalse);
         }

@@ -149,7 +149,20 @@ namespace asom.apps.web.inOut.Models
                     SportType = "Atheletic",
                     Score = j.ScoreAthlete,
                 };
-                techie.Create
+                var crud  = techie.CreateEntry();
+                res = ServerResponseModel.From(crud);
+                if (crud.IsSuccess)
+                {
+                    crud = athele.CreateEntry();
+                    res = ServerResponseModel.From(crud);
+                    if (crud.IsSuccess)
+                    {
+                        res.Message = "Entry was Saved Successfully";
+                        res.Success = true;
+
+                    }
+                }
+                
             }
             catch (Exception err)
             {

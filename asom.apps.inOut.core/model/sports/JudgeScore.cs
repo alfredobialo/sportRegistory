@@ -128,7 +128,7 @@ namespace asom.apps.inOut.core.model.sports
                 }
                 else
                 {
-                    res.Message = "Entry Already exist";
+                    res.Message = $"Score Entry for the selected performer Already exist";
                     
                 }
             }
@@ -250,7 +250,9 @@ namespace asom.apps.inOut.core.model.sports
 
         public override bool IsFound(JudgeScore obj)
         {
-            return db.judgeScore.Any(x=>x.id  == obj.Key);
+            // Ensure only one record Per Judge per User per Group
+            
+            return db.judgeScore.Any(x=>x.groupId  == obj.GroupId && x.judgeId == obj.JudgeId && x.performerId == obj.PermormerId);
         }
     }
 }
