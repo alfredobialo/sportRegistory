@@ -43,6 +43,29 @@ namespace asom.apps.inOut.core.model.sports
             return errorLog;
         }
 
+        public CrudOperationResult<JudgeScore> CreateEntry()
+        {
+            return CreateObject(this);
+        }  
+        public CrudOperationResult<JudgeScore> RemoveEntry()
+        {
+            return DeleteObject(this);
+        } 
+        public CrudOperationResult<JudgeScore> CreateOrUpdateEntry()
+        {
+            return CreateOrUpdateObject(this);
+        }
+
+        public CrudOperationResult<JudgeScore> GetEntry(string id)
+        {
+            return new JudgeScore().FindObject(id);
+        }
+
+        public CrudOperationResult<IEnumerable<JudgeScore>> GetEntries(Criteria criteria)
+        {
+            return new JudgeScore().FindObject(criteria);
+        }
+        
         public override DefRepository<JudgeScore> GetDefaultDataSource()
         {
             return new JudgeScoreRepo();
