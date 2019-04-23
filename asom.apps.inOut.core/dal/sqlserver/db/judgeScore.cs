@@ -16,6 +16,8 @@ namespace asom.apps.inOut.core.dal.sqlserver.db
         public string groupId { get; set; }
 
         public decimal? score { get; set; }
+        public decimal? techScore { get; set; }
+        public decimal? athleScore { get; set; }
 
         [StringLength(50)]
         public string performerId { get; set; }

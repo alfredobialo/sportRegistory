@@ -127,6 +127,7 @@ namespace asom.apps.web.inOut.Models
         public string JudgeId { get; set; }
         public string PerformerId { get; set; }
 
+        public PerformerModel Performer { get; internal set; }
 
         public static ServerResponseModel CreateJudgeScoreEntry(JudgeScoreModel j)
         {
@@ -139,28 +140,17 @@ namespace asom.apps.web.inOut.Models
                 {
                     PermormerId = j.PerformerId,
                     GroupId = j.GroupId,
-                    SportType = "Technical",
-                    Score = j.ScoreTechnical,
+                    SportType = "-",
+                    TechnicalScore = j.ScoreTechnical,
+                    AthleticScore =  j.ScoreAthlete
                 };
-                JudgeScore athele = new JudgeScore()
-                {
-                    PermormerId = j.PerformerId,
-                    GroupId = j.GroupId,
-                    SportType = "Atheletic",
-                    Score = j.ScoreAthlete,
-                };
+                
                 var crud  = techie.CreateEntry();
                 res = ServerResponseModel.From(crud);
                 if (crud.IsSuccess)
-                {
-                    crud = athele.CreateEntry();
-                    res = ServerResponseModel.From(crud);
-                    if (crud.IsSuccess)
-                    {
-                        res.Message = "Entry was Saved Successfully";
-                        res.Success = true;
-
-                    }
+                {res.Message = "Entry was Saved Successfully";
+                   res.Success = true;
+                   
                 }
                 
             }
@@ -171,6 +161,19 @@ namespace asom.apps.web.inOut.Models
             }
 
             return res;
+        }
+
+        public static JudgeScoreModel FromEntity(JudgeScore o)
+        {
+            return new JudgeScoreModel()
+            {
+                Performer = o.PerformerInfo,
+                GroupId = o.GroupId,
+                PerformerId = o.PermormerId,
+                   ScoreTechnical = o.TechnicalScore,
+                   ScoreAthlete = o.AthleticScore,
+                   JudgeId = o.JudgeId
+            };
         }
     }
 }

@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using System.Web.Mvc;
+using asom.apps.inOut.core.model.sports;
 using asom.apps.web.inOut.Controllers.BaseControllers;
 using asom.apps.web.inOut.Models;
 using itrex.businessObjects.model.core;
@@ -78,7 +80,7 @@ namespace asom.apps.web.inOut.Controllers
             ServerResponseModel res =  new ServerResponseModel();
             try
             {
-               // PerformerModel p = JsonConvert.DeserializeObject<PerformerModel>(obj, MyConfig.DefaultJsonSettings);
+                // PerformerModel p = JsonConvert.DeserializeObject<PerformerModel>(obj, MyConfig.DefaultJsonSettings);
                 res = PerformerModel.GetPerformer(id);
             }
             catch (Exception err)
@@ -97,7 +99,7 @@ namespace asom.apps.web.inOut.Controllers
             ServerResponseModel res =  new ServerResponseModel();
             try
             {
-               // PerformerModel p = JsonConvert.DeserializeObject<PerformerModel>(obj, MyConfig.DefaultJsonSettings);
+                // PerformerModel p = JsonConvert.DeserializeObject<PerformerModel>(obj, MyConfig.DefaultJsonSettings);
                 res = PerformerModel.DeletePerformer(id);
             }
             catch (Exception err)
@@ -119,6 +121,53 @@ namespace asom.apps.web.inOut.Controllers
                 JudgeScoreModel model =
                     JsonConvert.DeserializeObject<JudgeScoreModel>(entry, MyConfig.DefaultJsonSettings);
                 res = JudgeScoreModel.CreateJudgeScoreEntry(model);
+            }
+            catch (Exception err)
+            {
+                res.Message = "Web layer internal error!";
+                res.ServerException = err;
+            }
+         
+            return CrudOperaResult(res);
+        }
+        
+        private ActionResult GetJudgeScoreEntry(string criteria)
+        {
+            ServerResponseModel res =   new ServerResponseModel();
+            try
+            {
+                Criteria model =
+                    JsonConvert.DeserializeObject<Criteria>(criteria, MyConfig.DefaultJsonSettings);
+                var crud = JudgeScore.GetEntries(model);
+                
+                res  = ServerResponseModel.From(crud);
+                if (res.Success)
+                {
+                    res.Data = crud.Data.Select(x => JudgeScoreModel.FromEntity(x));
+                }
+            }
+            catch (Exception err)
+            {
+                res.Message = "Web layer internal error!";
+                res.ServerException = err;
+            }
+
+            return CrudOperaResult(res);
+        }
+        private ActionResult GetJudgeScoreResult(string criteria)
+        {
+            ServerResponseModel res =   new ServerResponseModel();
+            try
+            {
+                ResultJudgeScoreCriteria model =
+                    JsonConvert.DeserializeObject<ResultJudgeScoreCriteria>(criteria, MyConfig.DefaultJsonSettings);
+                var crud = JudgeScore.GetEntries(model);
+                
+                res  = ServerResponseModel.From(crud);
+                if (res.Success)
+                {
+                    res.Data = crud.Data.Select(x => JudgeScoreModel.FromEntity(x));
+                }
             }
             catch (Exception err)
             {
@@ -147,6 +196,10 @@ namespace asom.apps.web.inOut.Controllers
                     return DelPerformer(data);
                 case 200 :
                     return CreateJudgeScoreEntry(data);
+                case 201 :
+                    return GetJudgeScoreEntry(criteria);
+                case 2011 :
+                    return GetJudgeScoreResult(criteria);
             }
             return base.GetUrl(key, data, criteria, extradata, trueFalse);
         }

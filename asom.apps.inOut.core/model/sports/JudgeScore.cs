@@ -5,9 +5,21 @@ using asom.apps.inOut.core.dal.sqlserver;
 using asom.apps.inOut.core.dal.sqlserver.db;
 using asom.apps.inOut.core.model.authentication;
 using itrex.businessObjects.model.core;
+using itrex.businessObjects.model.core.pager;
 
 namespace asom.apps.inOut.core.model.sports
 {
+    public class ResultJudgeScoreCriteria : Criteria
+    {
+        public ResultJudgeScoreCriteria()
+        {
+          
+        }
+
+        public string PerformerId { get; set; }
+        public string GroupId { get; set; }
+        
+    }
     public class JudgeScore  :DefaultPersistable<JudgeScore>
     {
         public enum GroupType
@@ -22,6 +34,8 @@ namespace asom.apps.inOut.core.model.sports
 
         public string GroupId { get; set; } = GroupType.AKA.ToString();
         public decimal? Score { get; set; }
+        public decimal? TechnicalScore { get; set; }
+        public decimal? AthleticScore { get; set; }
         public string PermormerId { get; set; }
 
         public Performer PerformerInfo { get; internal set; }
@@ -35,9 +49,13 @@ namespace asom.apps.inOut.core.model.sports
         {
             ValidationErrorLog errorLog =  new ValidationErrorLog();
             // check if the score is in valid range of 5.0  and 10.0
-            if (Score < 5.0m || Score > 10.0m)
+            if (TechnicalScore < 5.0m || TechnicalScore > 10.0m)
             {
-                errorLog.AddError("Score range not Met",Score.ToString(), $"Score should be between 5.0 and 10.0");
+                errorLog.AddError("Technical Score range not Met",Score.ToString(), $"Technical Score should be between 5.0 and 10.0");
+            } 
+            if (AthleticScore < 5.0m || AthleticScore > 10.0m)
+            {
+                errorLog.AddError("Athletic Score range not Met",Score.ToString(), $"Athletic Score should be between 5.0 and 10.0");
             }
             
             return errorLog;
@@ -56,12 +74,12 @@ namespace asom.apps.inOut.core.model.sports
             return CreateOrUpdateObject(this);
         }
 
-        public CrudOperationResult<JudgeScore> GetEntry(string id)
+        public static CrudOperationResult<JudgeScore> GetEntry(string id)
         {
             return new JudgeScore().FindObject(id);
         }
 
-        public CrudOperationResult<IEnumerable<JudgeScore>> GetEntries(Criteria criteria)
+        public static CrudOperationResult<IEnumerable<JudgeScore>> GetEntries(Criteria criteria)
         {
             return new JudgeScore().FindObject(criteria);
         }
@@ -82,7 +100,9 @@ namespace asom.apps.inOut.core.model.sports
             e.groupId = o.GroupId;
             e.sportType = o.SportType;
             e.performerId = o.PermormerId;
-            e.dateFilter = o.DateCreated; 
+            e.dateFilter = o.DateCreated;
+            e.techScore = o.TechnicalScore ?? 0;
+            e.athleScore = o.AthleticScore ?? 0;
             return e;
         }
 
@@ -101,6 +121,8 @@ namespace asom.apps.inOut.core.model.sports
             res.SportType = e.sportType;
             res.DateCreated = e.dateFilter;
             res.PermormerId = e.performerId;
+            res.TechnicalScore = e.techScore;
+            res.AthleticScore = e.athleScore;
             // get the performer
             res.PerformerInfo = Performer.Get(e.performerId).Data;
             return res;
@@ -209,12 +231,16 @@ namespace asom.apps.inOut.core.model.sports
                 {
                     // admin user
                     // TODO :check if we need more modifications here
-                    if (criteria != null && !string.IsNullOrEmpty(criteria.Id))
+                    if (criteria != null && criteria is ResultJudgeScoreCriteria)
                     {
                             // get by group id, player 
+                            ResultJudgeScoreCriteria cri  = criteria as ResultJudgeScoreCriteria;
+                            data = db.judgeScore.Where(
+                                x => x.groupId == cri.GroupId && x.performerId == cri.PerformerId)
+                                .OrderBy(x => x.judgeId);
                             
                     }
-                    data = db.judgeScore.OrderBy(x =>x.dateFilter);
+                   
                 }
 
                 res.Data = data.Select(fromEntity);
@@ -244,15 +270,17 @@ namespace asom.apps.inOut.core.model.sports
                 res.Message = "Record Loaded!";
                 res.Data = js;
             }
-            
             return res;
         }
 
         public override bool IsFound(JudgeScore obj)
         {
             // Ensure only one record Per Judge per User per Group
-            
-            return db.judgeScore.Any(x=>x.groupId  == obj.GroupId && x.judgeId == obj.JudgeId && x.performerId == obj.PermormerId);
+          //  string currentJudge = CurrentUserContext.Id.ToString();
+           return db.judgeScore.Any(x=>x.groupId  == obj.GroupId 
+                                       && x.judgeId == obj.JudgeId
+                                       //&& x.sportType == obj.SportType
+                                       && x.performerId == obj.PermormerId);
         }
     }
 }
