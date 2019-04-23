@@ -20,6 +20,18 @@ namespace asom.apps.inOut.core.model.sports
         public string GroupId { get; set; }
         
     }
+
+    public class JudgeScoreList : List<JudgeScore>
+    {
+        public decimal TotalTechScore => this.Where(x => !x.IsExcludedTs).Sum(x => x.TechnicalScore).GetValueOrDefault(0);
+        public decimal TotalAthleScore => this.Where(x => !x.IsExcludedAs).Sum(x => x.AthleticScore).GetValueOrDefault(0);
+        public double TechFactor { get; } = 0.7;
+        public double AthleFactor { get; } = 0.3;
+        public double TechResult=> (double)TotalTechScore * TechFactor;
+        public double AthleResult => (double)TotalAthleScore * AthleFactor;
+        public double Total => TechResult + AthleResult;
+
+    }
     public class JudgeScore  :DefaultPersistable<JudgeScore>
     {
         public enum GroupType
@@ -36,12 +48,14 @@ namespace asom.apps.inOut.core.model.sports
         public decimal? Score { get; set; }
         public decimal? TechnicalScore { get; set; }
         public decimal? AthleticScore { get; set; }
+      
         public string PermormerId { get; set; }
 
         public Performer PerformerInfo { get; internal set; }
         public string JudgeId { get; internal set; }
         public string SportType { get; set; }
-        public bool IsExcluded { get; internal set; } = false;
+        public bool IsExcludedTs { get; internal set; } = false;
+        public bool IsExcludedAs { get; internal set; } = false;
         
         public DateTime? DateCreated { get => DateInitialized; set => DateInitialized = value; }
 
@@ -243,7 +257,15 @@ namespace asom.apps.inOut.core.model.sports
                    
                 }
 
-                res.Data = data.Select(fromEntity);
+                if (hasAdminRight)
+                {
+                   
+                   res.ExtraData = new PerformerResult( data.Select( fromEntity).ToList());
+                }
+                
+                     res.Data = data.Select(fromEntity);
+               
+               
                 res.Message = "Score result loaded";
                 res.IsSuccess = true;
 

@@ -166,6 +166,7 @@ namespace asom.apps.web.inOut.Controllers
                 res  = ServerResponseModel.From(crud);
                 if (res.Success)
                 {
+                    //res.ExtraData = crud.Data;
                     res.Data = crud.Data.Select(x => JudgeScoreModel.FromEntity(x));
                 }
             }
