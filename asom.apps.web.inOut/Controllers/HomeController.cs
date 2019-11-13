@@ -394,6 +394,7 @@ namespace asom.apps.web.inOut.Controllers
 
       return CrudOperaResult(res);
     }
+    [AllowAnonymous]
     public ActionResult Logout()
         {
             LogOutUser();

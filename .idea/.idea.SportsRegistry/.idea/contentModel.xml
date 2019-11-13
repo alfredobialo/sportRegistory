@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\asomprojects\projects from dell\InOut_SportsRegistry_2019" t="IncludeFlat">
+    <e p="C:\asom_files\appProjects\backendApps\dotnetFrameworkApps\InOut_SportsRegistry_2019" t="IncludeFlat">
+      <e p=".git\info\exclude" t="IncludeRecursive" />
       <e p="asom.apps.inOut.core" t="IncludeRecursive">
         <e p="App.config" t="Include" />
         <e p="asom.apps.inOut.core.csproj" t="IncludeRecursive" />
@@ -1879,8 +1880,9 @@
       </e>
       <e p="WE-Markdown.css" t="Include" />
     </e>
-    <e p="C:\Users\Asom\.Rider2018.3\config\extensions" t="IncludeRecursive" />
-    <e p="C:\Users\Asom\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Asom\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_SportsRegistry.2083841303.00" t="ExcludeRecursive" />
+    <e p="C:\Users\alfred.obialo\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\alfred.obialo\.Rider2019.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\alfred.obialo\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\alfred.obialo\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SportsRegistry.1819320709.00" t="ExcludeRecursive" />
   </component>
 </project>

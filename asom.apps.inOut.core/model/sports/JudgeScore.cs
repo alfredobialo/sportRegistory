@@ -6,6 +6,7 @@ using asom.apps.inOut.core.dal.sqlserver.db;
 using asom.apps.inOut.core.model.authentication;
 using itrex.businessObjects.model.core;
 using itrex.businessObjects.model.core.pager;
+using itrex.businessObjects.model.core.securables;
 
 namespace asom.apps.inOut.core.model.sports
 {
@@ -78,7 +79,13 @@ namespace asom.apps.inOut.core.model.sports
         public CrudOperationResult<JudgeScore> CreateEntry()
         {
             return CreateObject(this);
-        }  
+        }
+
+        public static CrudOperationResult<JudgeScore> DeleteScoreEntries(string performerId)
+        {
+
+            return new JudgeScore().DeleteObject(null, new Criteria {Id = performerId});
+        }
         public CrudOperationResult<JudgeScore> RemoveEntry()
         {
             return DeleteObject(this);
@@ -292,6 +299,49 @@ namespace asom.apps.inOut.core.model.sports
                 res.Message = "Record Loaded!";
                 res.Data = js;
             }
+            return res;
+        }
+
+
+        public override CrudOperationResult<JudgeScore> DeleteObject(JudgeScore obj, Criteria criteria)
+        {
+            CrudOperationResult<JudgeScore> res  =  new CrudOperationResult<JudgeScore>();
+            res.IsSuccess = false;
+            res.Message = "Could not delete Score Entries for the specified Performer";
+            try
+            {
+                // We want to delete all judges scores for a particular performer
+                // Ensure permission is allowed
+                ValidateUserAuthority(AppPermissions.CORE_APP_FUNCTIONS_MANAGER);
+                if (criteria != null && !string.IsNullOrEmpty(criteria.Id))
+                {
+                     var data = db.judgeScore.Where(x => x.performerId == criteria.Id);
+                     db.judgeScore.RemoveRange(data);
+                     Save();
+                     res.IsSuccess = true;
+                     res.Message = "All Score entries for the specified performer have been deleted!";
+                     
+                }
+                else
+                {
+                    res.Message =
+                        "Please ensure you specifiy the Performer Id you intend" +
+                        " to delete all Scores entries in Batch";
+                }
+                
+
+            }
+            catch (UnAuthorizeException err)
+            {
+                res.Message = "You are not authorize to delete batch Judge Scores";
+                
+            }
+            catch (Exception err)
+            {
+                res.ServerException = err;
+                res.Message = "An error occurred while trying to perform a batch delete on a performer Score record";
+            }
+            
             return res;
         }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using asom.apps.inOut.core.model.sports;
@@ -14,15 +15,15 @@ namespace asom.apps.web.inOut.Controllers
         // GET
         private ActionResult GetAppInfo()
         {
-            return CrudOperaResult(new ServerResponseModel() {Data = AppInfo.Get, Message = "Application Info", Success = true});
-
+            return CrudOperaResult(new ServerResponseModel()
+                {Data = AppInfo.Get, Message = "Application Info", Success = true});
         }
 
         //Key 10
         [HttpPost]
         ActionResult CreatePerformer(string obj)
         {
-            ServerResponseModel res =  new ServerResponseModel();
+            ServerResponseModel res = new ServerResponseModel();
             try
             {
                 PerformerModel p = JsonConvert.DeserializeObject<PerformerModel>(obj, MyConfig.DefaultJsonSettings);
@@ -32,16 +33,15 @@ namespace asom.apps.web.inOut.Controllers
             {
                 res.Message = "Web layer exception occured";
                 res.ServerException = err;
-
             }
 
             return CrudOperaResult(res);
-
         }
+
         [HttpPost]
         ActionResult UpdatePerformer(string obj)
         {
-            ServerResponseModel res =  new ServerResponseModel();
+            ServerResponseModel res = new ServerResponseModel();
             try
             {
                 PerformerModel p = JsonConvert.DeserializeObject<PerformerModel>(obj, MyConfig.DefaultJsonSettings);
@@ -51,15 +51,14 @@ namespace asom.apps.web.inOut.Controllers
             {
                 res.Message = "Web layer exception occured";
                 res.ServerException = err;
-
             }
 
             return CrudOperaResult(res);
-
         }
+
         ActionResult GetPerformers(string criteria)
         {
-            ServerResponseModel res =  new ServerResponseModel();
+            ServerResponseModel res = new ServerResponseModel();
             try
             {
                 Criteria p = JsonConvert.DeserializeObject<Criteria>(criteria, MyConfig.DefaultJsonSettings);
@@ -69,15 +68,14 @@ namespace asom.apps.web.inOut.Controllers
             {
                 res.Message = "Web layer exception occured";
                 res.ServerException = err;
-
             }
 
             return CrudOperaResult(res);
-
         }
+
         ActionResult GetPerformer(string id)
         {
-            ServerResponseModel res =  new ServerResponseModel();
+            ServerResponseModel res = new ServerResponseModel();
             try
             {
                 // PerformerModel p = JsonConvert.DeserializeObject<PerformerModel>(obj, MyConfig.DefaultJsonSettings);
@@ -87,16 +85,15 @@ namespace asom.apps.web.inOut.Controllers
             {
                 res.Message = "Web layer exception occured";
                 res.ServerException = err;
-
             }
 
             return CrudOperaResult(res);
+        }
 
-        } 
         [HttpPost]
         ActionResult DelPerformer(string id)
         {
-            ServerResponseModel res =  new ServerResponseModel();
+            ServerResponseModel res = new ServerResponseModel();
             try
             {
                 // PerformerModel p = JsonConvert.DeserializeObject<PerformerModel>(obj, MyConfig.DefaultJsonSettings);
@@ -106,16 +103,15 @@ namespace asom.apps.web.inOut.Controllers
             {
                 res.Message = "Web layer exception occured";
                 res.ServerException = err;
-
             }
 
             return CrudOperaResult(res);
-
         }
 
+        [HttpPost]
         private ActionResult CreateJudgeScoreEntry(string entry)
         {
-            ServerResponseModel res =   new ServerResponseModel();
+            ServerResponseModel res = new ServerResponseModel();
             try
             {
                 JudgeScoreModel model =
@@ -127,20 +123,20 @@ namespace asom.apps.web.inOut.Controllers
                 res.Message = "Web layer internal error!";
                 res.ServerException = err;
             }
-         
+
             return CrudOperaResult(res);
         }
-        
+
         private ActionResult GetJudgeScoreEntry(string criteria)
         {
-            ServerResponseModel res =   new ServerResponseModel();
+            ServerResponseModel res = new ServerResponseModel();
             try
             {
                 Criteria model =
                     JsonConvert.DeserializeObject<Criteria>(criteria, MyConfig.DefaultJsonSettings);
                 var crud = JudgeScore.GetEntries(model);
-                
-                res  = ServerResponseModel.From(crud);
+
+                res = ServerResponseModel.From(crud);
                 if (res.Success)
                 {
                     res.Data = crud.Data.Select(x => JudgeScoreModel.FromEntity(x));
@@ -154,20 +150,21 @@ namespace asom.apps.web.inOut.Controllers
 
             return CrudOperaResult(res);
         }
+
         private ActionResult GetJudgeScoreResult(string criteria)
         {
-            ServerResponseModel res =   new ServerResponseModel();
+            ServerResponseModel res = new ServerResponseModel();
             try
             {
                 ResultJudgeScoreCriteria model =
                     JsonConvert.DeserializeObject<ResultJudgeScoreCriteria>(criteria, MyConfig.DefaultJsonSettings);
                 var crud = JudgeScore.GetEntries(model);
-                
-                res  = ServerResponseModel.From(crud);
+
+                res = ServerResponseModel.From(crud);
                 if (res.Success)
                 {
                     //res.ExtraData = crud.Data;
-                    res.Data = crud.Data.Select(x => JudgeScoreModel.FromEntity(x));
+                    res.Data = new List<JudgeScore>(); //.Data.Select(x => JudgeScoreModel.FromEntity(x));
                 }
             }
             catch (Exception err)
@@ -179,29 +176,52 @@ namespace asom.apps.web.inOut.Controllers
             return CrudOperaResult(res);
         }
 
-        public override ActionResult GetUrl(int? key, string data, string criteria, string extradata = null, bool trueFalse = false)
+        [HttpPost]
+        private ActionResult DeleteScoreEntries(string performerId)
+        {
+            ServerResponseModel res = new ServerResponseModel();
+            try
+            {
+                var crud = JudgeScore.DeleteScoreEntries(performerId);
+
+                res = ServerResponseModel.From(crud);
+            }
+            catch (Exception err)
+            {
+                res.Message = "Web layer internal error!";
+                res.ServerException = err;
+            }
+
+            return CrudOperaResult(res);
+        }
+
+        public override ActionResult GetUrl(int? key, string data, string criteria, string extradata = null,
+            bool trueFalse = false)
         {
             switch (key)
             {
-                case 1 :
+                case 1:
                     return GetAppInfo();
-                case 10 :
+                case 10:
                     return CreatePerformer(data);
-                case 20 :
+                case 20:
                     return UpdatePerformer(data);
-                case 30 :
+                case 30:
                     return GetPerformer(data);
-                case 40 :
+                case 40:
                     return GetPerformers(criteria);
-                case 50 :
+                case 50:
                     return DelPerformer(data);
-                case 200 :
+                case 200:
                     return CreateJudgeScoreEntry(data);
-                case 201 :
+                case 201:
                     return GetJudgeScoreEntry(criteria);
-                case 2011 :
+                case 2011:
                     return GetJudgeScoreResult(criteria);
+                case 202:
+                    return DeleteScoreEntries(data);
             }
+
             return base.GetUrl(key, data, criteria, extradata, trueFalse);
         }
     }

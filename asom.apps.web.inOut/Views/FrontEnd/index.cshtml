@@ -2,9 +2,36 @@
 
 @section sectionTitle
 {
-    <h1>Welcome Home</h1>
+    @if (!User.Identity.IsAuthenticated)
+    {
+         <h1>Welcome Back</h1>
+    }
+    else
+    {
+        // Show result
+        <h1>Cumulative Result</h1>
+        
+    }
 }
 
+@section scripts
+{
+    
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <div style="transform: scale(1.3)">
+      <asom-perfomer-result group-id="AO"></asom-perfomer-result>  
+    </div>
+    
+}
+else
+{
+    <div class="p-5 text-center shadow border-radius">
+        
+        <p class="lead">To View Result you must login</p>
+    </div>
+}
 
 
 

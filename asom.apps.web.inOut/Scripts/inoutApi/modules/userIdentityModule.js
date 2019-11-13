@@ -1020,16 +1020,7 @@
           user.ghCriteria = user.phCriteria || {
           currentPage  : 1,
           pageSize  :10 };
-        if(user.phTickets.length==0)
-        {
-
-            getPhTicket(user);
-        }
-        if(user.ghTickets.length==0)
-        {
-
-          getGhTicket(user);
-        }
+        
     };
 
 /*
@@ -1044,44 +1035,7 @@
     // //   pageSize : 10
     // // };
     // scope.phTickets = [];
-    function getPhTicket(userInfo) {
-      userInfo.loadingPhTickets = true;
-      userInfo.phCriteria.id = userInfo.id;
-
-        InOutTransactionService.getProvideHelpTicketByUser(userInfo.phCriteria)
-          .then(function (response) {
-
-              if (response.data.success) {
-
-                userInfo.phTickets = response.data.data;
-                userInfo.phCriteria = response.data.criteria;
-
-              }
-              else {
-                  Toast.pullDown(response.data.message, false, 8000, "bg-danger");
-              }
-            userInfo.loadingPhTickets = false;
-          });
-    }
-    function getGhTicket(userInfo) {
-      userInfo.loadingGhTickets = true;
-      userInfo.phCriteria.id = userInfo.id;
-
-      InOutTransactionService.getGetHelpTicketByUser(userInfo.ghCriteria)
-        .then(function (response) {
-
-          if (response.data.success) {
-
-            userInfo.ghTickets = response.data.data;
-            userInfo.ghCriteria = response.data.criteria;
-
-          }
-          else {
-            Toast.pullDown(response.data.message, false, 8000, "bg-danger");
-          }
-          userInfo.loadingGhTickets = false;
-        });
-    }
+   
 
   }
     function RoleManagerController(scope, IdentityService, RoleManagerService) {

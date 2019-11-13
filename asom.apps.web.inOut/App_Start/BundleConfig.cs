@@ -27,7 +27,7 @@ namespace asom.apps.web.inOut
                        "~/Scripts/inOutapi/modules/fileUploadModule.js",
                        "~/Scripts/inOutapi/modules/setupModule.js",
                        "~/Scripts/inOutapi/modules/settingsModule.js",
-//                       "~/Scripts/inOutapi/modules/licenseModule.js",
+                       "~/Scripts/inOutapi/modules/sportsModule.js",
                        "~/Scripts/inOutapi/modules/directivesModule.js"
                         ));
             bundles.Add(new ScriptBundle("~/required/libs").Include(

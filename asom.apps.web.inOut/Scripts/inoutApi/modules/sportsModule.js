@@ -18,7 +18,7 @@
             scope: {
               groupId : "@"
             },
-            template : "<div class=\'p-3  bg-white shadow-sm\'>\n    <div class=\'row\'>\n        <div class=\'col-sm-8\'><asom-performer-selector performer=\'p\'></asom-performer-selector></div>\n        <div class=\'col-sm-4\'>\n            <p class=\'lead bold text-right\'>{{groupId | uppercase}}</p>\n        </div>\n        \n    </div>\n    <div class=\'text-center mt-2 mb-3\'>\n        <button class=\'btn btn-lg btn-primary\' ng-disabled=\'!p\' ng-click=\'showResultFor(p,groupId)\'>Show Results</button>\n    </div>\n    \n    <h4>Result for  {{p.displayName}}  : {{groupId}}</h4>\n    <table class=\'table bg-dark text-white\'>\n        <tr>\n            <th>Judges</th>\n            <th ng-repeat=\'j in scores\'>\n                <p class=\'bold text-white\'>{{j.judgeId | uppercase}}</p>\n            </th>\n            <th class=\'bg-info\'>Total</th>\n            <th class=\'bg-info\'>Factor</th>\n            <th class=\'bg-info\'>Result</th>\n            \n        </tr>\n        <tr>\n            <td>Technical</td>\n            <td ng-repeat=\'t in scores\'>\n                <p>{{t.scoreTechnical | number}}</p>\n            </td>\n            <td class=\'bg\'></td>\n            <td class=\'bg\'>0.7</td>\n            <td class=\'bg\'></td>\n        </tr>\n        <tr>\n            <td>Athletic</td>\n            <td ng-repeat=\'a in scores\'>\n                <p>{{a.scoreAthlete | number}}</p>\n            </td>\n            <td class=\'bg\'></td>\n            <td class=\'bg\'>0.3</td>\n            <td class=\'bg\'></td>\n        </tr>\n        \n    </table>\n  \n    \n    \n    \n    \n    \n</div>\n",
+            template : "<div class=\'p-3  bg-dark shadow-sm\'>\n    <div class=\'row\'>\n        <div class=\'col-sm-7\'><asom-performer-selector performer=\'p\'></asom-performer-selector></div>\n        <div class=\'col-sm-3\'>\n            <p class=\'text-center bold p-2 shadow\' style=\'background-color: #0d0e0f; color: yellow; font-size: 88px; border-radius: 10px;\'>{{(crud.total || 0.0) | number}}</p>\n        </div>\n        <div class=\'col-sm-2 text-right\'>\n            <select class=\'p-3 lead\'   ng-model=\'groupId\'>\n                <option value=\'\'>[Select]</option>\n                <option value=\'AO\'>AO</option>\n                <option value=\'AKA\'>AKA</option>\n                    \n            </select>\n            <!--<p class=\'lead bold text-right\'>{{groupId | uppercase}}</p>-->\n        </div>\n        \n    </div>\n    <div class=\'text-center mt-2 mb-3\'>\n        <button class=\'btn btn-lg btn-primary\' ng-disabled=\'!p\' ng-click=\'showResultFor(p,groupId)\'>Show Results</button>\n    </div>\n    <div ng-if=\'processing\' class= \' d-flex flex-column justify-content-center align-items-center text-white bg-highlight\' >\n        <p class=\'lead\'>Processing .....</p>\n        \n    </div>\n    <h3 class=\'text-white\'>Result for  {{p.displayName}}  : {{groupId}}</h3>\n    <table class=\'table bg-dark text-white\'>\n        <tr>\n            <th class=\'text-white\'>Judges</th>\n            <th ng-repeat=\'j in scores\'>\n                <p class=\'bold text-white\'>{{j.judgeId | uppercase}}</p>\n            </th>\n            <th class=\'bg-info\'>Total</th>\n            <th class=\'bg-info\'>Factor</th>\n            <th class=\'bg-info\'>Result</th>\n            \n        </tr>\n        <tr>\n            <td>Technical</td>\n            <td ng-repeat=\'t in scores\' style=\'font-size:24px;\'>\n                <p ng-class=\'{\"text-danger bold text-strikethrough\":t.isExcludedTs}\'>{{t.technicalScore | number}}</p>\n            </td>\n            <td class=\'bg\' style=\'font-size:24px;\'>{{crud.totalTechScore}}</td>\n            <td class=\'bg\' style=\'font-size:24px;\'>{{crud.techFactor}}</td>\n            <td class=\'bg\' style=\'font-size:24px;\'>{{crud.techResult}}</td>\n        </tr>\n        <tr>\n            <td>Athletic</td>\n            <td ng-repeat=\'a in scores\' style=\'font-size:24px;\'>\n                <p ng-class=\'{\"text-danger bold text-strikethrough\":a.isExcludedAs}\'>{{a.athleticScore | number}}</p>\n            </td>\n            <td class=\'bg\' style=\'font-size:24px;\'>{{crud.totalAthleScore}}</td>\n            <td class=\'bg\' style=\'font-size:24px;\'>{{crud.athleFactor}}</td>\n            <td class=\'bg\' style=\'font-size:24px;\'>{{crud.athleResult}}</td>\n        </tr>\n        <tr> \n            <td colspan=\'{{scores.length + 1}}\'> \n                <button ng-show=\'scores.length > 0\' class=\'btn btn-danger btn-lg\' ng-click=\'resetScores(p)\'>Reset Score For {{p.displayName}}</button>\n            </td>\n            <td colspan=\'3\'>\n                <p class=\'text-center lead bold text-white\'>{{crud.total | number}}</p>\n            </td>\n           \n        </tr>\n    </table>\n  \n    \n    \n    \n    \n    \n</div>\n",
             controller : "AdminResultDashboardController"
         }
     }
@@ -55,7 +55,7 @@
                 onSelect : "&",
                 performer : "="
             },
-            template :"<div class=\'p-3\'>\n    <div class=\'row\'>\n        <div class=\'col-4\'>\n            <label for=\'cboPerformer\'>Select Performer</label>\n        </div>\n        <div class=\'col-8\'>\n            <select name=\'\' ng-model=\'performer\'\n                    class=\'p-2 lead w80\'\n                    ng-options=\'p as p.displayName for p in performers\'\n                    id=\'cboPerformer\'>\n                \n            </select>\n        </div>\n    </div>\n</div>",
+            template :"<div class=\'p-3\'>\n    <div class=\'row\'>\n        <div class=\'col-4\'>\n            <label for=\'cboPerformer\'>Select Performer</label>\n        </div>\n        <div class=\'col-8\'>\n            <select name=\'\' ng-model=\'performer\' style=\'background-color: #0d0e0f; color: white; font-size: 24px; border-radius: 5px;\'\n                    class=\'p-2 lead w80\'\n                    ng-options=\'p as p.displayName for p in performers\'\n                    id=\'cboPerformer\'>\n                <option value=\'\' selected>[Select a Performer]</option>\n                \n            </select>\n        </div>\n    </div>\n</div>",
             controller : ["$scope","SportService",controllerFunc]
         }
     }
@@ -201,24 +201,50 @@
     function ScoreDashboardControllerFunc(scope, SportService) {
         scope.crud = {};
         scope.scores = [];
-       
+       scope.processing  = false;
        scope.showResultFor  = showResultFor;
        function showResultFor(performer,groupId)
        {
+           scope.processing  = true;
            SportService.getJudgeScoreResult({performerId : performer.id, groupId : groupId})
                .then(function(response){
+                   scope.processing  = false;
                    if(response.data.success)
                    {
                        // 
-                       scope.crud = response.data;
-                       scope.scores  = response.data.data;
+                       scope.crud = response.data.extraData;
+                       scope.scores  = response.data.extraData.scoreEntries;
                    }
                    else{
                        Toast.pullDown(response.data.message,false, 6000, "bg-danger");
                    }
-                   console.log(response.data);
+                   //console.log(response.data);
                });
            
+       }
+       scope.resetScores  = deleteEntries
+       function deleteEntries(p) {
+           
+           if(confirm("Do want to reset all Scores for " + p.displayName + " ?") )
+           {
+               scope.processing = true;
+               SportService.deleteScoreEntries(p.id)
+                   .then(function (response) {
+                       scope.processing  = false;
+                       if(response.data.success)
+                       {
+                           Toast.pullUp(response.data.message);
+                           scope.crud = {};
+                           scope.scores = [];
+                           
+                           
+                       }
+                       else{
+                           Toast.pullUp(effectiv.getValidationTemplate(response.data),false, 7000,"bg-danger");
+                           
+                       }
+                   })
+           }
        }
     }
 
@@ -258,6 +284,11 @@
                 // usually create by Judges
                 return $http.post(url, {key : 200, data : ng.toJson(obj)});
                 
+            },
+            deleteScoreEntries : function (performerId) {
+                // usually create by Judges
+                return $http.post(url, {key : 202, data : performerId});
+
             },
             // get JudgeScore by judge and groupId
             getJudgeScoreEntry : function (criteria) {

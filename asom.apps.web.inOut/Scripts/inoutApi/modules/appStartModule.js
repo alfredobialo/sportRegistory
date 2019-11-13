@@ -9,7 +9,7 @@ effectiv.urls = {
 
 (function(ng, window){
 
-    ng.module("ebaamStartUp", ["ui.router","ngMessages","ngAnimate","userIdentityModule", "fileUploadModule","settingsModule" , "setupModule","asom.ui"])
+    ng.module("ebaamStartUp", ["ui.router","ngMessages","ngAnimate","userIdentityModule", "fileUploadModule","settingsModule" , "setupModule","asom.ui","sportsModule"])
         .config(["$stateProvider","$urlRouterProvider", StartupState])
         .run(["$rootScope",RunApp]);
     //.controller("LoginViewController", ["$scope","IdentityService",LoginViewController]);
